@@ -63,25 +63,29 @@ h1, h2, h3 {
 /* 響應式設計 */
 @media (max-width: 600px) {
     .container {
-        padding: 15px;
+        padding: 10px;
         margin: 10px;
-        max-width: 90%;  /* 調整最大寬度 */
+        max-width: 80%;  /* 調整最大寬度 */
         box-shadow: none;  /* 去除陰影 */
     }
 
     h1 {
-        font-size: 24px;
-    }
-
-    h2 {
         font-size: 20px;
     }
 
-    h3 {
+    h2 {
         font-size: 18px;
     }
 
+    h3 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
     .projects ul {
-        padding-left: 15px;
+        padding-left: 10px;
     }
 }
