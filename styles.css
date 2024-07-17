@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.container {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    margin: 20px;
+    z-index: 1;
+    position: relative;
+}
+
+h1, h2, h3 {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.contact, .projects {
+    margin-bottom: 20px;
+}
+
+.contact p, .projects p {
+    margin: 5px 0;
+}
+
+.projects ul {
+    padding-left: 20px;
+}
+
+.projects li {
+    margin-bottom: 10px;
+}
+
+#fireworksCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.footer-name {
+    text-align: right;
+    margin-top: 20px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* 響應式設計 */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        margin: 10px;
+        max-width: 90%;  /* 調整最大寬度 */
+        box-shadow: none;  /* 去除陰影 */
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .projects ul {
+        padding-left: 15px;
+    }
+}
