@@ -1,41 +1,453 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我們的戀愛續約</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>露米爾攝影 Lumière Photography</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="露米爾攝影｜人像攝影、情侶寫真、活動紀錄。以自然光與真實情感為主軸，為你留下最有溫度的瞬間。" />
+  <!-- 外部 CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>我們的戀愛續約✨</h1>
-        <div class="contact">
-            <h2>雙方資訊</h2>
-            <p>姓名：黃大崴 蔡小恬</p>
-            <p>電子郵件：love0212@lover.com</p>
-            <p>電話：095201314</p>
-            <p>地址：住在我們心裡</p>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-mark">L</div>
+          <div>
+            <div class="logo-text-main">Lumière</div>
+            <div class="logo-text-sub">Portrait & Stories</div>
+          </div>
         </div>
-        <div class="projects">
-            <h2>合約內容</h2>
-            <ul>
-                <li>
-                    <h3>不支持暴力行為</h3>
-                    <p>不論語言還是肢體，不可有暴力行為，要有一顆大大體諒的心！！</p>
-                </li>
-                <li>
-                    <h3>深愛彼此</h3>
-                    <p>因為你長得可愛我長得帥，我們是絕配情侶，我的人生目標，就是要持續這樣和你在一起的生活</p>
-                </li>
-                <li>
-                    <h3>目標Get</h3>
-                    <p>未來的目標一起挑戰，努力完成，未來我們會有錢到爆炸🥰🥰🥰🥰</p>
-                </li>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+        <div class="nav-links">
+          <div class="nav-link active" data-target="hero">首頁</div>
+          <div class="nav-link" data-target="portfolio">作品</div>
+          <div class="nav-link" data-target="pricing">收費</div>
+          <div class="nav-link" data-target="about">關於攝影師</div>
+          <div class="nav-link" data-target="contact">預約</div>
+          <button class="nav-cta-btn" data-target="contact">
+            <span>⬇</span> 預約拍攝
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="hero">
+        <div class="hero">
+          <div class="hero-text-block">
+            <div class="pill-label">
+              <span class="pill-dot"></span> 露米爾攝影 Lumière Photography
+            </div>
+            <h1 class="hero-title">
+              用光與影，<span class="highlight">替情緒留下證據。</span>
+            </h1>
+            <p class="hero-text">
+              專注於人像、情侶寫真與活動紀錄。不是只有「好看」的照片，而是看很多次都還有感覺的瞬間。每一次按下快門，都是為了你現在的樣子，也為了你未來回頭看時，仍然會微笑的自己。
+            </p>
+            <div class="hero-tags">
+              <span class="hero-tag">自然光人像</span>
+              <span class="hero-tag">情侶寫真</span>
+              <span class="hero-tag">個人形象照</span>
+              <span class="hero-tag">活動紀錄</span>
+            </div>
+            <div class="hero-cta-row">
+              <button class="btn-primary" data-target="contact">
+                立即詢問檔期
+              </button>
+              <button class="btn-ghost" data-target="portfolio">
+                看更多作品 →
+              </button>
+            </div>
+            <div class="hero-note">
+              <span class="hero-note-badge">2025 檔期開放</span>
+              <span>平日／假日皆可預約，雙北可免車資，外縣市另有方案。</span>
+            </div>
+          </div>
+
+          <div class="hero-media">
+            <div class="hero-main-card">
+              <div class="hero-main-image">
+                <!-- Hero 示意圖片 -->
+                <img
+                  src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80"
+                  alt="Portrait photography sample" />
+              </div>
+              <div class="hero-main-meta">
+                <div>
+                  <h3>PORTRAIT SESSION</h3>
+                  <p>Natural light · Soft colors · Real emotion</p>
+                </div>
+                <div class="hero-main-chip">
+                  ✦ 1 專屬拍攝日
+                  <span style="font-size: .72rem; opacity: .8;">最多 2 造型</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero-floating-card">
+              <strong>今年的你，只會出現一次。</strong>
+              <span>如果有一件值得好好紀錄的事情，那就是現在的樣子。</span>
+              <div class="hero-floating-dot-row">
+                <div class="hero-floating-dot hot"></div>
+                <div class="hero-floating-dot"></div>
+                <div class="hero-floating-dot"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio -->
+      <section id="portfolio">
+        <div class="section-header">
+          <div>
+            <div class="pill-label">
+              <span class="pill-dot"></span> Portfolio
+            </div>
+            <h2 class="section-title">攝影作品精選</h2>
+          </div>
+          <p class="section-subtitle">
+            以下為不同主題的拍攝作品示意，實際上線時可替換為你朋友自己的照片。建議每個主題挑 3–6 張最能代表風格的作品，讓觀看者迅速感受氛圍。
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-caption="城市自然光人像">
+            <img
+              src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=900&q=80"
+              alt="City portrait sample" />
+            <div class="portfolio-label">
+              <div>
+                <strong>城市日常</strong>
+                <span>Natural Portrait</span>
+              </div>
+              <span>單人寫真</span>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-caption="情侶街拍寫真">
+            <img
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+              alt="Couple photography sample" />
+            <div class="portfolio-label">
+              <div>
+                <strong>一起走路的節奏</strong>
+                <span>Couple Story</span>
+              </div>
+              <span>情侶寫真</span>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-caption="室內光影人像">
+            <img
+              src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80"
+              alt="Indoor portrait sample" />
+            <div class="portfolio-label">
+              <div>
+                <strong>日光從窗邊進來</strong>
+                <span>Window Light</span>
+              </div>
+              <span>室內 / 棚內</span>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-caption="個人品牌形象照">
+            <img
+              src="https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=900&q=80"
+              alt="Brand portrait sample" />
+            <div class="portfolio-label">
+              <div>
+                <strong>你好，我是 ______</strong>
+                <span>Brand Portrait</span>
+              </div>
+              <span>形象照</span>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-caption="活動紀實與現場氛圍">
+            <img
+              src="https://images.unsplash.com/photo-1449793079819-2abb181d06a2?auto=format&fit=crop&w=900&q=80"
+              alt="Event photography sample" />
+            <div class="portfolio-label">
+              <div>
+                <strong>某一天的現場</strong>
+                <span>Event Moments</span>
+              </div>
+              <span>活動紀錄</span>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-caption="黃昏逆光剪影">
+            <img
+              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80"
+              alt="Sunset silhouette sample" />
+            <div class="portfolio-label">
+              <div>
+                <strong>天色快要暗下來</strong>
+                <span>Golden Hour</span>
+              </div>
+              <span>戶外寫真</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing">
+        <div class="section-header">
+          <div>
+            <div class="pill-label">
+              <span class="pill-dot"></span> Pricing
+            </div>
+            <h2 class="section-title">收費與方案</h2>
+          </div>
+          <p class="section-subtitle">
+            以下為建議文案與價格區間（可依你朋友實際狀況調整）。所有方案皆可客製內容，正式報價以實際討論為主。
+          </p>
+        </div>
+
+        <div class="pricing-wrapper">
+          <!-- 單人寫真 -->
+          <article class="pricing-card">
+            <h3 class="pricing-name">單人寫真 Portrait</h3>
+            <p class="pricing-desc">
+              適合想好好留下一段時期的自己：生日、轉職、留學前、剪短頭髮之後。
+            </p>
+            <div class="pricing-price">
+              NT$ 4,500 <span>起（台北市）</span>
+            </div>
+            <div class="pricing-meta">
+              約 1.5–2 小時拍攝 · 戶外或室內擇一
+            </div>
+            <ul class="pricing-list">
+              <li>精修成品 15 張（含基本色調統一）</li>
+              <li>原始檔全給（光線 / 構圖有問題會先篩掉）</li>
+              <li>可協助簡單穿搭與場景建議</li>
+              <li>可加購妝髮、場地租借</li>
             </ul>
+            <p class="pricing-footer">
+              <strong>平日另有優惠。</strong> 若有想拍的主題，可在詢問時先簡單描述。
+            </p>
+          </article>
+
+          <!-- 情侶寫真（主推） -->
+          <article class="pricing-card highlight">
+            <span class="pricing-badge">最常預約 · 推薦</span>
+            <h3 class="pricing-name">情侶寫真 Couple Story</h3>
+            <p class="pricing-desc">
+              將你們走路、對看、吵架後和好的日常，變成可以一直看的照片。
+            </p>
+            <div class="pricing-price">
+              NT$ 6,800 <span>起（雙北）</span>
+            </div>
+            <div class="pricing-meta">
+              約 2–3 小時拍攝 · 可安排 2 個場景
+            </div>
+            <ul class="pricing-list">
+              <li>精修成品 25 張（含黑白版本）</li>
+              <li>可自選歌曲，做成小影片（30–45 秒）</li>
+              <li>提供拍攝前線上小聊，確認你們想要的感覺</li>
+              <li>周年紀念／求婚／告白皆可客製</li>
+            </ul>
+            <p class="pricing-footer">
+              <strong>小提醒：</strong> 情侶寫真越自然越好，不需要硬擺姿勢，只要像平常約會一樣就可以。
+            </p>
+            <div class="pricing-cta" data-target="contact">
+              預約檔期與細節討論 →
+            </div>
+          </article>
+
+          <!-- 活動紀錄 -->
+          <article class="pricing-card">
+            <h3 class="pricing-name">活動紀錄 Event</h3>
+            <p class="pricing-desc">
+              適合講座、品牌活動、小型演出、求婚派對等，強調現場氛圍與人之間的互動。
+            </p>
+            <div class="pricing-price">
+              NT$ 3,500 <span>／小時 起</span>
+            </div>
+            <div class="pricing-meta">
+              至少 2 小時起拍 · 雙北以外另計車資
+            </div>
+            <ul class="pricing-list">
+              <li>所有可用照片全給（含基本調色）</li>
+              <li>可依活動需求事先規劃拍攝重點</li>
+              <li>可加購 IG / 社群精選圖組</li>
+              <li>企業、品牌合作可開立發票</li>
+            </ul>
+            <p class="pricing-footer">
+              若為公益活動或學生社團，可事先告知，依情況提供特別方案。
+            </p>
+          </article>
         </div>
-        <div class="footer-name">寶貝我愛尼～～～～～永遠愛你😉</div> 
+      </section>
+
+      <!-- About -->
+      <section id="about">
+        <div class="section-header">
+          <div>
+            <div class="pill-label">
+              <span class="pill-dot"></span> About
+            </div>
+            <h2 class="section-title">關於攝影師</h2>
+          </div>
+          <p class="section-subtitle">
+            這裡可以放你朋友的簡短自我介紹、攝影理念與過往經驗。以下為範例文字，可直接改成自己的語氣。
+          </p>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-text">
+            <p>
+              嗨，我是 Lumière（露米爾），一位喜歡安靜觀察人的攝影師。拍照之前，我更在意的是「你現在在經歷什麼」—— 也許是剛換工作、剛分手、剛下決定，或只是單純覺得「好像該為自己做點什麼」。
+            </p>
+            <p>
+              拍攝的時候，我不會要求你擺出很浮誇的姿勢，比較像是陪你散步、聊天，然後在自然的表情出現時按下快門。照片可以漂亮，但我更希望它是「真實」的。
+            </p>
+
+            <div class="about-highlight">
+              <strong>攝影風格：</strong>
+              偏向自然光、真實膚色與柔和色調。希望看照片的時候，能記得當時空氣的溫度與你心裡的顏色。
+              <div class="about-meta-grid">
+                <div class="about-pill">🎞 以人像、情侶寫真為主</div>
+                <div class="about-pill">🗓 接案地點以雙北／桃園為主</div>
+                <div class="about-pill">🕰 夜拍與室內拍攝可另討論</div>
+                <div class="about-pill">💬 可用中文／英文溝通</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-mini-gallery">
+            <img
+              src="https://images.unsplash.com/photo-1523395243481-163f8f6155d8?auto=format&fit=crop&w=800&q=80"
+              alt="Behind the scenes photo" />
+            <img
+              src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80"
+              alt="Camera and lens" />
+            <img
+              src="https://images.unsplash.com/photo-1516031190212-da133013de50?auto=format&fit=crop&w=800&q=80"
+              alt="Photographer working" />
+            <img
+              src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80"
+              alt="Landscape example" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-header">
+          <div>
+            <div class="pill-label">
+              <span class="pill-dot"></span> Booking
+            </div>
+            <h2 class="section-title">預約與詢問</h2>
+          </div>
+          <p class="section-subtitle">
+            填寫以下表單，或直接透過 IG / Email 聯繫。建議附上大概的拍攝日期、地點想法與風格參考，能更快幫你評估與報價。
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-card">
+            <p class="contact-note">
+              這裡是示意表單。實際上線時可串接到 Google Form、後端 API 或改成 mailto 連結。
+            </p>
+
+            <form id="booking-form">
+              <div class="form-grid">
+                <div class="field-row">
+                  <div class="field">
+                    <label for="name">姓名 / 暱稱 *</label>
+                    <input type="text" id="name" name="name" required placeholder="例如：小宇 / Yuyu" />
+                  </div>
+                  <div class="field">
+                    <label for="contact-info">聯絡方式 *</label>
+                    <input type="text" id="contact-info" name="contact" required placeholder="Email 或 IG 帳號" />
+                  </div>
+                </div>
+
+                <div class="field-row">
+                  <div class="field">
+                    <label for="shoot-type">想拍的項目 *</label>
+                    <select id="shoot-type" name="shootType" required>
+                      <option value="">請選擇</option>
+                      <option value="portrait">單人寫真</option>
+                      <option value="couple">情侶寫真</option>
+                      <option value="brand">形象照 / 個人品牌</option>
+                      <option value="event">活動紀錄</option>
+                      <option value="other">其他 / 不確定</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="date">預計拍攝時間（大約即可）</label>
+                    <input type="text" id="date" name="date" placeholder="例如：3 月底平日下午、5/12 週日" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="location">預計地點</label>
+                  <input type="text" id="location" name="location" placeholder="例如：大稻埕、陽明山、咖啡廳、家裡附近" />
+                </div>
+
+                <div class="field">
+                  <label for="message">想說的話 / 風格參考 *</label>
+                  <textarea id="message" name="message" required placeholder="可以簡單描述你們的故事、喜歡的照片風格、不要的感覺⋯⋯"></textarea>
+                </div>
+
+                <button class="btn-primary" type="submit">送出表單（示意）</button>
+                <small id="form-status" style="color:#bbf7d0; display:none;">
+                  已收到你的填寫（示意），實際專案上可改為真的送出邏輯。
+                </small>
+              </div>
+            </form>
+          </div>
+
+          <div class="contact-meta">
+            <div class="contact-pill">
+              📍 拍攝範圍：雙北為主，可加價到外縣市
+            </div>
+            <ul class="contact-list">
+              <li>📧 Email：<a href="mailto:hello@lumiere-photo.com">hello@lumiere-photo.com</a></li>
+              <li>📷 Instagram：<a href="https://instagram.com/" target="_blank">@lumiere.photo</a>（可改成你朋友的帳號）</li>
+              <li>🕒 回覆時間：通常於 24 小時內回覆訊息</li>
+            </ul>
+            <p>
+              若有急件（例如：臨時活動紀錄），可在訊息中特別註明時間與地點，我會盡量協助評估。
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <span>© 2025 Lumière Photography. All rights reserved.</span>
+        <span>網站設計可由你朋友依需求再調整配色與文案。</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox-backdrop" id="lightbox">
+    <div class="lightbox-inner">
+      <div class="lightbox-img-wrapper">
+        <img src="" alt="作品放大預覽" id="lightbox-img" />
+      </div>
+      <div class="lightbox-meta">
+        <span id="lightbox-caption">作品說明</span>
+        <button class="lightbox-close" type="button">關閉</button>
+      </div>
     </div>
-    <canvas id="fireworksCanvas"></canvas>
-    <script src="fireworks.js"></script>
+  </div>
+
+  <!-- 外部 JS：放在 body 最後 -->
+  <script src="script.js"></script>
 </body>
 </html>
