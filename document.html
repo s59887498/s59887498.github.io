@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Markdown 正文｜企業營運管理中心 QA AI WorkFlow v0.5</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="document">
+    <div class="doc-shell">
+      <aside class="doc-sidebar" aria-label="Markdown 章節導覽">
+        <div class="brand small">
+          <div class="brand-mark" aria-hidden="true">MD</div>
+          <div>
+            <p class="brand-title">Markdown 正文</p>
+            <p class="brand-subtitle">章節搜尋</p>
+          </div>
+        </div>
+
+        <label class="search-box light">
+          <span>搜尋章節</span>
+          <input id="searchInput" type="search" placeholder="例如 T4 / RBAC / Test Report" />
+        </label>
+
+        <nav id="sectionNav" class="section-nav light"></nav>
+      </aside>
+
+      <main class="doc-main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Full Document</p>
+            <h1 id="docTitle">Markdown 正文</h1>
+          </div>
+          <div class="toolbar">
+            <span id="versionBadge" class="version-badge">v0.5</span>
+            <span id="sourceLabel" class="source-label">讀取中...</span>
+            <button id="reloadButton" class="icon-button" type="button" title="重新讀取 Markdown">↻</button>
+            <a class="secondary-link" href="./index.html">回首頁</a>
+          </div>
+        </header>
+
+        <article id="markdownContent" class="markdown-body document-body"></article>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

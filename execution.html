@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>執行 Task 表｜企業營運管理中心 QA AI WorkFlow v0.5</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="execution" data-md-file="./QA_AI_WorkFlow_Execution_Task_Roadmap.md">
+    <main class="home-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Execution Task Roadmap</p>
+          <h1 id="docTitle">QA AI WorkFlow 執行 Task 表</h1>
+          <p class="hero-copy">
+            依 A 測試設計、B 自動化驗證、C 監控與放行拆成 Stage 1 到 Stage 4，
+            定義 task、觸發時機、環境、report 保存與可重複測試前置資料。
+          </p>
+        </div>
+        <div class="hero-actions">
+          <span id="versionBadge" class="version-badge">v0.5-task</span>
+          <span id="sourceLabel" class="source-label">讀取中...</span>
+          <button id="reloadButton" class="icon-button" type="button" title="重新讀取 Markdown">↻</button>
+          <a class="secondary-link" href="./index.html">回 v0.5</a>
+          <a class="primary-link" href="./execution-document.html">Markdown 正文</a>
+        </div>
+      </header>
+
+      <section class="overview-grid" aria-label="執行摘要">
+        <article class="metric-card">
+          <span class="metric-label">Stages</span>
+          <strong id="stageCount">--</strong>
+          <span class="metric-help">Stage 1-4</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Tasks</span>
+          <strong id="taskCount">--</strong>
+          <span class="metric-help">A/B/C workstreams</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Total Estimate</span>
+          <strong id="totalEstimate">--</strong>
+          <span class="metric-help">rough order</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Stage 1 Scope</span>
+          <strong>3</strong>
+          <span class="metric-help">登入 / 權限 / L4</span>
+        </article>
+      </section>
+
+      <section id="stage-overview" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Stage Overview</p>
+            <h2>Stage 1 - Stage 4</h2>
+          </div>
+          <p>先拿三個核心模塊跑通 Smoke MVP，再逐步擴充 coverage、automation trust chain 與治理能力。</p>
+        </div>
+        <div id="stageGrid" class="stage-grid"></div>
+      </section>
+
+      <section id="execution-tasks" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Execution Tasks</p>
+            <h2>明確 Task 清單</h2>
+          </div>
+          <p>每個 task 都標示觸發時機、環境、輸入、輸出、保存方式、測資前置、owner、預估時間與 DoD。</p>
+        </div>
+        <div id="executionTaskBoard" class="task-board"></div>
+      </section>
+
+      <section id="trigger-matrix" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Trigger Matrix</p>
+            <h2>什麼時候會發生</h2>
+          </div>
+          <p>把 T4 / T5 / T7 / T8 的觸發方式、要跑的 automation、report 與 history 保存方式列清楚。</p>
+        </div>
+        <div id="triggerMatrixGrid" class="trigger-grid"></div>
+      </section>
+
+      <section id="evidence-retention" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Evidence Retention</p>
+            <h2>測試結果保存方式</h2>
+          </div>
+          <p>測試結果需要保存在哪裡、保存多久、誰負責、會被哪些流程使用。</p>
+        </div>
+        <div id="evidenceGrid" class="evidence-grid"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
