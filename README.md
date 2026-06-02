@@ -21,6 +21,7 @@ index.html
 document.html
 execution.html
 execution-document.html
+qa_3_month_competency_charts.html
 app.js
 styles.css
 EOMC_QA_AI_WorkFlow.md
@@ -28,4 +29,3 @@ QA_AI_WorkFlow_Execution_Task_Roadmap.md
 ```
 
 這是純靜態網站，不需要 Python server，也不需要開 8088 port。
-

@@ -29,10 +29,78 @@ html {
 
 body {
   margin: 0;
+  padding-top: 64px;
   background: var(--bg);
   color: var(--text);
   font-family: var(--sans);
   line-height: 1.6;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 58px;
+  padding: 10px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.28);
+}
+
+.navbar-expand {
+  flex-wrap: nowrap;
+}
+
+.navbar-dark {
+  color: #fff;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link[aria-current="page"] {
+  border-color: rgba(74, 222, 128, 0.35);
+  background: rgba(74, 222, 128, 0.14);
+  color: #fff;
 }
 
 body.modal-open {
@@ -1239,9 +1307,9 @@ a {
 
 .doc-sidebar {
   position: sticky;
-  top: 24px;
+  top: 88px;
   align-self: start;
-  max-height: calc(100vh - 48px);
+  max-height: calc(100vh - 112px);
   overflow: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1542,6 +1610,28 @@ a {
 }
 
 @media (max-width: 720px) {
+  body {
+    padding-top: 116px;
+  }
+
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 14px;
+  }
+
+  .navbar-nav {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .nav-link {
+    min-height: 34px;
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+
   .home-shell,
   .doc-shell {
     width: min(100% - 32px, 1440px);
