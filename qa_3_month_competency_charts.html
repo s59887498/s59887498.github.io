@@ -471,7 +471,7 @@
         <h1>前三個月職能培養圖表</h1>
         <p class="lead">
           這份圖表把新人培養拆成三個月：第 1 個月先會照既有案例穩定執行，
-          第 2 個月開始參與 EOMC Test Planning 與 Test Case 產出，第 3 個月朝能從需求到 UAT 驗收獨立推進的 QA Owner 前進。
+          第 2 個月開始補基本測試點，第 3 個月嘗試接低風險小模組，但仍由資深 QA review。
         </p>
       </section>
 
@@ -542,8 +542,8 @@
             <strong>能力進展</strong>
             <div class="progress-track">
               <span class="step">照做</span>
-              <span class="step">測試設計</span>
-              <span class="step">獨立 Owner</span>
+              <span class="step">補測試點</span>
+              <span class="step">小模組 Owner</span>
             </div>
           </section>
         </div>
@@ -561,10 +561,10 @@
             <p class="eyebrow">開始設計</p>
             <h2>開始寫簡單 Test Case</h2>
             <p class="goal">
-              目標是從「照做」進到「可以參與測試設計」，能依 PRD / RA / Figma 產出可執行、可 review 的 Test Case 初稿，並開始理解專案追蹤節奏。
+              目標是從「照做」進到「可以補基本測試點」，能依 PRD / 畫面補出可執行、可 review 的案例初稿。
             </p>
           </div>
-          <span class="stage-pill">定位：測試設計參與</span>
+          <span class="stage-pill">定位：補基本測試點</span>
         </header>
 
         <div class="matrix">
@@ -582,9 +582,9 @@
           <section class="column">
             <h3><span class="marker"></span>適合任務</h3>
             <ul>
-              <li>EOMC Test Planning &amp; 產出 Test Case（S14 資產管理、S15 相關功能）。</li>
-              <li>問題基本追蹤 &amp; 專案進度持續進行（Asana Ticket）。</li>
-              <li>測試結合 AI 應用分享。</li>
+              <li>登入 / 驗證碼 / 時間篩選器等小功能。</li>
+              <li>L4 營運績效頁面中固定顯示檢查。</li>
+              <li>協助維護 Stage 1 Smoke Test Case。</li>
             </ul>
           </section>
 
@@ -602,14 +602,14 @@
         <div class="bottom-line">
           <section class="focus">
             <strong>本月重點</strong>
-            <p>讓新人開始把需求轉成 Test Plan / Test Case，並透過 Asana 建立問題追蹤與專案進度感；同時練習整理 AI 如何輔助測試設計與日常 QA 工作。</p>
+            <p>讓新人開始具備測試設計感，但先限制在低風險、規格清楚的小功能。</p>
           </section>
           <section class="progress">
             <strong>能力進展</strong>
             <div class="progress-track">
               <span class="step">照做</span>
-              <span class="step">測試設計</span>
-              <span class="step">獨立 Owner</span>
+              <span class="step">補測試點</span>
+              <span class="step">小模組 Owner</span>
             </div>
           </section>
         </div>
@@ -625,43 +625,43 @@
           </div>
           <div class="chart-title">
             <p class="eyebrow">嘗試負責</p>
-            <h2>朝獨立 QA Owner 前進</h2>
+            <h2>開始接小模組 QA Owner</h2>
             <p class="goal">
-              目標是讓新人能從專案需求理解、測試設計、進入測試到 UAT 驗收持續推進，不只停留在單一小範圍任務；過程仍有資深 QA 協助 review、補位與風險判斷。
+              目標是讓新人負責一個低風險模組，能產出 Test Plan / Test Case 初稿、執行測試並整理風險，但放行判斷仍需 review。
             </p>
           </div>
-          <span class="stage-pill">定位：獨立作業 Owner</span>
+          <span class="stage-pill">定位：低風險 Owner</span>
         </header>
 
         <div class="matrix">
           <section class="column">
             <h3><span class="marker"></span>他要會</h3>
             <ul>
-              <li>從 PRD / RA / Figma 理解專案需求與測試範圍。</li>
-              <li>規劃 Test Plan、設計 Test Case，並能說明 coverage 與測試風險。</li>
-              <li>進入測試後能安排執行節奏、追蹤 Bug、同步 Asana / 專案進度。</li>
-              <li>整理測試結果、未解風險與 UAT 驗收重點。</li>
-              <li>知道哪些問題可以自己判斷，哪些需要升級給資深 QA / PM / RD。</li>
-              <li>開始把 API / RBAC / 資料驗證納入測試設計，而不是只看 UI 流程。</li>
+              <li>產出小模組 Test Plan 初稿。</li>
+              <li>產出小模組 Test Case 初稿。</li>
+              <li>執行測試並追蹤 Bug。</li>
+              <li>整理測試結果與未解風險。</li>
+              <li>知道哪些問題要升級給資深 QA 判斷。</li>
+              <li>開始理解 API / RBAC / 資料驗證基本概念。</li>
             </ul>
           </section>
 
           <section class="column">
             <h3><span class="marker"></span>適合任務</h3>
             <ul>
-              <li>可獨立負責一個專案功能的 QA 流程，從需求確認到 UAT 驗收。</li>
-              <li>跨 PM / RD / QA 協作的功能測試與問題追蹤。</li>
-              <li>需要整合 Test Plan、Test Case、Bug、風險與驗收結果的專案。</li>
+              <li>登入流程。</li>
+              <li>權限驗證中的單一角色或單一頁面。</li>
+              <li>L4 營運績效中的單一區塊。</li>
             </ul>
           </section>
 
           <section class="column">
             <h3><span class="marker"></span>DoD</h3>
             <ul>
-              <li>可以獨立拆解需求、規劃測試範圍並產出 Test Plan / Test Case。</li>
-              <li>可以推進測試執行、追蹤問題、整理測試結果與未解風險。</li>
-              <li>可以支援 UAT 驗收，清楚說明已測範圍、未測範圍與 release 風險。</li>
-              <li>重大風險、放行判斷與跨部門爭議仍會找資深 QA 一起確認。</li>
+              <li>可以獨立跑完一個低風險模組。</li>
+              <li>可以整理測試結果與未解風險。</li>
+              <li>遇到需求不清、資料異常、權限不符時會回報。</li>
+              <li>還不要求他獨立決定放行。</li>
             </ul>
           </section>
         </div>
@@ -669,14 +669,14 @@
         <div class="bottom-line">
           <section class="focus">
             <strong>本月重點</strong>
-            <p>培養更完整的 QA ownership：能自己接住需求、設計測試、推動執行與支援 UAT，但在關鍵風險與放行判斷上仍有資深 QA 輔助。</p>
+            <p>開始培養 ownership，但風險判斷與放行標準仍由資深 QA 把關。</p>
           </section>
           <section class="progress">
             <strong>能力進展</strong>
             <div class="progress-track">
               <span class="step">照做</span>
-              <span class="step">測試設計</span>
-              <span class="step">獨立 Owner</span>
+              <span class="step">補測試點</span>
+              <span class="step">小模組 Owner</span>
             </div>
           </section>
         </div>
