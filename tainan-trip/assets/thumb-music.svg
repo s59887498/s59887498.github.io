@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Keyboard handoff illustration">
+  <rect width="600" height="420" fill="#f5f1e9"/>
+  <rect x="72" y="126" width="456" height="168" rx="8" fill="#fffaf1" stroke="#251f1a" stroke-width="12"/>
+  <path d="M110 182h380" stroke="#2f5f89" stroke-width="16" stroke-linecap="round"/>
+  <path d="M118 294V196M170 294V196M222 294V196M274 294V196M326 294V196M378 294V196M430 294V196M482 294V196" stroke="#251f1a" stroke-width="10"/>
+  <path d="M142 196v54M248 196v54M354 196v54M456 196v54" stroke="#251f1a" stroke-width="24"/>
+  <circle cx="148" cy="88" r="28" fill="#d79a2b"/>
+  <circle cx="452" cy="334" r="28" fill="#75874b"/>
+</svg>

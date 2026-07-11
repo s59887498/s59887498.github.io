@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Hotel check-in illustration">
+  <rect width="600" height="420" fill="#eef2e0"/>
+  <rect x="81" y="86" width="438" height="250" rx="8" fill="#fffaf1" stroke="#7e2e1f" stroke-width="10"/>
+  <path d="M118 259h364v77H118z" fill="#b94f32"/>
+  <path d="M144 181h312v78H144z" fill="#f5f1e9" stroke="#251f1a" stroke-width="10"/>
+  <rect x="168" y="131" width="102" height="58" fill="#2f5f89"/>
+  <rect x="330" y="131" width="102" height="58" fill="#1e6f68"/>
+  <path d="M116 336h368" stroke="#251f1a" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="468" cy="293" r="10" fill="#d79a2b"/>
+</svg>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>台南兩天一夜行程｜7/18 - 7/19</title>
+    <meta
+      name="description"
+      content="7/18 - 7/19 台南兩天一夜旅遊規劃，含分日時程、景點縮圖、地址、Google Map 連結與車程停車估算。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="回到行程總覽">
+        <span class="brand-mark">南</span>
+        <span>
+          <strong>台南小旅遊</strong>
+          <small>2026.07.18 - 07.19</small>
+        </span>
+      </a>
+      <nav class="day-nav" aria-label="行程日期">
+        <a href="#day-1">7/18</a>
+        <a href="#day-2">7/19</a>
+      </nav>
+    </header>
+
+    <main id="top" class="page-shell">
+      <section class="hero" aria-labelledby="trip-title">
+        <div class="hero-copy">
+          <p class="eyebrow">兩天一夜 · 台南</p>
+          <h1 id="trip-title">台南兩天一夜</h1>
+          <p class="trip-note" id="trip-note"></p>
+        </div>
+        <div class="hero-media" aria-hidden="true">
+          <img
+            src="assets/hero.svg"
+            alt=""
+          />
+        </div>
+      </section>
+
+      <section class="overview" aria-label="行程統計">
+        <article class="metric">
+          <span class="metric-label">景點</span>
+          <strong id="metric-stops">0</strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">移動 + 停車</span>
+          <strong id="metric-driving">0 分</strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">停留時間</span>
+          <strong id="metric-stay">0 分</strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">待確認</span>
+          <strong id="metric-pending">0</strong>
+        </article>
+      </section>
+
+      <div class="content-grid">
+        <aside class="trip-panel" aria-labelledby="panel-title">
+          <div class="panel-section">
+            <h2 id="panel-title">Trip Board</h2>
+            <p id="trip-summary"></p>
+          </div>
+          <div class="panel-section">
+            <h3>分日統計</h3>
+            <div id="day-stats" class="day-stats"></div>
+          </div>
+          <div class="panel-section">
+            <h3>提醒</h3>
+            <ul id="trip-reminders" class="reminder-list"></ul>
+          </div>
+        </aside>
+
+        <section class="timeline-wrap" aria-label="分日行程">
+          <div id="timeline" class="timeline"></div>
+        </section>
+      </div>
+    </main>
+
+    <template id="stop-template">
+      <article class="timeline-item stop-card">
+        <div class="time-rail">
+          <span class="time-dot"></span>
+          <time></time>
+        </div>
+        <div class="card-body">
+          <figure class="thumb">
+            <img alt="" />
+            <figcaption></figcaption>
+          </figure>
+          <div class="stop-content">
+            <div class="item-head">
+              <span class="chip category"></span>
+              <span class="chip status"></span>
+            </div>
+            <h3></h3>
+            <p class="address"></p>
+            <p class="note"></p>
+            <div class="meta-row"></div>
+            <div class="actions">
+              <a class="map-link" target="_blank" rel="noopener noreferrer">Google Map</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <template id="drive-template">
+      <article class="timeline-item drive-card">
+        <div class="time-rail">
+          <span class="drive-dot"></span>
+          <time></time>
+        </div>
+        <div class="drive-body">
+          <span class="drive-label">Drive</span>
+          <strong></strong>
+          <p></p>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>

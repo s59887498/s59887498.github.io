@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Walking route and convenience store stops illustration">
+  <rect width="600" height="420" fill="#f5f1e9"/>
+  <path d="M126 302c64-124 133-172 207-144 58 22 74 87 139 51 29-16 47-47 54-94" fill="none" stroke="#2f5f89" stroke-width="20" stroke-linecap="round" stroke-dasharray="20 25"/>
+  <circle cx="126" cy="302" r="34" fill="#fffaf1" stroke="#75874b" stroke-width="12"/>
+  <circle cx="306" cy="154" r="34" fill="#fffaf1" stroke="#d79a2b" stroke-width="12"/>
+  <circle cx="526" cy="115" r="34" fill="#fffaf1" stroke="#b94f32" stroke-width="12"/>
+  <rect x="84" y="66" width="150" height="86" rx="8" fill="#fffaf1" stroke="#251f1a" stroke-width="10"/>
+  <path d="M109 100h100" stroke="#75874b" stroke-width="18"/>
+  <path d="M110 130h60" stroke="#b94f32" stroke-width="12" stroke-linecap="round"/>
+</svg>

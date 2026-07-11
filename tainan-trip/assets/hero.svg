@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Stylized Tainan travel route illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7d494"/>
+      <stop offset=".45" stop-color="#f7efe2"/>
+      <stop offset="1" stop-color="#98c4ba"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff7e8"/>
+      <stop offset="1" stop-color="#dfb88a"/>
+    </linearGradient>
+    <pattern id="tile" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M0 41h42M41 0v42" fill="none" stroke="#7e2e1f" stroke-opacity=".1" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="url(#sky)"/>
+  <rect width="1200" height="760" fill="url(#tile)" opacity=".7"/>
+  <path d="M0 563c149-51 273-63 382-39 120 27 212 104 344 110 155 8 249-87 474-62v188H0z" fill="#1e6f68" opacity=".22"/>
+  <path d="M0 619c180-40 324-47 443-23 133 27 218 93 351 94 143 1 238-65 406-52v122H0z" fill="#7e2e1f" opacity=".14"/>
+  <g transform="translate(121 196)">
+    <path d="M45 242h359V94L225 0 45 94z" fill="url(#wall)" stroke="#7e2e1f" stroke-width="10"/>
+    <path d="M18 105 225 8l207 97-19 42-188-89-188 89z" fill="#b94f32"/>
+    <path d="M92 149h71v93H92zM201 149h71v93h-71zM310 149h49v93h-49z" fill="#1e6f68" opacity=".82"/>
+    <path d="M69 270h315" stroke="#7e2e1f" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(632 154)">
+    <path d="M114 0c54 60 83 122 87 187 4 67-25 127-87 180C52 314 23 254 27 187 31 122 60 60 114 0z" fill="#75874b"/>
+    <path d="M114 63v397" stroke="#5e6e3b" stroke-width="15" stroke-linecap="round"/>
+    <path d="M62 163c36 17 69 19 105 0M45 248c47 20 93 20 140 0" fill="none" stroke="#f5f1e9" stroke-opacity=".7" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M226 558c158-126 294-166 409-121 120 47 172 181 340 119" stroke="#fffaf1" stroke-width="24" opacity=".92"/>
+    <path d="M226 558c158-126 294-166 409-121 120 47 172 181 340 119" stroke="#b94f32" stroke-width="8" stroke-dasharray="24 26"/>
+  </g>
+  <g>
+    <circle cx="226" cy="558" r="26" fill="#fffaf1" stroke="#b94f32" stroke-width="10"/>
+    <circle cx="560" cy="425" r="26" fill="#fffaf1" stroke="#1e6f68" stroke-width="10"/>
+    <circle cx="975" cy="556" r="26" fill="#fffaf1" stroke="#d79a2b" stroke-width="10"/>
+  </g>
+  <g transform="translate(825 292)">
+    <path d="M0 114h188v113H0z" fill="#fffaf1" stroke="#7e2e1f" stroke-width="9"/>
+    <path d="M-28 116 94 27l122 89-17 32L94 72-11 148z" fill="#b94f32"/>
+    <path d="M57 151h74v76H57z" fill="#2f5f89" opacity=".9"/>
+    <path d="M25 185h28M137 185h28" stroke="#7e2e1f" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

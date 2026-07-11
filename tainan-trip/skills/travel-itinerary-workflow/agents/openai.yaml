@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel Itinerary Workflow"
+  short_description: "Turn trip notes into responsive itinerary sites"
+  default_prompt: "Use $travel-itinerary-workflow to turn my trip notes into a responsive itinerary website."

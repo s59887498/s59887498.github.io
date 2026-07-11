@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Beef soup illustration">
+  <rect width="600" height="420" fill="#fff7ed"/>
+  <circle cx="300" cy="214" r="154" fill="#ffe1bd"/>
+  <path d="M128 220c9 89 76 148 172 148s163-59 172-148z" fill="#fffaf1" stroke="#251f1a" stroke-width="12"/>
+  <path d="M128 218c0-57 77-104 172-104s172 47 172 104" fill="none" stroke="#bf4800" stroke-width="14" stroke-linecap="round"/>
+  <path d="M205 161c24 26 2 43-17 70M282 145c30 31 2 52-23 86M360 161c24 26 2 43-17 70" fill="none" stroke="#d79a2b" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="246" cy="240" r="22" fill="#75874b"/>
+  <circle cx="334" cy="240" r="18" fill="#75874b"/>
+</svg>
