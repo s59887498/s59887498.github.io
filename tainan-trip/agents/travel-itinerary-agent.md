@@ -5,11 +5,13 @@ Use `$travel-itinerary-workflow` to turn raw trip notes into a reusable static i
 Workflow:
 
 1. Resolve Google Maps links into names and addresses.
-2. Cluster stops by area, then order them by arrival direction, lodging, meals, and nightlife.
-3. Estimate each movement leg with travel mode, travel time, and parking/buffer time.
-4. Mark unknowns explicitly instead of pretending they are confirmed.
-5. Update `tripData`, assets, and Apple-inspired CSS.
-6. Verify desktop and mobile screenshots before delivery.
+2. For every timed stop, check whether it is open at the planned date/time and add `businessStatus`.
+3. Remove closed places from the primary timeline; keep them only in reminders or notes.
+4. Cluster stops by area, then order them by arrival direction, lodging, meals, and nightlife.
+5. Estimate each movement leg with travel mode, travel time, and parking/buffer time.
+6. Mark unknowns explicitly instead of pretending they are confirmed.
+7. Update `tripData`, assets, and retro Apple-inspired CSS.
+8. Verify desktop and mobile screenshots before delivery.
 
 Default prompt:
 

@@ -8,12 +8,13 @@ description: Build or update responsive static travel-itinerary websites from me
 ## Workflow
 
 1. Resolve every place into `name`, `address`, `mapUrl`, rough area, and role in the trip.
-2. Cluster stops geographically before choosing times. Prefer entering the city through outer stops, then parking once and walking dense city clusters.
-3. Separate destination cards from movement legs. Movement legs should include travel mode, travel minutes, and parking or buffer minutes.
-4. Add explicit uncertainty labels such as `待約地點`, `粗估`, `備案`, or `建議安排`; do not hide unknowns.
-5. Keep all editable trip data in one top-level JS object named `tripData` when building a static HTML/CSS/JS site.
-6. Render totals from data, not hand-written numbers.
-7. Verify desktop and mobile layouts with a browser screenshot check before delivery.
+2. If a stop has an arrival time, verify whether it is open for that exact date/time. Mark `businessStatus`; if it is closed, remove it from the primary timeline and mention it in notes or reminders.
+3. Cluster stops geographically before choosing times. Prefer entering the city through outer stops, then parking once and walking dense city clusters.
+4. Separate destination cards from movement legs. Movement legs should include travel mode, travel minutes, and parking or buffer minutes.
+5. Add explicit uncertainty labels such as `待約地點`, `營業待確認`, `粗估`, `備案`, or `建議安排`; do not hide unknowns.
+6. Keep all editable trip data in one top-level JS object named `tripData` when building a static HTML/CSS/JS site.
+7. Render totals from data, not hand-written numbers.
+8. Verify desktop and mobile layouts with a browser screenshot check before delivery.
 
 ## References
 
@@ -26,11 +27,12 @@ description: Build or update responsive static travel-itinerary websites from me
 - Dense old-city areas: avoid re-parking for nearby food and dessert stops; convert them into walking legs.
 - Meals: beef soup 45-60 minutes, burger meals 60-80 minutes, dessert/ice 35-55 minutes, bars 120-180 minutes.
 - Handoffs or errands: schedule the task duration plus 10 minutes before and after for finding the person, parking, or message delays.
-- Late-night backup stops should be marked optional and depend on current opening hours.
+- Late-night backup stops should be marked optional and depend on current opening hours; closed stops belong in reminders, not the main timeline.
 
 ## Output Checklist
 
 - The website has per-day timeline sections, stop cards, movement legs, Google Maps links, addresses, thumbnails, and responsive behavior.
 - The summary explains what is actually happening in the trip, not how the website works.
 - The route notes say why the order is sensible.
+- Timed stop cards show `businessStatus`; closed places are not scheduled as primary stops.
 - The final response names unresolved assumptions and what input would improve the next pass.

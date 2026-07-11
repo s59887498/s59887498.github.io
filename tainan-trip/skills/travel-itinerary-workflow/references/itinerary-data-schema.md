@@ -29,6 +29,8 @@ Stop item:
   mapUrl: "https://...",
   image: "assets/thumb-burger.svg",
   imageAlt: "Image description",
+  businessStatus: "營業待確認",
+  businessNote: "Optional source or caveat.",
   note: "Why this stop belongs here.",
   tags: ["早晚餐", "國華街"]
 }
@@ -54,4 +56,6 @@ Rules:
 - Use `travelMins` for all movement modes so walking, taxis, and driving can share totals.
 - Use `parkingMins: 0` for walking legs.
 - Keep optional or uncertain places as normal stop items with `status` showing the uncertainty.
+- For timed stops, include `businessStatus`: `營業中`, `營業待確認`, `戶外全天`, `未營業`, or a concise equivalent.
+- Do not keep `未營業` places in the primary timeline. Move them to reminders, notes, or an optional backup section.
 - Prefer original Google Maps short links for user-provided places; use search or direction URLs for generated route links.

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Yuguang Island beach illustration">
+  <rect width="600" height="420" fill="#f5f1e9"/>
+  <circle cx="452" cy="104" r="54" fill="#d79a2b"/>
+  <path d="M0 250c91-34 165-42 224-23 67 21 115 75 196 66 63-7 103-48 180-42v169H0z" fill="#c9d9cb"/>
+  <path d="M0 308c112-33 207-41 286-24 80 18 142 61 221 52 38-4 68-16 93-31v115H0z" fill="#2f5f89" opacity=".34"/>
+  <path d="M88 325c86-75 160-106 224-93 52 10 88 49 150 45" fill="none" stroke="#fffaf1" stroke-width="16" stroke-linecap="round"/>
+  <path d="M168 214c32-71 94-105 186-102-68 35-112 88-132 159z" fill="#75874b"/>
+  <path d="M232 176c58-5 102 12 134 50" stroke="#7e2e1f" stroke-width="12" stroke-linecap="round"/>
+</svg>
