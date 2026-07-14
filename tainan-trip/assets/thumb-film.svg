@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Vintage camera and film illustration">
+  <rect width="600" height="420" fill="#f5f1e9"/>
+  <rect x="92" y="118" width="416" height="214" rx="8" fill="#fffaf1" stroke="#251f1a" stroke-width="12"/>
+  <rect x="148" y="84" width="132" height="58" rx="8" fill="#b94f32" stroke="#251f1a" stroke-width="12"/>
+  <circle cx="300" cy="226" r="82" fill="#2f5f89" stroke="#251f1a" stroke-width="14"/>
+  <circle cx="300" cy="226" r="42" fill="#f5f1e9" stroke="#251f1a" stroke-width="10"/>
+  <rect x="410" y="154" width="52" height="38" rx="6" fill="#d79a2b" stroke="#251f1a" stroke-width="8"/>
+  <path d="M82 360h436" stroke="#7e2e1f" stroke-width="14" stroke-linecap="round"/>
+  <path d="M124 360v-26M176 360v-26M424 360v-26M476 360v-26" stroke="#251f1a" stroke-width="10"/>
+</svg>
