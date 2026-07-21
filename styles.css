@@ -1709,3 +1709,187 @@ a {
     padding: 18px;
   }
 }
+
+.agent-evidence-grid,
+.maturity-grid,
+.prompt-grid,
+.loop-grid,
+.guardrail-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.agent-evidence-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.agent-evidence-card,
+.maturity-level,
+.prompt-card,
+.loop-step,
+.guardrail-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-card);
+  box-shadow: var(--shadow);
+}
+
+.agent-evidence-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 228px;
+  padding: 16px;
+}
+
+.agent-evidence-card h3,
+.maturity-level h3,
+.prompt-card h3,
+.loop-step h3,
+.guardrail-card h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.agent-evidence-card p,
+.maturity-level p,
+.prompt-card li,
+.loop-step p,
+.guardrail-card p {
+  margin: 0;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.maturity-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.maturity-level {
+  display: grid;
+  align-content: start;
+  gap: 11px;
+  min-height: 208px;
+  padding: 16px;
+}
+
+.maturity-level .light-pill {
+  justify-self: start;
+  margin-top: auto;
+}
+
+.maturity-level.done {
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.maturity-level.current {
+  border-color: rgba(234, 179, 8, 0.62);
+  background: rgba(234, 179, 8, 0.08);
+}
+
+.maturity-level.next {
+  border-color: rgba(74, 222, 128, 0.46);
+}
+
+.maturity-level.future {
+  opacity: 0.86;
+}
+
+.prompt-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.prompt-card {
+  padding: 18px;
+}
+
+.prompt-card > .badge {
+  margin-bottom: 12px;
+}
+
+.prompt-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-left: 20px;
+}
+
+.loop-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.loop-step {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 210px;
+  padding: 16px;
+}
+
+.loop-number {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(74, 222, 128, 0.44);
+  border-radius: 50%;
+  color: var(--primary);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.agent-roadmap .roadmap-item {
+  min-height: 212px;
+}
+
+.guardrail-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.guardrail-card {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-top: 3px solid rgba(248, 113, 113, 0.72);
+}
+
+@media (max-width: 1280px) {
+  .maturity-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .guardrail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .agent-evidence-grid,
+  .loop-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .maturity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .agent-evidence-grid,
+  .maturity-grid,
+  .prompt-grid,
+  .loop-grid,
+  .guardrail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agent-evidence-card,
+  .maturity-level,
+  .loop-step {
+    min-height: 0;
+  }
+}

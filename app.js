@@ -1195,7 +1195,7 @@ async function loadMarkdown() {
 
     const title = markdown.match(/^#\s+(.+)$/m)?.[1]?.trim() || 'QA AI WorkFlow';
     const version = parseVersion(markdown);
-    if (dom.title) dom.title.textContent = PAGE === 'document' ? 'Markdown 正文' : title;
+    if (dom.title) dom.title.textContent = title;
     if (dom.versionBadge) dom.versionBadge.textContent = version;
     if (dom.sourceLabel) {
       dom.sourceLabel.textContent = `${MD_FILE} · ${new Date().toLocaleString('zh-TW', { hour12: false })}`;
