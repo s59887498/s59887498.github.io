@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="QA Workflow Agent 現況成果、能力邊界與 Loop Agent 下一階段 Roadmap。"
+      content="以 Evaluation Framework 為核心的 AI QA Operating System：現況、能力邊界與演進路線。"
     />
-    <title>QA Workflow Agent｜現況與 Loop Roadmap</title>
+    <title>AI QA Operating System｜Evaluation Framework Roadmap</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="agent-home">
     <nav class="navbar navbar-expand navbar-dark fixed-top" style="background-color:#000000cc">
-      <a class="navbar-brand" href="./index.html">QA Workflow Agent</a>
+      <a class="navbar-brand" href="./index.html">AI QA Operating System</a>
       <div class="navbar-nav">
-        <a class="nav-link" href="./index.html" aria-current="page">Agent 現況</a>
-        <a class="nav-link" href="./agent-document.html">Roadmap 正文</a>
+        <a class="nav-link" href="./index.html" aria-current="page">OS 現況</a>
+        <a class="nav-link" href="./agent-document.html">架構正文</a>
         <a class="nav-link" href="./document.html">品質架構</a>
         <a class="nav-link" href="./execution.html">執行計畫</a>
         <a class="nav-link" href="./qa_3_month_competency_charts.html">新人培訓</a>
@@ -25,25 +25,25 @@
     <main class="home-shell agent-shell">
       <header class="hero">
         <div>
-          <p class="eyebrow">Current Build · QA Enablement</p>
-          <h1>QA Workflow Agent</h1>
+          <p class="eyebrow">Evaluation-first QA Platform</p>
+          <h1>AI QA Operating System</h1>
           <p class="hero-copy">
-            從可重複的 QA 文件與測試設計，延伸到跨 repo automation、品質證據與治理。
-            現階段是具 Gate 的編排型 Agent；下一步是建立可控、可停止、可追溯的 Quality Loop。
+            Agent 不是唯一主角。真正要被治理的是它背後的 Knowledge、Skills、Methodology、Runtime、Memory 與 Evaluation。
+            目前已建立 QA Domain Package 與契約化 workflow；下一個核心，是把 QA 產出品質變成可量化、可驗證、可回饋的 Evaluation Framework。
           </p>
         </div>
         <div class="hero-actions">
-          <span class="version-badge">v1.0</span>
-          <span class="source-label">成熟度：L3 Guardrailed Workflow Agent</span>
-          <a class="primary-link" href="./agent-document.html">查看完整 Roadmap</a>
+          <span class="version-badge">v1.1</span>
+          <span class="source-label">現況：Agent OS Foundation｜下一步：Evaluation Framework</span>
+          <a class="primary-link" href="./agent-document.html">查看完整架構</a>
         </div>
       </header>
 
-      <section class="overview-grid" aria-label="Agent 現況摘要">
+      <section class="overview-grid" aria-label="AI QA Operating System 現況摘要">
         <article class="metric-card">
-          <span class="metric-label">目前成熟度</span>
-          <strong>L3</strong>
-          <span class="metric-help">具 Gate 的 QA workflow</span>
+          <span class="metric-label">OS 核心層</span>
+          <strong>6</strong>
+          <span class="metric-help">Knowledge / Skills / Methodology / Runtime / Memory / Evaluation</span>
         </article>
         <article class="metric-card">
           <span class="metric-label">Workflow Modes</span>
@@ -56,9 +56,9 @@
           <span class="metric-help">產出、驗證、交接與專案守則</span>
         </article>
         <article class="metric-card">
-          <span class="metric-label">下一個關鍵</span>
-          <strong>L4</strong>
-          <span class="metric-help">Stateful quality loop</span>
+          <span class="metric-label">下一個核心</span>
+          <strong>Eval</strong>
+          <span class="metric-help">品質標準、分數、回饋與受控重試</span>
         </article>
       </section>
 
@@ -66,51 +66,51 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">What Is Built</p>
-            <h2 id="agent-build-title">目前已建成的 QA Agent</h2>
+            <h2 id="agent-build-title">已建成的是 QA Agent OS 的底層</h2>
           </div>
-          <p>它不只是把文字交給 AI，而是把品質工作中需要判斷、追溯與停止的規則固定下來。</p>
+          <p>從 Prompt 走向外部化的 QA 知識、方法、能力與交付規則，讓品質工作可以被重複執行與持續演進。</p>
         </div>
         <div class="pyramid-grid">
           <article class="big-question-card">
             <span class="badge">Core Value</span>
-            <h3>從 Prompt 驅動，走向可治理的 QA 工作流。</h3>
-            <p>輸入需求與範圍後，Agent 能判斷該走哪個 Mode、缺什麼、可以做什麼，以及什麼情況必須停止。</p>
-            <div class="artifact">核心目標：降低人工作業成本，同時保留品質判斷與交付證據。</div>
+            <h3>不是讓 AI 自由發揮，而是讓 AI 在 QA 品質系統中工作。</h3>
+            <p>需求進來後，系統能辨識來源、選擇方法、載入對應能力、檢查前置條件，並依交付契約決定是否可以輸出或必須停下來。</p>
+            <div class="artifact">核心目標：把 QA 判斷依據變成可追溯、可測試、可治理的 operating layer。</div>
           </article>
           <div class="answer-grid">
             <article class="answer-card">
               <div class="timing-top">
                 <span class="badge">01</span>
-                <span class="owner-pill">Workflow Control</span>
+                <span class="owner-pill">Knowledge</span>
               </div>
-              <h3>五種 Mode 與 Gate</h3>
-              <p>Test Plan、Test Case、Automation、Test Report、Full E2E 依任務選擇，不用同一份 checklist 卡住所有工作。</p>
-              <div class="artifact">PASS / PARTIAL / BLOCK、Readiness Checklist、Output Contract。</div>
+              <h3>QA Domain Package</h3>
+              <p>把需求來源、Theory、Methodology、Examples、Templates 與專案規則分層，避免知識只藏在單一 Prompt。</p>
+              <div class="artifact">Knowledge Contract：每一層有自己的責任與 dependency direction。</div>
             </article>
             <article class="answer-card">
               <div class="timing-top">
                 <span class="badge">02</span>
-                <span class="owner-pill">QA Knowledge</span>
+                <span class="owner-pill">Skills + Methodology</span>
               </div>
-              <h3>測試思維已被沉澱</h3>
-              <p>把來源優先順序、Test Design Map、測試技法、範本、專案規則與品質閘分層維護。</p>
-              <div class="artifact">AGENTS、Methodology、Theory、Examples、Templates、Skills。</div>
+              <h3>能力與做法都被契約化</h3>
+              <p>Skill 不是泛用指令；它依 Test Design Map、測試技法選擇、輸入 Gate 與 Output Contract 執行特定 QA 任務。</p>
+              <div class="artifact">Skill Contract：可發現、可路由、可驗證，也不重複維護共用知識。</div>
             </article>
             <article class="answer-card">
               <div class="timing-top">
                 <span class="badge">03</span>
-                <span class="owner-pill">Cross-repo Delivery</span>
+                <span class="owner-pill">Runtime</span>
               </div>
-              <h3>文件與 automation 正確分流</h3>
-              <p>QA repo 保存來源、Test Plan、Case、Report；正式 API、UI、OCPP automation 放入 Automation repo 既有框架。</p>
-              <div class="artifact">保留可追溯 mapping，避免文件與可執行程式混放。</div>
+              <h3>Workflow 有明確的控制面</h3>
+              <p>五種 Mode、PASS / PARTIAL / BLOCK、repo routing 與安全停止規則，讓不同交付物有正確的前置條件與責任邊界。</p>
+              <div class="artifact">Runtime Contract：只做可驗證的部分，不以猜測補足缺漏需求。</div>
             </article>
           </div>
           <article class="foundation-card">
-            <span class="badge">Foundation</span>
-            <h3>Evidence、Safety、Traceability</h3>
-            <p>Test Case 有 deterministic validator；正式報告要求 execution evidence；敏感資訊以環境變數管理；destructive test 必須取得當次允許。</p>
-            <div class="artifact">Agent 可以前進，也知道何時不該自行前進。</div>
+            <span class="badge">Evaluation Foundation</span>
+            <h3>品質閉環的第一層已存在</h3>
+            <p>Test Case 已具 deterministic validator、framework validator、固定 fixture 與 rubric；它們是未來 score、judge、feedback 與 retry loop 的可信起點。</p>
+            <div class="artifact">下一步不只是多一個 Agent，而是把品質標準轉成可重複執行的 Evaluation Framework。</div>
           </article>
         </div>
       </section>
@@ -118,47 +118,59 @@
       <section class="panel" aria-labelledby="progress-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Delivery Evidence</p>
+            <p class="eyebrow">Platform Evidence</p>
             <h2 id="progress-title">已完成與持續推進的成果</h2>
           </div>
-          <p>這些不是單點嘗試，而是已落在文件、測試程式、品質交付與團隊能力上的成果。</p>
+          <p>以下只呈現目前 QA framework 本身已落地的能力，不以個別公司專案或單次交付作為證明。</p>
         </div>
         <div class="agent-evidence-grid">
           <article class="agent-evidence-card">
-            <span class="badge">QA AI Workflow</span>
-            <h3>建立 AGENT、SKILLS 與跨 repo workflow</h3>
-            <p>可依需求來源生成或 Review Test Plan、Test Case、Test Report，並以 Gate 與 Contract 管理交付品質。</p>
-            <div class="artifact">已建立 5 種 workflow Mode 與 8 個 QA 專用 Skills。</div>
+            <span class="badge">Domain Package</span>
+            <h3>QA 知識已分層管理</h3>
+            <p>Requirements、Theory、Methodology、Examples、Templates、Skills 與 Outputs 各自擁有明確責任。</p>
+            <div class="artifact">可避免規格、知識與產物模板互相覆寫或內容漂移。</div>
           </article>
           <article class="agent-evidence-card">
-            <span class="badge">Automation</span>
-            <h3>星舟快充回歸測試轉為 API E2E</h3>
-            <p>把原本約需一天的人工作業轉成腳本執行約 30 分鐘完成，讓回歸可更頻繁且可重複。</p>
-            <div class="artifact">約 94% 執行時間節省；並持續擴充子功能 API automation。</div>
+            <span class="badge">Knowledge Contract</span>
+            <h3>建立來源優先與安全停止規則</h3>
+            <p>以 authoritative source、scope、phase 與 evidence 作為決策依據；資料不足時標示 gap，而不是補造規格。</p>
+            <div class="artifact">需求可追溯，假設與阻擋項目可被明確管理。</div>
           </article>
           <article class="agent-evidence-card">
-            <span class="badge">Performance</span>
-            <h3>完成壓力與峰值測試腳本</h3>
-            <p>為星舟快充事業建立壓力峰值測試能力，讓系統承載與風險驗證不只依賴手動觀察。</p>
-            <div class="artifact">可作為效能驗證與後續監控基線的起點。</div>
+            <span class="badge">Methodology Contract</span>
+            <h3>測試設計流程已外部化</h3>
+            <p>先建立 Test Design Map，再依條件選擇等價分割、邊界值、決策表、狀態轉換等對應測試技法。</p>
+            <div class="artifact">Technique tag 必須能回溯到條件、Theory ID 與 coverage item。</div>
           </article>
           <article class="agent-evidence-card">
-            <span class="badge">QA Ownership</span>
-            <h3>承接三個專案品質交付</h3>
-            <p>獨立負責星舟雲、地端充電、EOMC 的測試策略、風險、交付把關與跨團隊品質溝通。</p>
-            <div class="artifact">從單次測試執行，擴展為可持續的品質 owner。</div>
+            <span class="badge">Skill Contract</span>
+            <h3>八個 QA 專用 Skills 可被路由</h3>
+            <p>Test Plan、Test Case、Report、validation、automation handoff 與專案守則拆成可發現、可驗證的單一能力。</p>
+            <div class="artifact">Skill 負責執行，不維護第二份共用 Theory。</div>
           </article>
           <article class="agent-evidence-card">
-            <span class="badge">Enablement</span>
-            <h3>建立新人三個月培訓與進度追蹤</h3>
-            <p>帶領非 QA 背景新人建立測試能力，並已完成 EOMC 三個 Sprint 的測試交付支援。</p>
-            <div class="artifact">把個人方法轉化為可複製的團隊能力。</div>
+            <span class="badge">Workflow Runtime</span>
+            <h3>五種 Mode 與 Gate 已建立</h3>
+            <p>Plan、Case、Automation、Report、Full E2E 依任務路由，並以 PASS / PARTIAL / BLOCK 管理 readiness。</p>
+            <div class="artifact">Prompt Template → Gate → Routing → Output Contract。</div>
           </article>
           <article class="agent-evidence-card">
-            <span class="badge">Governance</span>
-            <h3>推進 QA 流程治理</h3>
-            <p>持續優化 Bug Flow、交付流程、專案進度控管與 QA Review，讓品質問題更早被看見與處理。</p>
-            <div class="artifact">下一步是把流程狀態與品質指標收斂成可追蹤 evidence。</div>
+            <span class="badge">Delivery Contract</span>
+            <h3>跨 repo 交付責任已清楚分流</h3>
+            <p>QA repo 保存需求、文件與測試產物；可執行的 API、UI、OCPP automation 交由 Automation repo 的既有框架承接。</p>
+            <div class="artifact">保留 Test Case 到 automation、execution evidence 與 report 的追溯鏈。</div>
+          </article>
+          <article class="agent-evidence-card">
+            <span class="badge">Evaluation Foundation</span>
+            <h3>已有 validator、fixtures 與 rubric</h3>
+            <p>Test Case 的格式契約、framework wiring 與代表性測試設計情境已有可重複執行的基礎檢查。</p>
+            <div class="artifact">目前是第一代 Eval；下一步是把它擴成完整品質分數與回饋機制。</div>
+          </article>
+          <article class="agent-evidence-card">
+            <span class="badge">Defect Contract</span>
+            <h3>已有可執行的 Bug 資料格式</h3>
+            <p>Bug JSON 已定義標題、環境、嚴重度、模組、重現步驟、實際與預期結果，並能固定轉為 Asana 描述。</p>
+            <div class="artifact">後續可把 defect quality 一併納入 Evaluation Framework。</div>
           </article>
         </div>
       </section>
@@ -166,115 +178,83 @@
       <section class="panel" aria-labelledby="maturity-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Maturity Model</p>
-            <h2 id="maturity-title">現在在哪裡？</h2>
+            <p class="eyebrow">Maturity Position</p>
+            <h2 id="maturity-title">目前成熟度與下一個躍遷</h2>
           </div>
-          <p>目前不是完全自主執行的 loop agent，但已經具備可安全往 L4 升級的工作流骨架。</p>
+          <p>目前不是完整自治的 Loop Agent；已具備 Agent OS 的結構化基礎，缺的是跨產物的一致品質評估與受控回饋。</p>
         </div>
-        <div class="maturity-grid">
-          <article class="maturity-level done">
-            <span class="badge">L1</span>
+        <div class="maturity-rail">
+          <article class="maturity-step done">
+            <span>L1</span>
             <h3>Prompt Template</h3>
-            <p>明確輸入格式與交付期待。</p>
-            <span class="light-pill green">已完成</span>
+            <p>可重複輸入格式</p>
           </article>
-          <article class="maturity-level done">
-            <span class="badge">L2</span>
-            <h3>Task Skills</h3>
-            <p>能穩定產出 Plan、Case、Report、handoff 與 validation。</p>
-            <span class="light-pill green">已完成</span>
+          <article class="maturity-step done">
+            <span>L2</span>
+            <h3>QA Domain Package</h3>
+            <p>知識與方法外部化</p>
           </article>
-          <article class="maturity-level current">
-            <span class="badge">L3</span>
-            <h3>Guardrailed Workflow</h3>
-            <p>有 Mode、Gate、repo routing、traceability、evidence 與安全停止條件。</p>
-            <span class="light-pill yellow">目前位置</span>
+          <article class="maturity-step current">
+            <span>L3</span>
+            <h3>Contract-driven OS Foundation</h3>
+            <p>Skill、Gate、Runtime、Output Contract 已建立</p>
           </article>
-          <article class="maturity-level next">
-            <span class="badge">L4</span>
-            <h3>Stateful Quality Loop</h3>
-            <p>可保存執行狀態、分析結果、在界線內修正並有限次重跑。</p>
-            <span class="light-pill pending">下一階段</span>
+          <article class="maturity-step next">
+            <span>L4</span>
+            <h3>Evaluation Framework</h3>
+            <p>品質模型、分數、judge 與 feedback</p>
           </article>
-          <article class="maturity-level future">
-            <span class="badge">L5</span>
-            <h3>Event-driven QA Ops</h3>
-            <p>由 PR、排程、Release 或監控事件觸發，形成持續品質營運。</p>
-            <span class="light-pill pending">長期方向</span>
+          <article class="maturity-step future">
+            <span>L5</span>
+            <h3>Evaluation-driven Quality Loop</h3>
+            <p>受控重試、記憶與持續品質回歸</p>
           </article>
+        </div>
+        <div class="maturity-note">
+          <strong>現況判斷：</strong>
+          產物與 workflow context 已可被保存，但尚未有完整的 persistent run state、history memory、failure taxonomy 與 retry budget。
+          所以目前不宣稱已是 Loop Agent；最務實的下一步是先把 Evaluation 做深，讓未來的 loop 有可靠的品質訊號。
         </div>
       </section>
 
-      <section class="panel" aria-labelledby="prompt-title">
+      <section class="panel" aria-labelledby="eval-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Prompt Boundary</p>
-            <h2 id="prompt-title">仍需要 Prompt，但它已經變成任務單</h2>
+            <p class="eyebrow">Evaluation Framework</p>
+            <h2 id="eval-title">讓 QA Agent 對品質負責的方式</h2>
           </div>
-          <p>Agent 不能取代真實需求、環境與授權；它承接的是方法、路由與交付控制。</p>
-        </div>
-        <div class="prompt-grid">
-          <article class="prompt-card">
-            <span class="badge">Human / Source Input</span>
-            <h3>使用者仍需提供</h3>
-            <ul>
-              <li>功能、專案、Sprint 或 Phase 與本次 scope。</li>
-              <li>PRD、RA、Figma、API Spec、RBAC 或既有 Test Case 來源。</li>
-              <li>預期交付物，以及是否需要 automation。</li>
-              <li>執行時所需的環境、測資、credential 變數名稱、cleanup 與 destructive 權限。</li>
-            </ul>
-          </article>
-          <article class="prompt-card">
-            <span class="badge">Agent Decision</span>
-            <h3>框架會自行處理</h3>
-            <ul>
-              <li>選擇 Mode、Readiness Gate 與可繼續的工作。</li>
-              <li>選擇專用 Skill、測試設計方法與產物格式。</li>
-              <li>決定 QA repo 或 Automation repo 的正確落點。</li>
-              <li>執行格式驗證、保留 traceability，並標示 assumptions、risks 與 blockers。</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="panel" aria-labelledby="loop-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Next Architecture</p>
-            <h2 id="loop-title">從 Workflow 到 Loop Agent</h2>
-          </div>
-          <p>下一步不是先增加更多 AI 角色，而是讓現有 Agent 能在安全邊界內形成可控的執行閉環。</p>
+          <p>Eval 不是叫 AI 自己說「我做得好不好」，而是先定義標準，再以 deterministic checks、golden fixtures 與 calibrated judge 驗證產出。</p>
         </div>
         <div class="loop-grid">
           <article class="loop-step">
-            <span class="loop-number">1</span>
-            <h3>Run State</h3>
-            <p>建立每次執行的 Run Manifest：來源版本、scope、選取案例、環境、允許操作與目前狀態。</p>
+            <span>1</span>
+            <h3>Generate</h3>
+            <p>依 Knowledge、Methodology 與 Skill Contract 產生 Test Plan、Case、automation handoff 或 Bug Draft。</p>
           </article>
           <article class="loop-step">
-            <span class="loop-number">2</span>
-            <h3>Execute & Collect</h3>
-            <p>執行已核准的 automation，收集 test result、log、trace、screenshot 與 cleanup 狀態。</p>
+            <span>2</span>
+            <h3>Contract Eval</h3>
+            <p>先檢查欄位、格式、ID、steps、traceability、source grounding 與 output path 等 deterministic 規則。</p>
           </article>
           <article class="loop-step">
-            <span class="loop-number">3</span>
-            <h3>Classify Failure</h3>
-            <p>區分產品缺陷、測試程式、環境、測資、權限與規格缺口，避免把所有 fail 都拿去重跑。</p>
+            <span>3</span>
+            <h3>Quality Rubric</h3>
+            <p>以 coverage、boundary、negative、business rule、risk、duplicate、readability 等 QA 指標評估內容品質。</p>
           </article>
           <article class="loop-step">
-            <span class="loop-number">4</span>
-            <h3>Repair Within Policy</h3>
-            <p>只修正被允許的測試設定、selector、等待條件或測資準備；產品行為問題不得自行掩蓋。</p>
+            <span>4</span>
+            <h3>Judge Calibration</h3>
+            <p>用 golden fixtures 與明確 rubric 校準 LLM judge；judge 的工作是依標準評分，不是自由改寫需求。</p>
           </article>
           <article class="loop-step">
-            <span class="loop-number">5</span>
-            <h3>Retry With Budget</h3>
-            <p>限定重跑次數與條件。重試後仍失敗、缺權限或來源不明時，明確結束為 FAIL 或 BLOCK。</p>
+            <span>5</span>
+            <h3>Score and Feedback</h3>
+            <p>分數、缺口與建議被結構化輸出，作為人工 review 或下一次生成的具體品質訊號。</p>
           </article>
           <article class="loop-step">
-            <span class="loop-number">6</span>
-            <h3>Evidence & Escalate</h3>
-            <p>保存結果與下一步，產出 Report 或 Bug Draft；需要人做決策時再交由 QA / RD / PM review。</p>
+            <span>6</span>
+            <h3>Bounded Retry</h3>
+            <p>只有明確可修復的項目才有限次重試；規格矛盾、缺資料與高風險決策一律交回 owner。</p>
           </article>
         </div>
       </section>
@@ -282,63 +262,69 @@
       <section class="panel" aria-labelledby="roadmap-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Execution Roadmap</p>
-            <h2 id="roadmap-title">下一階段要完成什麼</h2>
+            <p class="eyebrow">Next Build</p>
+            <h2 id="roadmap-title">Evaluation-first Roadmap</h2>
           </div>
-          <p>先把單一安全 loop 跑通，再接 CI 與治理；每一階段都有明確的完成條件與停止邊界。</p>
+          <p>先讓品質標準可量化，再讓 Agent 根據可信的訊號採取下一步。</p>
         </div>
-        <div class="roadmap agent-roadmap">
-          <article class="roadmap-item">
-            <span class="badge">P1</span>
-            <h3>建立 Run Manifest 與狀態模型</h3>
-            <p>記錄任務輸入、來源版本、test mapping、環境、狀態、evidence 與 cleanup。</p>
-            <p><strong>完成條件：任一 automation run 可中斷、續跑、回查與完整追溯。</strong></p>
+        <div class="roadmap-grid">
+          <article class="roadmap-card">
+            <div class="timing-top"><span class="badge">P1</span><span class="owner-pill">Quality Model</span></div>
+            <h3>定義跨產物評估 taxonomy</h3>
+            <p>為 Test Plan、Test Case、automation handoff、Bug Draft 建立可追溯的品質維度、pass threshold 與 failure code。</p>
+            <div class="artifact">產物：Eval schema、rubric、scorecard、failure taxonomy。</div>
           </article>
-          <article class="roadmap-item">
-            <span class="badge">P2</span>
-            <h3>建立安全的 execute-classify-retry loop</h3>
-            <p>先從 staging 或 QA 環境的 API regression 開始，導入失敗分類、可修範圍與 retry budget。</p>
-            <p><strong>完成條件：每一個 FAIL 都有分類、證據與停止或下一步決策。</strong></p>
+          <article class="roadmap-card">
+            <div class="timing-top"><span class="badge">P2</span><span class="owner-pill">Golden Data</span></div>
+            <h3>擴充 fixtures 與 deterministic checks</h3>
+            <p>建立正常、邊界、缺規格與反例資料集，將欄位契約、coverage 與 traceability 檢查自動化。</p>
+            <div class="artifact">產物：golden dataset、validator regression、expected score。</div>
           </article>
-          <article class="roadmap-item">
-            <span class="badge">P3</span>
-            <h3>導入 review 與品質變更守門</h3>
-            <p>把 Ready-for-Automation、selector contract、test data、review result 與 code mapping 形成可審查鏈。</p>
-            <p><strong>完成條件：AI 產物與 automation 都能被人接手、review 與維護。</strong></p>
+          <article class="roadmap-card">
+            <div class="timing-top"><span class="badge">P3</span><span class="owner-pill">LLM Judge</span></div>
+            <h3>校準內容品質評估器</h3>
+            <p>由 rubric 驅動 Judge，回傳各維度分數、證據與缺口；與 human review 樣本比對，避免漂移。</p>
+            <div class="artifact">產物：judge prompt contract、calibration set、review agreement。</div>
           </article>
-          <article class="roadmap-item">
-            <span class="badge">P4</span>
-            <h3>串接 CI / Jenkins 與治理指標</h3>
-            <p>由 PR、Nightly、Release 或 synthetic event 觸發可信 automation，回收 trend、report 與 issue draft。</p>
-            <p><strong>完成條件：品質結果不靠人工追問，且能用 evidence 支援放行與風險決策。</strong></p>
+          <article class="roadmap-card">
+            <div class="timing-top"><span class="badge">P4</span><span class="owner-pill">Controlled Loop</span></div>
+            <h3>把評估結果接成受控修正</h3>
+            <p>只有 score 未達標且 failure 可修復時才重跑，保留 run manifest、retry budget、diff 與人為核准點。</p>
+            <div class="artifact">產物：eval orchestrator、feedback packet、bounded retry policy。</div>
+          </article>
+          <article class="roadmap-card">
+            <div class="timing-top"><span class="badge">P5</span><span class="owner-pill">Memory + CI</span></div>
+            <h3>建立品質歷史與持續回歸</h3>
+            <p>保存 run state、score trend、失敗類型與 review decision，並在變更 Skill 或 Knowledge 時自動跑 Eval regression。</p>
+            <div class="artifact">產物：run history、quality dashboard、CI evaluation gate。</div>
           </article>
         </div>
       </section>
 
-      <section class="panel" aria-labelledby="guardrail-title">
+      <section class="panel guardrail-panel" aria-labelledby="guardrail-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Safety by Design</p>
-            <h2 id="guardrail-title">Loop Agent 的不可跨越邊界</h2>
+            <p class="eyebrow">Operating Boundaries</p>
+            <h2 id="guardrail-title">Evaluation-driven 系統仍必須受治理</h2>
           </div>
-          <p>自主不代表無限制。真正可信的 loop，必須清楚知道哪些事可以做、哪些事要停下來交給人。</p>
+          <p>品質閉環的目的不是讓 AI 自行擴權，而是把判斷、證據與責任切得更清楚。</p>
         </div>
         <div class="guardrail-grid">
-          <article class="guardrail-card">
-            <h3>產品行為與需求衝突</h3>
-            <p>不自行修改 Expected Result 或補造規格；保留差異與影響，交由 owner 決策。</p>
+          <article>
+            <h3>來源不足時停止</h3>
+            <p>Evaluator 不能替需求補規格；缺少來源時輸出 gap 與確認項目。</p>
           </article>
-          <article class="guardrail-card">
-            <h3>Destructive 操作</h3>
-            <p>production 寫入、退款、刪除、批次異動預設不執行；每次任務都需要明確允許。</p>
+          <article>
+            <h3>評估與生成分工</h3>
+            <p>Judge 依 rubric 與 evidence 評分；不得以自我感覺取代可重複的標準。</p>
           </article>
-          <article class="guardrail-card">
-            <h3>Retry Budget</h3>
-            <p>重跑有明確次數與條件；避免環境或產品問題被無限重試掩蓋。</p>
+          <article>
+            <h3>重試次數有上限</h3>
+            <p>每次 retry 必須有 failure code、修正範圍與 retry budget，避免無限 loop。</p>
           </article>
-          <article class="guardrail-card">
-            <h3>Human Approval</h3>
-            <p>Bug 正式開單、release decision、risk acceptance 與重大測試變更仍由人負責。</p>
+          <article>
+            <h3>人仍保有決策權</h3>
+            <p>正式 release、風險接受、需求衝突與 destructive action 必須由 owner 核准。</p>
           </article>
         </div>
       </section>

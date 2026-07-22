@@ -1,120 +1,244 @@
-# QA Workflow Agent：現況成果與 Loop Agent Roadmap
+# AI QA Operating System：Evaluation Framework Roadmap
 
-> 版本：v1.0  
-> 更新時間：2026-07  
-> 目前定位：L3 Guardrailed QA Workflow Agent  
-> 目標：將 QA 方法、交付物、automation 與品質證據串成可治理的工作流，下一階段再升級為可控的 Quality Loop。
-
----
-
-## 0. 一句話摘要
-
-目前已完成的不是單一 Prompt，而是一套具備 Mode、Gate、Skill routing、repo boundary、Output Contract、traceability 與 safety stop rule 的 QA Workflow Agent。
-
-它已能協助完成或治理 Test Plan、Test Case、Test Report、automation handoff 與跨 repo automation 任務；但仍需要真實需求、環境、測資與權限作為輸入，尚未具備持久狀態與有限自修重跑的 loop。
+版本：v1.1  
+目前定位：Contract-driven AI QA Operating System Foundation  
+下一個目標：Evaluation Framework  
+長期目標：Evaluation-driven Quality Loop
 
 ---
 
-## 1. Agent 目前擁有什麼
+## 1. 願景與定位
 
-| 能力層 | Agent 擁有的能力 | 已落地機制 | 對品質工作的價值 |
-| --- | --- | --- | --- |
-| Workflow orchestration | 依任務選擇 Test Plan、Test Case、Automation、Test Report 或 Full E2E Mode | hdre-qa-workflow、Mode-specific references | 不讓不同階段共用錯誤 checklist，讓任務能按可用資料前進 |
-| Readiness & Gate | 在建立交付物或執行前判斷 PASS、PARTIAL、BLOCK | Readiness Checklist、Missing/Not Required/Blocked、Mode Gate | 缺資料時不補造規格，也不把可做工作一起停掉 |
-| QA knowledge system | 依來源與需求選用測試技法、coverage rule 與專案守則 | AGENTS、Methodology、Theory、Examples、Templates、Skills | 將 QA 思維從個人經驗沉澱為可重複的方法 |
-| Deliverable control | 產出或 Review Test Plan、Test Case、Test Report、Automation handoff | 專用 Skills、Word/Excel/CSV/Markdown templates | 文件格式、語言、路徑與可追溯性一致 |
-| Cross-repo routing | QA 文件與正式 executable automation 正確分流 | codex_qa_repo_skeleton 與 Automation_HDRE 邊界 | 不把規格、文件、測試程式與執行設定混在一起 |
-| Evidence & safety | 驗證、證據、secrets、destructive test 與 release boundary 有明確規則 | CSV validator、Output Contract、env-var rule、stop rules | Agent 可以前進，也能明確知道何時必須停止並交給人 |
+這套架構的核心，不是再增加一個會回答問題的 Agent，而是建立讓 QA Agent 能穩定運作的環境。
 
----
+Agent 需要依賴明確的知識、方法、能力、執行規則、歷史與品質標準，才能在不同專案與不同交付物之間保持一致。
 
-## 2. 已完成與持續推進的成果
+目前已完成 QA Domain Package、Knowledge Contract、Skill Contract、Workflow Runtime、Output Contract 與第一代 validator foundation。這些已構成 AI QA Operating System 的底層。
 
-| 推進主題 | 已完成內容 | 已驗證或可量化成果 | 持續推進方向 |
-| --- | --- | --- | --- |
-| QA AI Workflow | 建立 AGENT、SKILLS、五種 Mode、Gate、repo routing 與 Output Contract | Test Plan、Test Case、Test Report 可依固定規則產出或 Review；已有 8 個 QA 專用 Skills | 擴充 traceability、review 與 execution evidence |
-| 星舟快充 API E2E | 將回歸測試轉為 API E2E，並持續將子功能轉為 API automation | 原本約一天的人工作業縮短為約 30 分鐘腳本執行，約節省 94% 執行時間 | 擴大可信 regression 範圍與 CI 執行 |
-| 壓力與峰值測試 | 完成星舟快充事業的壓力峰值測試腳本 | 建立效能驗證能力與後續基線的起點 | 納入排程、結果趨勢與容量風險判讀 |
-| QA Ownership | 承接星舟雲、地端充電、EOMC 三個專案品質交付 | 從測試執行擴大為 scope、risk、交付與跨團隊品質溝通 | 建立更穩定的專案品質指標與 review 節奏 |
-| 新人培訓 | 建立三個月培訓計畫與進度追蹤 | 已協助完成 EOMC 三個 Sprint 測試交付 | 將測試方法、review checklist 與產出範例轉為可複製教材 |
-| QA Governance | 推進 Bug Flow、交付流程、進度控管與 QA Review | 已建立流程優化方向與落地節奏 | 收斂成可追蹤狀態、evidence 與週期性品質回顧 |
+下一個關鍵不是增加 MCP 數量，也不是直接做無限制的 Loop Agent，而是建立 QA Evaluation Framework。先定義「什麼是好的 QA 產出」，才能讓後續的 feedback、retry、memory 與 CI 有可靠依據。
 
 ---
 
-## 3. 成熟度定位
+## 2. AI QA Operating System 的六層
 
-| Level | 定義 | 目前狀態 | 判斷依據 |
-| --- | --- | --- | --- |
-| L1 Prompt Template | 有一致的輸入格式與產出要求 | 已完成 | 可用結構化 Prompt 指定 feature、source、scope 與 Expected Output |
-| L2 Task Skills | 針對單一交付物有可重複執行的專用能力 | 已完成 | Test Plan、Test Case、Test Report、API/UI handoff、validator、EOMC guardrail 等 Skills 已建立 |
-| L3 Guardrailed Workflow Agent | 任務可被路由、Gate 管理、分流、驗證並留下 evidence | 目前位置 | 五種 Mode、PASS/PARTIAL/BLOCK、跨 repo routing、Output Contract 與安全停止條件已落地 |
-| L4 Stateful Quality Loop | 可保存 run state、分類結果，在允許範圍修正並有限次重跑 | 下一階段 | 尚缺 Run Manifest、failure taxonomy、retry budget 與 controlled repair policy |
-| L5 Event-driven QA Ops | 由 PR、Nightly、Release、monitor event 觸發可信的品質運作 | 長期方向 | 需建立 CI trigger、可信 automation suite、report trend、issue draft 與治理節奏 |
+| Layer | 作用 | 目前狀態 |
+| --- | --- | --- |
+| Knowledge | QA 理論、需求來源、規格優先順序、範例與模板 | 已建立 QA Domain Package 的分層與 dependency direction |
+| Skills | 產出 Test Plan、Test Case、Report、validation、automation handoff 的可執行能力 | 已有 8 個 QA 專用 Skills，可被 discover 與 routing |
+| Methodology | Test Design Map、測試技法選擇、review gate、交付流程 | 已從 Prompt 中抽出為可重複使用的方法 |
+| Runtime | Mode、Gate、Skill routing、repo routing、safe stop、Output Contract | 已有 5 Mode 與 PASS / PARTIAL / BLOCK 控制面 |
+| Memory | run state、artifact history、failure history、review decision | 目前有交付物與來源的保存，尚未形成 persistent execution memory |
+| Evaluation | contract check、quality rubric、golden data、judge、score、feedback | 已有 validator、fixtures、rubric 基礎；完整 framework 是下一階段 |
+
+這個分層代表 Agent 本身只是執行節點；長期品質穩定性來自它背後的 Operating System。
 
 ---
 
-## 4. Prompt 還需要嗎？
+## 3. 已完成與持續推進的 Framework 成果
 
-需要，但 Prompt 已從詳細指令變成結構化任務單。
+此處只記錄 QA framework 已落地的能力，不以單一公司專案或一次性交付作為成熟度證明。
 
-| 使用者或系統必須提供 | Agent 可自行判斷與處理 |
+### 3.1 QA Domain Package 與 Knowledge Contract
+
+- Requirements、Theory、Methodology、Examples、Templates、Skills、Outputs 各自有明確責任。
+- canonical content 只維護一份，其餘 layer 以引用或 stable ID 使用，避免內容漂移。
+- Theory 不承載專案規格；Examples 不被視為正式需求；Templates 不決定測試技法。
+- authoritative source、scope、phase、evidence 與 safety stop rule 已成為交付前的判斷依據。
+
+### 3.2 Methodology Contract
+
+- Test Case 生成先建立 Test Design Map：
+  Requirement / Source → Test Condition → Visibility → Theory ID → Coverage Item → Source / Gap。
+- 技法選擇依條件載入，而不是一次把所有測試理論塞進 context。
+- 等價分割、邊界值、決策表、狀態轉換等 technique tag 必須能回溯到實際 coverage item。
+- 規格缺漏會被標示為 gap 或 confirmation need，不會被寫成確定的 expected result。
+
+### 3.3 Skill Contract
+
+- Test Plan、Test Case、Test Report、validation、automation handoff、Markdown 整理與專案守則已拆成 8 個 QA 專用 Skills。
+- 每個 Skill 負責一項可驗證的能力，按需讀取 Methodology、Theory、Examples 與 Template。
+- Skill 不維護第二份共用理論，以減少 duplicate knowledge 與 maintenance drift。
+
+### 3.4 Workflow Runtime 與 Delivery Contract
+
+- 以 Test Plan、Test Case、Automation、Test Report、Full E2E 五種 Mode 進行 routing。
+- Gate 使用 PASS / PARTIAL / BLOCK，區分可以完成、可局部完成與必須停止的工作。
+- Prompt Template → Gate → Skill / Repo Routing → Execution → Output Contract 已成為外層 workflow。
+- QA 文件與交付物保留在 QA repo；可執行 API、UI、OCPP automation 由 Automation repo 的既有框架承接。
+- 建立 Plan → Case → Automation → Result → Report 的 traceability 方向。
+
+### 3.5 Evaluation 與 Defect Contract 的第一代基礎
+
+- Test Case 有 deterministic validator，檢查固定 CSV header、必要欄位、ID、steps 與 output contract。
+- framework validator 可檢查 knowledge graph、Methodology wiring 與 Test Design Map 的必要結構。
+- Test Case Skill 已有 fixtures、expected output 與 Yes / No rubric，涵蓋 password boundary、decision table、OCPP state transition、缺規格與 PRD / Figma visibility。
+- Bug JSON 已定義 title、bug type、environment、severity、priority、module、reproduce steps、actual result、expected result 等必要欄位，並能轉為一致的 Asana description。
+
+這些不是完整 Evaluation Framework，但已是品質閉環最重要的 deterministic foundation。
+
+---
+
+## 4. 目前成熟度與缺口
+
+| Level | 定義 | 狀態 |
+| --- | --- | --- |
+| L1 Prompt Template | 固定輸入與輸出格式 | 已完成 |
+| L2 QA Domain Package | 把 QA 知識與方法外部化 | 已完成 |
+| L3 Contract-driven OS Foundation | Skill、Methodology、Runtime、Gate、repo boundary、Output Contract 可協同運作 | 目前位置 |
+| L4 Evaluation Framework | 品質模型、golden data、score、judge、feedback、eval regression | 下一階段 |
+| L5 Evaluation-driven Quality Loop | 有限次重試、run state、quality history、CI gate 與 human approval | 長期目標 |
+
+目前尚未形成完整 Loop Agent，原因不是缺少生成能力，而是缺少下列可被系統化驗證的環節：
+
+- 跨產物一致的品質維度與分數標準。
+- 覆蓋不同情境的 golden dataset 與 regression baseline。
+- 經校準的 LLM judge，而不是自由形式的自我審查。
+- 結構化 failure taxonomy、feedback packet、retry budget 與 run manifest。
+- 可保存的 run state、review decision 與品質趨勢。
+
+---
+
+## 5. QA Evaluation Framework 要評估什麼
+
+Evaluation 的目標是建立品質標準，不是讓產出者自行宣稱結果良好。
+
+### 5.1 Deterministic Contract Eval
+
+適合完全可以程式驗證的項目：
+
+- 檔案、欄位、header、ID、輸出路徑與命名。
+- Step 與 Expected Result 的存在性與對應關係。
+- Source reference、traceability link、required evidence。
+- Bug Draft 的必要欄位、severity / priority 格式與 evidence presence。
+- Automation handoff 是否保留 Test Case mapping。
+
+### 5.2 Content Quality Eval
+
+適合由 QA rubric 與 judge 共同判斷的項目：
+
+| 維度 | 問題 |
 | --- | --- |
-| Feature、project、Sprint/Phase、scope、Expected Output | Mode、Gate、下一個可執行動作 |
-| PRD、RA、Figma、API Spec、RBAC、既有 Test Case 或 automation | 子 Skill、測試設計方法、coverage 與交付格式 |
-| Environment、Base URL、測資、credential 的環境變數名稱、cleanup、destructive permission | repo routing、產物路徑、validation、traceability、risks、blockers |
-| 真實產品決策、release decision、risk acceptance | 不補造需求，保留差異與 evidence，交由 owner 決策 |
+| Source Grounding | 是否只使用可追溯來源，沒有自行補造規格？ |
+| Coverage | 是否覆蓋功能、角色、狀態、資料、例外與關鍵流程？ |
+| Boundary / Negative | 該測邊界與負向情境時，是否真正有測到？ |
+| Business Rule | 是否遵守需求中的條件、決策規則與限制？ |
+| Risk | 是否辨識高風險流程、資料與權限？ |
+| Traceability | 是否可回溯到 source、condition、case、evidence 與 defect？ |
+| Duplicate | 是否存在重複或意義相同的案例？ |
+| Readability | Step、expected result、Bug description 是否可執行且可理解？ |
+
+### 5.3 Golden Data 與 Judge Calibration
+
+每個 Eval 都需要 fixture、預期行為與反例：
+
+1. 正常規格：確認方法與 coverage 正確。
+2. 邊界規格：確認 Boundary Value Analysis 是否被正確選用。
+3. 缺規格：確認 Agent 會產出 gap，而不是猜測。
+4. 不可用方法：確認 Grey-box / White-box evidence 不足時會被排除。
+5. 失敗樣本：確認 evaluator 能找出少 case、錯 rule、重複與不可追溯內容。
+
+LLM judge 必須以這些資料校準，輸出具體分數、evidence 與 failure code；不能只問 AI 覺得自己做得好不好。
 
 ---
 
-## 5. 從 Workflow 升級為 Loop Agent 還缺什麼
+## 6. 從 Eval 到受控 Quality Loop
 
-| Loop 元件 | 現況 | 下一步補強 | 結束或升級條件 |
-| --- | --- | --- | --- |
-| Run State | Gate 與產物可追溯，但沒有每次 run 的持久狀態 | 建立 Run Manifest，記錄來源版本、scope、case、環境、允許操作、結果與 cleanup | 任一任務可中斷、續跑、回查且不遺失上下文 |
-| Execute & Collect | 可執行 automation 並回報結果 | 將 command、result、log、trace、screenshot、report 以 run 為單位保存 | 每個 PASS、FAIL、BLOCK 都有 evidence link |
-| Failure Taxonomy | 已能標示 blocker，但尚未形成執行層的失敗分類 | 分為 Product、Test Code、Environment、Test Data、Credential、Spec Gap、Flaky | 不再把所有失敗都視為可以 retry |
-| Controlled Repair | 可由人修正測試與設定 | 定義可自修範圍，例如 selector、等待條件、test data setup；產品行為不可自行掩蓋 | 只有明確允許的變更才能進入 retry |
-| Retry Budget | 沒有統一的重試策略 | 設定有限次數、退避與終止條件 | 達上限或碰到 Product/Spec/Permission 問題時結束為 FAIL 或 BLOCK |
-| Human Approval | QA review 與 release decision 由人進行 | 將 bug draft、risk acceptance、release recommendation 設為 human approval point | Agent 提供 evidence 與建議，人保留決策權 |
-| Event Trigger | 已有 Jenkins、Nightly、Release 的規劃 | 從單一可信 API regression 開始串接 CI event | PR、Nightly、Release 可觸發對應 suite 並回收 trend |
+Generate
+  ↓
+Deterministic Contract Eval
+  ↓
+Quality Rubric + Calibrated Judge
+  ↓
+Score / Failure Code / Feedback Packet
+  ↓
+Threshold met?
+  ├── Yes → Output + Eval History
+  └── No
+        ├── Recoverable → bounded retry
+        └── Missing source / conflict / high risk → human owner review
 
----
+Loop 必須被設計成受控機制：
 
-## 6. 下一階段 Roadmap
-
-| Phase | 目標 | 交付物 | 完成條件 | 安全邊界 |
-| --- | --- | --- | --- | --- |
-| P1 Run Manifest | 建立跨 workflow 與 automation 的狀態模型 | run manifest schema、run directory、state transition、evidence index | 每個 automation run 都可回查輸入、狀態、結果與 cleanup | 不保存 secret value，只保存 env var name 與 access status |
-| P2 Safe Execute-Classify-Retry | 建立單一 staging 或 QA API regression loop | result parser、failure taxonomy、retry policy、summary report | 只針對允許問題有限次重跑，所有結果有明確分類 | 禁止 production destructive action；產品 bug 與規格缺口不得自修 |
-| P3 Review & Change Guard | 建立 automation-ready 與人可接手的審查鏈 | Ready-for-Automation checklist、selector contract、test data contract、review record | AI 產物能被 QA/RD review、維護與追溯 | 變更測試預期或 release recommendation 需 human approval |
-| P4 CI & Quality Governance | 用 event 驅動可信 automation 與品質趨勢 | Jenkins integration、Nightly/Release trigger、report history、bug draft、weekly trend | 不靠人工追問即可查到 coverage、pass rate、flaky 與未處理風險 | 未達可信度的 suite 不得作為 release gate 唯一依據 |
-
----
-
-## 7. Loop Agent 的核心流程
-
-1. 讀取任務、來源與 Run Manifest。
-2. 確認 Gate、允許操作與要執行的 case。
-3. 執行 automation，收集結果與 evidence。
-4. 分類失敗原因。
-5. 只有在 policy 允許時修正測試設定或測資，並在 retry budget 內重跑。
-6. 產出 PASS、FAIL、BLOCK 或 NOT IMPLEMENTED 結果與下一步。
-7. 需要產品決策、正式開 Bug、release decision 或 risk acceptance 時交給人。
+- 每次 retry 有明確 failure code、限定修正範圍與最大次數。
+- retry 只修復可以從既有 evidence 判斷的問題。
+- 需求矛盾、資料不足、release decision、風險接受與 destructive action 不進入自動重試。
+- 保存產物版本、score、diff、review decision 與 run state，才會形成可用的 Memory。
 
 ---
 
-## 8. 不可跨越的安全邊界
+## 7. Evaluation-first Roadmap
 
-- 不自行新增或變更產品需求、Expected Result、API path、permission key 或 status mapping。
-- 不將帳密、JWT、API Token、OTP、付款資料寫入程式、文件或 Prompt。
-- 不對 production 執行未經當次允許的寫入、刪除、退款、批次異動或資料清除。
-- 不以無限 retry 掩蓋產品缺陷、環境問題或規格缺口。
-- 不把未執行結果寫成 PASS，也不把 Draft 文件寫成已完成驗證。
+### P1：品質模型與 Failure Taxonomy
+
+定義 Test Plan、Test Case、automation handoff、Bug Draft 的共通品質維度、scoring schema、pass threshold、severity rule 與 failure code。
+
+產物：
+
+- Eval schema
+- Quality rubric
+- Scorecard
+- Failure taxonomy
+
+### P2：Golden Dataset 與 Deterministic Regression
+
+擴充 fixtures，加入正例、反例、規格缺漏與多來源衝突情境。將格式、traceability、coverage mapping 與 output contract 的檢查程式化。
+
+產物：
+
+- Golden fixtures
+- Expected scores
+- Validator regression suite
+- Contract check report
+
+### P3：LLM Judge Calibration
+
+讓 judge 依 rubric 對每個品質維度給分、列出 evidence 與 failure code，並與人工 QA review 樣本比對一致性。
+
+產物：
+
+- Judge prompt contract
+- Calibration set
+- Human / judge agreement report
+- Judge drift review process
+
+### P4：Evaluation Orchestrator 與 Bounded Retry
+
+將 Eval result 轉為 feedback packet。只有可修復且未超出 retry budget 的 failure 才允許再生成；其餘回到 owner review。
+
+產物：
+
+- Eval orchestrator
+- Run manifest
+- Feedback packet
+- Bounded retry policy
+
+### P5：Memory、CI 與 Quality Trend
+
+保存 run history、score trend、failure type、人工決策與後續結果；在 Skill、Theory、Methodology 或 Template 變更時執行 Eval regression。
+
+產物：
+
+- Quality history
+- Evaluation CI gate
+- Score trend dashboard
+- Knowledge / Skill change impact report
 
 ---
 
-## 9. 結論
+## 8. 不可跨越的治理邊界
 
-目前已完成 QA Agent 從知識、方法、格式到 workflow governance 的底座，並已有 automation 效益、專案品質交付與人才培訓的實際成果。
+1. 沒有 authoritative source 時，輸出 gap，不能自行補規格。
+2. Evaluator 必須根據 rubric、fixture 與 evidence，不依自由印象判定。
+3. Retry 必須有限次，且每次都可回溯到 failure code 與修正範圍。
+4. 正式開單、release、風險接受、權限變更、付款或任何 destructive action 仍由人類 owner 核准。
+5. 沒有 execution evidence 時，不能宣稱已完成驗證或已通過。
 
-下一階段的重點不是增加更多 Prompt 或更多 Agent，而是補齊 run state、execution feedback、failure classification、controlled retry 與 human approval，讓既有的 QA Workflow Agent 升級成可信的 Quality Loop。
+---
+
+## 9. 總結
+
+目前正在建立的不是單純 QA Workflow，也不只是多個 Agent 串接，而是具有 QA 專業知識、方法、技能契約、執行控制與交付規範的 AI QA Operating System。
+
+下一階段的核心是 Evaluation Framework：
+
+先把「好 QA 產出」變成可驗證、可量化、可回饋的標準，再讓 Agent 根據這些可信訊號有限度地修正與演進。當 score、failure taxonomy、feedback、run state 與 CI regression 都形成閉環時，才會真正走向可信的 Evaluation-driven Quality Loop。
