@@ -1,6 +1,6 @@
 # AI QA Operating System：Evaluation Framework Roadmap
 
-版本：v1.1  
+版本：v1.2  
 目前定位：Contract-driven AI QA Operating System Foundation  
 下一個目標：Evaluation Framework  
 長期目標：Evaluation-driven Quality Loop
@@ -24,9 +24,9 @@ Agent 需要依賴明確的知識、方法、能力、執行規則、歷史與�
 | Layer | 作用 | 目前狀態 |
 | --- | --- | --- |
 | Knowledge | QA 理論、需求來源、規格優先順序、範例與模板 | 已建立 QA Domain Package 的分層與 dependency direction |
-| Skills | 產出 Test Plan、Test Case、Report、validation、automation handoff 的可執行能力 | 已有 8 個 QA 專用 Skills，可被 discover 與 routing |
+| Skills | 產出 Test Plan、Test Case、Test Execution、Report、validation、automation handoff 的可執行能力 | 已有 9 個 QA 專用 Skills，可被 discover 與 routing |
 | Methodology | Test Design Map、測試技法選擇、review gate、交付流程 | 已從 Prompt 中抽出為可重複使用的方法 |
-| Runtime | Mode、Gate、Skill routing、repo routing、safe stop、Output Contract | 已有 5 Mode 與 PASS / PARTIAL / BLOCK 控制面 |
+| Runtime | Mode、Gate、Skill routing、repo routing、safe stop、Output Contract | 已有 6 Mode 與 PASS / PARTIAL / BLOCK 控制面 |
 | Memory | run state、artifact history、failure history、review decision | 目前有交付物與來源的保存，尚未形成 persistent execution memory |
 | Evaluation | contract check、quality rubric、golden data、judge、score、feedback | 已有 validator、fixtures、rubric 基礎；完整 framework 是下一階段 |
 
@@ -44,6 +44,7 @@ Agent 需要依賴明確的知識、方法、能力、執行規則、歷史與�
 - canonical content 只維護一份，其餘 layer 以引用或 stable ID 使用，避免內容漂移。
 - Theory 不承載專案規格；Examples 不被視為正式需求；Templates 不決定測試技法。
 - authoritative source、scope、phase、evidence 與 safety stop rule 已成為交付前的判斷依據。
+- Source Gate v2 已將 PRD、RA、Figma、API/OCPP contract、RBAC 納入來源盤點與一致性比對；來源缺漏、明確衝突與版本不一致會被分別處理。
 
 ### 3.2 Methodology Contract
 
@@ -55,15 +56,16 @@ Agent 需要依賴明確的知識、方法、能力、執行規則、歷史與�
 
 ### 3.3 Skill Contract
 
-- Test Plan、Test Case、Test Report、validation、automation handoff、Markdown 整理與專案守則已拆成 8 個 QA 專用 Skills。
+- Test Plan、Test Case、Test Execution、Test Report、validation、automation handoff、Markdown 整理與專案守則已拆成 9 個 QA 專用 Skills。
 - 每個 Skill 負責一項可驗證的能力，按需讀取 Methodology、Theory、Examples 與 Template。
 - Skill 不維護第二份共用理論，以減少 duplicate knowledge 與 maintenance drift。
 
 ### 3.4 Workflow Runtime 與 Delivery Contract
 
-- 以 Test Plan、Test Case、Automation、Test Report、Full E2E 五種 Mode 進行 routing。
+- 以 Test Plan、Test Case、Test Execution、Automation、Test Report、Full E2E 六種 Mode 進行 routing。
 - Gate 使用 PASS / PARTIAL / BLOCK，區分可以完成、可局部完成與必須停止的工作。
 - Prompt Template → Gate → Skill / Repo Routing → Execution → Output Contract 已成為外層 workflow。
+- Source Reconciliation Matrix 將流程、欄位、預設值、驗證、狀態、權限與資料副作用回溯到 PRD、RA、Figma、API/OCPP、RBAC evidence；只有 Confirmed 行為可成為正式 Expected Result。
 - QA 文件與交付物保留在 QA repo；可執行 API、UI、OCPP automation 由 Automation repo 的既有框架承接。
 - 建立 Plan → Case → Automation → Result → Report 的 traceability 方向。
 
@@ -119,6 +121,7 @@ Evaluation 的目標是建立品質標準，不是讓產出者自行宣稱結果
 | 維度 | 問題 |
 | --- | --- |
 | Source Grounding | 是否只使用可追溯來源，沒有自行補造規格？ |
+| Cross-source Consistency | PRD、RA、Figma、API/OCPP、RBAC 的適用行為是否一致，且能辨識 gap、conflict 與版本差異？ |
 | Coverage | 是否覆蓋功能、角色、狀態、資料、例外與關鍵流程？ |
 | Boundary / Negative | 該測邊界與負向情境時，是否真正有測到？ |
 | Business Rule | 是否遵守需求中的條件、決策規則與限制？ |
@@ -136,6 +139,7 @@ Evaluation 的目標是建立品質標準，不是讓產出者自行宣稱結果
 3. 缺規格：確認 Agent 會產出 gap，而不是猜測。
 4. 不可用方法：確認 Grey-box / White-box evidence 不足時會被排除。
 5. 失敗樣本：確認 evaluator 能找出少 case、錯 rule、重複與不可追溯內容。
+6. 多來源衝突：確認 Agent 不會把 PRD、RA、Figma、API/OCPP、RBAC 的不一致自行拼成需求，而是留下可追溯的 owner decision。
 
 LLM judge 必須以這些資料校準，輸出具體分數、evidence 與 failure code；不能只問 AI 覺得自己做得好不好。
 

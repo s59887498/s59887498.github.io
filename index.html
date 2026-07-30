@@ -16,8 +16,6 @@
       <div class="navbar-nav">
         <a class="nav-link" href="./index.html" aria-current="page">OS 現況</a>
         <a class="nav-link" href="./agent-document.html">架構正文</a>
-        <a class="nav-link" href="./document.html">品質架構</a>
-        <a class="nav-link" href="./execution.html">執行計畫</a>
         <a class="nav-link" href="./qa_3_month_competency_charts.html">新人培訓</a>
       </div>
     </nav>
@@ -33,7 +31,7 @@
           </p>
         </div>
         <div class="hero-actions">
-          <span class="version-badge">v1.1</span>
+          <span class="version-badge">v1.2</span>
           <span class="source-label">現況：Agent OS Foundation｜下一步：Evaluation Framework</span>
           <a class="primary-link" href="./agent-document.html">查看完整架構</a>
         </div>
@@ -47,12 +45,12 @@
         </article>
         <article class="metric-card">
           <span class="metric-label">Workflow Modes</span>
-          <strong>5</strong>
-          <span class="metric-help">Plan / Case / Automation / Report / E2E</span>
+          <strong>6</strong>
+          <span class="metric-help">Plan / Case / Execution / Automation / Report / E2E</span>
         </article>
         <article class="metric-card">
           <span class="metric-label">QA 專用 Skills</span>
-          <strong>8</strong>
+          <strong>9</strong>
           <span class="metric-help">產出、驗證、交接與專案守則</span>
         </article>
         <article class="metric-card">
@@ -102,7 +100,7 @@
                 <span class="owner-pill">Runtime</span>
               </div>
               <h3>Workflow 有明確的控制面</h3>
-              <p>五種 Mode、PASS / PARTIAL / BLOCK、repo routing 與安全停止規則，讓不同交付物有正確的前置條件與責任邊界。</p>
+              <p>六種 Mode、PASS / PARTIAL / BLOCK、repo routing 與安全停止規則，讓不同交付物有正確的前置條件與責任邊界。</p>
               <div class="artifact">Runtime Contract：只做可驗證的部分，不以猜測補足缺漏需求。</div>
             </article>
           </div>
@@ -137,6 +135,12 @@
             <div class="artifact">需求可追溯，假設與阻擋項目可被明確管理。</div>
           </article>
           <article class="agent-evidence-card">
+            <span class="badge">Source Gate v2</span>
+            <h3>來源會先被交叉核對</h3>
+            <p>PRD、RA、Figma、API/OCPP contract 與 RBAC 會先確認版本、範圍與行為一致性，再進入正式測試設計。</p>
+            <div class="artifact">輸出 Source Reconciliation Matrix，分開管理 Confirmed、Source Gap、Conflict 與 Version Mismatch。</div>
+          </article>
+          <article class="agent-evidence-card">
             <span class="badge">Methodology Contract</span>
             <h3>測試設計流程已外部化</h3>
             <p>先建立 Test Design Map，再依條件選擇等價分割、邊界值、決策表、狀態轉換等對應測試技法。</p>
@@ -144,14 +148,14 @@
           </article>
           <article class="agent-evidence-card">
             <span class="badge">Skill Contract</span>
-            <h3>八個 QA 專用 Skills 可被路由</h3>
+            <h3>九個 QA 專用 Skills 可被路由</h3>
             <p>Test Plan、Test Case、Report、validation、automation handoff 與專案守則拆成可發現、可驗證的單一能力。</p>
             <div class="artifact">Skill 負責執行，不維護第二份共用 Theory。</div>
           </article>
           <article class="agent-evidence-card">
             <span class="badge">Workflow Runtime</span>
-            <h3>五種 Mode 與 Gate 已建立</h3>
-            <p>Plan、Case、Automation、Report、Full E2E 依任務路由，並以 PASS / PARTIAL / BLOCK 管理 readiness。</p>
+            <h3>六種 Mode 與 Gate 已建立</h3>
+            <p>Plan、Case、Test Execution、Automation、Report、Full E2E 依任務路由，並以 PASS / PARTIAL / BLOCK 管理 readiness。</p>
             <div class="artifact">Prompt Template → Gate → Routing → Output Contract。</div>
           </article>
           <article class="agent-evidence-card">
