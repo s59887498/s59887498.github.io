@@ -3,7 +3,7 @@
 const staticMode = window.QA_STATIC === true;
 const labels = {
   stages: {planning:"測試規劃", cases:"案例準備", execution:"測試執行", retest:"缺陷複驗", report:"報告交付"},
-  activity: {active:"測試中", blocked:"受阻", awaiting_report:"測試完成・待報告", completed:"已完成", needs_confirmation:"待確認現況"},
+  activity: {planned:"準備中・待開測", active:"測試中", blocked:"受阻", awaiting_report:"測試完成・待報告", completed:"已完成", needs_confirmation:"待確認現況"},
   category: {performance:"效能", ocpp:"OCPP 知識", architecture:"架構", qa_workflow:"QA 流程"},
   confidence: {hypothesis:"待驗證假設", evidence:"已有程式證據", measured:"已有量測"},
   decision: {pending:"待評估", queued:"待交接 Codex", in_progress:"進行中", done:"已完成", dismissed:"暫不採用"},
@@ -90,6 +90,7 @@ function projectCard(p) {
   const stages=Object.entries(labels.stages), index=stages.findIndex(([key])=>key===p.stage);
   return `<article class="project-card"><div class="card-top"><span class="project-product">${esc(p.product)}</span>${badge(stale?"待確認現況":labels.activity[p.activity],stale?"amber":p.activity==="active"?"teal":"neutral")}</div>
     <h3>${esc(p.title)}</h3><p class="project-summary">${esc(p.summary)}</p><div class="project-meta"><span>◉ ${esc(p.owner)}</span><span>${esc(p.environment)}</span></div>
+    ${p.planned_start_at?`<p class="method-note">預計開測：${esc(shortDate(p.planned_start_at))}</p>`:""}
     <div class="stage-caption">最近紀錄階段 <strong>${labels.stages[p.stage]}</strong><span>${shortDate(p.observed_at)}</span></div>
     <ol class="stages">${stages.map(([key,value],i)=>`<li class="${i===index?"current":i<index?"previous":""}"><i>${i===index?"●":i+1}</i><span>${value}</span></li>`).join("")}</ol>
     <div class="progress-head"><span>${c?`案例表快照 · ${shortDate(p.counts_as_of)}`:"案例結果待彙整"}</span><strong>${p.activity==="awaiting_report"?"待報告交付":`${percent===null?"—":percent+"%"}<small> 已執行</small>`}</strong></div>

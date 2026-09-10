@@ -1,45 +1,45 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-09-08T03:09:58+00:00",
+    "updated_at": "2026-09-10T16:41:09+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
         "title": "LCMS V1.5 完整回歸",
         "product": "地端充電",
-        "summary": "進度來源：Readable View。467 案：通過 216、失敗 11、受阻 3、跳過 6、未完成 231；已執行率 48.6%。",
+        "summary": "Readable View 最新快照：467 案，通過 399、失敗 23、受阻 16、跳過 29、未執行 0；已執行率 90.4%。仍需修復複驗與阻礙處理。",
         "owner": "Andy／Sam／Christine",
         "environment": "LCMS V1.5／實際 build 待確認",
         "stage": "execution",
         "activity": "active",
-        "activity_confirmed_at": "2026-09-08T11:09:33.566609+08:00",
-        "observed_at": "2026-09-04T09:07:40+00:00",
+        "activity_confirmed_at": "2026-09-10T16:41:09+00:00",
+        "observed_at": "2026-09-10T16:10:20.268998+00:00",
         "total": 467,
         "counts": {
-          "failed": 11,
-          "blocked": 3,
-          "not_run": 231,
-          "skipped": 6,
-          "passed": 216
+          "failed": 23,
+          "blocked": 16,
+          "not_run": 0,
+          "skipped": 29,
+          "passed": 399
         },
-        "counts_as_of": "2026-09-04T09:07:40+00:00",
-        "scope_note": "公司 OneDrive 指定全量 467 案；Readable View 1349 步驟按 Case ID 彙整。Case Index State 不參與統計。案例表儲存於 09/04 17:07，查閱於 09/08 11:09（Asia/Taipei）；儲存時間非逐案測試時間。 原檔 SHA-256 與前次一致，尚未讀到使用者所述的新變更。",
+        "counts_as_of": "2026-09-10T16:10:20.268998+00:00",
+        "scope_note": "OneDrive 全量 467 案／1349 步，以 Readable View State 聚合。Case Index 只核對 ID。原檔儲存於台灣 9/11 00:10，本次 9/11 查閱；儲存时间非逐案執行時間，0 未執行不等於全數通過。",
         "blockers": [
-          "目前案例表有 3 案 Blocked，原因需依原始步驟與備註處理。"
+          "16 案 Blocked，需依 Readable View 備註逐案解除；另有 23 案 Failed 待修復／複驗。"
         ],
-        "next_action": "先確認 Excel 已儲存且 OneDrive 已同步到指定本機路徑，再重新快照 Readable View。",
+        "next_action": "追蹤 23 案失敗修復與複驗、處理 16 案受阻，確認 29 案跳過處置後再彙整報告。",
         "sources": [
           {
-            "label": "最新 Readable View 快照與前次比較",
+            "label": "9/11 Readable View 快照",
             "kind": "local",
-            "ref": "qa_optimization/reports/research/2026-09-08_110933_lcms-progress.md",
-            "checked_at": "2026-09-08T11:09:33.566609+08:00"
+            "ref": "qa_optimization/reports/research/2026-09-11_lcms-progress.md",
+            "checked_at": "2026-09-10T16:41:09+00:00"
           },
           {
-            "label": "逐案行號、State 與原檔 SHA-256",
+            "label": "逐案狀態／行號與來源 SHA-256",
             "kind": "local",
-            "ref": "qa_optimization/reports/research/2026-09-08_110933_lcms-progress.json",
-            "checked_at": "2026-09-08T11:09:33.566609+08:00"
+            "ref": "qa_optimization/reports/research/2026-09-11_lcms-progress.json",
+            "checked_at": "2026-09-10T16:41:09+00:00"
           }
         ]
       },
@@ -123,6 +123,82 @@
             "kind": "local",
             "checked_at": "2026-09-07",
             "note": ""
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-FULLPAY-202609",
+        "title": "全支付串接",
+        "product": "星舟快充",
+        "owner": "Andy",
+        "environment": "Stage；合作方全支付測試 APP／build 待確認",
+        "summary": "預計 9/14 Stage 開測；已產出 35 案／70 步 CSV＋Readable Excel，待 Review，尚未執行。",
+        "stage": "cases",
+        "activity": "planned",
+        "planned_start_at": "2026-09-14",
+        "activity_confirmed_at": "2026-09-10T16:41:09+00:00",
+        "observed_at": "2026-09-10T16:41:09+00:00",
+        "total": 35,
+        "counts": {
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 0,
+          "not_run": 35
+        },
+        "counts_as_of": "2026-09-10T16:41:09+00:00",
+        "scope_note": "依 9/11 使用者指示預計 9/14 開測；本次產出 35 案 Draft／待 Review，全部未執行。此為設計快照，非實測進度。",
+        "blockers": [
+          "RA 與 Figma 綁定失敗提示、扣款失敗後台呈現待裁決；測試 APP、API 細節與測資待確認。"
+        ],
+        "next_action": "QA／RD／合作方 Review 案例與來源缺漏、確認測試環境及測資後，預計 9/14 開始測試。",
+        "sources": [
+          {
+            "label": "本輪 Test Case 設計與來源",
+            "kind": "local",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/全支付/StarCharge_全支付串接_Readable.xlsx",
+            "checked_at": "2026-09-10T16:41:09+00:00"
+          },
+          {
+            "label": "Source Gate／待確認清單",
+            "kind": "local",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/全支付/Source_Gate.md",
+            "checked_at": "2026-09-10T16:41:09+00:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-SMARTHUB-202609",
+        "title": "新動智能 Smart Hub",
+        "product": "星舟快充",
+        "owner": "Andy",
+        "environment": "待確認（尚未指定 Smart Hub 測試環境）",
+        "summary": "預計 9/14 開測；已產出 12 案 Markdown，涵蓋七段充電串接、既有 eMSP 回歸與路由隔離，待 Review。",
+        "stage": "cases",
+        "activity": "planned",
+        "planned_start_at": "2026-09-14",
+        "activity_confirmed_at": "2026-09-10T16:41:09+00:00",
+        "observed_at": "2026-09-10T16:41:09+00:00",
+        "total": 12,
+        "counts": {
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 0,
+          "not_run": 12
+        },
+        "counts_as_of": "2026-09-10T16:41:09+00:00",
+        "scope_note": "依 9/11 使用者指示預計 9/14 開測；本次產出 12 案 Draft／待 Review，全部未執行。此為設計快照，非實測進度。",
+        "blockers": [
+          "環境、Hub／eMSP／CPO 角色與協定版本、數值 mapping／間隔、結算規格待合作方確認。"
+        ],
+        "next_action": "QA／RD／合作方 Review 案例與來源缺漏、確認測試環境及測資後，預計 9/14 開始測試。",
+        "sources": [
+          {
+            "label": "本輪 Test Case 設計與來源",
+            "kind": "local",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/SmartHub/StarCharge_新動智能_SmartHub_Test_Cases.md",
+            "checked_at": "2026-09-10T16:41:09+00:00"
           }
         ]
       }
@@ -496,7 +572,7 @@
     ]
   },
   "revisions": {
-    "projects": "cec7f6679bcb32e2164e7799ffa59a9f6cadc456eedeb5ae3125941e561ce91b",
+    "projects": "176e0922012ef0ede2a986f1922965ca5accef13b55232b440e8b0a55f3e7af1",
     "optimizations": "560495e77c2f972330850e21c2079f870254fd90318595426e0cf46c7a513518",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -516,5 +592,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-08 使用者再次確認）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-09-10T16:05:52+00:00"
+  "exported_at": "2026-09-10T16:44:46+00:00"
 }

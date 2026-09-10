@@ -1,9 +1,9 @@
 {
   "generator": "hdre-qa-static-v1",
-  "exported_at": "2026-09-10T16:05:52+00:00",
-  "content_revision": "8b0bb1faec6b80e67064ba39aae1d1ccac005e95966389c2e4ad39e7a8505737",
+  "exported_at": "2026-09-10T16:44:46+00:00",
+  "content_revision": "8208f53893fc2e28eff5f35975be56544af9e0f57ab1b95f3354f94d29265d8e",
   "files": {
-    "app.js": "f1133c315bc018ecda1c4cc2461d205510916f75aed4e01f56823e114635355a",
+    "app.js": "c78a72a1251ff0c52ed70d7ad8b08dfb22b30a20258c2c81e034dc46300e1cf4",
     "index.html": "fd0a6c20d3e898da6197b26be4fafb4dae694db04c7f8b12bdaf3405afb341bb",
     "resources/QA-AI-WorkFlow/EOMC_QA_AI_WorkFlow.md": "213ac17464319c92f2d1c395c72f7669cbf27b54e40e6314a38f646b9a0e9ab0",
     "resources/QA-AI-WorkFlow/QA_AI_WorkFlow_Execution_Task_Roadmap.md": "8a7cd33f5bed6a91609104820e8cbecbd6e5061207c8ea1be4b5c6838a552b77",
@@ -33,6 +33,6 @@
     "resources/QA-Team/index.html": "ca8c14502bad8073a11e5aab73021f421b773bb23db5c41b0ef66e3d67a9b117",
     "style.css": "b849a11e0babfe0393e23ed3aa470e987c791abcb8ce6a614207c040c62a3cce",
     "workflow-docs.css": "98bbac8227c70c6288f475916819531963c0e15e9423154c3cc9c8af940e4478",
-    "snapshot.json": "ae3818e3917d5bb5171a64dc39315b6b1a323b976ae608563cdf7d4ffbdabe8c"
+    "snapshot.json": "b88f85219f64d94814e30488013898ded9dc435034a59d7e04bef83c8a36695d"
   }
 }
