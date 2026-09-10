@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-09-10T16:41:09+00:00",
+    "updated_at": "2026-09-10T16:50:05+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -47,13 +47,13 @@
         "id": "PRJ-FRANCHISE-P2",
         "title": "代管加盟主 Phase 2",
         "product": "星舟快充",
-        "summary": "依 Andy 9/7 確認，修復與複驗已完成，待報告交付。兩份案例表的 51 案 Failed 已回填 Passed，歷史未執行狀態保留供報告整理。",
+        "summary": "依 Andy 本次確認，代管加盟主 Phase 2 已完成，並已交付 UAT → Prod，專案結案。",
         "owner": "Andy",
-        "environment": "RT",
+        "environment": "已交付 UAT → Prod（依使用者確認）",
         "stage": "report",
-        "activity": "awaiting_report",
-        "activity_confirmed_at": "2026-09-07",
-        "observed_at": "2026-09-07",
+        "activity": "completed",
+        "activity_confirmed_at": "2026-09-11T00:50:05+08:00",
+        "observed_at": "2026-09-11T00:50:05+08:00",
         "total": 430,
         "counts": {
           "passed": 146,
@@ -63,10 +63,16 @@
           "not_run": 18
         },
         "counts_as_of": "2026-09-07",
-        "scope_note": "430 案（362 API＋68 UI）；依人員確認只將原 51 案 Failed 回填 Passed。其他舊狀態未擅改；Not Implemented 18 案映射未執行。測試完成與案例表歷史覆蓋率分開呈現。",
+        "scope_note": "完成及 UAT → Prod 交付依使用者本次確認。下方 430 案為 9/7 歷史案例表快照；其 Blocked／Skipped／未執行並非目前結案狀態，不因結案擅改 Pass；精確發布日及最終交付文件路徑未於本次提供。",
         "blockers": [],
-        "next_action": "彙整同仁複驗紀錄、確認最終報告範圍與歷史未執行處置，產出並交付 Test Report。",
+        "next_action": "已結案；保留本輪報告／交付與歷史測試紀錄。",
         "sources": [
+          {
+            "kind": "local",
+            "label": "本輪完成確認與準備項目登錄",
+            "ref": "qa_optimization/reports/research/2026-09-11_project-completion-and-preparation.md",
+            "checked_at": "2026-09-11T00:50:05+08:00"
+          },
           {
             "label": "9/7 人員完成確認與回填紀錄",
             "ref": "qa_optimization/reports/research/2026-09-07_progress-sync.md",
@@ -89,20 +95,24 @@
         "product": "星舟快充",
         "owner": "Andy",
         "environment": "starcharge.stage",
-        "summary": "9/7 Stage 峰值測試 PASS：39 筆充電交易、1635 kW、440/440 API 請求成功，32 樁曲線稽核通過。內部資源監控仍待補，任務持續進行。",
-        "stage": "execution",
-        "activity": "active",
-        "activity_confirmed_at": "2026-09-07",
-        "observed_at": "2026-09-07T06:38:35Z",
+        "summary": "依 Andy 本次確認，台中中賓停車場壓力測試已完成，並已產出 Report，專案結案。",
+        "stage": "report",
+        "activity": "completed",
+        "activity_confirmed_at": "2026-09-11T00:50:05+08:00",
+        "observed_at": "2026-09-11T00:50:05+08:00",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "任務「制定中賓戰情牆 API Test Plan」。32 樁／64 槍配置、39 筆交易、10 個 Dashboard session。HTTP 請求與交易數不作為 Test Case 數；最新數據來自本機報告。",
-        "blockers": [
-          "缺少 CPU／Memory／DB 等內部資源指標；最新報告 Gate 為 PARTIAL。"
-        ],
-        "next_action": "確認效能門檻，補內部資源監控與後續壓測結果，再整理驗收結論。",
+        "scope_note": "完成與報告產出依使用者本次確認；最終報告路徑未於本次提供。原 9/7 壓測數據與來源保留為歷史，不宣稱為最終報告重新稽核結果；API 請求／交易數不作為 Test Case 數。",
+        "blockers": [],
+        "next_action": "已結案；保留本輪報告／交付與歷史測試紀錄。",
         "sources": [
+          {
+            "kind": "local",
+            "label": "本輪完成確認與準備項目登錄",
+            "ref": "qa_optimization/reports/research/2026-09-11_project-completion-and-preparation.md",
+            "checked_at": "2026-09-11T00:50:05+08:00"
+          },
           {
             "label": "任務與進度摘要",
             "ref": "qa_optimization/reports/research/2026-09-07_progress-sync.md",
@@ -199,6 +209,70 @@
             "kind": "local",
             "ref": "qa_ai_workflow/outputs/testcases/星舟快充/SmartHub/StarCharge_新動智能_SmartHub_Test_Cases.md",
             "checked_at": "2026-09-10T16:41:09+00:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-IDLE-FEE-202609",
+        "title": "佔槍費",
+        "product": "星舟快充",
+        "owner": "QA 負責人待確認",
+        "environment": "待確認",
+        "summary": "準備中，已提供 RA；範圍包含 LIFF 佔槍費呈現、後台訂單／報表、定價方案及槍套用。測試範圍、環境與開測日期待確認。",
+        "stage": "planning",
+        "activity": "planned",
+        "observed_at": "2026-09-11T00:50:05+08:00",
+        "activity_confirmed_at": "2026-09-11T00:50:05+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "依本次使用者確認登錄準備中；RA 為 7/27 第 2 版，其歷史 9/14～9/18 測試計畫待重新確認。本輪僅登錄，案例數／測試結果尚未盤點，不填虛構進度。",
+        "blockers": [],
+        "next_action": "確認最新版 RA／設計、QA 負責人、測試環境與開測日期，再安排 Test Plan／Test Case。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "本輪完成確認與準備項目登錄",
+            "ref": "qa_optimization/reports/research/2026-09-11_project-completion-and-preparation.md",
+            "checked_at": "2026-09-11T00:50:05+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "佔槍費 RA（page v2）",
+            "ref": "#internal-reference",
+            "checked_at": "2026-09-11T00:50:05+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-SMART-BALANCING-202609",
+        "title": "智慧均流",
+        "product": "星舟快充",
+        "owner": "QA 負責人待確認",
+        "environment": "待確認",
+        "summary": "準備中，已連結 Asana「[Main]智慧均流」（ST-7017）；主單位於 Development，測試範圍、環境與開測日期待確認。",
+        "stage": "planning",
+        "activity": "planned",
+        "observed_at": "2026-09-11T00:50:05+08:00",
+        "activity_confirmed_at": "2026-09-11T00:50:05+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "依本次使用者確認登錄 QA 準備中。Asana 主單描述空白，負責人 Janice，due 10/15 不視為 QA 開测日期；本輪未展開子任務或盤點既有案例數。",
+        "blockers": [],
+        "next_action": "確認 QA 子任務與需求來源、本輪範圍、測試環境及開測日期，再安排測試設計。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "本輪完成確認與準備項目登錄",
+            "ref": "qa_optimization/reports/research/2026-09-11_project-completion-and-preparation.md",
+            "checked_at": "2026-09-11T00:50:05+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "智慧均流 Asana 主單（ST-7017）",
+            "ref": "https://app.asana.com/1/1201720793465976/project/1210988184935976/task/1216707949300392?focus=true",
+            "checked_at": "2026-09-11T00:50:05+08:00"
           }
         ]
       }
@@ -572,7 +646,7 @@
     ]
   },
   "revisions": {
-    "projects": "176e0922012ef0ede2a986f1922965ca5accef13b55232b440e8b0a55f3e7af1",
+    "projects": "4cdb693b655ee75527a5457c885400146fcf2c93c80d0738bacb024221753100",
     "optimizations": "560495e77c2f972330850e21c2079f870254fd90318595426e0cf46c7a513518",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -592,5 +666,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-08 使用者再次確認）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-09-10T16:44:46+00:00"
+  "exported_at": "2026-09-10T16:50:52+00:00"
 }
