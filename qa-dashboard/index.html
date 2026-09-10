@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>HDRE · QA 工作台</title>
+  <link rel="stylesheet" href="/qa-dashboard/style.css">
+  <script>window.QA_STATIC = true;</script>
+  <script src="/qa-dashboard/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <aside class="sidebar">
+    <a class="brand" href="#/projects"><span class="brand-mark">H<span>↗</span></span><span>HDRE<small>QA WORKSPACE</small></span></a>
+    <div class="nav-label">工作台</div>
+    <nav aria-label="主要導覽">
+      <a href="#/projects" id="nav-projects"><span class="nav-icon">▦</span>測試專案<span class="nav-count" id="project-count">—</span></a>
+      <a href="#/optimizations" id="nav-optimizations"><span class="nav-icon">↗</span>優化清單<span class="nav-count" id="optimization-count">—</span></a>
+      <a href="/qa-dashboard/resources/QA-Team/index.html" title="QA Team"><span class="nav-icon">♧</span>QA Team</a>
+      <a href="/qa-dashboard/resources/QA-Onboarding/index.html" title="新人培訓"><span class="nav-icon">◎</span>新人培訓</a>
+    </nav>
+    <div class="sidebar-flow"><span class="mini-label">協作流程</span><p>Claude 研究與整理</p><span class="flow-line"></span><p>你選擇值得做的項目</p><span class="flow-line"></span><p>Codex 執行與驗證</p></div>
+    <div class="sidebar-bottom"><span class="live-dot"></span>QA 工作區<small>唯讀快照・操作請回本機</small></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div><span class="breadcrumb">泓德能源</span><span class="slash">/</span><span id="crumb">QA 工作台</span></div><div class="top-actions"><span id="sync-state" class="sync-label">讀取資料中</span><button class="icon-button" id="refresh" aria-label="重新整理資料">↻</button><span class="avatar" aria-label="QA">QA</span></div></header>
+    <main id="main" tabindex="-1">
+      <div id="load-error" class="error-banner" role="alert" hidden></div>
+      <div id="content"><div class="loading">正在讀取工作區資料…</div></div>
+    </main>
+    <footer>HDRE QA 工作台<span>研究、決策與執行，各自保留紀錄。</span></footer>
+  </div>
+  <dialog id="detail-dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

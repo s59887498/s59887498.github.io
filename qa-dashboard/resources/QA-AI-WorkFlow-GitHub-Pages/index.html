@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HDRE QA 架構與演進</title><link rel="stylesheet" href="/qa-dashboard/workflow-docs.css"></head>
+<body><nav class="workspace-nav" aria-label="QA 工作台"><a href="/qa-dashboard/#/projects" aria-label="返回 QA 工作台">← QA 工作台</a><a href="/qa-dashboard/resources/QA-AI-WorkFlow-GitHub-Pages/index.html">QA 架構與演進</a><a href="/qa-dashboard/resources/QA-AI-WorkFlow/index.html">QA 工作流程</a></nav>
+<header><p class="eyebrow">HDRE · 架構與演進</p><h1>HDRE QA 架構與演進</h1><p>依本機規則與程式核對 · 更新於 2026-09-07</p><div class="actions"><a href="./agent-document.html">搜尋／閱讀正文</a><a href="./QA_Workflow_Agent_Roadmap.md">Markdown 來源</a><a href="/qa-dashboard/#/optimizations">查看優化清單 →</a></div></header>
+<div class="reference-layout"><aside aria-label="章節導覽"><a href="#section-1">1. 三個工作區，各自負責一件事</a><a href="#section-2">2. 外層協調：六種 Mode 與分階段 Gate</a><a href="#section-3">3. QA 專用 Skills：目前 12 個</a><a href="#section-4">4. QA Team 已有分工與交接規則</a><a href="#section-5">5. 執行以證據通道與共用資源為核心</a><a href="#section-6">6. Bug 與人工轉自動化已更具體</a><a href="#section-7">7. QA 改善流程已接上本機工作台</a><a href="#section-8">8. 後續演進：有局部基礎，仍需驗證</a><a href="#section-9">9. 本次核對來源</a></aside><main><p>版本：2026.09.07（workspace 現況快照）</p>
+<p>此頁依 2026-09-07 本機 checkout 的規則與程式整理，包含尚未提交的修改。正式規則仍以根目錄 AGENTS.md、外層 hdre-qa-workflow 與各 repo 的 AGENTS.md／Skill 為準；此頁是導覽摘要。檔案存在不代表所有產品或環境已通過測試。</p>
+<h2 id="section-1">1. 三個工作區，各自負責一件事</h2>
+<div class="table-scroll"><table>
+<tr><th>位置</th><th>目前責任</th><th>邊界</th></tr>
+<tr><td>qa_ai_workflow</td><td>需求來源、QA 知識、模板、12 個專用 Skills、Test Plan／Case／Execution／Report 與 Bug Draft</td><td>正式產品規格主檔在 docs；文件輸出依專案與輪次分流</td></tr>
+<tr><td>Automation_HDRE</td><td>pytest API／Selenium UI、OCPP runner、fixture、locator、設定與測試結果</td><td>延用既有框架；不能因為產生腳本就宣稱已驗證</td></tr>
+<tr><td>qa_optimization</td><td>本機 Dashboard、研究建議、使用者決策、Codex 交接、優化結果與新人培訓入口</td><td>Claude 研究、使用者選取、Codex 執行；不取代正式 QA 文件</td></tr>
+</table></div>
+<h2 id="section-2">2. 外層協調：六種 Mode 與分階段 Gate</h2>
+<ul><li>Test Plan：先確認需求、scope、風險與策略。</li><li>Test Case：依來源設計或 Review 案例，驗證 CSV／Readable Excel。</li><li>Test Execution：只執行 Reviewed Test Cases，逐步保存 evidence。</li><li>Automation：將合格案例接到既有 API／UI／OCPP 框架。</li><li>Test Report：依真實結果產出 Draft／Interim／Final，不補造證據。</li><li>Full E2E：跨階段協調；只交付本次指定的產物，已有合格文件優先重用。</li></ul>
+<p>Gate 使用 PASS／PARTIAL／BLOCK。Source、Automation、Execution／Report 各自判斷；缺少測試環境不會阻擋來源足夠的 Test Plan／Case 設計。</p>
+<p>來源需區分 Source Gap、Conflict、Version Mismatch；PRD、RA、Figma、API／OCPP、RBAC 各自負責不同證據面，不能用單一排序強行消除衝突。</p>
+<h2 id="section-3">3. QA 專用 Skills：目前 12 個</h2>
+<div class="table-scroll"><table>
+<tr><th>用途</th><th>Skill</th></tr>
+<tr><td>計劃書</td><td>generate-test-plan</td></tr>
+<tr><td>案例設計</td><td>generate-testcases</td></tr>
+<tr><td>案例驗證</td><td>validate-testcases</td></tr>
+<tr><td>Markdown 案例樹</td><td>organize-testcase-markdown</td></tr>
+<tr><td>手動執行與 evidence</td><td>execute-testcases</td></tr>
+<tr><td>測試報告</td><td>generate-test-report</td></tr>
+<tr><td>Bug 單</td><td>write-bug</td></tr>
+<tr><td>QA repo-local API tests（明確要求時）</td><td>generate-api-tests</td></tr>
+<tr><td>UI automation handoff／repo-local scaffold</td><td>generate-ui-automation</td></tr>
+<tr><td>企業營運管理中心</td><td>eomc-qa</td></tr>
+<tr><td>LCMS／地端充電</td><td>lcms-qa</td></tr>
+<tr><td>星舟雲端充電</td><td>cloud-charging-qa</td></tr>
+</table></div>
+<p>這 12 個位於 qa_ai_workflow/.codex/skills；外層 hdre-qa-workflow 是另外一個跨 repo 協調 Skill，不計入 12 個。</p>
+<h2 id="section-4">4. QA Team 已有分工與交接規則</h2>
+<div class="table-scroll"><table>
+<tr><th>角色</th><th>責任</th></tr>
+<tr><td>根 Agent</td><td>分派、處理依賴、整合結論、管理本次授權範圍</td></tr>
+<tr><td>qa_leader</td><td>Source／Readiness、Test Plan、QA 估點、案例 Review、風險與報告建議</td></tr>
+<tr><td>manual_qa</td><td>前置條件、案例設計／執行、evidence、Bug 與修復複驗</td></tr>
+<tr><td>automation_qa</td><td>automation mapping、API／UI／OCPP 實作、回歸與 evidence</td></tr>
+</table></div>
+<p>要求完整 QA Cycle／Team，或符合根目錄定義的跨階段工作時，先由 QA Leader 確認範圍與 Gate；可獨立切分後才並行兩條測試 lane。單一文件或局部修正不強制啟動整隊。</p>
+<p>交接需包含 Gate、scope、來源、outputs、evidence、資源鎖、defects、blockers、cleanup、next owner 與 next action。同一檔案、外部 task 或充電資產不能同時被多位 writer 操作。</p>
+<h2 id="section-5">5. 執行以證據通道與共用資源為核心</h2>
+<p>Test Design、Evidence Lane 與 Automation Decision 分開記錄。Evidence Lane 包含 MANUAL_EXPLORATORY、API_CONTRACT、API_E2E、UI、UI_API_CROSS_LAYER、PROTOCOL_EVENT；可自動化程度則用 AUTOMATE_NOW、AUTOMATE_LATER、MANUAL_ONLY、SCHEDULED。</p>
+<ul><li>高風險 UI 寫入需連同 API 與下游結果驗證；HTTP 成功不代表完整 E2E 已通過。</li><li>Readable View 才是逐步操作來源；Case Index 只用來選範圍，不得跳過 step rows。</li><li>OCPP／simulator 連線前需取得 pile-level occupancy lock，忙碌時只阻擋依賴該資產的案例。</li><li>Manual QA 可使用既有 harness；新增或改動可重複 runner／message sequence 由 Automation QA 負責。</li><li>LCMS 與星舟雲端分別使用專案 routing、起充路徑與結算驗收，不能混用 endpoint 或預期結果。實車／實體要求不能用 simulator 冒充通過。</li><li>新增或修改 API case 需有 report_case metadata，報表標題與 ID 分欄，步驟／預期留在明細。</li></ul>
+<h2 id="section-6">6. Bug 與人工轉自動化已更具體</h2>
+<p>Bug 採 A 版：標題白話、功能名對齊頁面或 Test Case；開頭 summary 單段且不超過 50 字，再列環境、前置、步驟、實際與預期。名稱來源要可追溯，execution evidence 以引用代替整段貼入。</p>
+<p>Cycle Bug 建於指定 QA 主單下。星舟雲端沒有固定 Bug project／column；LCMS 另套用 Defect／Development。缺 QA 主單保留 Draft，不猜歸屬。</p>
+<p>Automation 優先序是每版回歸、未覆蓋 P0／P1、同一人工 flow 已執行兩次。缺 fixture／selector／access／cleanup 時記錄 AUTOMATE_LATER、owner 與解除條件。</p>
+<h2 id="section-7">7. QA 改善流程已接上本機工作台</h2>
+<ol><li>Claude 根據當次官方新知與目前程式研究；效能未實測時標 hypothesis。</li><li>經 validate／merge 更新 optimizations.json，保留 ID 與使用者決策。</li><li>使用者在 Dashboard 採用或暫緩；採用後產生 Markdown 交接。</li><li>Codex 接到交接才執行，保存結果文件並回填狀態。</li><li>研究建議改版後須重新確認，不能以舊版交接當作新版授權。</li></ol>
+<p>Dashboard 也可讀取專案進度快照；來源日期不等於今日狀態。Claude 排程交接指令已準備，尚無本次已在 Claude 建立排程的證據。</p>
+<h2 id="section-8">8. 後續演進：有局部基礎，仍需驗證</h2>
+<div class="table-scroll"><table>
+<tr><th>方向</th><th>目前可確認</th><th>下一步</th></tr>
+<tr><td>交付物品質檢查</td><td>Bug contract／validator eval、Test Case eval fixtures 與 rubric 已存在</td><td>建立跨交付物的共同 baseline 與結果追蹤，先確認誤判率</td></tr>
+<tr><td>框架效能</td><td>已有候選清單、量測基準與驗收方式</td><td>同硬體／版本／suite 重跑量測後再決定是否改造</td></tr>
+<tr><td>OCPP 覆蓋</td><td>有 runner 與專案 routing</td><td>依實際支援版本建立需求到案例的 coverage matrix</td></tr>
+<tr><td>進度與週期研究</td><td>有本機資料契約與 Claude 任務</td><td>首次實際同步及排程試跑，留下結果再認定已運作</td></tr>
+<tr><td>CI／趨勢與通知</td><td>repo 有 pytest／報表設定；舊展示站描述了長期構想</td><td>Jenkins job、發布 Gate、Teams 通知與常駐監控需各自取得實際執行證據，不能由文件推定啟用</td></tr>
+</table></div>
+<h2 id="section-9">9. 本次核對來源</h2>
+<ul><li>AGENTS.md</li><li>.agents/skills/hdre-qa-workflow/SKILL.md</li><li>.agents/skills/hdre-qa-workflow/references/source-gate.md</li><li>.agents/skills/hdre-qa-workflow/references/qa-cycle-team.md</li><li>.agents/skills/hdre-qa-workflow/references/execution-and-routing.md</li><li>qa_ai_workflow/AGENTS.md</li><li>qa_ai_workflow/methodology/test-execution-routing.md</li><li>qa_ai_workflow/.codex/skills/write-bug/SKILL.md</li><li>qa_ai_workflow/.codex/skills/generate-testcases/evals/rubric.md</li><li>Automation_HDRE/Automation_API_UI-main/AGENTS.md</li><li>Automation_HDRE/SC_QA_Charge_Stress_Test/modules/resource_lock.py</li><li>qa_optimization/README.md</li><li>qa_optimization/data/README.md</li></ul>
+<p>此頁不自動追蹤 repo 變更；下一次同步需重新讀取來源。舊展示版本保存於 qa_optimization/reports/reference-history/2026-09-07/。</p></main></div>
+<footer>這是現況摘要；正式執行以 AGENTS.md、Mode 與專案 Skill 為準。未驗證的能力不標為已運作。</footer></body></html>

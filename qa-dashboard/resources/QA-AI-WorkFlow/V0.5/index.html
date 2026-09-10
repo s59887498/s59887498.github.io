@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>企業營運管理中心 QA AI WorkFlow v0.5</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="home">
+<nav style="padding:12px 24px;background:#142431"><a style="color:#edfffa" href="/qa-dashboard/#/optimizations" aria-label="返回 QA 工作台">← QA 工作台</a></nav>
+    <main class="home-shell">
+      <header id="overview" class="hero">
+        <div>
+          <p class="eyebrow">企業營運管理中心</p>
+          <h1 id="docTitle">QA AI WorkFlow</h1>
+          <p class="hero-copy">
+            在 T1-T8 的品質生命週期中，維護軟體品質需要測試設計 PDCA、自動化驗證、
+            監控與放行，並由治理底座支撐 Source of Truth、DoD、Owner/RACI 與 Risk acceptance。
+          </p>
+        </div>
+        <div class="hero-actions">
+          <span id="versionBadge" class="version-badge">v0.5</span>
+          <span id="sourceLabel" class="source-label">讀取中...</span>
+          <button id="reloadButton" class="icon-button" type="button" title="重新讀取 Markdown">↻</button>
+          <a class="secondary-link" href="./execution.html">執行 Task 表</a>
+          <a class="primary-link" href="./document.html">Markdown 正文</a>
+        </div>
+      </header>
+
+      <section class="overview-grid" aria-label="文件摘要">
+        <article class="metric-card">
+          <span class="metric-label">生命週期</span>
+          <strong id="lifecycleCount">--</strong>
+          <span class="metric-help">T1-T8</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">核心答案</span>
+          <strong id="answerCount">3</strong>
+          <span class="metric-help">A/B/C</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">治理底座</span>
+          <strong id="foundationCount">1</strong>
+          <span class="metric-help">D supports A/B/C</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">分工交付</span>
+          <strong id="handoffCount">--</strong>
+          <span class="metric-help">Source/DoD/RACI</span>
+        </article>
+      </section>
+
+      <section id="pyramid" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Big Question</p>
+            <h2>品質維護金字塔</h2>
+          </div>
+          <p>先回答 T1-T8 中維護品質需要什麼，再往下拆成 A/B/C 與 D 治理底座。</p>
+        </div>
+        <div id="pyramidGrid" class="pyramid-grid"></div>
+      </section>
+
+      <section id="capability" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Capability Model</p>
+            <h2>A/B/C/D 能力模型</h2>
+          </div>
+          <p>A 是 QA 先落地的測試設計標準，B/C 並行轉成 automation、CI 與放行證據。</p>
+        </div>
+        <div id="capabilityGrid" class="capability-grid"></div>
+      </section>
+
+      <section id="roadmap" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Roadmap</p>
+            <h2>導入 Roadmap</h2>
+          </div>
+          <p>執行順序固定：A 先落地，B & C 並行；第一階段先跑一個區塊功能。</p>
+        </div>
+        <div id="roadmapGrid" class="roadmap"></div>
+      </section>
+
+      <section id="team-handoff" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Team Handoff Checklist</p>
+            <h2>分工與交付清單</h2>
+          </div>
+          <p>用 Source of Truth、DoD、Owner/RACI、Risk acceptance 追蹤跨團隊交付，不靠口頭記憶。</p>
+        </div>
+        <div id="handoffChecklistGrid" class="handoff-list"></div>
+      </section>
+
+      <section id="lifecycle" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">T1-T8 Lifecycle</p>
+            <h2>品質生命週期</h2>
+          </div>
+          <p>每個 T 都要有品質目的、Owner、輸入、輸出與對應能力，避免只剩工具名稱。</p>
+        </div>
+        <div id="lifecycleGrid" class="lifecycle-grid"></div>
+      </section>
+
+      <section id="quality-metrics" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Quality Metrics</p>
+            <h2>品質指標與品質度量</h2>
+          </div>
+          <p>把需求、測試、部署、維運各節點的品質狀態量化，讓流程可以被追蹤與改善。</p>
+        </div>
+        <div id="qualityMetricGrid" class="metric-list"></div>
+      </section>
+
+      <section id="qa-gate-checklist" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">QA Gate Checklist</p>
+            <h2>放行前檢查清單</h2>
+          </div>
+          <p>分類放行標準的執行版，讓 QA 在 QA / STAGE / Release review 前快速確認證據是否完整。</p>
+        </div>
+        <div id="gateChecklistGrid" class="checklist-list"></div>
+      </section>
+
+      <section id="test-types" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Appendix · Test Type Definition</p>
+            <h2>測試類型定義</h2>
+          </div>
+          <p>保留 generate-testcases 與 AGENTS.md 裡的測試分類，作為 Test Case 設計依據。</p>
+        </div>
+        <div id="testTypeGrid" class="test-type-grid"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

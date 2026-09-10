@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>星舟快充｜前三個月 QA 培訓</title>
+    <style>
+      :root {
+        --bg: #f7f5ef;
+        --ink: #202124;
+        --muted: #68645d;
+        --line: #d9d3c8;
+        --panel: #fffdf8;
+        --green: #1f7a68;
+        --green-soft: #dff3ed;
+        --blue: #305f9f;
+        --blue-soft: #e2ebf8;
+        --amber: #9a650f;
+        --amber-soft: #faecd2;
+        --coral: #a64633;
+        --coral-soft: #f8dfd7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding-top: 64px;
+        background:
+          linear-gradient(120deg, rgba(31, 122, 104, 0.1), transparent 32rem),
+          linear-gradient(300deg, rgba(166, 70, 51, 0.1), transparent 32rem),
+          var(--bg);
+        color: var(--ink);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+          "PingFang TC", "Microsoft JhengHei", sans-serif;
+        line-height: 1.55;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 58px;
+        padding: 10px 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.28);
+      }
+
+      .navbar-expand {
+        flex-wrap: nowrap;
+      }
+
+      .navbar-dark {
+        color: #fff;
+      }
+
+      .navbar-brand {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.2;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 7px 12px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 14px;
+        font-weight: 750;
+        line-height: 1.2;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .nav-link:hover,
+      .nav-link[aria-current="page"] {
+        border-color: rgba(74, 222, 128, 0.35);
+        background: rgba(74, 222, 128, 0.14);
+        color: #fff;
+      }
+
+      main {
+        width: min(1180px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 36px 0 56px;
+      }
+
+      .cover {
+        margin-bottom: 24px;
+        padding: 28px 0 10px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: 34px;
+        line-height: 1.18;
+      }
+
+      .lead {
+        max-width: 880px;
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .chart {
+        position: relative;
+        overflow: hidden;
+        margin-top: 24px;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 18px 45px rgba(41, 34, 25, 0.1);
+      }
+
+      .chart::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 100%;
+        content: "";
+      }
+
+      .month-1::before {
+        background: var(--green);
+      }
+
+      .month-2::before {
+        background: var(--blue);
+      }
+
+      .month-3::before {
+        background: var(--coral);
+      }
+
+      .chart-head {
+        display: grid;
+        grid-template-columns: 128px 1fr auto;
+        gap: 22px;
+        align-items: start;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .month-badge {
+        display: grid;
+        min-height: 118px;
+        place-items: center;
+        border-radius: 8px;
+        color: #fff;
+        text-align: center;
+      }
+
+      .month-1 .month-badge {
+        background: var(--green);
+      }
+
+      .month-2 .month-badge {
+        background: var(--blue);
+      }
+
+      .month-3 .month-badge {
+        background: var(--coral);
+      }
+
+      .month-badge strong {
+        display: block;
+        font-size: 42px;
+        line-height: 1;
+      }
+
+      .month-badge span {
+        display: block;
+        margin-top: 6px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .chart-title h2 {
+        margin-bottom: 8px;
+        font-size: 27px;
+        line-height: 1.25;
+      }
+
+      .goal {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .stage-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 136px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .month-1 .stage-pill {
+        background: var(--green-soft);
+        color: var(--green);
+      }
+
+      .month-2 .stage-pill {
+        background: var(--blue-soft);
+        color: var(--blue);
+      }
+
+      .month-3 .stage-pill {
+        background: var(--coral-soft);
+        color: var(--coral);
+      }
+
+      .matrix {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 22px;
+      }
+
+      .column {
+        min-width: 0;
+        padding: 18px 18px 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .column h3 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+        font-size: 17px;
+      }
+
+      .marker {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      .month-1 .marker {
+        background: var(--green);
+      }
+
+      .month-2 .marker {
+        background: var(--blue);
+      }
+
+      .month-3 .marker {
+        background: var(--coral);
+      }
+
+      ul {
+        display: grid;
+        gap: 9px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        position: relative;
+        padding-left: 18px;
+        color: #37342f;
+        font-size: 14.5px;
+      }
+
+      li::before {
+        position: absolute;
+        top: 0.72em;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #b8ada0;
+        content: "";
+      }
+
+      .bottom-line {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .focus,
+      .progress {
+        padding: 16px 18px;
+        border-radius: 8px;
+        background: #f8f2e7;
+      }
+
+      .focus strong,
+      .progress strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      .focus p,
+      .progress p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 14.5px;
+      }
+
+      .progress-track {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .step {
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .month-1 .step:nth-child(1),
+      .month-2 .step:nth-child(2),
+      .month-3 .step:nth-child(3) {
+        border-color: transparent;
+        color: #fff;
+      }
+
+      .month-1 .step:nth-child(1) {
+        background: var(--green);
+      }
+
+      .month-2 .step:nth-child(2) {
+        background: var(--blue);
+      }
+
+      .month-3 .step:nth-child(3) {
+        background: var(--coral);
+      }
+
+      @media (max-width: 860px) {
+        body {
+          padding-top: 116px;
+        }
+
+        .navbar {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 8px;
+          padding: 10px 14px;
+        }
+
+        .navbar-nav {
+          justify-content: flex-start;
+          width: 100%;
+        }
+
+        .nav-link {
+          min-height: 34px;
+          padding: 7px 10px;
+          font-size: 13px;
+        }
+
+        main {
+          width: min(100% - 28px, 1180px);
+          padding-top: 22px;
+        }
+
+        .chart {
+          padding: 24px 18px;
+        }
+
+        .chart-head,
+        .matrix,
+        .bottom-line {
+          grid-template-columns: 1fr;
+        }
+
+        .stage-pill {
+          justify-self: start;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        main {
+          width: 100%;
+          padding: 0;
+        }
+
+        .cover {
+          padding: 18px 0;
+        }
+
+        .chart {
+          min-height: 680px;
+          margin: 0 0 18px;
+          box-shadow: none;
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+      }
+    .cover li{overflow-wrap:anywhere}.chart{height:auto;min-height:0}.column li{line-height:1.75;margin-bottom:10px}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand navbar-dark fixed-top" style="background-color:#000000cc"><a class="nav-link" href="/qa-dashboard/#/projects" aria-label="返回 QA 工作台">← QA 工作台</a><span class="navbar-brand">新人培訓</span></nav>
+    <main><section class="cover"><p class="eyebrow">STARCHARGE · QA ONBOARDING</p><h1>星舟快充｜前三個月 QA 培訓</h1><p class="lead">第 1 個月熟悉 LIFF、後台與充電證據；第 2 個月參與充電／訂單相關測試設計；第 3 個月推進一個明確功能的 QA Cycle。這是培訓目標，實際進度由 mentor 依能力與當期版本安排。</p><p>更新：2026-09-07 · 適用星舟雲端充電，依星舟專案的產品入口與充電驗收規則設計。每項練習需有當輪來源與 Reviewed Test Cases。</p></section>
+<article class="chart month-1"><header class="chart-head"><div class="month-badge"><div><strong>01</strong><span>第 1 個月</span></div></div><div class="chart-title"><p class="eyebrow">熟悉產品與證據</p><h2>看懂星舟快充，完成受指導的回歸</h2><p class="goal">熟悉會員端 LIFF、管理後台、充電站／樁／槍與訂單的關係；跟著資深 QA 執行 Reviewed Test Cases，記錄真實結果。</p></div><span class="stage-pill">定位：照做與記錄</span></header><div class="matrix">
+<section class="column"><h3><span class="marker"></span>要學會</h3><ul><li>從本次 PRD／RA／Figma、API／OCPP 規格找功能名稱與預期，不能自行補需求。</li><li>辨識會員端與後台的操作角色；了解 LIFF 掃碼起充、隨插即充、後台遠端命令是不同路徑。</li><li>認識可用／充電中／離線等樁槍狀態；實際文字與狀態 mapping 以本輪規格為準。</li><li>依 Readable View 全部步驟執行，記錄 PASS／FAIL／BLOCK 與未執行原因。</li><li>以 Case ID、時間、樁／槍及訂單 ID 串起畫面、API 與 OCPP evidence，不取任意最新訂單。</li><li>Bug 採白話功能名、50 字內摘要與可重現步驟，證據引用原紀錄。</li><li>區分 Stage／RT／正式環境；帳密只用安全 reference，與 mentor 確認專用測試資產。</li></ul></section>
+<section class="column"><h3><span class="marker"></span>適合任務</h3><ul><li>在 mentor 帶領下完成一輪星舟快充 Stage smoke／指定回歸，範圍由當次 Reviewed Cases 決定。</li><li>跟跑 LIFF 掃碼起停充：觀察起充、MeterValues、停止、後台訂單及適用的付款／發票狀態。</li><li>使用 Automation QA 交接的既有 runner，不自行修改訊息序列；連線前確認 pile-level lock。</li><li>整理一次失敗案例為 Bug Draft；正式開單放到本次指定 QA 主單下。</li></ul></section>
+<section class="column"><h3><span class="marker"></span>DoD／驗收</h3><ul><li>選定案例的所有步驟有結果與 evidence；受阻案例有原因及下一位 owner。</li><li>能說明「WebSocket 已連線」「停止訊息已送出」與「訂單結算完成」的差別。</li><li>Bug 名稱對齊本次 UI／Test Case；摘要不超過 50 字且包含環境、步驟、實際／預期。</li><li>同一樁／槍、會員與付款 fixture 不與他人搶用，測試後關閉 runner 並記錄 cleanup。</li></ul></section>
+</div><div class="bottom-line"><section class="focus"><strong>本月重點</strong><p>先能把同一筆充電流程從會員端追到後台，用來源與證據說明結果，不以推測補齊綠燈。</p></section><section class="progress"><strong>能力進展</strong><div class="progress-track"><span class="step">照做與記錄</span><span class="step">測試設計</span><span class="step">功能 Owner</span></div></section></div></article>
+<article class="chart month-2"><header class="chart-head"><div class="month-badge"><div><strong>02</strong><span>第 2 個月</span></div></div><div class="chart-title"><p class="eyebrow">設計充電與計費情境</p><h2>參與星舟快充 Test Plan 與案例設計</h2><p class="goal">在資深 QA Review 下，把一個有明確來源的星舟功能拆成可執行案例，涵蓋例外、權限、時間邊界與下游訂單結果。</p></div><span class="stage-pill">定位：測試設計參與</span></header><div class="matrix">
+<section class="column"><h3><span class="marker"></span>要學會</h3><ul><li>比對同一版本／Phase 的 PRD、RA、Figma、API 與 RBAC；將缺漏、衝突、版本不符分開記錄。</li><li>從費率、優惠／折抵、訂單或遠端命令擇一練習；來源未定義的情境先列問題，不寫成正式預期。</li><li>區分 API_CONTRACT、API_E2E、UI_API_CROSS_LAYER 與 PROTOCOL_EVENT，不能只憑 HTTP 200 判定成功。</li><li>設計角色允許／拒絕、重複操作、斷線、非 Accepted 回覆與跨費率時段等適用情境。</li><li>使用 transaction／busId／order ID 與樁、槍、會員、時間範圍做訂單匹配。</li><li>依確認的單位換算與 rounding 核對電量、費率、優惠與金額；不自訂容許誤差。</li><li>標示 AUTOMATE_NOW／AUTOMATE_LATER 及 fixture、access、cleanup 的缺口。</li></ul></section>
+<section class="column"><h3><span class="marker"></span>適合任務</h3><ul><li>選本輪有完整來源的一項功能，例如充電費率、優惠折抵或後台遠端起停充，協助 Test Plan 與 Test Case 初稿。</li><li>設計一組 UI／API／OCPP 與訂單結果的證據對照，與 Automation QA 確認 runner 能力。</li><li>以當次 QA 主單追蹤 Bug，確認修復 build 後複驗原失敗步驟與必要回歸。</li><li>分享 AI 如何協助設計與整理；Review AI 產出，不把缺漏自動補成產品規則。</li></ul></section>
+<section class="column"><h3><span class="marker"></span>DoD／驗收</h3><ul><li>案例有來源、前置、逐步 Expected Result、資料與 cleanup，通過 QA Leader Review 後才進執行。</li><li>至少一組所選功能的正常、例外／邊界及權限情境有合理 coverage 說明。</li><li>涉及充電的案例能交代起充路徑、協定 trace、訂單匹配及結算終態；沒有下游證據就列缺口。</li><li>報告統計與案例結果一致；局部 Bug 複驗不與全量回歸直接加總。</li><li>實車／實體案例交給對應 owner，不能使用 simulator 冒充驗證。</li></ul></section>
+</div><div class="bottom-line"><section class="focus"><strong>本月重點</strong><p>把測試設計從畫面操作延伸到充電生命週期與計費證據；以本輪來源決定預期，避免跨平台混用。</p></section><section class="progress"><strong>能力進展</strong><div class="progress-track"><span class="step">照做與記錄</span><span class="step">測試設計</span><span class="step">功能 Owner</span></div></section></div></article>
+<article class="chart month-3"><header class="chart-head"><div class="month-badge"><div><strong>03</strong><span>第 3 個月</span></div></div><div class="chart-title"><p class="eyebrow">推進一個完整功能</p><h2>承接星舟快充功能的 QA Cycle</h2><p class="goal">在資深 QA 協助風險判斷下，推進一個明確範圍的星舟功能，從需求對齊、案例 Review、測試及 Bug 複驗到 UAT／Release 建議。</p></div><span class="stage-pill">定位：功能 QA Owner</span></header><div class="matrix">
+<section class="column"><h3><span class="marker"></span>要學會</h3><ul><li>與 PM／RD 對齊 scope、版本、驗收條件、依賴與 QA 估點；Sprint 排程由 PM 決定。</li><li>安排手動與自動化 lane，交接包含 Gate、outputs、evidence、資源鎖、blockers、cleanup 與 next action。</li><li>辨識連線、協定、平台 API、UI、計費及非同步副作用的證據差異，不憑猜測指定 root cause。</li><li>依已確認需求驗證訂單完成與適用的付款／發票終態；真實付款、退款、儲值或發票異動另交授權 owner。</li><li>整理同一人工 flow 的執行次數與既有 coverage；第二次執行後建立 automation handoff。</li><li>說明已測、未測、缺陷與殘餘風險，提供 Release 建議，不代替 PM／團隊做正式放行。</li></ul></section>
+<section class="column"><h3><span class="marker"></span>適合任務</h3><ul><li>負責一個星舟功能或版本內明確 scope 的完整 QA Cycle，不預設獨立承接整個平台。</li><li>協調一組需 API／UI／OCPP 與訂單證據的回歸，依可用資產安排，避免並行互相污染。</li><li>將重複人工 flow 交接 Automation QA；缺條件保留 owner 與解除條件。</li><li>更新工作台專案進度及結果來源，將框架改善機會放入優化候選，等待使用者選取。</li></ul></section>
+<section class="column"><h3><span class="marker"></span>DoD／驗收</h3><ul><li>Plan、Reviewed Cases、execution evidence、Bug／retest 與報告之間可透過 ID 與來源追溯。</li><li>每個 scope 案例有明確執行狀態；未解 Bug、環境缺口與資料限制透明，不虛報完成。</li><li>可提供 UAT／Release 建議與必要補測範圍；重大風險由資深 QA／PM／RD 一起確認。</li><li>資源鎖已釋放、runner／背景工作已關閉，cleanup 完成或留下具體 blocker。</li><li>提出至少一項有依據的 automation handoff 或可重現改善問題；沒有證據不宣稱效能提升。</li></ul></section>
+</div><div class="bottom-line"><section class="focus"><strong>本月重點</strong><p>培養對一個星舟功能的 QA ownership：把需求、充電證據、缺陷與交付結果串起來，保留合理升級與 Review。</p></section><section class="progress"><strong>能力進展</strong><div class="progress-track"><span class="step">照做與記錄</span><span class="step">測試設計</span><span class="step">功能 Owner</span></div></section></div></article>
+<section class="cover"><h2>使用前確認</h2><p>以 QA／Stage 與專用測試資產練習；使用既有 runner 與安全 credential reference。涉及實體設備或真實付款／退款／儲值／發票異動時交由相應授權 owner。培訓不新增任何正式環境操作授權。</p><h2>內容依據</h2><p>依星舟充電專案規則與現行 QA Cycle 整理，參考路徑相對於 HDRE：</p><ul><li>qa_ai_workflow/.codex/skills/cloud-charging-qa/references/charging-e2e.md</li><li>qa_ai_workflow/.codex/skills/cloud-charging-qa/references/source-map.md</li><li>qa_ai_workflow/.codex/skills/cloud-charging-qa/references/defect-routing.md</li><li>.agents/skills/hdre-qa-workflow/references/qa-cycle-team.md</li><li>qa_ai_workflow/.codex/skills/write-bug/SKILL.md</li></ul><p><a href="./curriculum.md">下載／閱讀培訓 Markdown</a></p></section></main>
+  </body>
+</html>

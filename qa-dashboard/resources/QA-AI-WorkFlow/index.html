@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HDRE QA 工作流程</title><link rel="stylesheet" href="/qa-dashboard/workflow-docs.css"></head>
+<body><nav class="workspace-nav" aria-label="QA 工作台"><a href="/qa-dashboard/#/projects" aria-label="返回 QA 工作台">← QA 工作台</a><a href="/qa-dashboard/resources/QA-AI-WorkFlow-GitHub-Pages/index.html">QA 架構與演進</a><a href="/qa-dashboard/resources/QA-AI-WorkFlow/index.html">QA 工作流程</a></nav>
+<header><p class="eyebrow">HDRE · 工作流程</p><h1>HDRE QA 工作流程</h1><p>依本機規則與程式核對 · 更新於 2026-09-07</p><div class="actions"><a href="./document.html">搜尋／閱讀正文</a><a href="./execution.html">執行與改善追蹤</a><a href="./EOMC_QA_AI_WorkFlow.md">Markdown 來源</a><a href="/qa-dashboard/#/optimizations">查看優化清單 →</a></div></header>
+<div class="reference-layout"><aside aria-label="章節導覽"><a href="#section-1">1. 先選本次入口，不必每次重跑全流程</a><a href="#section-2">2. 完整 QA Cycle 的現在順序</a><a href="#section-3">3. Gate 與等待狀態分開</a><a href="#section-4">4. 測試前確認六件事</a><a href="#section-5">5. 選正確證據，不只看綠燈</a><a href="#section-6">6. Bug：先讓 RD 看懂問題</a><a href="#section-7">7. 什麼時候轉成自動化</a><a href="#section-8">8. 結果放哪裡</a><a href="#section-9">9. 與 QA 優化工作台的關係</a><a href="#section-10">10. 本次核對來源</a></aside><main><p>版本：2026.09.07（workspace 現況快照）</p>
+<p>適用 HDRE 的正式 QA 與 API／UI／OCPP 協作。此檔沿用舊檔名以保留既有正文網址，內容已由 EOMC 單一示範更新為跨專案導覽；真正執行仍以外層 Skill 與專案規則為準。</p>
+<h2 id="section-1">1. 先選本次入口，不必每次重跑全流程</h2>
+<div class="table-scroll"><table>
+<tr><th>你要完成的事</th><th>入口</th><th>主要交付</th></tr>
+<tr><td>規劃測試範圍、風險與時程</td><td>Test Plan</td><td>Word 計劃書</td></tr>
+<tr><td>設計或 Review 案例</td><td>Test Case</td><td>BrowserStack CSV、Readable Excel</td></tr>
+<tr><td>依案例執行並留證據</td><td>Test Execution</td><td>Execution evidence、失敗項清單</td></tr>
+<tr><td>實作／執行自動化</td><td>Automation</td><td>Automation_HDRE 的可執行測試與結果</td></tr>
+<tr><td>彙整真實測試結果</td><td>Test Report</td><td>Word 報告與風險建議</td></tr>
+<tr><td>多個連續階段</td><td>Full E2E</td><td>本次選定產物與 E2E summary</td></tr>
+<tr><td>單獨開 Bug 或收斂冗長 Bug</td><td>write-bug</td><td>驗證過的 Bug Draft／依授權開單</td></tr>
+</table></div>
+<p>Test Plan／Case 不需要先具備未來的 execution evidence。正式 Test Report 則不能把預定執行項目寫成已完成結果。</p>
+<h2 id="section-2">2. 完整 QA Cycle 的現在順序</h2>
+<div class="table-scroll"><table>
+<tr><th>階段</th><th>主要負責</th><th>要留下什麼</th></tr>
+<tr><td>需求交接</td><td>PM → QA Leader</td><td>商業目標、scope、來源、acceptance criteria、Source Gap</td></tr>
+<tr><td>Test Plan</td><td>QA Leader</td><td>策略、風險、環境與資料需求、entry／exit criteria</td></tr>
+<tr><td>QA 估點</td><td>QA Leader</td><td>設計、測試、複驗、回歸、自動化與報告成本及假設</td></tr>
+<tr><td>Sprint Planning／Alignment</td><td>PM 決定排程，QA 確認</td><td>依賴、owner、環境、資料與版本，不代替 PM 承諾日期</td></tr>
+<tr><td>Test Case Design</td><td>Manual QA；Automation QA 做 mapping</td><td>來源對應、逐步操作與預期、Evidence Lane、automation decision</td></tr>
+<tr><td>Test Case Review</td><td>QA Leader</td><td>覆蓋率、來源一致性、可執行性及 Reviewed 狀態</td></tr>
+<tr><td>Testing</td><td>Manual／Automation 各自通過 Gate 後執行</td><td>每個案例的實際結果、evidence、資源使用與 cleanup</td></tr>
+<tr><td>Bug／Retest</td><td>Manual QA 與 RD</td><td>QA 主單下 Bug、修復 build、原失敗步驟及必要回歸</td></tr>
+<tr><td>Test Report／結案</td><td>QA Leader Review，根 Agent 整合</td><td>已測／未測、缺陷、限制、風險與 Release 建議</td></tr>
+</table></div>
+<p>完整 Cycle 的角色協作依 qa-cycle-team.md；單一交付物可直接走對應 Skill。同一份檔案、task 或充電資源同時間只有一個 writer。</p>
+<h2 id="section-3">3. Gate 與等待狀態分開</h2>
+<p>PASS／PARTIAL／BLOCK 表示本階段能否可靠前進。PARTIAL 時完成不受缺口影響的工作；BLOCK 只阻擋依賴該缺口的範圍。</p>
+<p>WAITING_PM、WAITING_RD、BLOCKED_ENV、BLOCKED_ACCESS 是流程等待原因，不替代 Gate。來源缺漏、明確衝突與版本不一致須分別記錄；不能自己補造 Expected Result。</p>
+<h2 id="section-4">4. 測試前確認六件事</h2>
+<ol><li>本次 Reviewed Test Cases、project／Sprint／Phase 與 scope。</li><li>target profile、build、access、角色帳號的安全 reference 與功能入口。</li><li>測資、fixture、可重複條件與 cleanup owner。</li><li>逐步 evidence 與下游可觀察結果；Case Index 導覽後，依 Readable View 的全部 step rows 執行。</li><li>Bug 所屬 QA 主單；缺主單只阻擋正式開單，不阻擋安全測試及本機 Draft。</li><li>充電案例的 runner、pile／connector、共用 occupancy lock 與專案起充／結算規則；實體測試另交 owner。</li></ol>
+<h2 id="section-5">5. 選正確證據，不只看綠燈</h2>
+<div class="table-scroll"><table>
+<tr><th>情況</th><th>證據方式</th></tr>
+<tr><td>API contract</td><td>request／response／schema／error，不能宣稱 persistence 已驗證</td></tr>
+<tr><td>API E2E</td><td>operation 加 read-back、event、report、計費或其他下游結果</td></tr>
+<tr><td>UI 一般互動或視覺</td><td>UI state、DOM／layout、必要的 screenshot 或 baseline</td></tr>
+<tr><td>金額、RBAC、狀態轉換等高風險 UI</td><td>UI action、API response 與下游結果交叉核對</td></tr>
+<tr><td>OCPP／MQTT／延遲副作用</td><td>protocol trace 加 business outcome，不只看 acknowledgement</td></tr>
+</table></div>
+<p>明列 PASS、FAIL、BLOCK、NOT IMPLEMENTED 及原因；遇到 skipped／not_run 也要說明。Dashboard 的簡化狀態映射另依 data/README.md，不回寫正式案例 schema。</p>
+<h2 id="section-6">6. Bug：先讓 RD 看懂問題</h2>
+<ul><li>採 A 版標題：[功能原名] 具體問題，名稱貼齊本次 UI 或 Test Case。</li><li>開頭 summary 單段且不超過 50 字；再列環境、前置條件、重現步驟、實際與預期。</li><li>name_source、相關 Case ID 與 evidence 可追溯；完整測試紀錄用連結引用。</li><li>Cycle Bug 建在指定 QA 主單下。星舟雲端依本次主單；LCMS 同時套用 Defect／Development。</li><li>複驗先確認修復 build、環境及資料，執行原 failed step 加合理回歸。外部留言、改狀態或關單仍依本次授權。</li></ul>
+<h2 id="section-7">7. 什麼時候轉成自動化</h2>
+<p>依序處理每版回歸、未覆蓋 P0／P1，以及人工已重複兩次的 flow。第 2 次人工執行後建立 Automation QA handoff；缺條件用 AUTOMATE_LATER 記錄 blocker、owner 與解除方式。</p>
+<p>自動化實作放 Automation_HDRE，延用 fixture、client、locator、runner；QA repo-local tests 只有明確要求時使用。API case 的 ID、白話標題、步驟與預期透過 report_case metadata 分開呈現。</p>
+<h2 id="section-8">8. 結果放哪裡</h2>
+<div class="table-scroll"><table>
+<tr><th>產物</th><th>位置（相對 HDRE）</th></tr>
+<tr><td>PRD／RA／Figma／API／OCPP canonical sources</td><td>qa_ai_workflow/docs/</td></tr>
+<tr><td>Test Case CSV／Readable Excel</td><td>qa_ai_workflow/outputs/testcases/</td></tr>
+<tr><td>Plan／Execution／Report／Bug Draft</td><td>qa_ai_workflow/outputs/reports/ 下的專案／功能目錄</td></tr>
+<tr><td>可執行 API／UI／OCPP 與結果</td><td>Automation_HDRE/ 的既有框架位置</td></tr>
+<tr><td>優化研究與執行結果</td><td>qa_optimization/reports/</td></tr>
+<tr><td>採用決策與 Codex 交接</td><td>qa_optimization/data/decisions.json、qa_optimization/handoffs/</td></tr>
+</table></div>
+<p>正式交付路徑與格式仍依 Mode／專案 Output Contract。來源、Case ID、結果、缺陷與風險需串得回去。</p>
+<h2 id="section-9">9. 與 QA 優化工作台的關係</h2>
+<p>產品測試流程與內部優化清單分開追蹤。Claude 研究新知及現有框架，更新候選；使用者在工作台選取後，Codex 依交接執行。候選效能問題要先量測，不能直接算作已發現缺陷。</p>
+<p>新人培訓已獨立放在工作台主層。此工作流程不再內嵌培訓頁；舊 T1–T8 與 v0.5 示範作為歷史參考，不當作今日 CI／監控已啟用的證明。</p>
+<h2 id="section-10">10. 本次核對來源</h2>
+<ul><li>AGENTS.md</li><li>.agents/skills/hdre-qa-workflow/SKILL.md</li><li>.agents/skills/hdre-qa-workflow/references/qa-cycle-team.md</li><li>.agents/skills/hdre-qa-workflow/references/source-gate.md</li><li>.agents/skills/hdre-qa-workflow/references/execution-and-routing.md</li><li>.agents/skills/hdre-qa-workflow/references/output-contract.md</li><li>qa_ai_workflow/AGENTS.md</li><li>qa_ai_workflow/methodology/test-execution-routing.md</li><li>qa_ai_workflow/.codex/skills/write-bug/SKILL.md</li><li>Automation_HDRE/Automation_API_UI-main/AGENTS.md</li></ul>
+<p>此頁是本機來源的人工核對快照，不自動同步；不新增或覆寫正式 QA 規則。</p></main></div>
+<footer>這是現況摘要；正式執行以 AGENTS.md、Mode 與專案 Skill 為準。未驗證的能力不標為已運作。</footer></body></html>

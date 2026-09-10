@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HDRE QA 正文｜2026.09.07</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="document">
+    <nav class="navbar navbar-expand navbar-dark fixed-top" style="background-color:#000000cc">
+      <a class="nav-link" href="/qa-dashboard/#/optimizations" aria-label="返回 QA 工作台">← QA 工作台</a>
+      <a class="navbar-brand" href="./index.html">QA AI WorkFlow</a>
+      <div class="navbar-nav">
+        <a class="nav-link" href="./execution.html">執行Task表</a>
+        <a class="nav-link" href="./document.html" aria-current="page">Markdown正文</a>
+      </div>
+    </nav>
+    <div class="doc-shell">
+      <aside class="doc-sidebar" aria-label="Markdown 章節導覽">
+        <div class="brand small">
+          <div class="brand-mark" aria-hidden="true">MD</div>
+          <div>
+            <p class="brand-title">Markdown 正文</p>
+            <p class="brand-subtitle">章節搜尋</p>
+          </div>
+        </div>
+
+        <label class="search-box light">
+          <span>搜尋章節</span>
+          <input id="searchInput" type="search" placeholder="例如 T4 / RBAC / Test Report" />
+        </label>
+
+        <nav id="sectionNav" class="section-nav light"></nav>
+      </aside>
+
+      <main class="doc-main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Full Document</p>
+            <h1 id="docTitle">Markdown 正文</h1>
+          </div>
+          <div class="toolbar">
+            <span id="versionBadge" class="version-badge">2026.09.07</span>
+            <span id="sourceLabel" class="source-label">讀取中...</span>
+            <button id="reloadButton" class="icon-button" type="button" title="重新讀取 Markdown">↻</button>
+          </div>
+        </header>
+
+        <article id="markdownContent" class="markdown-body document-body"></article>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HDRE QA 執行與改善追蹤</title><link rel="stylesheet" href="/qa-dashboard/workflow-docs.css"></head>
+<body><nav class="workspace-nav" aria-label="QA 工作台"><a href="/qa-dashboard/#/projects" aria-label="返回 QA 工作台">← QA 工作台</a><a href="/qa-dashboard/resources/QA-AI-WorkFlow-GitHub-Pages/index.html">QA 架構與演進</a><a href="/qa-dashboard/resources/QA-AI-WorkFlow/index.html">QA 工作流程</a></nav>
+<header><p class="eyebrow">HDRE · 執行與改善追蹤</p><h1>HDRE QA 執行與改善追蹤</h1><p>依本機規則與程式核對 · 更新於 2026-09-07</p><div class="actions"><a href="./execution-document.html">搜尋／閱讀正文</a><a href="./execution.html">執行與改善追蹤</a><a href="./QA_AI_WorkFlow_Execution_Task_Roadmap.md">Markdown 來源</a><a href="/qa-dashboard/#/optimizations">查看優化清單 →</a></div></header>
+<div class="reference-layout"><aside aria-label="章節導覽"><a href="#section-1">1. 目前已有的執行能力</a><a href="#section-2">2. 下一批改善如何決定</a><a href="#section-3">3. 每次交接的最小內容</a><a href="#section-4">4. 正式流程與來源</a></aside><main><p>版本：2026.09.07（workspace 現況快照）</p>
+<p>舊版按 Stage 1–4 配固定工期與團隊 owner；本版改為目前可確認的能力及下一步。規則已建立不代表每個專案已執行完成，未經本次 scope 估點不填固定天數。</p>
+<h2 id="section-1">1. 目前已有的執行能力</h2>
+<div class="table-scroll"><table>
+<tr><th>工作</th><th>現況</th><th>下一步／驗收</th></tr>
+<tr><td>Source／Readiness Gate</td><td>六種 Mode 與來源一致性規則已建立</td><td>每輪留下 scope、來源缺口及 Gate，不混用版本</td></tr>
+<tr><td>Test Plan／Case／Report</td><td>專用 Skills、模板與輸出規則已建立</td><td>依正式來源產出並 Review，未執行不能填 Pass</td></tr>
+<tr><td>QA Team</td><td>Leader／Manual／Automation 的分工與 Handoff Contract 已建立</td><td>完整 Cycle 依 Gate 分派，收齊 evidence 再結案</td></tr>
+<tr><td>Bug 精簡與路由</td><td>A 版文字規則、50 字摘要檢查及 Asana contract 已建立</td><td>名稱貼齊來源，先驗證 Draft，再依專案與主單開單</td></tr>
+<tr><td>手動轉自動化</td><td>Regression、P0／P1、第二次人工 flow 的優先序已建立</td><td>維護 mapping、blocker 與解除條件</td></tr>
+<tr><td>充電資源協調</td><td>pile-level lock 與 project-specific routing 已有規則／程式</td><td>每次執行確認 lock、runner、訂單匹配及 cleanup</td></tr>
+<tr><td>API 報表可讀性</td><td>report_case metadata 規則已建立</td><td>修改案例時補齊 ID／title／steps／expected，驗證報表</td></tr>
+<tr><td>優化工作台</td><td>本機資料、人工決策、Markdown 交接與結果回填已實作</td><td>依候選證據逐項選取，不把研究清單當已完成工作</td></tr>
+</table></div>
+<h2 id="section-2">2. 下一批改善如何決定</h2>
+<div class="table-scroll"><table>
+<tr><th>方向</th><th>目前階段</th><th>需要的證據</th></tr>
+<tr><td>測試／報表成本</td><td>候選、未量測</td><td>固定 suite 的耗時、CPU／RSS、輸出量與重跑結果</td></tr>
+<tr><td>並行與資源隔離</td><td>有程式線索，待盤點</td><td>worker／fixture／pile／session 的隔離及 contention 行為</td></tr>
+<tr><td>OCPP 版本覆蓋</td><td>待建立版本對照</td><td>目前支援版本、需求、Test Case、runner 與下游結果 mapping</td></tr>
+<tr><td>啟動等待與日誌</td><td>候選、未量測</td><td>必要協定等待與額外成本的可重現比較</td></tr>
+<tr><td>交付物 Evaluation</td><td>已有局部 validators／evals</td><td>共同樣本、baseline、誤判分析與持續追蹤</td></tr>
+<tr><td>Claude 定期研究</td><td>設定交接指令已準備</td><td>實際排程狀態、第一次試跑與清單更新結果</td></tr>
+<tr><td>最新專案進度</td><td>可保存快照，需持續核對</td><td>同版本／scope 的最新測試來源與統計口徑</td></tr>
+</table></div>
+<p>上述候選的即時決策以工作台「優化清單」為準，本頁不複製 pending／queued／in_progress 狀態。</p>
+<h2 id="section-3">3. 每次交接的最小內容</h2>
+<ul><li>Scope、project、feature、版本／Phase 與本次要完成的產物。</li><li>Gate、來源與 evidence，明確區分已知事實、假設與缺口。</li><li>改動或執行範圍、資源／locks、cleanup 與風險。</li><li>Bug／blockers、下一位 owner 與 next action。</li><li>驗收方式；沒有 baseline 的效能改善先做量測，不先承諾加速百分比。</li></ul>
+<h2 id="section-4">4. 正式流程與來源</h2>
+<ul><li>.agents/skills/hdre-qa-workflow/references/qa-cycle-team.md</li><li>.agents/skills/hdre-qa-workflow/references/execution-and-routing.md</li><li>qa_ai_workflow/methodology/test-execution-routing.md</li><li>qa_ai_workflow/.codex/skills/write-bug/SKILL.md</li><li>Automation_HDRE/Automation_API_UI-main/AGENTS.md</li><li>Automation_HDRE/SC_QA_Charge_Stress_Test/modules/resource_lock.py</li><li>qa_optimization/data/optimizations.json</li><li>qa_optimization/tasks/setup-claude-schedule.md</li></ul>
+<p>更新日期為 2026-09-07；本頁是能力與改善方向摘要，不是已授權的實作任務或產品測試完成報告。</p></main></div>
+<footer>這是現況摘要；正式執行以 AGENTS.md、Mode 與專案 Skill 為準。未驗證的能力不標為已運作。</footer></body></html>
