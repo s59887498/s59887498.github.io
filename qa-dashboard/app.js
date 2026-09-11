@@ -3,12 +3,12 @@
 const staticMode = window.QA_STATIC === true;
 const labels = {
   stages: {planning:"測試規劃", cases:"案例準備", execution:"測試執行", retest:"缺陷複驗", report:"報告交付"},
-  activity: {planned:"準備中・待開測", active:"測試中", blocked:"受阻", awaiting_report:"測試完成・待報告", completed:"已完成", needs_confirmation:"待確認現況"},
+  activity: {planned:"準備中・待開測", rd_delivered:"RD已交付・待開測", active:"測試中", blocked:"受阻", awaiting_report:"測試完成・待報告", completed:"已完成", needs_confirmation:"待確認現況"},
   category: {performance:"效能", ocpp:"OCPP 知識", architecture:"架構", qa_workflow:"QA 流程"},
   confidence: {hypothesis:"待驗證假設", evidence:"已有程式證據", measured:"已有量測"},
   decision: {pending:"待評估", queued:"待交接 Codex", in_progress:"進行中", done:"已完成", dismissed:"暫不採用"},
 };
-const state = {data:null, query:"", filter:"all", category:"all", projectFilter:"all", detail:null, busy:false};
+const state = {data:null, query:"", filter:"all", category:"all", projectFilter:"all", projectPage:1, projectPageSize:6, detail:null, busy:false};
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const badge = (text, type="neutral") => `<span class="badge ${esc(type)}">${esc(text)}</span>`;
@@ -73,29 +73,48 @@ function render() {
 }
 function renderProjects() {
   const all=state.data.projects.items;
-  const unknown=all.filter(p=>p.activity==="needs_confirmation" || isStale(p.activity_confirmed_at)).length;
+  const unknown=all.filter(p=>p.activity!=="completed" && (p.activity==="needs_confirmation" || isStale(p.activity_confirmed_at))).length;
   const active=all.filter(p=>p.activity==="active" && !isStale(p.activity_confirmed_at)).length;
-  const selected=all.filter(p=>state.projectFilter==="all" || p.activity===state.projectFilter);
+  // Keep source order within each group; display sorting never mutates the catalog.
+  const rank={active:0, blocked:0, awaiting_report:0, planned:1, rd_delivered:1, needs_confirmation:2, completed:3};
+  const selected=all.filter(p=>state.projectFilter==="all" || p.activity===state.projectFilter)
+    .sort((a,b)=>(rank[a.activity]??2)-(rank[b.activity]??2));
+  const pages=Math.max(1,Math.ceil(selected.length/state.projectPageSize));
+  state.projectPage=Math.min(Math.max(1,state.projectPage),pages);
+  const start=(state.projectPage-1)*state.projectPageSize;
+  const visible=selected.slice(start,start+state.projectPageSize);
   $("#content").innerHTML=`<div class="page-heading"><div><div class="eyebrow">TESTING OVERVIEW</div><h1>測試專案</h1><p>掌握每個專案的階段、進度與下一步。</p></div><button class="primary" data-task="progress">同步進度任務 <span>↗</span></button></div>
     <div class="stats">${stat(active,"確認測試中","最近 7 天有現況依據","accent")}${stat(all.filter(p=>p.activity==="blocked"&&!isStale(p.activity_confirmed_at)).length,"目前受阻","依已確認的專案狀態")}${stat(unknown,"等待同步","需補最新進度或確認現況")}${stat(all.length,"追蹤專案","各版本與測試輪次分開管理")}</div>
     ${unknown?`<div class="notice"><span class="notice-icon">i</span><div><strong>先確認最新進度，再做判斷</strong><p>${unknown} 個專案的狀態待同步。下方保留歷史來源與日期；未把舊報告當作目前測試結果。</p></div></div>`:""}
     <div class="section-heading"><h2>專案進度 <span>${selected.length}</span></h2><label class="filter-label">顯示 <select id="project-filter"><option value="all">全部專案</option>${Object.entries(labels.activity).map(([key,value])=>`<option value="${key}" ${state.projectFilter===key?"selected":""}>${value}</option>`).join("")}</select></label></div>
-    <div class="project-grid">${selected.map(projectCard).join("") || '<div class="empty">目前沒有符合條件的專案。可請 Claude 執行同步進度任務。</div>'}</div>
-    <div class="method-note"><strong>進度如何計算？</strong>已執行率 =（通過＋失敗）÷ 範圍案例數。Blocked、Skipped 與未執行不算已執行；不同輪次的局部複驗不直接加總。</div>`;
-  $("#project-filter").onchange=e=>{state.projectFilter=e.target.value;renderProjects();};
+    <p class="project-order-note">排序：進行中 → 尚未開始 → 已完成；待確認現況列在已完成之前。</p>
+    <div class="project-grid">${visible.map(projectCard).join("") || '<div class="empty">目前沒有符合條件的專案。可請 Claude 執行同步進度任務。</div>'}</div>
+    <nav class="project-pagination" aria-label="專案分頁">
+      <label>每頁 <select id="project-page-size" aria-label="每頁專案數">${[6,12,24].map(size=>`<option value="${size}" ${state.projectPageSize===size?"selected":""}>${size}</option>`).join("")}</select> 個</label>
+      <span role="status" aria-live="polite">${selected.length?`顯示 ${start+1}–${start+visible.length} 個，共 ${selected.length} 個`:"共 0 個專案"}</span>
+      <div class="project-page-actions"><button class="secondary" id="project-prev" ${state.projectPage===1?"disabled":""}>上一頁</button><span>第 ${state.projectPage} / ${pages} 頁</span><button class="secondary" id="project-next" ${state.projectPage===pages?"disabled":""}>下一頁</button></div>
+    </nav>
+    <div class="method-note"><strong>進度如何計算？</strong>已完成專案顯示 100% 結案進度，歷史案例統計另列。測試中的已執行率 =（通過＋失敗）÷ 範圍案例數；Blocked、Skipped 與未執行不算已執行，不同輪次的局部複驗不直接加總。</div>`;
+  $("#project-filter").onchange=e=>{state.projectFilter=e.target.value;state.projectPage=1;renderProjects();};
+  $("#project-page-size").onchange=e=>{const size=Number(e.target.value);if(![6,12,24].includes(size))return;state.projectPageSize=size;state.projectPage=1;renderProjects();};
+  const turnPage=(delta,selector)=>{state.projectPage+=delta;renderProjects();$(selector).focus?.();$(".section-heading").scrollIntoView?.({block:"start"});};
+  $("#project-prev").onclick=()=>turnPage(-1,"#project-prev");
+  $("#project-next").onclick=()=>turnPage(1,"#project-next");
 }
 function projectCard(p) {
-  const percent=pct(p), c=p.counts;
-  const stale=p.activity==="needs_confirmation" || isStale(p.activity_confirmed_at);
+  const completed=p.activity==="completed", percent=completed?100:pct(p), c=p.counts;
+  const stale=!completed && (p.activity==="needs_confirmation" || isStale(p.activity_confirmed_at));
   const stages=Object.entries(labels.stages), index=stages.findIndex(([key])=>key===p.stage);
   return `<article class="project-card"><div class="card-top"><span class="project-product">${esc(p.product)}</span>${badge(stale?"待確認現況":labels.activity[p.activity],stale?"amber":p.activity==="active"?"teal":"neutral")}</div>
     <h3>${esc(p.title)}</h3><p class="project-summary">${esc(p.summary)}</p><div class="project-meta"><span>◉ ${esc(p.owner)}</span><span>${esc(p.environment)}</span></div>
     ${p.planned_start_at?`<p class="method-note">預計開測：${esc(shortDate(p.planned_start_at))}</p>`:""}
     <div class="stage-caption">最近紀錄階段 <strong>${labels.stages[p.stage]}</strong><span>${shortDate(p.observed_at)}</span></div>
     <ol class="stages">${stages.map(([key,value],i)=>`<li class="${i===index?"current":i<index?"previous":""}"><i>${i===index?"●":i+1}</i><span>${value}</span></li>`).join("")}</ol>
-    <div class="progress-head"><span>${c?`案例表快照 · ${shortDate(p.counts_as_of)}`:"案例結果待彙整"}</span><strong>${p.activity==="awaiting_report"?"待報告交付":`${percent===null?"—":percent+"%"}<small> 已執行</small>`}</strong></div>
-    ${p.activity==="awaiting_report"?'<p class="method-note">測試完成依人員確認；下方保留案例表狀態，歷史未執行項不視為新缺陷。</p>':`<div class="progress-track" aria-label="${percent===null?"尚無完整結果":`已執行率 ${percent}%`}"><span style="width:${percent??0}%"></span></div>`}
+    <div class="progress-head"><span>${completed?"專案完成進度":c?`案例表快照 · ${shortDate(p.counts_as_of)}`:"案例結果待彙整"}</span><strong>${p.activity==="awaiting_report"?"待報告交付":`${percent===null?"—":percent+"%"}<small> ${completed?"已完成":"已執行"}</small>`}</strong></div>
+    ${p.activity==="awaiting_report"?'<p class="method-note">測試完成依人員確認；下方保留案例表狀態，歷史未執行項不視為新缺陷。</p>':`<div class="progress-track" aria-label="${completed?"專案完成進度 100%":percent===null?"尚無完整結果":`已執行率 ${percent}%`}"><span style="width:${percent??0}%"></span></div>`}
+    ${completed?`<details class="method-note"><summary>歷史案例統計${c?` · ${shortDate(p.counts_as_of)}`:""}</summary><p>結案依已確認的專案狀態；以下保留歷史結果，不代表全部案例通過。</p>`:""}
     <div class="case-counts"><span><b>${p.total??"—"}</b>範圍</span><span class="passed"><b>${c?.passed??"—"}</b>通過</span><span class="failed"><b>${c?.failed??"—"}</b>失敗</span><span class="blocked"><b>${c?.blocked??"—"}</b>受阻</span><span><b>${c?.skipped??"—"}</b>跳過</span><span><b>${c?.not_run??"—"}</b>未執行</span></div>
+    ${completed?"</details>":""}
     <div class="next-action"><span>下一步</span><p>${esc(p.next_action)}</p></div><button class="text-button card-bottom" data-project="${esc(p.id)}">查看範圍與來源 <span>→</span></button></article>`;
 }
 function renderOptimizations() {
