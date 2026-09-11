@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-09-11T02:07:48+00:00",
+    "updated_at": "2026-09-11T03:21:35+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -305,6 +305,33 @@
             "label": "智慧均流 Asana 主單（ST-7017）",
             "ref": "https://app.asana.com/1/1201720793465976/project/1210988184935976/task/1216707949300392?focus=true",
             "checked_at": "2026-09-11T00:50:05+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-INSTALL-WIZARD-V131",
+        "title": "地端充電 - 安裝精靈測試 & RA協作",
+        "product": "地端充電",
+        "owner": "Andy",
+        "environment": "V1.3.1／測試環境與實際 build 待確認",
+        "summary": "安裝精靈 V1.3.1 測試與 RA 協作；預計 9/14（一）開始測試、9/16（三）完成，目前準備中、尚未開測。",
+        "stage": "planning",
+        "activity": "planned",
+        "planned_start_at": "2026-09-14",
+        "activity_confirmed_at": "2026-09-11T03:21:35+00:00",
+        "observed_at": "2026-09-11T03:21:35+00:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "依 2026-09-11 使用者指示登錄 V1.3.1 安裝精靈測試與 RA 協作，預計 2026-09-14 開始、2026-09-16 完成（Asia/Taipei）。本輪僅登錄任務；尚未盤點 RA、Test Case 或執行結果，預計完成不代表已結案。",
+        "blockers": [],
+        "next_action": "確認 V1.3.1 測試環境、build、RA 與測試範圍，9/14 開測，目標 9/16 完成測試與 RA 協作；實際開測後回填進度。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "使用者任務與時程確認",
+            "ref": "qa_optimization/reports/research/2026-09-11_installation-wizard-v131-registration.md",
+            "checked_at": "2026-09-11T03:21:35+00:00"
           }
         ]
       }
@@ -852,7 +879,7 @@
     ]
   },
   "revisions": {
-    "projects": "a0930dcdffec9de653b00cc621c84e095e7c7baa48d6b6fd5055873dbc8fddb1",
+    "projects": "949fef69b55a55ea7169840f5b695cd82937690084c0098b312f05cd8647a38c",
     "optimizations": "dfaa057a98c8ff33725910b00cc992758e75309dc6a9b6bbf426550cc9f61b55",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -875,5 +902,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-08 使用者再次確認）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-09-11T03:18:13+00:00"
+  "exported_at": "2026-09-11T04:22:47+00:00"
 }
