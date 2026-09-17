@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-09-16T02:24:54+00:00",
+    "updated_at": "2026-09-16T02:54:42+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -202,27 +202,24 @@
         "product": "星舟快充",
         "owner": "Andy",
         "environment": "SmartHub Test／StarCharge Stage",
-        "summary": "SmartHub OCPI Simulator Interim Test Report v1.2；35 案中 PASS 31、FAIL 0、BLOCK 2、SKIPPED 1、NOT IMPLEMENTED 1。使用者決定 Credentials 初始化不納入日常異動測試。",
+        "summary": "SmartHub OCPI Simulator Final Test Report v1.0；35 案中 PASS 33、FAIL 0、BLOCK 0、SKIPPED 2、NOT IMPLEMENTED 0。Tariff 與 EVSE Status PUT 均取得 OCPI 1000 Success，Final Gate 為 PASS。",
         "stage": "report",
-        "activity": "active",
+        "activity": "completed",
         "planned_start_at": "2026-09-14",
-        "activity_confirmed_at": "2026-09-16T10:24:19+08:00",
-        "observed_at": "2026-09-16T10:24:19+08:00",
+        "activity_confirmed_at": "2026-09-16T10:53:41+08:00",
+        "observed_at": "2026-09-16T10:53:41+08:00",
         "total": 35,
         "counts": {
-          "passed": 31,
+          "passed": 33,
           "failed": 0,
-          "blocked": 2,
-          "skipped": 1,
-          "not_run": 1
+          "blocked": 0,
+          "skipped": 2,
+          "not_run": 0
         },
-        "counts_as_of": "2026-09-16T10:24:19+08:00",
-        "scope_note": "工具 evidence 覆蓋 26 案；SMH-SIM-024、027、029、030、031 由使用者人工確認 PASS。SMH-SIM-005 依使用者決定 SKIPPED，因 Credentials／固定 Token B、C 不納入日常異動。not_run=1 對應 NOT IMPLEMENTED（Tariff read-back／restore adapter）。",
-        "blockers": [
-          "Tariff／EVSE live PUT 缺保存的 request／response／timestamp／correlation 與 read-back evidence。",
-          "Tariff 單筆 read-back／restore adapter 尚未提供。"
-        ],
-        "next_action": "逐一處理剩餘 SMH-SIM-017、018、023：釐清 Tariff PUT 測試需求，補 Tariff／EVSE PUT 證據及 Tariff read-back／restore 方法。",
+        "counts_as_of": "2026-09-16T10:53:41+08:00",
+        "scope_note": "SMH-SIM-017 以 Tariff 180、SMH-SIM-023 以 Location 1013／EVSE 5339-7378 的遮罩 request、request/correlation ID 與 OCPI 1000 response 判定 PASS。SMH-SIM-005 因不異動 Credentials 而 SKIPPED；SMH-SIM-018 因 SmartHub 無 read-back API、顯示屬 Partner 責任而 SKIPPED。",
+        "blockers": [],
+        "next_action": "本輪已完成並交付 Final Test Report；若日後有外部稽核需求，再補充歸檔遮罩後的 OCPP、Session／CDR 與 callback 原始 evidence。",
         "sources": [
           {
             "kind": "local",
@@ -238,9 +235,9 @@
           },
           {
             "kind": "local",
-            "label": "SmartHub Simulator Interim E2E Test Report",
+            "label": "SmartHub Simulator Final E2E Test Report",
             "ref": "qa_ai_workflow/outputs/reports/星舟快充/SmartHub/StarCharge_新動智能_SmartHub_Simulator_E2E_QA_Automation_Report.md",
-            "checked_at": "2026-09-16T10:24:19+08:00"
+            "checked_at": "2026-09-16T10:53:41+08:00"
           }
         ]
       },
@@ -879,7 +876,7 @@
     ]
   },
   "revisions": {
-    "projects": "27e8659270a1fd5b3c985806fc1d660b7b828ead8ab828397558a1ae8539a551",
+    "projects": "e9fc33d0facdac961ad416c0c8a9d74bd0a6c7c218f1d62200c65a0fa0e23e75",
     "optimizations": "dfaa057a98c8ff33725910b00cc992758e75309dc6a9b6bbf426550cc9f61b55",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -902,5 +899,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-08 使用者再次確認）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-09-16T02:30:05+00:00"
+  "exported_at": "2026-09-17T02:30:02+00:00"
 }
