@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-09-16T02:54:42+00:00",
+    "updated_at": "2026-09-18T02:23:24+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -12,8 +12,8 @@
         "environment": "LCMS V1.5／實際 build 待確認",
         "stage": "execution",
         "activity": "active",
-        "activity_confirmed_at": "2026-09-11T07:16:52+00:00",
-        "observed_at": "2026-09-11T07:09:49+00:00",
+        "activity_confirmed_at": "2026-09-17T16:01:34+00:00",
+        "observed_at": "2026-09-17T16:01:34+00:00",
         "total": 467,
         "counts": {
           "failed": 7,
@@ -23,11 +23,13 @@
           "passed": 413
         },
         "counts_as_of": "2026-09-11T07:09:49+00:00",
-        "scope_note": "OneDrive 全量 467 案／1349 步，以 Readable View State 聚合。Case Index 只核對 ID。原檔儲存於台灣 9/11 15:09:49，本次 9/11 查閱；儲存時間非逐案執行時間，0 未執行不等於全數通過。",
+        "scope_note": "OneDrive 全量 467 案／1349 步，以 Readable View State 聚合。Case Index 只核對 ID。counts 仍是 2026-09-11 15:09:49（台灣）儲存版的快照，本輪未更新：本次排程只掛載 HDRE 一個資料夾，公司 OneDrive 的「LCMS_V1.5_完整回歸測試_Test_Case.xlsx」不在可存取範圍，工作簿無法重新讀取，因此不動 counts 與 counts_as_of，也不推估新的百分比。本輪改以 Asana 唯讀查詢確認本輪仍在進行：以 text=V1.5 檢索到的 [V1.5回歸測試] 單中，兩筆 P1 於 2026-09-17 16:01（UTC）仍有更新且到期日為 2026-09-18，故 activity_confirmed_at／observed_at 採用該紀錄時間，不使用今日日期。Asana 缺陷單數不等於 Excel 的 Failed 案例數，兩者不相加。儲存時間非逐案執行時間，0 未執行不等於全數通過。",
         "blockers": [
-          "17 案 Blocked，需依 Readable View 備註逐案解除；另有 7 案 Failed 待修復／複驗。"
+          "7 案 Failed、17 案 Blocked 仍依 2026-09-11 工作簿快照，本輪無法重讀 OneDrive 工作簿確認是否已變動。",
+          "Asana 仍有未結的 [V1.5回歸測試] P1 缺陷：預扣餘額不足仍可雙卡同時起充（到期 2026-09-18）、韌體管理同樁重疊排程皆進入執行中（到期 2026-09-18），另有帳戶加值重複入帳、操作日誌未記錄匯出、OTA 下載中仍可起充等未結單。",
+          "本輪排程未取得 OneDrive 存取權，下次同步需由使用者提供工作簿或授權對應資料夾。"
         ],
-        "next_action": "追蹤 7 案失敗修復與複驗、處理 17 案受阻，確認 30 案跳過處置後再彙整報告。",
+        "next_action": "提供或授權 OneDrive 的 LCMS V1.5 工作簿以更新逐案統計；同時追蹤 2026-09-18 到期的兩筆 P1 缺陷與其餘未結單，確認 17 案受阻與 30 案跳過的處置後再彙整報告。",
         "sources": [
           {
             "label": "9/11 15:09 儲存版 Readable View 快照",
@@ -40,6 +42,22 @@
             "kind": "local",
             "ref": "qa_optimization/reports/research/2026-09-11_150949_lcms-progress.json",
             "checked_at": "2026-09-11T07:16:52+00:00"
+          },
+          {
+            "kind": "web",
+            "label": "Asana [V1.5回歸測試] 未結 P1：預扣餘額不足仍可雙卡同時起充",
+            "ref": "https://app.asana.com/1/1201720793465976/project/1211254768090665/task/1218347311207796",
+            "checked_at": "2026-09-18",
+            "published_at": null,
+            "note": "唯讀查詢；modified_at 2026-09-17T16:01:34Z、due 2026-09-18、未完成"
+          },
+          {
+            "kind": "web",
+            "label": "Asana [V1.5回歸測試] 未結 P1：韌體管理同樁重疊排程皆進入執行中",
+            "ref": "https://app.asana.com/1/1201720793465976/project/1211254768090665/task/1218253870931847",
+            "checked_at": "2026-09-18",
+            "published_at": null,
+            "note": "唯讀查詢；modified_at 2026-09-17T16:01:28Z、due 2026-09-18、未完成"
           }
         ]
       },
@@ -313,22 +331,30 @@
         "environment": "V1.3.1／測試環境與實際 build 待確認",
         "summary": "安裝精靈 V1.3.1 測試與 RA 協作；預計 9/14（一）開始測試、9/16（三）完成，目前準備中、尚未開測。",
         "stage": "planning",
-        "activity": "planned",
+        "activity": "needs_confirmation",
         "planned_start_at": "2026-09-14",
-        "activity_confirmed_at": "2026-09-11T03:21:35+00:00",
+        "activity_confirmed_at": null,
         "observed_at": "2026-09-11T03:21:35+00:00",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "依 2026-09-11 使用者指示登錄 V1.3.1 安裝精靈測試與 RA 協作，預計 2026-09-14 開始、2026-09-16 完成（Asia/Taipei）。本輪僅登錄任務；尚未盤點 RA、Test Case 或執行結果，預計完成不代表已結案。",
+        "scope_note": "依 2026-09-11 使用者指示登錄 V1.3.1 安裝精靈測試與 RA 協作，預計 2026-09-14 開始、2026-09-16 完成（Asia/Taipei）。2026-09-18 排程同步：預計期間已過，但查不到任何現況依據——HDRE 內沒有任何路徑或檔名含「安裝精靈」「install wizard」或「V1.3.1」的 RA、Test Case、執行紀錄或報告；Asana 以「安裝精靈」檢索只找到 2026-06／07 且已完成的 [QA]測試安裝精靈與 [BE]安裝精靈開發，沒有本次 V1.3.1 輪次的任務。依現況證據不足的規則改為待確認並把確認日期清為 null，不用今日日期讓它看起來正在進行，也不推定已開測或已完成。這是查無紀錄，不代表測試沒有進行；可能只是成果尚未放進本 workspace 或另有來源。planned_start_at 保留原登錄值。",
         "blockers": [],
-        "next_action": "確認 V1.3.1 測試環境、build、RA 與測試範圍，9/14 開測，目標 9/16 完成測試與 RA 協作；實際開測後回填進度。",
+        "next_action": "請確認 V1.3.1 安裝精靈測試是否已於 9/14 開始、目前狀態與成果放在哪裡；若已進行請提供 RA／Test Case／執行紀錄來源，若尚未開始請提供新的預計開測日期，再回填為準備中或測試中。",
         "sources": [
           {
             "kind": "local",
             "label": "使用者任務與時程確認",
             "ref": "qa_optimization/reports/research/2026-09-11_installation-wizard-v131-registration.md",
             "checked_at": "2026-09-11T03:21:35+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "2026-09-18 於 HDRE 全域檢索安裝精靈／V1.3.1 相關產出（查無本輪紀錄）",
+            "ref": "qa_ai_workflow/outputs",
+            "checked_at": "2026-09-18",
+            "published_at": null,
+            "note": "以檔名／路徑檢索「安裝精靈」「install wizard」「V1.3.1」；outputs 下 2026-09-12 之後僅 SmartHub 與泰田實車測試報告"
           }
         ]
       }
@@ -336,7 +362,7 @@
   },
   "optimizations": {
     "schema_version": 1,
-    "updated_at": "2026-09-11T02:20:58+00:00",
+    "updated_at": "2026-09-18T02:23:24+00:00",
     "items": [
       {
         "id": "OPT-PERF-001",
@@ -446,17 +472,17 @@
       {
         "id": "OPT-OCPP-003",
         "title": "用目前 OCPP 版本整理缺漏的驗證情境",
-        "summary": "對照 OCA 文件與既有測試，建立版本、功能與 evidence 的對照清單；本輪已確認測試客戶端只跑 OCPP 1.6，安全情境改以 1.6 Security Whitepaper 第 4 版為依據。",
+        "summary": "對照 OCA 文件與既有測試，建立版本、功能與 evidence 的對照清單；本輪首次做出 OCPP 1.6 訊息層級的覆蓋盤點，測試客戶端仍只跑 1.6，沒有升級理由。",
         "category": "ocpp",
         "priority": "P2",
         "confidence": "evidence",
         "research_status": "candidate",
-        "finding": "2026-09-07 更新：測試客戶端的協議版本已由程式碼確認 —— Python harness 只協商 subprotocols ocpp1.6 與 ocpp1.5，瀏覽器內 harness 固定用 ocpp1.6，全 repo 未見 2.0.1／2.1 實作。OCA 頁面列出 1.6（2015）、2.0.1（2020，2024 成為 IEC 63584）、2.1（2025），但產品端實際支援哪些版本本輪沒有取得證據，不作為升級理由。安全面向的版本正確依據是 OCPP 1.6 Security Whitepaper 第 4 版（2026-02-05），該文件說明如何把 OCPP 2.0 的安全強化以標準化方式套用到 1.6-J，主題為 secure connection setup、security events/logging、secure firmware update。目前 harness 走明文 ws://，尚未見對應的安全測試情境。coverage 缺口本身仍未逐項比對。 2026-09-11 排程研究重新核對官方來源，結論不變：OCA 協議頁仍列 1.6（2015）、2.0.1（2020，2024 成為 IEC 63584）、2.1（2025），沒有公告 1.6 的停用或 sunset 日期，1.6 與 2.0.1 的認證程式都仍存在；OCA 新聞頁 2026-07-02 至 2026-08-26 的項目全是 Plugfest／會議與電網法規意見，沒有新的協定或安全文件發布；1.6 Security Whitepaper 仍是第 4 版（2026-02-05），未見第 5 版或替代文件。本機測試客戶端也重新確認仍只協商 ocpp1.6／1.5（ocpp_client_server.py 第 2145 行，行號因檔案改動由 2131 移動）、瀏覽器內 harness 仍固定 ocpp1.6 並走明文 ws://。產品端實際支援的版本仍未取得書面依據，Security Whitepaper PDF 全文仍未讀，coverage 缺口仍未逐項比對，本輪沒有任何升級理由。",
-        "proposal": "先向產品端確認實際支援的協議版本清單並留下書面依據。接著在 1.6 範圍內建立 coverage matrix：連線與重連、交易生命週期、重複訊息、多槍、計時器，並把 1.6 Security Whitepaper 第 4 版的三大主題逐條列為情境欄位，標出每條的現有 case、evidence 與適用性。2.x 新知只列為適用性研究，不排入升級。",
+        "finding": "2026-09-07 更新：測試客戶端的協議版本已由程式碼確認 —— Python harness 只協商 subprotocols ocpp1.6 與 ocpp1.5，瀏覽器內 harness 固定用 ocpp1.6，全 repo 未見 2.0.1／2.1 實作。OCA 頁面列出 1.6（2015）、2.0.1（2020，2024 成為 IEC 63584）、2.1（2025），但產品端實際支援哪些版本本輪沒有取得證據，不作為升級理由。安全面向的版本正確依據是 OCPP 1.6 Security Whitepaper 第 4 版（2026-02-05），該文件說明如何把 OCPP 2.0 的安全強化以標準化方式套用到 1.6-J，主題為 secure connection setup、security events/logging、secure firmware update。目前 harness 走明文 ws://，尚未見對應的安全測試情境。coverage 缺口本身仍未逐項比對。 2026-09-11 排程研究重新核對官方來源，結論不變：OCA 協議頁仍列 1.6（2015）、2.0.1（2020，2024 成為 IEC 63584）、2.1（2025），沒有公告 1.6 的停用或 sunset 日期，1.6 與 2.0.1 的認證程式都仍存在；OCA 新聞頁 2026-07-02 至 2026-08-26 的項目全是 Plugfest／會議與電網法規意見，沒有新的協定或安全文件發布；1.6 Security Whitepaper 仍是第 4 版（2026-02-05），未見第 5 版或替代文件。本機測試客戶端也重新確認仍只協商 ocpp1.6／1.5（ocpp_client_server.py 第 2145 行，行號因檔案改動由 2131 移動）、瀏覽器內 harness 仍固定 ocpp1.6 並走明文 ws://。產品端實際支援的版本仍未取得書面依據，Security Whitepaper PDF 全文仍未讀，coverage 缺口仍未逐項比對，本輪沒有任何升級理由。 2026-09-18 排程研究：官方來源再次核對，結論不變——OCA 新聞頁最新一則仍是 2026-08-26「Looking back on the Plugfest & Conference Asia 2026」，2026-07-02 起六則全為 Plugfest／會議與電網法規意見，沒有新協定、沒有 1.6 停用或 sunset 公告；1.6 Security Whitepaper 仍是第 4 版（2026-02-05），官方頁面列出的主題仍是 secure connection setup、security events and logging、secure firmware update。本機協議版本也不變：ocpp_client_server.py 第 2145 行仍只協商 ocpp1.6／1.5，browser_ocpp_harness.js 第 77 行仍固定 ocpp1.6 且走明文 ws://，全 workspace 未見 2.0.1／2.1。 本輪補上長期待辦的「coverage 缺口逐項比對」第一步：以 OCPP 1.6 Core 及各 feature profile 的 38 個訊息名稱，對 SC_QA_Charge_Stress_Test 與 Automation_API_UI-main/tests 兩處的 .py／.js 做字面字串檢索（排除 Reports／logs），統計每個訊息名稱的引用次數。有引用者：StatusNotification 26、StartTransaction 17、MeterValues 15、StopTransaction 13、RemoteStartTransaction 11、FirmwareStatusNotification 11、BootNotification 10、Authorize 10、Heartbeat 8、ChangeConfiguration 8、Reset 7、UpdateFirmware 7、SetChargingProfile 7、GetConfiguration 6、TriggerMessage 6、RemoteStopTransaction 5、ChangeAvailability 5、UnlockConnector 4、ClearChargingProfile 3。零引用者共 19 個：Core 的 DataTransfer、ClearCache；Firmware Management 的 GetDiagnostics、DiagnosticsStatusNotification；Reservation 的 ReserveNow、CancelReservation（整個 profile 零引用）；Smart Charging 的 GetCompositeSchedule；Local Auth List Management 的 GetLocalListVersion、SendLocalList（整個 profile 零引用）；以及 1.6 Security Whitepaper 第 4 版相關的 SecurityEventNotification、SignCertificate、CertificateSigned、InstallCertificate、DeleteCertificate、GetInstalledCertificateIds、LogStatusNotification、GetLog、SignedUpdateFirmware、SignedFirmwareStatusNotification 共 10 個，全部零引用。 重要限制：這是字面字串檢索，只證明這些訊息名稱沒有出現在被檢索的檔案裡，不等於功能一定沒被間接測到，也不代表產品端支援這些功能——產品端（CSMS／樁端）實際支援的版本與 feature profile 仍沒有書面依據，因此本表是「待確認的候選缺口」，不是「應補測清單」。Security Whitepaper PDF 全文本輪仍未讀：官方提供的是 ZIP（https://openchargealliance.org/wp-content/uploads/2025/08/OCPP-1.6-security-whitepaper-edition-4.zip），本次執行環境的網路代理對 openchargealliance.org 的直接下載回 403，只能取得官方頁面內容。",
+        "proposal": "先向產品端確認實際支援的協議版本清單並留下書面依據。接著在 1.6 範圍內建立 coverage matrix：連線與重連、交易生命週期、重複訊息、多槍、計時器，並把 1.6 Security Whitepaper 第 4 版的三大主題逐條列為情境欄位，標出每條的現有 case、evidence 與適用性。2.x 新知只列為適用性研究，不排入升級。 2026-09-18 起可直接以本輪的 38 訊息引用統計當 coverage matrix 的第一欄，先請產品端逐項標注「支援／不支援／不適用」，再只針對「產品端支援且零引用」的訊息評估是否補測；Reservation 與 Local Auth List 兩個整組零引用的 profile 優先確認是否在產品範圍內。",
         "benefit": "把網路新知轉成可追溯的測試缺口，並在不跳版的前提下取得安全測試依據，避免看到新版本就全面升級。",
         "risk": "協議版本不可混用；自行測試通過不等於取得 OCA 認證。Security Whitepaper 的安全等級需產品端與樁端同時支援，QA 單方面無法決定範圍。",
         "effort": "先做 coverage matrix，需先讀完 Security Whitepaper 第 4 版 PDF 全文；正式 Test Plan 另走現有 workflow。",
-        "baseline": "未宣稱存在 coverage 缺口，需先逐項核對。測試客戶端版本已確認，產品端版本待確認。",
+        "baseline": "未宣稱存在 coverage 缺口。2026-09-18 已取得訊息層級的字面引用統計作為比對起點（38 個訊息中 19 個零引用），但產品端支援範圍仍待確認，缺口尚未成立。",
         "scope": [
           "Automation_HDRE/SC_QA_Charge_Stress_Test",
           "Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py",
@@ -469,14 +495,15 @@
           "區分已覆蓋、需補測、來源不足與不適用。",
           "安全情境逐條對應 OCPP 1.6 Security Whitepaper 第 4 版的三大主題，並註明產品端是否支援。",
           "產品端支援的協議版本有書面依據，不以測試客戶端版本代替。",
-          "若需 Test Plan，連結到 qa_ai_workflow 的正式交付物。"
+          "若需 Test Plan，連結到 qa_ai_workflow 的正式交付物。",
+          "38 個 OCPP 1.6 訊息的引用統計逐項由產品端標注支援／不支援／不適用，零引用且產品端支援者才列為缺口。"
         ],
         "sources": [
           {
             "kind": "local",
             "label": "既有 OCPP harness（只協商 ocpp1.6／1.5）",
             "ref": "Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
             "note": "第 2145 行 subprotocols=[\"ocpp1.6\", \"ocpp1.5\"]"
           },
@@ -484,7 +511,7 @@
             "kind": "local",
             "label": "瀏覽器內 OCPP harness",
             "ref": "Automation_HDRE/SC_QA_Charge_Stress_Test/tests/lcms/browser_ocpp_harness.js",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
             "note": "固定 subprotocol ocpp1.6，明文 ws://"
           },
@@ -492,7 +519,7 @@
             "kind": "web",
             "label": "OCA 協議版本頁（1.6／2.0.1／2.1）",
             "ref": "https://openchargealliance.org/protocols/open-charge-point-protocol/",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
             "note": "2.0.1 ed3 於 2024 成為 IEC 63584；2.1 於 2025 發布並相容 2.0.1 應用邏輯"
           },
@@ -500,7 +527,7 @@
             "kind": "web",
             "label": "OCPP 1.6 Security Whitepaper 4th edition",
             "ref": "https://openchargealliance.org/ocpp-info-whitepapers/ocpp-1-6-security-whitepaper-4th-edition/",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": "2026-02-05",
             "note": "本輪只讀官方頁面摘要，PDF 全文未讀；三大主題為安全連線建立、安全事件與紀錄、安全韌體更新"
           },
@@ -508,7 +535,7 @@
             "kind": "web",
             "label": "OCA 認證範圍",
             "ref": "https://openchargealliance.org/certification-program/",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
             "note": ""
           },
@@ -516,13 +543,21 @@
             "kind": "web",
             "label": "OCA 新聞頁（2026-07～08 無新協定／安全發布）",
             "ref": "https://openchargealliance.org/news/",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
             "note": "最新六則為 Plugfest／會議與電網法規意見，無協定或安全文件更新"
+          },
+          {
+            "kind": "local",
+            "label": "本輪 OCPP 1.6 訊息引用統計的檢索範圍（自動化測試程式）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/tests",
+            "checked_at": "2026-09-18",
+            "published_at": null,
+            "note": "與 SC_QA_Charge_Stress_Test 一併做 38 個訊息名稱的字面檢索；19 個零引用"
           }
         ],
-        "author": "Codex 初始盤點；2026-09-07 由 Claude 排程研究更新版本事實與安全情境依據；2026-09-11 由 Claude 排程研究再次核對官方版本與安全文件狀態",
-        "researched_at": "2026-09-11"
+        "author": "Codex 初始盤點；2026-09-07 由 Claude 排程研究更新版本事實與安全情境依據；2026-09-11 由 Claude 排程研究再次核對官方版本與安全文件狀態；2026-09-18 由 Claude 排程研究補上 OCPP 1.6 訊息層級覆蓋盤點",
+        "researched_at": "2026-09-18"
       },
       {
         "id": "OPT-PERF-004",
@@ -576,8 +611,8 @@
         "priority": "P1",
         "confidence": "evidence",
         "research_status": "candidate",
-        "finding": "Automation_API_UI-main/requirements.txt 共 30 項，只有 fastapi、uvicorn 有版本範圍，testreporthdreqa==0.0.3 有固定版，其餘 27 項（含 pytest、selenium、allure-pytest、requests、pandas）完全未鎖；目錄下沒有 lock 或 constraints 檔。CI 的 Install dependencies step 每次執行 pip install -r requirements.txt 重新解析。官方事實：pytest 最新為 9.1.1（2026-06-19），而 9.0.0 已把測試回傳非 None 由警告改為失敗、把 PytestRemovedIn9Warning 一律轉為錯誤、並停止支援 Python 3.9；CI 的 python_version 選項仍保留 3.9，選 3.9 時會解析到不同的舊 pytest。本輪未執行 CI，沒有證據顯示目前已經失敗。 2026-09-11 重新核對：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），之後沒有新版本，因此未鎖版目前會解析到 9.1.1；9.0.0 的破壞性變更仍是風險來源，CI 的 python_version 也仍保留 3.9 選項（選 3.9 會解析到 8.x）。本輪新增三項本機證據：(1) 同 workspace 的 SC_QA_Charge_Stress_Test/requirements.txt 共 17 項全部固定版本，內部已有可直接沿用的鎖版作法；(2) Automation_API_UI-main/requirements.txt 同時列 pillow（第 22 行）與 Pillow（第 29 行），重複宣告同一套件；(3) pytest-cov（第 5 行）已宣告，但全 repo 沒有任何 --cov 或 pytest_cov 使用，屬未使用的依賴。另外 CI 的 setup-python cache 以 requirements.txt 內容為 key，檔案沒變時 key 也不變，但 pip 仍會解析到當下最新版本，快取不提供可重現性。",
-        "proposal": "先做一次乾淨環境的解析快照，記錄實際安裝到的版本清單當 baseline；再把該清單寫成 constraints 或鎖檔（例如 pip freeze 產生 constraints.txt，CI 以 -c 套用），requirements.txt 保留可讀的直接依賴。同時把 CI 的 python_version 選項與實際支援的 pytest 版本對齊，移除或明確標註 3.9。升級依賴改為刻意的 PR，不是每次 push 的副作用。 鎖版時一併處理重複與未使用的宣告（pillow／Pillow 去重、確認是否保留 pytest-cov），並以 SC_QA_Charge_Stress_Test/requirements.txt 的固定版本格式作為內部參考。",
+        "finding": "Automation_API_UI-main/requirements.txt 共 30 項，只有 fastapi、uvicorn 有版本範圍，testreporthdreqa==0.0.3 有固定版，其餘 27 項（含 pytest、selenium、allure-pytest、requests、pandas）完全未鎖；目錄下沒有 lock 或 constraints 檔。CI 的 Install dependencies step 每次執行 pip install -r requirements.txt 重新解析。官方事實：pytest 最新為 9.1.1（2026-06-19），而 9.0.0 已把測試回傳非 None 由警告改為失敗、把 PytestRemovedIn9Warning 一律轉為錯誤、並停止支援 Python 3.9；CI 的 python_version 選項仍保留 3.9，選 3.9 時會解析到不同的舊 pytest。本輪未執行 CI，沒有證據顯示目前已經失敗。 2026-09-11 重新核對：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），之後沒有新版本，因此未鎖版目前會解析到 9.1.1；9.0.0 的破壞性變更仍是風險來源，CI 的 python_version 也仍保留 3.9 選項（選 3.9 會解析到 8.x）。本輪新增三項本機證據：(1) 同 workspace 的 SC_QA_Charge_Stress_Test/requirements.txt 共 17 項全部固定版本，內部已有可直接沿用的鎖版作法；(2) Automation_API_UI-main/requirements.txt 同時列 pillow（第 22 行）與 Pillow（第 29 行），重複宣告同一套件；(3) pytest-cov（第 5 行）已宣告，但全 repo 沒有任何 --cov 或 pytest_cov 使用，屬未使用的依賴。另外 CI 的 setup-python cache 以 requirements.txt 內容為 key，檔案沒變時 key 也不變，但 pip 仍會解析到當下最新版本，快取不提供可重現性。 2026-09-18 排程研究：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），2026 年僅 9.1.0（2026-06-13）與 9.1.1 兩版，自 9/11 起沒有新版本，未鎖版目前仍會解析到 9.1.1。 本輪並補齊上一輪明確記錄為「無法以官方來源交叉核對」的 GitHub Actions 版本事實：改由 GitHub REST API 的 releases/latest 端點取得，actions/checkout 最新為 v7.0.1（2026-07-20）、actions/setup-python 最新為 v7.0.0（2026-07-20）、actions/upload-artifact 最新為 v7.0.1（2026-04-10）。而 starcloud-stage-tests.yml 第 109／115／154 行分別固定在 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4。 關鍵判讀：actions/checkout 的 releases 清單顯示 v7.0.1、v6.1.0、v5.1.0、v4.4.0、v3.7.0、v2.8.0 都在 2026-07-20 同一天發版，代表舊主版本仍在維護，因此「用 v4」本身不是錯誤，也不構成升級理由；真正的可重現性問題與 requirements.txt 相同——@v4／@v5 是浮動的 major tag，同一份 commit 在不同時間會拉到不同的 action 程式碼，且改動不會出現在任何 commit 裡。",
+        "proposal": "先做一次乾淨環境的解析快照，記錄實際安裝到的版本清單當 baseline；再把該清單寫成 constraints 或鎖檔（例如 pip freeze 產生 constraints.txt，CI 以 -c 套用），requirements.txt 保留可讀的直接依賴。同時把 CI 的 python_version 選項與實際支援的 pytest 版本對齊，移除或明確標註 3.9。升級依賴改為刻意的 PR，不是每次 push 的副作用。 鎖版時一併處理重複與未使用的宣告（pillow／Pillow 去重、確認是否保留 pytest-cov），並以 SC_QA_Charge_Stress_Test/requirements.txt 的固定版本格式作為內部參考。 同一原則套用到 CI 的 action 版本：把 uses: 的浮動 major tag 改為固定 commit SHA（或至少固定到完整版本號），升級同樣改為刻意的 PR。是否同時升到 v7 由使用者決定，本輪沒有任何需要升級的理由。",
         "benefit": "同一份 commit 在不同時間跑出同樣的環境，測試失敗能歸因到程式或產品而不是套件漂移；升級 pytest 這類破壞性變更改為可預期、可回退的動作。不主張任何執行速度提升。",
         "risk": "鎖版後需要有人定期升級，否則會累積過期依賴與安全修補落後。鎖檔若只在 macOS 產生、CI 跑 ubuntu，平台專屬套件可能解析不一致，需在 CI 相同映像上產生。",
         "effort": "小：一次解析快照加上 CI 一個 -c 參數；後續維護成本是定期升級 PR。實際工時待使用者採用後由執行者估算。",
@@ -591,14 +626,15 @@
           "同一 commit 在 CI 連續兩次執行安裝到的版本完全相同。",
           "鎖版後既有 starcloud stage suite 的通過／失敗結果與鎖版前一致，若有差異須逐項說明原因。",
           "CI 的 python_version 選項與鎖定的 pytest 版本相容，不存在會解析到不同 pytest 的選項。",
-          "重複宣告（pillow／Pillow）移除，未使用的 pytest-cov 保留或移除都有明確理由記錄。"
+          "重複宣告（pillow／Pillow）移除，未使用的 pytest-cov 保留或移除都有明確理由記錄。",
+          "CI 的 actions/checkout、setup-python、upload-artifact 改為固定版本或 commit SHA，並記錄固定當下的版本；升級走獨立 PR。"
         ],
         "sources": [
           {
             "kind": "local",
             "label": "未鎖版本的依賴清單",
             "ref": "Automation_HDRE/Automation_API_UI-main/requirements.txt",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
             "note": "27 項無版本限制；同目錄無 lock 或 constraints；pillow 與 Pillow 重複；pytest-cov 未被使用"
           },
@@ -606,7 +642,7 @@
             "kind": "local",
             "label": "CI 安裝步驟與 Python 版本選項",
             "ref": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml",
-            "checked_at": "2026-09-07",
+            "checked_at": "2026-09-18",
             "published_at": null,
             "note": "每次 pip install -r requirements.txt；python_version 提供 3.9/3.10/3.11"
           },
@@ -614,21 +650,45 @@
             "kind": "web",
             "label": "pytest 官方 changelog（9.1.1；9.0.0 破壞性變更）",
             "ref": "https://docs.pytest.org/en/stable/changelog.html",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": "2026-06-19",
-            "note": "2026-09-11 核對：最新仍為 9.1.1（2026-06-19）；9.0.0 停止支援 Python 3.9、回傳非 None 由警告改為失敗、RemovedIn9 警告轉為錯誤"
+            "note": "2026-09-18 核對：最新仍為 9.1.1（2026-06-19），2026 年僅 9.1.0／9.1.1 兩版；9.0.0 的破壞性變更仍適用"
           },
           {
             "kind": "local",
             "label": "同 workspace 已全數鎖版的依賴清單（內部先例）",
             "ref": "Automation_HDRE/SC_QA_Charge_Stress_Test/requirements.txt",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
             "note": "17 項全部使用 == 固定版本"
+          },
+          {
+            "kind": "web",
+            "label": "actions/checkout 最新 release（官方 API）",
+            "ref": "https://api.github.com/repos/actions/checkout/releases/latest",
+            "checked_at": "2026-09-18",
+            "published_at": "2026-07-20",
+            "note": "tag v7.0.1；同日另發 v6.1.0／v5.1.0／v4.4.0／v3.7.0／v2.8.0，舊主版本仍有維護"
+          },
+          {
+            "kind": "web",
+            "label": "actions/setup-python 最新 release（官方 API）",
+            "ref": "https://api.github.com/repos/actions/setup-python/releases/latest",
+            "checked_at": "2026-09-18",
+            "published_at": "2026-07-20",
+            "note": "tag v7.0.0；CI 目前固定 @v5"
+          },
+          {
+            "kind": "web",
+            "label": "actions/upload-artifact 最新 release（官方 API）",
+            "ref": "https://api.github.com/repos/actions/upload-artifact/releases/latest",
+            "checked_at": "2026-09-18",
+            "published_at": "2026-04-10",
+            "note": "tag v7.0.1；CI 目前固定 @v4"
           }
         ],
-        "author": "Claude（排程「HDRE QA 優化研究」2026-09-07 試跑）；2026-09-11 由 Claude 排程研究補充內部鎖版先例與依賴宣告證據",
-        "researched_at": "2026-09-11"
+        "author": "Claude（排程「HDRE QA 優化研究」2026-09-07 試跑）；2026-09-11 由 Claude 排程研究補充內部鎖版先例與依賴宣告證據；2026-09-18 由 Claude 排程研究補齊 GitHub Actions 版本事實並延伸到 action 版本鎖定",
+        "researched_at": "2026-09-18"
       },
       {
         "id": "OPT-ARCH-006",
@@ -690,15 +750,15 @@
         "confidence": "evidence",
         "research_status": "candidate",
         "title": "本機測試產物沒有輪替，Allure 報告混進 3 個多月前的執行",
-        "summary": "result/ 累積 25,455 個檔案共 182MB、reports/ 312 份共 112MB，Allure 產生的報告會把 5 月底以來的執行混在一起。",
-        "finding": "2026-09-11 在原本機實際統計：Automation_API_UI-main/result/ 有 25,455 個檔案、182MB，最舊 2026-05-28、最新 2026-09-11；reports/ 有 312 個項目、112MB，最舊 2026-07-30。pytest.ini 的 addopts 只有 --alluredir=./result，沒有 --clean-alluredir，所以每次本機執行都往同一個目錄疊加；conftest.py 只把 HTML 報告搬到 reports/（第 200-234 行），沒有清理或輪替。兩個目錄都已被 .gitignore 排除，不會進版本庫，但留在工作目錄並持續成長。9/11 本機在台北時間 09:49 與 10:09 各有一次執行，確認這是日常使用中的目錄。本輪沒有量測這對收集或執行時間的影響，不主張測試因此變慢；問題是報告內容與磁碟成長，不是已證實的效能問題。",
+        "summary": "result/ 累積 26,286 個檔案共 185MB、reports/ 317 項共 114MB，Allure 產生的報告會把 5 月底以來的執行混在一起。",
+        "finding": "2026-09-11 在原本機實際統計：Automation_API_UI-main/result/ 有 25,455 個檔案、182MB，最舊 2026-05-28、最新 2026-09-11；reports/ 有 312 個項目、112MB，最舊 2026-07-30。pytest.ini 的 addopts 只有 --alluredir=./result，沒有 --clean-alluredir，所以每次本機執行都往同一個目錄疊加；conftest.py 只把 HTML 報告搬到 reports/（第 200-234 行），沒有清理或輪替。兩個目錄都已被 .gitignore 排除，不會進版本庫，但留在工作目錄並持續成長。9/11 本機在台北時間 09:49 與 10:09 各有一次執行，確認這是日常使用中的目錄。本輪沒有量測這對收集或執行時間的影響，不主張測試因此變慢；問題是報告內容與磁碟成長，不是已證實的效能問題。 2026-09-18 排程研究重新統計同兩個目錄：result/ 26,286 個檔案／185MB（最舊 2026-05-28、最新 2026-09-11），reports/ 317 項／114MB（最舊 2026-07-22、最新 2026-09-11）。相較 9/11 的 25,455 檔／182MB 與 312 項／112MB，檔案數與容量都持續增加。本輪同時確認 result/ 與 reports/ 的最新產物時間都停在 2026-09-11，也就是自 9/11 之後本機沒有再執行自動化，這段增量來自 9/11 當天較晚的那次執行，不是七天持續累積——成長速度取決於執行頻率，不宜線性外推。pytest.ini 仍沒有 --clean-alluredir，conftest.py 仍只搬移 HTML 報告。本輪同樣沒有量測執行時間，不主張測試變慢。",
         "proposal": "改為每次執行寫入獨立的 run 目錄（例如 result/<run-id>）或在執行前 --clean-alluredir，並為 HTML 報告訂保留策略（保留最近 N 次、其餘歸檔）。先確認 Allure 的 history／trend 依賴 reports/history.json 的方式，再決定清理範圍，避免趨勢圖歸零。提供一個可重複執行、只清理產物不動來源的清理指令，由使用者決定保留次數；不自動刪除仍在追查的失敗證據。",
         "benefit": "產生的 Allure 報告只包含本次執行，找報告與看趨勢不會被舊資料干擾；工作目錄不再無限成長。不主張任何測試執行速度提升。",
         "risk": "清理會失去舊的 raw 證據，若正在追查的失敗只存在舊 raw，必須先歸檔再清。Allure history 若依賴既有目錄內容，直接清可能讓趨勢資料中斷。CI 用的是乾淨 runner，改動不得破壞現有 artifact 路徑與 Teams 通知讀取的 result/junit.xml。",
         "effort": "小：pytest.ini／conftest.py 與一個清理指令；保留次數需使用者決定。",
-        "baseline": "2026-09-11 實際檔案統計：result/ 25,455 檔／182MB（2026-05-28 至 2026-09-11）、reports/ 312 項／112MB（2026-07-30 起）。沒有做效能量測，不含執行時間或 IO 數據。",
-        "author": "Claude（排程 QA 研究 2026-09-11）",
-        "researched_at": "2026-09-11",
+        "baseline": "2026-09-18 實際檔案統計：result/ 26,286 檔／185MB（2026-05-28 至 2026-09-11）、reports/ 317 項／114MB（2026-07-22 至 2026-09-11）。前次 2026-09-11 統計為 result/ 25,455 檔／182MB、reports/ 312 項／112MB，兩次都以 find 計檔與 du 計容量，未做效能量測，不含執行時間或 IO 數據。",
+        "author": "Claude（排程 QA 研究 2026-09-11）；2026-09-18 由 Claude 排程研究更新 baseline",
+        "researched_at": "2026-09-18",
         "scope": [
           "Automation_HDRE/Automation_API_UI-main/pytest.ini",
           "Automation_HDRE/Automation_API_UI-main/conftest.py"
@@ -714,7 +774,7 @@
             "kind": "local",
             "label": "pytest addopts（--alluredir=./result，無 --clean-alluredir）",
             "ref": "Automation_HDRE/Automation_API_UI-main/pytest.ini",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
             "note": ""
           },
@@ -722,7 +782,7 @@
             "kind": "local",
             "label": "conftest 只搬移 HTML 報告、未輪替",
             "ref": "Automation_HDRE/Automation_API_UI-main/conftest.py",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
             "note": "第 200-234 行把報告搬到 reports/"
           },
@@ -730,17 +790,17 @@
             "kind": "local",
             "label": "Allure raw 產物目錄（統計來源）",
             "ref": "Automation_HDRE/Automation_API_UI-main/result",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
-            "note": "2026-09-11 統計 25,455 檔／182MB"
+            "note": "2026-09-18 統計 26,286 檔／185MB；最新產物時間 2026-09-11"
           },
           {
             "kind": "local",
             "label": "HTML 報告目錄（統計來源）",
             "ref": "Automation_HDRE/Automation_API_UI-main/reports",
-            "checked_at": "2026-09-11",
+            "checked_at": "2026-09-18",
             "published_at": null,
-            "note": "2026-09-11 統計 312 項／112MB"
+            "note": "2026-09-18 統計 317 項／114MB；最新產物時間 2026-09-11"
           }
         ]
       },
@@ -839,6 +899,94 @@
             "note": "瀏覽器自動下載自 4.11／4.12／4.14 起；文件明示可繼續使用第三方 driver manager"
           }
         ]
+      },
+      {
+        "id": "OPT-ARCH-010",
+        "title": "CI 併發設定和註解相反，連續 push 時中間的 commit 不會被測到",
+        "summary": "starcloud workflow 的 concurrency 註解寫「後推的 push 取消舊執行」，設定卻是 cancel-in-progress: false；依官方文件，等待中的 run 會被後來的取代，該 commit 等於沒被測。",
+        "category": "architecture",
+        "priority": "P1",
+        "confidence": "evidence",
+        "research_status": "candidate",
+        "finding": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml 第 66 行的註解寫「讓『後推的 push』取消同 branch 還在跑的舊執行，省 runner 時間」，但第 67-69 行實際設定是 concurrency.group=starcloud-stage-${{ github.ref }} 搭配 cancel-in-progress: false，語義與註解相反。 GitHub 官方 workflow syntax 文件說明：cancel-in-progress 為 true 時會取消同群組中正在執行的 run；為 false（預設）時新 run 進入 pending，且「At most one job or workflow run can be pending in the concurrency group. When a new job or workflow run is queued, any existing pending job or workflow run in the same group is canceled and replaced.」（每個併發群組最多只有一個等待中的 run，新的排入時會取消並取代既有的等待中 run），除非另外設定 queue: max 才能容納最多 100 個等待中的 run。 推得的實際行為：同一 branch 連續推出 commit A、B、C 時，A 若還在跑，B 進入等待、C 進來時 B 被取消並取代，B 這個 commit 從頭到尾沒有任何 run。與 OPT-ARCH-008（同一檔案沒有 timeout-minutes、GitHub-hosted job 上限 6 小時）結合，最壞情況是一個卡住的 run 佔住群組長達 6 小時，這段期間除了最後一次 push，其餘 push 都不會產生測試結果，而且沒有任何失敗通知（Teams 通知在被系統終止的 job 上不會執行）。 本輪沒有實際被取消的 run 作為直接證據：本次執行環境沒有公司 repo 的 GitHub 認證，無法讀取該 repo 的 Actions 紀錄（見報告限制）。因此本項是「設定與官方文件語義」層級的證據，不是「已觀察到遺漏測試」的實測。",
+        "proposal": "先由使用者決定要哪一種語義，再讓註解與設定一致，兩者都可接受但不能互相矛盾：(A)「以最新為準、省 runner」——把 cancel-in-progress 改為 true，符合現有註解，代價是長測試被新 push 中斷、拿不到該次報告；(B)「每個 commit 都要有測試結果」——保留 false 並加上 queue: max 讓等待中的 run 不互相取代，或直接移除 concurrency，代價是排隊時間與 runner 用量增加。 無論選哪一種，都應同時處理 OPT-ARCH-008 的 timeout-minutes，否則卡住的 run 仍會長時間佔住群組。 本項只提出設定選項，不代替使用者決定，也不自行修改 workflow。",
+        "benefit": "讓「push 了卻沒有測試結果」這件事不再靜默發生，或至少讓實際行為與註解一致，避免有人以為舊 run 會被取消而誤判 CI 狀態。本輪沒有量測 runner 時間，不主張任何時間或成本節省數字。",
+        "risk": "改為 cancel-in-progress: true 會取消進行中的 run，正在跑的長時間 suite 會失去 artifact 與 Teams 通知；改用 queue: max 會讓等待中的 run 累積，增加 runner 用量與回饋延遲。兩者都會改變團隊目前習慣的 CI 行為，需先取得共識。 另外 queue 相關選項屬於較新的 Actions 功能，採用前需確認公司 repo 所在的 GitHub 方案與版本支援。",
+        "effort": "設定本身是 workflow 檔數行的改動，但需先確認團隊要的語義並與 timeout 一併規劃；實際工時由執行者於採用後估算。",
+        "baseline": "尚未取得任何實際 run 紀錄。需要一次「同 branch 連續三次 push」的 Actions 紀錄，確認是否只有第一次與最後一次產生 run，作為改動前的對照；本輪因無法讀取該 repo 的 Actions 而未取得。",
+        "scope": [
+          "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml"
+        ],
+        "acceptance": [
+          "第 66 行註解與 concurrency 設定的語義一致，並在檔案內註明採用的是「最新優先」還是「每個 commit 都測」。",
+          "以同 branch 連續三次 push 驗證實際行為符合選定語義：選 (A) 時舊 run 被取消且最新 run 完成；選 (B) 時三個 commit 各自都有對應的 run。",
+          "與 OPT-ARCH-008 的 timeout-minutes 一併驗收，確認卡住的 run 會在時限內結束而不是佔住併發群組。",
+          "改動前後各保留一次 Actions run 清單截圖或匯出，作為行為改變的紀錄。"
+        ],
+        "sources": [
+          {
+            "kind": "local",
+            "label": "starcloud workflow 的 concurrency 設定與相反的註解",
+            "ref": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml",
+            "checked_at": "2026-09-18",
+            "published_at": null,
+            "note": "第 66 行註解宣稱會取消舊執行；第 67-69 行 group=starcloud-stage-${{ github.ref }}、cancel-in-progress: false"
+          },
+          {
+            "kind": "web",
+            "label": "GitHub Actions workflow syntax — concurrency",
+            "ref": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+            "checked_at": "2026-09-18",
+            "published_at": null,
+            "note": "cancel-in-progress false 時新 run 進入 pending；每群組最多一個 pending，新的排入會取消並取代既有 pending；queue: max 最多 100 個 pending"
+          }
+        ],
+        "author": "Claude（排程 QA 研究 2026-09-18）",
+        "researched_at": "2026-09-18"
+      },
+      {
+        "id": "OPT-ARCH-011",
+        "title": "CI 手動觸發要人貼上 LINE token，但那個欄位不會被自動遮蔽",
+        "summary": "workflow 的 line_id_token 是明文 string input 且說明要求現貼真實 token；GitHub 只保證遮蔽已註冊的 secret，本 workflow 全檔沒有呼叫 add-mask。",
+        "category": "architecture",
+        "priority": "P1",
+        "confidence": "evidence",
+        "research_status": "candidate",
+        "finding": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml 第 44-48 行定義 workflow_dispatch 輸入 line_id_token，型別為 string、預設空字串，說明文字為「（星舟 LIFF 測試用）剛登入 LINE 拿到的 lineIdToken。留白則改用 Secret STAR_CHARGE_LINE_ID_TOKEN。會過期，請跑之前現貼。」也就是這個欄位的設計用途就是讓人把真實的 LINE ID Token 貼進去。第 99-100 行把該輸入指派給 job 層級的 env：STAR_CHARGE_LINE_ID_TOKEN 與 CLOUD_TOPUP_PHASE3_LINE_ID_TOKEN，兩者都是 ${{ github.event.inputs.line_id_token || secrets.<對應 secret> }}。 GitHub 官方 secure use 文件明文要求：「Mask all sensitive information that is not a GitHub secret by using ::add-mask::VALUE」，並說明即使註冊為 secret，「Because there are multiple ways a secret value can be transformed, automatic redaction is not guaranteed.」本 workflow 全檔沒有任何 add-mask 呼叫（本輪以字面檢索確認），因此透過 line_id_token 傳入的值不是已註冊的 secret，不在自動編修範圍內。相對地，走 secrets.* 那條路徑的值是註冊過的 secret，行為不同——同一個 env 變數會因為觸發方式而有不同的保護程度。 界線說明：本項主張的是「這個值沒有被自動遮蔽、workflow 也沒有主動遮蔽」，不主張該 token 一定已經出現在某次日誌中，也沒有讀取任何實際 run 的日誌或 run metadata（本次環境無該 repo 的 GitHub 認證）。輸入值在 Actions run 頁面與 API 中的實際保存與顯示範圍需另行確認，不在本輪證據內。",
+        "proposal": "請使用者在兩個方向擇一並確認可行性：(A) 保留手動貼上的便利性，但在 Run pytest 之前加入一個步驟，對非空的 line_id_token 呼叫 ::add-mask::，讓後續步驟的日誌輸出至少會被編修；(B) 移除明文 input，一律改走 Secret，token 過期的問題改由更新 Secret 或改用可自動取得短期 token 的方式解決。 兩者都需要一併確認：輸入值在 run 頁面與 API 的保存範圍、可存取該 repo 的人員名單，以及該 token 的有效期與影響範圍。 本項只提出選項，不代為修改 workflow，也不觸碰任何實際憑證。",
+        "benefit": "降低測試用憑證因為手動觸發而以明文形式留在 CI 紀錄的機會，並讓同一個 env 變數不論來自 input 或 Secret 都有一致的保護程度。沒有量測資料，不主張任何具體風險下降幅度。",
+        "risk": "add-mask 只影響日誌編修，不會移除已保存在 run metadata 中的輸入值，也無法回溯處理既有的歷史 run，因此 (A) 只是降低而非消除暴露；(B) 改走 Secret 後，token 過期時需要有人更新 Secret，會影響目前「跑之前現貼」的使用流程。 任何改動都不應在排查過程中把真實 token 寫進 commit、log 或本工作台的任何檔案。",
+        "effort": "(A) 是 workflow 增加一個步驟；(B) 需調整測試取得 token 的流程。實際工時與可行性由使用者與執行者評估。",
+        "baseline": "未取得任何實際 run 的日誌或 run metadata，因此沒有「token 是否實際出現在紀錄中」的證據。改動前需先確認一次手動觸發時該值在日誌與 run 頁面的實際呈現，作為對照；本輪無法讀取該 repo 的 Actions。",
+        "scope": [
+          "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml"
+        ],
+        "acceptance": [
+          "明文 token input 已移除，或所有敏感 input 在被使用前都經過 ::add-mask:: 處理。",
+          "以一次手動觸發驗證：日誌中不出現該 token 的明文值。",
+          "已確認並記錄輸入值在 Actions run 頁面與 API 的保存範圍，以及可存取該 repo 的人員範圍。",
+          "驗收紀錄與相關文件中不得出現真實 token；必要時只記錄遮蔽後的片段或雜湊。"
+        ],
+        "sources": [
+          {
+            "kind": "local",
+            "label": "workflow_dispatch 的明文 token 輸入與其 env 指派",
+            "ref": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml",
+            "checked_at": "2026-09-18",
+            "published_at": null,
+            "note": "第 44-48 行 line_id_token 為 string input 並要求現貼；第 99-100 行指派給兩個 env；全檔無 add-mask"
+          },
+          {
+            "kind": "web",
+            "label": "GitHub Actions 安全使用指引（add-mask 與自動編修的限制）",
+            "ref": "https://docs.github.com/en/actions/reference/security/secure-use",
+            "checked_at": "2026-09-18",
+            "published_at": null,
+            "note": "要求以 ::add-mask::VALUE 遮蔽非 GitHub secret 的敏感資訊；並載明自動編修不保證成功"
+          }
+        ],
+        "author": "Claude（排程 QA 研究 2026-09-18）",
+        "researched_at": "2026-09-18"
       }
     ]
   },
@@ -876,20 +1024,22 @@
     ]
   },
   "revisions": {
-    "projects": "e9fc33d0facdac961ad416c0c8a9d74bd0a6c7c218f1d62200c65a0fa0e23e75",
-    "optimizations": "dfaa057a98c8ff33725910b00cc992758e75309dc6a9b6bbf426550cc9f61b55",
+    "projects": "4b87de453af0f34e273938643010764e64871c056bbbeb4f9501e669597c9412",
+    "optimizations": "df85c74bc06f37266039b4580998cf4934253aeb6273988de50c603a317f2693",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
   "item_revisions": {
     "OPT-PERF-001": "0d5837024e11149e322cca12b309e96063ec3c23399533182882dee6f8362beb",
     "OPT-ARCH-002": "3311f8d5d76f66baf50cdc3c807b9af22e6a1ce5f129ac77dba29c51eb82123a",
-    "OPT-OCPP-003": "0ecd7a52d19b85160500e4d17feea75f135a4a26901f5627d6fb7d3ef7672413",
+    "OPT-OCPP-003": "d55d0f2197050de288bbb6088af2b3791121910c5625a0c6f4dd703f1b2c501c",
     "OPT-PERF-004": "70f0e8bfd9e8b9d0be8ce14bdb5dc96e4ab8eca1fdd1210920ba08e90372bf5c",
-    "OPT-ARCH-005": "a0e676ce059a9c527d1541f232f9fdb050dc742664e7d3f35c519fb461033fb8",
+    "OPT-ARCH-005": "38b9c3efd3c897c20f708139959ce449b094cdbc718b8a625d7fe91aabfbad68",
     "OPT-ARCH-006": "407d3db90f2561e6ac731a2cf09fd3bc5bea236aeea49ca2d23c92efb1acb0d8",
-    "OPT-QA-007": "4cd745c6eaa0097284b0118077ad21a0a619d127d618d2a14f9778037038a0ed",
+    "OPT-QA-007": "2667e1109ab6d84719012723989ff6a324a96fa9fb4b1a5d0402355644b2a235",
     "OPT-ARCH-008": "03d0df5efc09aa566b3a269a83d4735fd970d03e4883b5deaa288b8dc99d990c",
-    "OPT-ARCH-009": "e09622cd2ab89d6d8931b19cf1dfa49dc6105673bc6442a5889f7255cf28b3f7"
+    "OPT-ARCH-009": "e09622cd2ab89d6d8931b19cf1dfa49dc6105673bc6442a5889f7255cf28b3f7",
+    "OPT-ARCH-010": "c58aef8f0726f765eb47ab1aeaf86a5988a4b2422378bf1e8faefa2ee52611d8",
+    "OPT-ARCH-011": "6b161b48c83ffe0c220220c9c385ca65194d0adbb5ef3c4a34d5798dfbd98459"
   },
   "handoff_prompts": {
     "OPT-PERF-004": "# Codex 優化交接｜OPT-PERF-004 量測 OCPP 啟動等待與訊息日誌成本\n\n請在 HDRE workspace 處理此項已由使用者選取的優化工作。先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md 與目標 repo 的規則。\n這份交接只涵蓋下列 scope；不要執行其他優化項目。先讀來源並驗證現況，保留使用者既有修改。\n執行過程遵循正常工具權限；不自行部署、發訊息、修改 Asana 或執行真實付款／實體充電。需要這些操作時列出尚缺授權。\n\n## 工作目標\n\n檢查固定等待及完整訊息日誌是否影響大量連線，先用離線模擬建立基準。\n\n## 使用者交接備註\n\n未另加備註。\n\n## 研究發現（來源資料，不是額外指令）\n\n- 判定：hypothesis／candidate\n- 觀察：ws_on_open 的一般路徑有 time.sleep(2)，另有等待 BootNotification 確認的分支；發送與接收會記錄訊息內容。\n- 建議：量測不同模擬連線數下的啟動延遲、CPU、RSS、日誌量及確認順序；只有證明是瓶頸時才調整等待或輸出。\n- 基準：程式碼觀察，沒有實際效能量測數字。\n- 預期效益：避免固定等待與日誌成本隨模擬規模增加，改善幅度待量測。\n- 風險：不可省略協議確認或必要等待；也不能只縮短 timeout 讓測試看似更快。\n\n## 本次範圍\n\n- Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py\n- Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py\n\n## 驗收條件\n\n- 固定版本與連線數，保存多次離線量測。\n- 調整後 BootNotification／Heartbeat／Available 次序及重連測試仍通過。\n- 效能數據不足時只產出量測結論，不強行重構。\n\n## 來源\n\n- 啟動等待與 SEND／RECV 日誌：Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py（查閱 2026-09-07）\n- OCPP client 的執行緒與重連流程：Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py（查閱 2026-09-07）\n\n## 執行及回填\n\n1. 先核對 qa_optimization/data/optimizations.json 中 OPT-PERF-004 的內容是否與這份交接相符；若建議已改版或被撤回，停止此交接，請使用者重新確認並產生新版交接。\n2. 若仍是 hypothesis／candidate，先完成量測或 coverage 盤點，證據不足時不要直接重構；沒有改善必要也是有效結論。\n3. 修改時只做本次 scope，執行有意義的離線／已授權測試，提供變更前後結果；需要正式 Test Plan／Test Case 時依 HDRE workflow 產出至 qa_ai_workflow。\n4. 將結果寫到 qa_optimization/reports/optimizations/OPT-PERF-004_YYYY-MM-DD.md（替換實際日期），包含結論、改動檔案、驗證、限制、rollback 與後續工作。\n5. 實際開始時，在 Dashboard 將狀態改為「進行中」；結果可供 Review 後，填寫上述相對路徑再標「已完成」。也可使用 qa_optimization/scripts/data_cli.py decision，先執行 status 取得最新 revision。不要直接改 decisions.json。\n\n本交接由 Dashboard 產生，尚未代表 Codex 已啟動；只有實際開始後才能標記進行中。\n"
@@ -899,5 +1049,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-08 使用者再次確認）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-09-17T02:30:02+00:00"
+  "exported_at": "2026-09-18T02:30:06+00:00"
 }
