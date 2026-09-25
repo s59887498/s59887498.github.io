@@ -534,7 +534,7 @@
   },
   "optimizations": {
     "schema_version": 1,
-    "updated_at": "2026-09-18T02:23:24+00:00",
+    "updated_at": "2026-09-25T02:14:47+00:00",
     "items": [
       {
         "id": "OPT-PERF-001",
@@ -644,13 +644,13 @@
       {
         "id": "OPT-OCPP-003",
         "title": "用目前 OCPP 版本整理缺漏的驗證情境",
-        "summary": "對照 OCA 文件與既有測試，建立版本、功能與 evidence 的對照清單；本輪首次做出 OCPP 1.6 訊息層級的覆蓋盤點，測試客戶端仍只跑 1.6，沒有升級理由。",
+        "summary": "對照 OCA 文件與既有測試，建立版本、功能與 evidence 的對照清單；已有 1.6 訊息層級覆蓋盤點，本輪補上 1.6 新認證方案的必要／選配分類，仍無升級理由。",
         "category": "ocpp",
         "priority": "P2",
         "confidence": "evidence",
         "research_status": "candidate",
-        "finding": "2026-09-07 更新：測試客戶端的協議版本已由程式碼確認 —— Python harness 只協商 subprotocols ocpp1.6 與 ocpp1.5，瀏覽器內 harness 固定用 ocpp1.6，全 repo 未見 2.0.1／2.1 實作。OCA 頁面列出 1.6（2015）、2.0.1（2020，2024 成為 IEC 63584）、2.1（2025），但產品端實際支援哪些版本本輪沒有取得證據，不作為升級理由。安全面向的版本正確依據是 OCPP 1.6 Security Whitepaper 第 4 版（2026-02-05），該文件說明如何把 OCPP 2.0 的安全強化以標準化方式套用到 1.6-J，主題為 secure connection setup、security events/logging、secure firmware update。目前 harness 走明文 ws://，尚未見對應的安全測試情境。coverage 缺口本身仍未逐項比對。 2026-09-11 排程研究重新核對官方來源，結論不變：OCA 協議頁仍列 1.6（2015）、2.0.1（2020，2024 成為 IEC 63584）、2.1（2025），沒有公告 1.6 的停用或 sunset 日期，1.6 與 2.0.1 的認證程式都仍存在；OCA 新聞頁 2026-07-02 至 2026-08-26 的項目全是 Plugfest／會議與電網法規意見，沒有新的協定或安全文件發布；1.6 Security Whitepaper 仍是第 4 版（2026-02-05），未見第 5 版或替代文件。本機測試客戶端也重新確認仍只協商 ocpp1.6／1.5（ocpp_client_server.py 第 2145 行，行號因檔案改動由 2131 移動）、瀏覽器內 harness 仍固定 ocpp1.6 並走明文 ws://。產品端實際支援的版本仍未取得書面依據，Security Whitepaper PDF 全文仍未讀，coverage 缺口仍未逐項比對，本輪沒有任何升級理由。 2026-09-18 排程研究：官方來源再次核對，結論不變——OCA 新聞頁最新一則仍是 2026-08-26「Looking back on the Plugfest & Conference Asia 2026」，2026-07-02 起六則全為 Plugfest／會議與電網法規意見，沒有新協定、沒有 1.6 停用或 sunset 公告；1.6 Security Whitepaper 仍是第 4 版（2026-02-05），官方頁面列出的主題仍是 secure connection setup、security events and logging、secure firmware update。本機協議版本也不變：ocpp_client_server.py 第 2145 行仍只協商 ocpp1.6／1.5，browser_ocpp_harness.js 第 77 行仍固定 ocpp1.6 且走明文 ws://，全 workspace 未見 2.0.1／2.1。 本輪補上長期待辦的「coverage 缺口逐項比對」第一步：以 OCPP 1.6 Core 及各 feature profile 的 38 個訊息名稱，對 SC_QA_Charge_Stress_Test 與 Automation_API_UI-main/tests 兩處的 .py／.js 做字面字串檢索（排除 Reports／logs），統計每個訊息名稱的引用次數。有引用者：StatusNotification 26、StartTransaction 17、MeterValues 15、StopTransaction 13、RemoteStartTransaction 11、FirmwareStatusNotification 11、BootNotification 10、Authorize 10、Heartbeat 8、ChangeConfiguration 8、Reset 7、UpdateFirmware 7、SetChargingProfile 7、GetConfiguration 6、TriggerMessage 6、RemoteStopTransaction 5、ChangeAvailability 5、UnlockConnector 4、ClearChargingProfile 3。零引用者共 19 個：Core 的 DataTransfer、ClearCache；Firmware Management 的 GetDiagnostics、DiagnosticsStatusNotification；Reservation 的 ReserveNow、CancelReservation（整個 profile 零引用）；Smart Charging 的 GetCompositeSchedule；Local Auth List Management 的 GetLocalListVersion、SendLocalList（整個 profile 零引用）；以及 1.6 Security Whitepaper 第 4 版相關的 SecurityEventNotification、SignCertificate、CertificateSigned、InstallCertificate、DeleteCertificate、GetInstalledCertificateIds、LogStatusNotification、GetLog、SignedUpdateFirmware、SignedFirmwareStatusNotification 共 10 個，全部零引用。 重要限制：這是字面字串檢索，只證明這些訊息名稱沒有出現在被檢索的檔案裡，不等於功能一定沒被間接測到，也不代表產品端支援這些功能——產品端（CSMS／樁端）實際支援的版本與 feature profile 仍沒有書面依據，因此本表是「待確認的候選缺口」，不是「應補測清單」。Security Whitepaper PDF 全文本輪仍未讀：官方提供的是 ZIP（https://openchargealliance.org/wp-content/uploads/2025/08/OCPP-1.6-security-whitepaper-edition-4.zip），本次執行環境的網路代理對 openchargealliance.org 的直接下載回 403，只能取得官方頁面內容。",
-        "proposal": "先向產品端確認實際支援的協議版本清單並留下書面依據。接著在 1.6 範圍內建立 coverage matrix：連線與重連、交易生命週期、重複訊息、多槍、計時器，並把 1.6 Security Whitepaper 第 4 版的三大主題逐條列為情境欄位，標出每條的現有 case、evidence 與適用性。2.x 新知只列為適用性研究，不排入升級。 2026-09-18 起可直接以本輪的 38 訊息引用統計當 coverage matrix 的第一欄，先請產品端逐項標注「支援／不支援／不適用」，再只針對「產品端支援且零引用」的訊息評估是否補測；Reservation 與 Local Auth List 兩個整組零引用的 profile 優先確認是否在產品範圍內。",
+        "finding": "2026-09-07 更新：測試客戶端的協議版本已由程式碼確認 —— Python harness 只協商 subprotocols ocpp1.6 與 ocpp1.5，瀏覽器內 harness 固定用 ocpp1.6，全 repo 未見 2.0.1／2.1 實作。OCA 頁面列出 1.6（2015）、2.0.1（2020，2024 成為 IEC 63584）、2.1（2025），但產品端實際支援哪些版本本輪沒有取得證據，不作為升級理由。安全面向的版本正確依據是 OCPP 1.6 Security Whitepaper 第 4 版（2026-02-05），該文件說明如何把 OCPP 2.0 的安全強化以標準化方式套用到 1.6-J，主題為 secure connection setup、security events/logging、secure firmware update。目前 harness 走明文 ws://，尚未見對應的安全測試情境。coverage 缺口本身仍未逐項比對。 2026-09-11 排程研究重新核對官方來源，結論不變：OCA 協議頁仍列 1.6（2015）、2.0.1（2020，2024 成為 IEC 63584）、2.1（2025），沒有公告 1.6 的停用或 sunset 日期，1.6 與 2.0.1 的認證程式都仍存在；OCA 新聞頁 2026-07-02 至 2026-08-26 的項目全是 Plugfest／會議與電網法規意見，沒有新的協定或安全文件發布；1.6 Security Whitepaper 仍是第 4 版（2026-02-05），未見第 5 版或替代文件。本機測試客戶端也重新確認仍只協商 ocpp1.6／1.5（ocpp_client_server.py 第 2145 行，行號因檔案改動由 2131 移動）、瀏覽器內 harness 仍固定 ocpp1.6 並走明文 ws://。產品端實際支援的版本仍未取得書面依據，Security Whitepaper PDF 全文仍未讀，coverage 缺口仍未逐項比對，本輪沒有任何升級理由。 2026-09-18 排程研究：官方來源再次核對，結論不變——OCA 新聞頁最新一則仍是 2026-08-26「Looking back on the Plugfest & Conference Asia 2026」，2026-07-02 起六則全為 Plugfest／會議與電網法規意見，沒有新協定、沒有 1.6 停用或 sunset 公告；1.6 Security Whitepaper 仍是第 4 版（2026-02-05），官方頁面列出的主題仍是 secure connection setup、security events and logging、secure firmware update。本機協議版本也不變：ocpp_client_server.py 第 2145 行仍只協商 ocpp1.6／1.5，browser_ocpp_harness.js 第 77 行仍固定 ocpp1.6 且走明文 ws://，全 workspace 未見 2.0.1／2.1。 本輪補上長期待辦的「coverage 缺口逐項比對」第一步：以 OCPP 1.6 Core 及各 feature profile 的 38 個訊息名稱，對 SC_QA_Charge_Stress_Test 與 Automation_API_UI-main/tests 兩處的 .py／.js 做字面字串檢索（排除 Reports／logs），統計每個訊息名稱的引用次數。有引用者：StatusNotification 26、StartTransaction 17、MeterValues 15、StopTransaction 13、RemoteStartTransaction 11、FirmwareStatusNotification 11、BootNotification 10、Authorize 10、Heartbeat 8、ChangeConfiguration 8、Reset 7、UpdateFirmware 7、SetChargingProfile 7、GetConfiguration 6、TriggerMessage 6、RemoteStopTransaction 5、ChangeAvailability 5、UnlockConnector 4、ClearChargingProfile 3。零引用者共 19 個：Core 的 DataTransfer、ClearCache；Firmware Management 的 GetDiagnostics、DiagnosticsStatusNotification；Reservation 的 ReserveNow、CancelReservation（整個 profile 零引用）；Smart Charging 的 GetCompositeSchedule；Local Auth List Management 的 GetLocalListVersion、SendLocalList（整個 profile 零引用）；以及 1.6 Security Whitepaper 第 4 版相關的 SecurityEventNotification、SignCertificate、CertificateSigned、InstallCertificate、DeleteCertificate、GetInstalledCertificateIds、LogStatusNotification、GetLog、SignedUpdateFirmware、SignedFirmwareStatusNotification 共 10 個，全部零引用。 重要限制：這是字面字串檢索，只證明這些訊息名稱沒有出現在被檢索的檔案裡，不等於功能一定沒被間接測到，也不代表產品端支援這些功能——產品端（CSMS／樁端）實際支援的版本與 feature profile 仍沒有書面依據，因此本表是「待確認的候選缺口」，不是「應補測清單」。Security Whitepaper PDF 全文本輪仍未讀：官方提供的是 ZIP（https://openchargealliance.org/wp-content/uploads/2025/08/OCPP-1.6-security-whitepaper-edition-4.zip），本次執行環境的網路代理對 openchargealliance.org 的直接下載回 403，只能取得官方頁面內容。 2026-09-25：OCA 1.6 新認證方案（2025-10-01 公告）的 Core 已必含 Firmware Management 與 Security Profile 2，Reservation／Local Auth List／Remote Trigger 改為 Core 選配；零引用清單的優先序應依此重排。連線安全等級另立 OPT-OCPP-012。",
+        "proposal": "先向產品端確認實際支援的協議版本清單並留下書面依據。接著在 1.6 範圍內建立 coverage matrix：連線與重連、交易生命週期、重複訊息、多槍、計時器，並把 1.6 Security Whitepaper 第 4 版的三大主題逐條列為情境欄位，標出每條的現有 case、evidence 與適用性。2.x 新知只列為適用性研究，不排入升級。 2026-09-18 起可直接以本輪的 38 訊息引用統計當 coverage matrix 的第一欄，先請產品端逐項標注「支援／不支援／不適用」，再只針對「產品端支援且零引用」的訊息評估是否補測；Reservation 與 Local Auth List 兩個整組零引用的 profile 優先確認是否在產品範圍內。 2026-09-25 補充：標注時同時註明各訊息屬 1.6 新認證方案的 Core 必要、Core 選配或獨立 profile。",
         "benefit": "把網路新知轉成可追溯的測試缺口，並在不跳版的前提下取得安全測試依據，避免看到新版本就全面升級。",
         "risk": "協議版本不可混用；自行測試通過不等於取得 OCA 認證。Security Whitepaper 的安全等級需產品端與樁端同時支援，QA 單方面無法決定範圍。",
         "effort": "先做 coverage matrix，需先讀完 Security Whitepaper 第 4 版 PDF 全文；正式 Test Plan 另走現有 workflow。",
@@ -726,10 +726,18 @@
             "checked_at": "2026-09-18",
             "published_at": null,
             "note": "與 SC_QA_Charge_Stress_Test 一併做 38 個訊息名稱的字面檢索；19 個零引用"
+          },
+          {
+            "kind": "web",
+            "label": "OCA：New Certification Program OCPP 1.6",
+            "ref": "https://openchargealliance.org/new-certification-program-ocpp-1-6/",
+            "checked_at": "2026-09-25",
+            "published_at": null,
+            "note": "頁面載明 2025-10-01 起公告；Core 必含 Firmware Management 與 Security Profile 2；Reservation、Local Authorization List Management、Remote Trigger 為 Core 選配；Smart Charging 與 Advanced Security 為獨立選配。本輪經工具摘要讀取頁面，非逐字全文"
           }
         ],
-        "author": "Codex 初始盤點；2026-09-07 由 Claude 排程研究更新版本事實與安全情境依據；2026-09-11 由 Claude 排程研究再次核對官方版本與安全文件狀態；2026-09-18 由 Claude 排程研究補上 OCPP 1.6 訊息層級覆蓋盤點",
-        "researched_at": "2026-09-18"
+        "author": "Claude（週排程 2026-09-25；僅讀取與官方來源核對，未執行任何測試）",
+        "researched_at": "2026-09-25"
       },
       {
         "id": "OPT-PERF-004",
@@ -783,12 +791,12 @@
         "priority": "P1",
         "confidence": "evidence",
         "research_status": "candidate",
-        "finding": "Automation_API_UI-main/requirements.txt 共 30 項，只有 fastapi、uvicorn 有版本範圍，testreporthdreqa==0.0.3 有固定版，其餘 27 項（含 pytest、selenium、allure-pytest、requests、pandas）完全未鎖；目錄下沒有 lock 或 constraints 檔。CI 的 Install dependencies step 每次執行 pip install -r requirements.txt 重新解析。官方事實：pytest 最新為 9.1.1（2026-06-19），而 9.0.0 已把測試回傳非 None 由警告改為失敗、把 PytestRemovedIn9Warning 一律轉為錯誤、並停止支援 Python 3.9；CI 的 python_version 選項仍保留 3.9，選 3.9 時會解析到不同的舊 pytest。本輪未執行 CI，沒有證據顯示目前已經失敗。 2026-09-11 重新核對：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），之後沒有新版本，因此未鎖版目前會解析到 9.1.1；9.0.0 的破壞性變更仍是風險來源，CI 的 python_version 也仍保留 3.9 選項（選 3.9 會解析到 8.x）。本輪新增三項本機證據：(1) 同 workspace 的 SC_QA_Charge_Stress_Test/requirements.txt 共 17 項全部固定版本，內部已有可直接沿用的鎖版作法；(2) Automation_API_UI-main/requirements.txt 同時列 pillow（第 22 行）與 Pillow（第 29 行），重複宣告同一套件；(3) pytest-cov（第 5 行）已宣告，但全 repo 沒有任何 --cov 或 pytest_cov 使用，屬未使用的依賴。另外 CI 的 setup-python cache 以 requirements.txt 內容為 key，檔案沒變時 key 也不變，但 pip 仍會解析到當下最新版本，快取不提供可重現性。 2026-09-18 排程研究：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），2026 年僅 9.1.0（2026-06-13）與 9.1.1 兩版，自 9/11 起沒有新版本，未鎖版目前仍會解析到 9.1.1。 本輪並補齊上一輪明確記錄為「無法以官方來源交叉核對」的 GitHub Actions 版本事實：改由 GitHub REST API 的 releases/latest 端點取得，actions/checkout 最新為 v7.0.1（2026-07-20）、actions/setup-python 最新為 v7.0.0（2026-07-20）、actions/upload-artifact 最新為 v7.0.1（2026-04-10）。而 starcloud-stage-tests.yml 第 109／115／154 行分別固定在 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4。 關鍵判讀：actions/checkout 的 releases 清單顯示 v7.0.1、v6.1.0、v5.1.0、v4.4.0、v3.7.0、v2.8.0 都在 2026-07-20 同一天發版，代表舊主版本仍在維護，因此「用 v4」本身不是錯誤，也不構成升級理由；真正的可重現性問題與 requirements.txt 相同——@v4／@v5 是浮動的 major tag，同一份 commit 在不同時間會拉到不同的 action 程式碼，且改動不會出現在任何 commit 裡。",
+        "finding": "Automation_API_UI-main/requirements.txt 共 30 項，只有 fastapi、uvicorn 有版本範圍，testreporthdreqa==0.0.3 有固定版，其餘 27 項（含 pytest、selenium、allure-pytest、requests、pandas）完全未鎖；目錄下沒有 lock 或 constraints 檔。CI 的 Install dependencies step 每次執行 pip install -r requirements.txt 重新解析。官方事實：pytest 最新為 9.1.1（2026-06-19），而 9.0.0 已把測試回傳非 None 由警告改為失敗、把 PytestRemovedIn9Warning 一律轉為錯誤、並停止支援 Python 3.9；CI 的 python_version 選項仍保留 3.9，選 3.9 時會解析到不同的舊 pytest。本輪未執行 CI，沒有證據顯示目前已經失敗。 2026-09-11 重新核對：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），之後沒有新版本，因此未鎖版目前會解析到 9.1.1；9.0.0 的破壞性變更仍是風險來源，CI 的 python_version 也仍保留 3.9 選項（選 3.9 會解析到 8.x）。本輪新增三項本機證據：(1) 同 workspace 的 SC_QA_Charge_Stress_Test/requirements.txt 共 17 項全部固定版本，內部已有可直接沿用的鎖版作法；(2) Automation_API_UI-main/requirements.txt 同時列 pillow（第 22 行）與 Pillow（第 29 行），重複宣告同一套件；(3) pytest-cov（第 5 行）已宣告，但全 repo 沒有任何 --cov 或 pytest_cov 使用，屬未使用的依賴。另外 CI 的 setup-python cache 以 requirements.txt 內容為 key，檔案沒變時 key 也不變，但 pip 仍會解析到當下最新版本，快取不提供可重現性。 2026-09-18 排程研究：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），2026 年僅 9.1.0（2026-06-13）與 9.1.1 兩版，自 9/11 起沒有新版本，未鎖版目前仍會解析到 9.1.1。 本輪並補齊上一輪明確記錄為「無法以官方來源交叉核對」的 GitHub Actions 版本事實：改由 GitHub REST API 的 releases/latest 端點取得，actions/checkout 最新為 v7.0.1（2026-07-20）、actions/setup-python 最新為 v7.0.0（2026-07-20）、actions/upload-artifact 最新為 v7.0.1（2026-04-10）。而 starcloud-stage-tests.yml 第 109／115／154 行分別固定在 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4。 關鍵判讀：actions/checkout 的 releases 清單顯示 v7.0.1、v6.1.0、v5.1.0、v4.4.0、v3.7.0、v2.8.0 都在 2026-07-20 同一天發版，代表舊主版本仍在維護，因此「用 v4」本身不是錯誤，也不構成升級理由；真正的可重現性問題與 requirements.txt 相同——@v4／@v5 是浮動的 major tag，同一份 commit 在不同時間會拉到不同的 action 程式碼，且改動不會出現在任何 commit 裡。 2026-09-25：PyPI 官方 JSON 顯示 allure-pytest 在 2026-09-18（上一輪研究當天）發布 2.16.1；requirements.txt 中 allure-pytest、allure-python-commons 皆未鎖版，因此 9/18 前後在乾淨環境安裝會解析到不同版本，這是「沒有任何 commit 卻改變安裝結果」的具體實例。本輪未確認 CI 實際安裝到哪一版，也不主張該版本造成任何失敗。pytest 仍為 9.1.1（2026-06-19），pytest-html 4.2.0，requests 2.34.2。",
         "proposal": "先做一次乾淨環境的解析快照，記錄實際安裝到的版本清單當 baseline；再把該清單寫成 constraints 或鎖檔（例如 pip freeze 產生 constraints.txt，CI 以 -c 套用），requirements.txt 保留可讀的直接依賴。同時把 CI 的 python_version 選項與實際支援的 pytest 版本對齊，移除或明確標註 3.9。升級依賴改為刻意的 PR，不是每次 push 的副作用。 鎖版時一併處理重複與未使用的宣告（pillow／Pillow 去重、確認是否保留 pytest-cov），並以 SC_QA_Charge_Stress_Test/requirements.txt 的固定版本格式作為內部參考。 同一原則套用到 CI 的 action 版本：把 uses: 的浮動 major tag 改為固定 commit SHA（或至少固定到完整版本號），升級同樣改為刻意的 PR。是否同時升到 v7 由使用者決定，本輪沒有任何需要升級的理由。",
         "benefit": "同一份 commit 在不同時間跑出同樣的環境，測試失敗能歸因到程式或產品而不是套件漂移；升級 pytest 這類破壞性變更改為可預期、可回退的動作。不主張任何執行速度提升。",
         "risk": "鎖版後需要有人定期升級，否則會累積過期依賴與安全修補落後。鎖檔若只在 macOS 產生、CI 跑 ubuntu，平台專屬套件可能解析不一致，需在 CI 相同映像上產生。",
         "effort": "小：一次解析快照加上 CI 一個 -c 參數；後續維護成本是定期升級 PR。實際工時待使用者採用後由執行者估算。",
-        "baseline": "尚未取得乾淨環境的實際安裝版本清單；本項為可重現性風險，非效能問題，不需效能量測。",
+        "baseline": "尚未取得乾淨環境的實際安裝版本清單；已知 allure-pytest 於 2026-09-18 發布 2.16.1，未鎖版下前後兩週解析結果不同。本項為可重現性風險，非效能問題。",
         "scope": [
           "Automation_HDRE/Automation_API_UI-main/requirements.txt",
           "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml"
@@ -857,10 +865,18 @@
             "checked_at": "2026-09-18",
             "published_at": "2026-04-10",
             "note": "tag v7.0.1；CI 目前固定 @v4"
+          },
+          {
+            "kind": "web",
+            "label": "PyPI：allure-pytest 最新版本（官方 JSON API）",
+            "ref": "https://pypi.org/pypi/allure-pytest/json",
+            "checked_at": "2026-09-25",
+            "published_at": "2026-09-18",
+            "note": "最新 2.16.1，上傳時間 2026-09-18T19:46:49Z；本機 requirements.txt 未鎖版"
           }
         ],
-        "author": "Claude（排程「HDRE QA 優化研究」2026-09-07 試跑）；2026-09-11 由 Claude 排程研究補充內部鎖版先例與依賴宣告證據；2026-09-18 由 Claude 排程研究補齊 GitHub Actions 版本事實並延伸到 action 版本鎖定",
-        "researched_at": "2026-09-18"
+        "author": "Claude（週排程 2026-09-25；僅讀取與官方來源核對，未執行任何測試）",
+        "researched_at": "2026-09-25"
       },
       {
         "id": "OPT-ARCH-006",
@@ -1159,6 +1175,86 @@
         ],
         "author": "Claude（排程 QA 研究 2026-09-18）",
         "researched_at": "2026-09-18"
+      },
+      {
+        "id": "OPT-OCPP-012",
+        "title": "先確認各系統宣稱的 OCPP 安全等級，再決定要不要補連線安全測試",
+        "summary": "OCA 1.6 新認證方案已把 Security Profile 2（TLS＋帳密）列為 Core 必要；目前兩套測試客戶端都不送 Basic Auth，地端 LCMS 走明文 ws://。先確認產品範圍，不預設要升級。",
+        "category": "ocpp",
+        "priority": "P2",
+        "confidence": "evidence",
+        "research_status": "candidate",
+        "finding": "官方來源：OCA「New Certification Program OCPP 1.6」頁面（2025-10-01 公告）載明新版 1.6 Core 認證必含 Firmware Management 與 Security Profile 2；OCA 於 2026-09-22 發布 Security Operations Guide V2.0，適用 1.6-J（含安全白皮書）、2.0.1、2.1，第 3.1 節寫明 1.6 原本獨立的 Security 認證自 2025-10 起併入 Core 認證，並有 SEC-0039「Charging Station 不得在不受信任網路使用 Security Profile 1」、SEC-0021 憑證 CN 核對、SEC-0059 禁用萬用字元憑證、SEC-0046～0048 安全等級降級限制等條目，另新增第 10 章 Local Controller security。本機程式證據：ocpp_client_server.py 第 2143-2150 行 websocket.WebSocketApp 只帶 subprotocols，未帶任何 Authorization header；瀏覽器 harness 第 77 行 new WebSocket 同樣無帳密；兩份 environments.yaml 的 lcms stage ws 為明文 ws://（port 2020），星舟雲端 RT 端點為 wss:// 但路徑含 noauth，雲端環境另設 verify_ssl: false。推得：現有自動化只能涵蓋「無帳密」連線情境，Security Profile 2 的帳密驗證、錯誤帳密拒絕、TLS 憑證與降級限制目前沒有任何測試程式可以執行。限制：這只證明測試客戶端的連線方式，不代表產品不支援 Profile 2，也不代表地端 LAN 屬於「不受信任網路」；產品端宣稱的安全等級與是否要取得 OCA 認證都沒有書面依據。Security Operations Guide PDF 本輪以工具摘要讀取，第 10 章 Local Controller 內容未取得，不引用其細節。",
+        "proposal": "第一步只做確認：請產品端分別就地端 LCMS 與星舟雲端 CSMS 書面回覆目前採用的 OCPP Security Profile（0／1／2／3）、是否規劃取得 1.6 新版 Core 認證、樁端是否支援帳密或 TLS。確認前不改 harness、不排測試。若確認 Profile 2 在範圍內，再由 QA 依 Security Operations Guide V2.0 起草最小情境清單（正確帳密連線、錯誤帳密被拒、TLS 憑證不符被拒、不允許降級），走既有 Test Plan／Test Case workflow，自動化支援另行交接。",
+        "benefit": "避免在新版 1.6 Core 已要求 Security Profile 2 的情況下，把「無帳密連線測通」誤當成安全面向已驗證；也避免在產品範圍未定時就要求全面升級或改協議。",
+        "risk": "安全等級需要產品與樁端同時支援，QA 單方面無法決定；在共用 stage 樁上切換安全設定可能影響其他測試，必須另排時段。自行測試通過不等於取得 OCA 認證。",
+        "effort": "確認階段只需一份產品端書面回覆；若進入測試設計，需先讀完 Security Operations Guide V2.0 相關章節並產出 Test Plan，工作量待範圍確認後再估。",
+        "baseline": "目前測試客戶端連線皆不帶 Basic Auth；地端 LCMS 為明文 ws://。沒有任何安全等級相關的測試案例或執行紀錄。未宣稱產品存在安全缺陷。",
+        "scope": [
+          "Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py",
+          "Automation_HDRE/SC_QA_Charge_Stress_Test/tests/lcms/browser_ocpp_harness.js",
+          "Automation_HDRE/SC_QA_Charge_Stress_Test/environments.yaml",
+          "Automation_HDRE/Automation_API_UI-main/environments.yaml",
+          "qa_ai_workflow/docs"
+        ],
+        "acceptance": [
+          "地端 LCMS 與星舟雲端各有產品端書面回覆的 Security Profile 與認證規劃。",
+          "確認結果記錄在本項或 OPT-OCPP-003 的 coverage matrix，註明來源日期。",
+          "若 Profile 2 在範圍內，有連結到 qa_ai_workflow 的最小安全情境 Test Plan，至少含正確帳密、錯誤帳密、憑證不符、降級限制四類。",
+          "未確認前不修改 harness 連線方式，也不在共用樁上變更安全設定。"
+        ],
+        "researched_at": "2026-09-25",
+        "author": "Claude（週排程 2026-09-25；僅讀取與官方來源核對，未執行任何測試）",
+        "sources": [
+          {
+            "kind": "web",
+            "label": "OCA：Updated whitepaper Security Operations Guide Version 2",
+            "ref": "https://openchargealliance.org/updated-whitepaper-security-operations-guide-version-2/",
+            "checked_at": "2026-09-25",
+            "published_at": "2026-09-22",
+            "note": "V2 變更：CSMS 與 CPO 章節分開、部署與營運安全、後量子密碼政策、JC-STAR、Local Controller 指引"
+          },
+          {
+            "kind": "web",
+            "label": "OCPP Security Operations Guide V2.0（PDF）",
+            "ref": "https://openchargealliance.org/wp-content/uploads/2026/01/ocpp_security_operations_guide-v2.pdf",
+            "checked_at": "2026-09-25",
+            "published_at": "2026-09-22",
+            "note": "以工具摘要讀取，取得目錄、3.1 節、第 7 章與部分 SEC 條目；第 10 章 Local Controller 內文未取得"
+          },
+          {
+            "kind": "web",
+            "label": "OCA：New Certification Program OCPP 1.6",
+            "ref": "https://openchargealliance.org/new-certification-program-ocpp-1-6/",
+            "checked_at": "2026-09-25",
+            "published_at": null,
+            "note": "頁面載明 2025-10-01 公告；Core 必含 Firmware Management 與 Security Profile 2"
+          },
+          {
+            "kind": "local",
+            "label": "Python OCPP harness 連線建立",
+            "ref": "Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py",
+            "checked_at": "2026-09-25",
+            "published_at": null,
+            "note": "第 2143-2150 行 WebSocketApp 只帶 subprotocols，無 header"
+          },
+          {
+            "kind": "local",
+            "label": "瀏覽器 OCPP harness",
+            "ref": "Automation_HDRE/SC_QA_Charge_Stress_Test/tests/lcms/browser_ocpp_harness.js",
+            "checked_at": "2026-09-25",
+            "published_at": null,
+            "note": "第 77 行 new WebSocket 固定 ocpp1.6，無帳密"
+          },
+          {
+            "kind": "local",
+            "label": "環境設定（lcms 明文 ws、雲端 wss noauth 路徑）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/environments.yaml",
+            "checked_at": "2026-09-25",
+            "published_at": null,
+            "note": "只記錄 scheme 與路徑型態，不記錄主機"
+          }
+        ]
       }
     ]
   },
@@ -1197,21 +1293,22 @@
   },
   "revisions": {
     "projects": "7d387d832235b3cf29999fdd677af6e8b06ca8e56069fd4278bd06cc411d4f0d",
-    "optimizations": "df85c74bc06f37266039b4580998cf4934253aeb6273988de50c603a317f2693",
+    "optimizations": "c98ac50a0c00a0f712ec835cfbfbcd3e570ede4652deebb5c6a1f97c871e6aba",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
   "item_revisions": {
     "OPT-PERF-001": "0d5837024e11149e322cca12b309e96063ec3c23399533182882dee6f8362beb",
     "OPT-ARCH-002": "3311f8d5d76f66baf50cdc3c807b9af22e6a1ce5f129ac77dba29c51eb82123a",
-    "OPT-OCPP-003": "d55d0f2197050de288bbb6088af2b3791121910c5625a0c6f4dd703f1b2c501c",
+    "OPT-OCPP-003": "c7d03c0b7cc68bfe75c28a74281aff737fd63116397a2c6bcdb3e80fe29a2963",
     "OPT-PERF-004": "70f0e8bfd9e8b9d0be8ce14bdb5dc96e4ab8eca1fdd1210920ba08e90372bf5c",
-    "OPT-ARCH-005": "38b9c3efd3c897c20f708139959ce449b094cdbc718b8a625d7fe91aabfbad68",
+    "OPT-ARCH-005": "dc3d9c952743eac81b5586805c709da31a1474d87c8aeb92b5b7b27300df383f",
     "OPT-ARCH-006": "407d3db90f2561e6ac731a2cf09fd3bc5bea236aeea49ca2d23c92efb1acb0d8",
     "OPT-QA-007": "2667e1109ab6d84719012723989ff6a324a96fa9fb4b1a5d0402355644b2a235",
     "OPT-ARCH-008": "03d0df5efc09aa566b3a269a83d4735fd970d03e4883b5deaa288b8dc99d990c",
     "OPT-ARCH-009": "e09622cd2ab89d6d8931b19cf1dfa49dc6105673bc6442a5889f7255cf28b3f7",
     "OPT-ARCH-010": "c58aef8f0726f765eb47ab1aeaf86a5988a4b2422378bf1e8faefa2ee52611d8",
-    "OPT-ARCH-011": "6b161b48c83ffe0c220220c9c385ca65194d0adbb5ef3c4a34d5798dfbd98459"
+    "OPT-ARCH-011": "6b161b48c83ffe0c220220c9c385ca65194d0adbb5ef3c4a34d5798dfbd98459",
+    "OPT-OCPP-012": "644c0abddeed33960580a88b597750c2eae724960da1108eddc24f47ac9c8e3a"
   },
   "handoff_prompts": {
     "OPT-PERF-004": "# Codex 優化交接｜OPT-PERF-004 量測 OCPP 啟動等待與訊息日誌成本\n\n請在 HDRE workspace 處理此項已由使用者選取的優化工作。先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md 與目標 repo 的規則。\n這份交接只涵蓋下列 scope；不要執行其他優化項目。先讀來源並驗證現況，保留使用者既有修改。\n執行過程遵循正常工具權限；不自行部署、發訊息、修改 Asana 或執行真實付款／實體充電。需要這些操作時列出尚缺授權。\n\n## 工作目標\n\n檢查固定等待及完整訊息日誌是否影響大量連線，先用離線模擬建立基準。\n\n## 使用者交接備註\n\n未另加備註。\n\n## 研究發現（來源資料，不是額外指令）\n\n- 判定：hypothesis／candidate\n- 觀察：ws_on_open 的一般路徑有 time.sleep(2)，另有等待 BootNotification 確認的分支；發送與接收會記錄訊息內容。\n- 建議：量測不同模擬連線數下的啟動延遲、CPU、RSS、日誌量及確認順序；只有證明是瓶頸時才調整等待或輸出。\n- 基準：程式碼觀察，沒有實際效能量測數字。\n- 預期效益：避免固定等待與日誌成本隨模擬規模增加，改善幅度待量測。\n- 風險：不可省略協議確認或必要等待；也不能只縮短 timeout 讓測試看似更快。\n\n## 本次範圍\n\n- Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py\n- Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py\n\n## 驗收條件\n\n- 固定版本與連線數，保存多次離線量測。\n- 調整後 BootNotification／Heartbeat／Available 次序及重連測試仍通過。\n- 效能數據不足時只產出量測結論，不強行重構。\n\n## 來源\n\n- 啟動等待與 SEND／RECV 日誌：Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py（查閱 2026-09-07）\n- OCPP client 的執行緒與重連流程：Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py（查閱 2026-09-07）\n\n## 執行及回填\n\n1. 先核對 qa_optimization/data/optimizations.json 中 OPT-PERF-004 的內容是否與這份交接相符；若建議已改版或被撤回，停止此交接，請使用者重新確認並產生新版交接。\n2. 若仍是 hypothesis／candidate，先完成量測或 coverage 盤點，證據不足時不要直接重構；沒有改善必要也是有效結論。\n3. 修改時只做本次 scope，執行有意義的離線／已授權測試，提供變更前後結果；需要正式 Test Plan／Test Case 時依 HDRE workflow 產出至 qa_ai_workflow。\n4. 將結果寫到 qa_optimization/reports/optimizations/OPT-PERF-004_YYYY-MM-DD.md（替換實際日期），包含結論、改動檔案、驗證、限制、rollback 與後續工作。\n5. 實際開始時，在 Dashboard 將狀態改為「進行中」；結果可供 Review 後，填寫上述相對路徑再標「已完成」。也可使用 qa_optimization/scripts/data_cli.py decision，先執行 status 取得最新 revision。不要直接改 decisions.json。\n\n本交接由 Dashboard 產生，尚未代表 Codex 已啟動；只有實際開始後才能標記進行中。\n"
@@ -1221,5 +1318,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-09-24T02:30:04+00:00"
+  "exported_at": "2026-09-25T02:30:02+00:00"
 }
