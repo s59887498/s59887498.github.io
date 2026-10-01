@@ -1,34 +1,31 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-09-23T18:29:58+00:00",
+    "updated_at": "2026-10-01T17:30:02+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
         "title": "LCMS V1.5 完整回歸",
         "product": "地端充電",
-        "summary": "V2 Readable View 最新快照：467 案，通過 434、失敗 8、受阻 4、跳過 21、未執行 0；已執行率 94.6%。後續追蹤失敗案、受阻前置與跳過範圍。",
+        "summary": "LCMS V1.5 完整回歸測試與報告交付已完成，專案完成進度 100%。最終 467 案：446 案完整通過、17 案全部跳過、4 案部分跳過；報告關聯 12 張缺陷單均已結案。",
         "owner": "Andy／Sam／Christine",
-        "environment": "LCMS V1.5／實際 build 待確認",
-        "stage": "execution",
-        "activity": "active",
-        "activity_confirmed_at": "2026-09-24",
-        "observed_at": "2026-09-23T18:12:12+00:00",
+        "environment": "LCMS Stage／前端 V1.5.27／後端 V1.5.27.6",
+        "stage": "report",
+        "activity": "completed",
+        "activity_confirmed_at": "2026-10-02",
+        "observed_at": "2026-10-02",
         "total": 467,
         "counts": {
-          "failed": 8,
-          "blocked": 4,
+          "failed": 0,
+          "blocked": 0,
           "not_run": 0,
           "skipped": 21,
-          "passed": 434
+          "passed": 446
         },
-        "counts_as_of": "2026-09-23T18:12:12+00:00",
-        "scope_note": "2026-09-24 改採 OneDrive 的 LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx；Readable View 467 案／1349 步以唯一 ID 聚合，與舊快照同一範圍。Case Index 全 467 案仍為 Not Started，只核對 ID，不用於結果。新檔 9/24 02:12（台灣）儲存時間為來源快照，不代表逐案測試日期。歷史 Asana 未結單狀態本次未重新查驗。",
-        "blockers": [
-          "V2 Readable View 仍有 8 案 Failed：INSTAL-0011, TC-2338, TC-2345, TC-2351, GEN-2508, TC-2377, TC-2812, TC-2737。",
-          "V2 Readable View 仍有 4 案 Blocked：SEC-0033, SEC-0036, SEC-0034, SEC-0035。"
-        ],
-        "next_action": "依 V2 的 8 案 Failed 與 4 案 Blocked 追蹤修復／前置，再核對 21 案 Skipped 的處置；確認實際 build 與結案條件後彙整報告。",
+        "counts_as_of": "2026-10-01",
+        "scope_note": "使用者 2026-10-02 確認測試完成且報告已交付；測試期間 2026-09-01～2026-10-01。最終 Word 報告使用 Downloads 的 V2 工作簿，Readable View 467 案／1349 步；446 案全 Passed、17 全 Skipped、4 Passed／Skipped 混合。Dashboard 互斥聚合將後兩類合為 skipped=21，Case Index 不參與結果。100% 是專案完成狀態；報告 Gate PARTIAL，16 個來源步驟缺口及未測範圍仍留列。",
+        "blockers": [],
+        "next_action": "本輪已完成並交付 Word Test Report；跳過／部分未測範圍、16 個來源步驟缺口與報表匯出日誌暫不實作保留於報告，後續另輪追蹤。",
         "sources": [
           {
             "label": "9/11 15:09 儲存版 Readable View 快照",
@@ -48,7 +45,7 @@
             "ref": "https://app.asana.com/1/1201720793465976/project/1211254768090665/task/1218347311207796",
             "checked_at": "2026-09-18",
             "published_at": null,
-            "note": "唯讀查詢；modified_at 2026-09-17T16:01:34Z、due 2026-09-18、未完成"
+            "note": "唯讀查詢；modified_at 2026-09-17T16:01:34Z、due 2026-09-18、未完成；此為 9/18 歷史查詢，不作本次未結依據。最終報告記錄關聯 12 張單均已結案。"
           },
           {
             "kind": "web",
@@ -56,7 +53,7 @@
             "ref": "https://app.asana.com/1/1201720793465976/project/1211254768090665/task/1218253870931847",
             "checked_at": "2026-09-18",
             "published_at": null,
-            "note": "唯讀查詢；modified_at 2026-09-17T16:01:28Z、due 2026-09-18、未完成"
+            "note": "唯讀查詢；modified_at 2026-09-17T16:01:28Z、due 2026-09-18、未完成；此為 9/18 歷史查詢，不作本次未結依據。最終報告記錄關聯 12 張單均已結案。"
           },
           {
             "kind": "local",
@@ -69,6 +66,25 @@
             "label": "9/24 逐案狀態、行號與來源 SHA-256",
             "ref": "qa_optimization/reports/research/2026-09-24_lcms-v2-occupancy-progress.json",
             "checked_at": "2026-09-23T18:25:23+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "LCMS V1.5 完整回歸 Word Test Report（已交付）",
+            "ref": "qa_ai_workflow/outputs/reports/LCMS/LCMS_V1.5_完整回歸測試_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-01T17:28:07+00:00",
+            "note": "依報告任務核對 Stage、前端 V1.5.27／後端 V1.5.27.6、446 完整通過／17 全跳過／4 部分跳過。"
+          },
+          {
+            "kind": "local",
+            "label": "10/02 依對話與工作簿核對的專案進度",
+            "ref": "qa_optimization/reports/research/2026-10-02_occupancy-balancing-lcms-progress.md",
+            "checked_at": "2026-10-01T17:28:07+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/02 唯讀逐案狀態與来源指紋",
+            "ref": "qa_optimization/reports/research/2026-10-02_occupancy-balancing-lcms-progress.json",
+            "checked_at": "2026-10-01T17:28:07+00:00"
           }
         ]
       },
@@ -307,21 +323,21 @@
         "product": "星舟快充",
         "owner": "QA 負責人待確認",
         "environment": "RT；2026-09-23 續測 LIFF／後台／OCPP；固定測試會員，build待確認",
-        "summary": "142案累計78 Passed／11 Failed／53 Blocked。HOGTC-014依使用者確認將提示預期修正為「時間衝突，請重新檢查」，沿用既有RT證據改判Passed，誤開Bug已關閉；Figma原連結節點仍顯示舊文案，待設計來源對齊。",
+        "summary": "RT 測試持續進行中。142 案：80 Passed、9 Failed、53 Blocked，已執行率 62.7%。HOGTC-127／128 依 UIUX 文案確認改判 Passed；剩餘受阻集中於精確計費、角色、金流、LINE 與報表測資。",
         "stage": "execution",
-        "activity": "blocked",
-        "observed_at": "2026-09-23T14:23:56.013219+08:00",
-        "activity_confirmed_at": "2026-09-23T14:23:56.013219+08:00",
+        "activity": "active",
+        "observed_at": "2026-09-29T23:49:08.071968+08:00",
+        "activity_confirmed_at": "2026-10-02",
         "total": 142,
         "counts": {
-          "passed": 78,
-          "failed": 11,
+          "passed": 80,
+          "failed": 9,
           "blocked": 53,
           "skipped": 0,
           "not_run": 0
         },
-        "counts_as_of": "2026-09-23T14:23:56.013219+08:00",
-        "scope_note": "142案／305步；HOGTC-014兩步及整案更正Passed，原文案不符屬Case預期錯誤，Asana Bug已關閉。HOGTC-023兩步及整案撤下、不重用ID；IDEA-HOGTC-023改Dropped。HOGTC-046與142保留跨日分段及混合行程覆蓋，但精確金額仍Blocked。HOGTC-007與039先前更正維持。",
+        "counts_as_of": "2026-09-29T23:49:08.071968+08:00",
+        "scope_note": "142案／305步；HOGTC-014兩步及整案更正Passed，原文案不符屬Case預期錯誤，Asana Bug已關閉。HOGTC-023兩步及整案撤下、不重用ID；IDEA-HOGTC-023改Dropped。HOGTC-046與142保留跨日分段及混合行程覆蓋，但精確金額仍Blocked。HOGTC-007與039先前更正維持。 2026-09-29 HOGTC-127／128預期文案更正「暫無資料」並改判Passed，兩步及整案同步；採UIUX確認與2026-09-21 RT證據，本次未重新操作RT。",
         "blockers": [
           "HOGTC-039雖無可請款金額，後台仍建立0元正式完成訂單；PRD「可保留session／日誌」是否容許待PM釐清。",
           "HOGTC-101停充後LIFF先到充電摘要且須手動確認才進佔槍頁；「佔槍中」是否僅Rich Menu文案待PM確認。",
@@ -330,7 +346,7 @@
           "對帳/匯出HOGTC-086/087依使用者指示暫緩；其他Blocked缺訂單/角色/精確時序fixture。",
           "PRD v1.7.12 §9.2仍寫單列22:00～02:00跨午夜時段允許，但使用者釐清及RT contract DEC-055為單列不允許；需求文件待Owner對齊。"
         ],
-        "next_action": "使用者檢視剩餘11個Failed後決定是否開Bug；補足HOGTC-046／142跨日金額的精確證據；需求Owner對齊PRD跨午夜設定字句及Figma文案來源。",
+        "next_action": "持續複驗 9 案 Failed；補可控 RT 時間／費率與連續行程證據、測試角色與金流狀態、指定 LINE 畫面。確認對帳／匯出 HOGTC-086／087 是否解除暫緩，再續跑 53 案 Blocked。",
         "sources": [
           {
             "kind": "local",
@@ -358,10 +374,10 @@
           },
           {
             "kind": "local",
-            "label": "佔槍費 Readable Test Cases Draft v0.5（143 案）",
+            "label": "佔槍費 Readable Test Cases（142 案／305 步，已執行結果）",
             "ref": "qa_ai_workflow/outputs/testcases/星舟快充/佔槍費_Readable.xlsx",
-            "checked_at": "2026-09-23T14:23:56.013219+08:00",
-            "note": "2026-09-23 HOGTC-014更正後142案305步，78 Passed／11 Failed／53 Blocked；validator 0 error/0 warning。"
+            "checked_at": "2026-09-29T23:49:08.071968+08:00",
+            "note": "2026-09-29 UIUX文案更正後142案305步，80 Passed／9 Failed／53 Blocked；validator 0 error/0 warning。"
           },
           {
             "kind": "local",
@@ -454,6 +470,38 @@
             "label": "9/24 逐案狀態、行號與來源 SHA-256",
             "ref": "qa_optimization/reports/research/2026-09-24_lcms-v2-occupancy-progress.json",
             "checked_at": "2026-09-23T18:25:23+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "HOGTC-127／128 UIUX空態文案更正與Bug結案",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/佔槍費_TestExecution_20260929_UIUX_Copy_Correction.md",
+            "checked_at": "2026-09-29T23:49:08.071968+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "UIUX確認保留暫無資料與Bug關閉 1218694184589826",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1218694184589826",
+            "checked_at": "2026-09-29T23:49:08.071968+08:00",
+            "note": "2026-09-23 UIUX留言＋2026-09-29使用者結案確認；本次確認為文案預期更正。"
+          },
+          {
+            "kind": "web",
+            "label": "UIUX確認保留暫無資料與Bug關閉 1218688861583388",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1218688861583388",
+            "checked_at": "2026-09-29T23:49:08.071968+08:00",
+            "note": "2026-09-23 UIUX留言＋2026-09-29使用者結案確認；本次確認為文案預期更正。"
+          },
+          {
+            "kind": "local",
+            "label": "10/02 依對話與工作簿核對的專案進度",
+            "ref": "qa_optimization/reports/research/2026-10-02_occupancy-balancing-lcms-progress.md",
+            "checked_at": "2026-10-01T17:28:07+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/02 唯讀逐案狀態與来源指紋",
+            "ref": "qa_optimization/reports/research/2026-10-02_occupancy-balancing-lcms-progress.json",
+            "checked_at": "2026-10-01T17:28:07+00:00"
           }
         ]
       },
@@ -462,18 +510,30 @@
         "title": "智慧均流",
         "product": "星舟快充",
         "owner": "QA 負責人待確認",
-        "environment": "待確認",
-        "summary": "準備中，已連結 Asana「[Main]智慧均流」（ST-7017）；主單位於 Development，測試範圍、環境與開測日期待確認。",
-        "stage": "planning",
-        "activity": "planned",
-        "observed_at": "2026-09-11T00:50:05+08:00",
-        "activity_confirmed_at": "2026-09-11T00:50:05+08:00",
-        "total": null,
-        "counts": null,
-        "counts_as_of": null,
-        "scope_note": "依本次使用者確認登錄 QA 準備中。Asana 主單描述空白，負責人 Janice，due 10/15 不視為 QA 開测日期；本輪未展開子任務或盤點既有案例數。",
-        "blockers": [],
-        "next_action": "確認 QA 子任務與需求來源、本輪範圍、測試環境及開測日期，再安排測試設計。",
+        "environment": "RT／已執行 UI、API、OCPP 分配測試；部署 build 待確認",
+        "summary": "RT 測試持續進行中。106 個追蹤 ID：41 Passed、8 Failed、44 Blocked、13 Skipped，已執行率 46.2%。S1-017 為提示需求待定草稿；續追排序、先降後升及限流前置。",
+        "stage": "execution",
+        "activity": "active",
+        "observed_at": "2026-10-01",
+        "activity_confirmed_at": "2026-10-02",
+        "total": 106,
+        "counts": {
+          "passed": 41,
+          "failed": 8,
+          "blocked": 44,
+          "skipped": 13,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-10-01",
+        "scope_note": "Readable Excel106個追蹤ID／208步；含1個S1-017待確認提示草稿，不算正式提示功能覆蓋。41P／8F／44B／13S；步驟90P／9F／85B／24S。10/01僅需求重分類，其他105案沿用9/30結果。S1-004舊預期待Review。",
+        "blockers": [
+          "後段多策略/新交易無新SetChargingProfile；028、031–036、039、041、055–056、060未建立active前置，長窗未執行。",
+          "滿電勾選7案需求尚未定案；S1空租戶/首次初始化、S2精確額定及內部state/tick/flag/commit觀測仍有缺口。",
+          "S1-017改為提示需求待Andy Lee／Janice確認；S2-006/023排序異常有兩份本機Draft，042/057重現既有先升後降Bug。",
+          "本輪已知會員與交易清理驗證完成；08:55:25Z一次HTTP200/code500且無taskId的建立，是否有部分資料仍未知。",
+          "AC Pending、網路故障/恢復注入及監控v0.3維持Skipped；S1-005依站點必填決策Skipped，S1-004舊預期待Review。"
+        ],
+        "next_action": "Andy Lee／Janice確認提示是否新增及UI規則，QA補正式預期後測試；RD確認後段不下發分配的原因及所需state/tick/flag/commit證據；修復排序與升降載缺陷。PM確認滿電勾選與初始化驗收方式；QA待active基準恢復後續跑Blocked。",
         "sources": [
           {
             "kind": "local",
@@ -486,6 +546,120 @@
             "label": "智慧均流 Asana 主單（ST-7017）",
             "ref": "https://app.asana.com/1/1201720793465976/project/1210988184935976/task/1216707949300392?focus=true",
             "checked_at": "2026-09-11T00:50:05+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "智慧均流 Test Case 本輪需求與設計登錄",
+            "ref": "qa_optimization/reports/research/2026-09-29_smart-balancing-testcase-design.md",
+            "checked_at": "2026-09-29T03:30:06+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "Sprint1 RD修訂 Readable Excel（46案／85步，Draft）",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/智慧均流_Sprint1_v0.1_Readable.xlsx",
+            "checked_at": "2026-09-29T10:29:11+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "Sprint2 RD修訂 Readable Excel（60案／123步，Draft）",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/智慧均流_Sprint2_v0.1_Readable.xlsx",
+            "checked_at": "2026-09-29T10:29:11+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "RD修訂Test Idea Backlog（提示Provisional，原S1-017 promotion撤下）",
+            "ref": "qa_ai_workflow/outputs/testideas/星舟快充/智慧均流_Test_Idea_Backlog.json",
+            "checked_at": "2026-10-01"
+          },
+          {
+            "kind": "local",
+            "label": "本輪RD需求對照、使用者容量決策與修訂驗證",
+            "ref": "qa_optimization/reports/research/2026-09-29_smart-balancing-rd-review.md",
+            "checked_at": "2026-09-29T10:29:11+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "逐案RD差異與核心規則對照紀錄",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/智慧均流_RD需求對照_20260929.md",
+            "checked_at": "2026-09-29T10:29:11+00:00"
+          },
+          {
+            "kind": "web",
+            "label": "本輪QA主單",
+            "ref": "https://app.asana.com/1/1201720793465976/project/1210988184935976/task/1216707949300399?focus=true",
+            "checked_at": "2026-09-29T10:29:11+00:00"
+          },
+          {
+            "kind": "web",
+            "label": "使用者混樁限值交替Bug（待確認）",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1218972391236868",
+            "checked_at": "2026-09-29T10:29:11+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "RT補測範圍與使用者測資決策",
+            "ref": "qa_optimization/reports/research/2026-09-29_smart-balancing-followup.md",
+            "checked_at": "2026-09-29T15:56:35.275134+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "2026-09-30補測範圍及排除決策",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rt_followup_20260930/scope_decisions.md",
+            "checked_at": "2026-09-29T17:05:41.225969+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "2026-09-30 RT DC與雙站補測紀錄",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rt_followup_20260930/智慧均流_TestExecution_20260930.md",
+            "checked_at": "2026-09-29T17:26:27.409181+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "2026-09-30四案UI補測及設定還原證據",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rt_ui4_20260930/智慧均流_UI四案補測_20260930.md",
+            "checked_at": "2026-09-30T09:31:20.803080+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "剩餘案例補測與逐步證據",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rt_remaining_20260930/智慧均流_剩餘案例補測_20260930.md",
+            "checked_at": "2026-09-30T17:31:56.709607+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "9/30歷史Failed／Blocked／Skipped清單（S1-017已於10/01修訂）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rt_remaining_20260930/智慧均流_最新剩餘清單_20260930.md",
+            "checked_at": "2026-09-30T17:31:56.709607+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "OCPP設定還原、交易復原與未知建立限制",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rt_remaining_20260930/ocpp/cleanup_summary.json",
+            "checked_at": "2026-09-30T17:31:56.709607+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/01提示討論與S1-017修訂紀錄",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/requirement_update_20261001/requirement_update.md",
+            "checked_at": "2026-10-01"
+          },
+          {
+            "kind": "local",
+            "label": "10/01最新逐案狀態（需求重分類）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/requirement_update_20261001/status_writeback_ledger.json",
+            "checked_at": "2026-10-01"
+          },
+          {
+            "kind": "local",
+            "label": "10/02 依對話與工作簿核對的專案進度",
+            "ref": "qa_optimization/reports/research/2026-10-02_occupancy-balancing-lcms-progress.md",
+            "checked_at": "2026-10-01T17:28:07+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/02 唯讀逐案狀態與来源指紋",
+            "ref": "qa_optimization/reports/research/2026-10-02_occupancy-balancing-lcms-progress.json",
+            "checked_at": "2026-10-01T17:28:07+00:00"
           }
         ]
       },
@@ -1292,7 +1466,7 @@
     ]
   },
   "revisions": {
-    "projects": "7d387d832235b3cf29999fdd677af6e8b06ca8e56069fd4278bd06cc411d4f0d",
+    "projects": "a6ed668303ef3cddaf280c38310de80922c6aa760e5b3c2719a17591cb974cb2",
     "optimizations": "c98ac50a0c00a0f712ec835cfbfbcd3e570ede4652deebb5c6a1f97c871e6aba",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -1318,5 +1492,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-09-25T02:30:02+00:00"
+  "exported_at": "2026-10-01T17:36:13+00:00"
 }
