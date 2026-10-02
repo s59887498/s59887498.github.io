@@ -708,7 +708,7 @@
   },
   "optimizations": {
     "schema_version": 1,
-    "updated_at": "2026-09-25T02:14:47+00:00",
+    "updated_at": "2026-10-02T02:15:01+00:00",
     "items": [
       {
         "id": "OPT-PERF-001",
@@ -960,17 +960,17 @@
       {
         "id": "OPT-ARCH-005",
         "title": "把自動化依賴鎖版，讓 CI 每次跑同一組套件",
-        "summary": "requirements.txt 有 27 項未鎖版本且沒有鎖檔，CI 每次重新解析安裝，上游改版可能在沒有任何 commit 的情況下改變測試判定。",
+        "summary": "requirements.txt 有 27 項未鎖版本且沒有鎖檔，CI 每次重新解析安裝；selenium、websocket-client、pytest 新版皆已不支援 CI 仍提供的 Python 3.9，上游改版或選項不同就會改變安裝結果。",
         "category": "architecture",
         "priority": "P1",
         "confidence": "evidence",
         "research_status": "candidate",
-        "finding": "Automation_API_UI-main/requirements.txt 共 30 項，只有 fastapi、uvicorn 有版本範圍，testreporthdreqa==0.0.3 有固定版，其餘 27 項（含 pytest、selenium、allure-pytest、requests、pandas）完全未鎖；目錄下沒有 lock 或 constraints 檔。CI 的 Install dependencies step 每次執行 pip install -r requirements.txt 重新解析。官方事實：pytest 最新為 9.1.1（2026-06-19），而 9.0.0 已把測試回傳非 None 由警告改為失敗、把 PytestRemovedIn9Warning 一律轉為錯誤、並停止支援 Python 3.9；CI 的 python_version 選項仍保留 3.9，選 3.9 時會解析到不同的舊 pytest。本輪未執行 CI，沒有證據顯示目前已經失敗。 2026-09-11 重新核對：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），之後沒有新版本，因此未鎖版目前會解析到 9.1.1；9.0.0 的破壞性變更仍是風險來源，CI 的 python_version 也仍保留 3.9 選項（選 3.9 會解析到 8.x）。本輪新增三項本機證據：(1) 同 workspace 的 SC_QA_Charge_Stress_Test/requirements.txt 共 17 項全部固定版本，內部已有可直接沿用的鎖版作法；(2) Automation_API_UI-main/requirements.txt 同時列 pillow（第 22 行）與 Pillow（第 29 行），重複宣告同一套件；(3) pytest-cov（第 5 行）已宣告，但全 repo 沒有任何 --cov 或 pytest_cov 使用，屬未使用的依賴。另外 CI 的 setup-python cache 以 requirements.txt 內容為 key，檔案沒變時 key 也不變，但 pip 仍會解析到當下最新版本，快取不提供可重現性。 2026-09-18 排程研究：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），2026 年僅 9.1.0（2026-06-13）與 9.1.1 兩版，自 9/11 起沒有新版本，未鎖版目前仍會解析到 9.1.1。 本輪並補齊上一輪明確記錄為「無法以官方來源交叉核對」的 GitHub Actions 版本事實：改由 GitHub REST API 的 releases/latest 端點取得，actions/checkout 最新為 v7.0.1（2026-07-20）、actions/setup-python 最新為 v7.0.0（2026-07-20）、actions/upload-artifact 最新為 v7.0.1（2026-04-10）。而 starcloud-stage-tests.yml 第 109／115／154 行分別固定在 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4。 關鍵判讀：actions/checkout 的 releases 清單顯示 v7.0.1、v6.1.0、v5.1.0、v4.4.0、v3.7.0、v2.8.0 都在 2026-07-20 同一天發版，代表舊主版本仍在維護，因此「用 v4」本身不是錯誤，也不構成升級理由；真正的可重現性問題與 requirements.txt 相同——@v4／@v5 是浮動的 major tag，同一份 commit 在不同時間會拉到不同的 action 程式碼，且改動不會出現在任何 commit 裡。 2026-09-25：PyPI 官方 JSON 顯示 allure-pytest 在 2026-09-18（上一輪研究當天）發布 2.16.1；requirements.txt 中 allure-pytest、allure-python-commons 皆未鎖版，因此 9/18 前後在乾淨環境安裝會解析到不同版本，這是「沒有任何 commit 卻改變安裝結果」的具體實例。本輪未確認 CI 實際安裝到哪一版，也不主張該版本造成任何失敗。pytest 仍為 9.1.1（2026-06-19），pytest-html 4.2.0，requests 2.34.2。",
+        "finding": "Automation_API_UI-main/requirements.txt 共 30 項，只有 fastapi、uvicorn 有版本範圍，testreporthdreqa==0.0.3 有固定版，其餘 27 項（含 pytest、selenium、allure-pytest、requests、pandas）完全未鎖；目錄下沒有 lock 或 constraints 檔。CI 的 Install dependencies step 每次執行 pip install -r requirements.txt 重新解析。官方事實：pytest 最新為 9.1.1（2026-06-19），而 9.0.0 已把測試回傳非 None 由警告改為失敗、把 PytestRemovedIn9Warning 一律轉為錯誤、並停止支援 Python 3.9；CI 的 python_version 選項仍保留 3.9，選 3.9 時會解析到不同的舊 pytest。本輪未執行 CI，沒有證據顯示目前已經失敗。 2026-09-11 重新核對：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），之後沒有新版本，因此未鎖版目前會解析到 9.1.1；9.0.0 的破壞性變更仍是風險來源，CI 的 python_version 也仍保留 3.9 選項（選 3.9 會解析到 8.x）。本輪新增三項本機證據：(1) 同 workspace 的 SC_QA_Charge_Stress_Test/requirements.txt 共 17 項全部固定版本，內部已有可直接沿用的鎖版作法；(2) Automation_API_UI-main/requirements.txt 同時列 pillow（第 22 行）與 Pillow（第 29 行），重複宣告同一套件；(3) pytest-cov（第 5 行）已宣告，但全 repo 沒有任何 --cov 或 pytest_cov 使用，屬未使用的依賴。另外 CI 的 setup-python cache 以 requirements.txt 內容為 key，檔案沒變時 key 也不變，但 pip 仍會解析到當下最新版本，快取不提供可重現性。 2026-09-18 排程研究：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），2026 年僅 9.1.0（2026-06-13）與 9.1.1 兩版，自 9/11 起沒有新版本，未鎖版目前仍會解析到 9.1.1。 本輪並補齊上一輪明確記錄為「無法以官方來源交叉核對」的 GitHub Actions 版本事實：改由 GitHub REST API 的 releases/latest 端點取得，actions/checkout 最新為 v7.0.1（2026-07-20）、actions/setup-python 最新為 v7.0.0（2026-07-20）、actions/upload-artifact 最新為 v7.0.1（2026-04-10）。而 starcloud-stage-tests.yml 第 109／115／154 行分別固定在 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4。 關鍵判讀：actions/checkout 的 releases 清單顯示 v7.0.1、v6.1.0、v5.1.0、v4.4.0、v3.7.0、v2.8.0 都在 2026-07-20 同一天發版，代表舊主版本仍在維護，因此「用 v4」本身不是錯誤，也不構成升級理由；真正的可重現性問題與 requirements.txt 相同——@v4／@v5 是浮動的 major tag，同一份 commit 在不同時間會拉到不同的 action 程式碼，且改動不會出現在任何 commit 裡。 2026-09-25：PyPI 官方 JSON 顯示 allure-pytest 在 2026-09-18（上一輪研究當天）發布 2.16.1；requirements.txt 中 allure-pytest、allure-python-commons 皆未鎖版，因此 9/18 前後在乾淨環境安裝會解析到不同版本，這是「沒有任何 commit 卻改變安裝結果」的具體實例。本輪未確認 CI 實際安裝到哪一版，也不主張該版本造成任何失敗。pytest 仍為 9.1.1（2026-06-19），pytest-html 4.2.0，requests 2.34.2。 2026-10-02：PyPI 專案頁顯示 selenium 最新 4.49.0（2026-09-09）要求 Python >=3.10，websocket-client 最新 1.9.2（2026-08-31）同樣要求 >=3.10；CI 第 24-31 行 python_version 仍提供 3.9，選 3.9 時除 pytest 外，selenium 與 websocket-client 也會靜默解析到不同的舊版，同一 commit 的 UI 與 OCPP 用戶端行為可能隨 Python 選項改變。來源衝突：本輪 PyPI JSON API 被 robots 拒絕，改讀 pypi.org/project/allure-pytest/ 專案頁，該頁顯示最新 2.16.0（2026-04-27），與上一輪 JSON API 取得的 2.16.1（2026-09-18）不一致，本輪無法判定何者為準，2.16.1 實例暫列待再核對；此衝突不影響「未鎖版即不可重現」的主要結論。pytest 仍為 9.1.1（2026-06-19）。",
         "proposal": "先做一次乾淨環境的解析快照，記錄實際安裝到的版本清單當 baseline；再把該清單寫成 constraints 或鎖檔（例如 pip freeze 產生 constraints.txt，CI 以 -c 套用），requirements.txt 保留可讀的直接依賴。同時把 CI 的 python_version 選項與實際支援的 pytest 版本對齊，移除或明確標註 3.9。升級依賴改為刻意的 PR，不是每次 push 的副作用。 鎖版時一併處理重複與未使用的宣告（pillow／Pillow 去重、確認是否保留 pytest-cov），並以 SC_QA_Charge_Stress_Test/requirements.txt 的固定版本格式作為內部參考。 同一原則套用到 CI 的 action 版本：把 uses: 的浮動 major tag 改為固定 commit SHA（或至少固定到完整版本號），升級同樣改為刻意的 PR。是否同時升到 v7 由使用者決定，本輪沒有任何需要升級的理由。",
         "benefit": "同一份 commit 在不同時間跑出同樣的環境，測試失敗能歸因到程式或產品而不是套件漂移；升級 pytest 這類破壞性變更改為可預期、可回退的動作。不主張任何執行速度提升。",
         "risk": "鎖版後需要有人定期升級，否則會累積過期依賴與安全修補落後。鎖檔若只在 macOS 產生、CI 跑 ubuntu，平台專屬套件可能解析不一致，需在 CI 相同映像上產生。",
         "effort": "小：一次解析快照加上 CI 一個 -c 參數；後續維護成本是定期升級 PR。實際工時待使用者採用後由執行者估算。",
-        "baseline": "尚未取得乾淨環境的實際安裝版本清單；已知 allure-pytest 於 2026-09-18 發布 2.16.1，未鎖版下前後兩週解析結果不同。本項為可重現性風險，非效能問題。",
+        "baseline": "尚未取得乾淨環境的實際安裝版本清單。已知 selenium 4.49.0、websocket-client 1.9.2、pytest 9.x 均要求 Python >=3.10，而 CI 仍提供 3.9 選項；allure-pytest 最新版本兩個 PyPI 來源不一致（2.16.0／2.16.1），待再核對。本項為可重現性風險，非效能問題。",
         "scope": [
           "Automation_HDRE/Automation_API_UI-main/requirements.txt",
           "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml"
@@ -1047,10 +1047,34 @@
             "checked_at": "2026-09-25",
             "published_at": "2026-09-18",
             "note": "最新 2.16.1，上傳時間 2026-09-18T19:46:49Z；本機 requirements.txt 未鎖版"
+          },
+          {
+            "kind": "web",
+            "label": "PyPI：selenium 專案頁（4.49.0，Python >=3.10）",
+            "ref": "https://pypi.org/project/selenium/",
+            "checked_at": "2026-10-02",
+            "published_at": "2026-09-09",
+            "note": "官方支援 3.10–3.14；CI python_version 仍含 3.9"
+          },
+          {
+            "kind": "web",
+            "label": "PyPI：websocket-client 專案頁（1.9.2，Python >=3.10）",
+            "ref": "https://pypi.org/project/websocket-client/",
+            "checked_at": "2026-10-02",
+            "published_at": "2026-08-31",
+            "note": "Automation_API_UI-main 未鎖版；壓測套件固定 1.9.0"
+          },
+          {
+            "kind": "web",
+            "label": "PyPI：allure-pytest 專案頁（顯示 2.16.0）",
+            "ref": "https://pypi.org/project/allure-pytest/",
+            "checked_at": "2026-10-02",
+            "published_at": "2026-04-27",
+            "note": "與 2026-09-25 JSON API 的 2.16.1（2026-09-18）不一致；本輪 JSON API 被 robots 拒絕，衝突未解"
           }
         ],
-        "author": "Claude（週排程 2026-09-25；僅讀取與官方來源核對，未執行任何測試）",
-        "researched_at": "2026-09-25"
+        "author": "Claude（週排程 2026-10-02；僅讀取與官方來源核對，未執行任何測試）",
+        "researched_at": "2026-10-02"
       },
       {
         "id": "OPT-ARCH-006",
@@ -1429,6 +1453,107 @@
             "note": "只記錄 scheme 與路徑型態，不記錄主機"
           }
         ]
+      },
+      {
+        "id": "OPT-ARCH-013",
+        "category": "architecture",
+        "priority": "P3",
+        "confidence": "evidence",
+        "research_status": "candidate",
+        "title": "壓測套件鎖定的 urllib3、aiohttp 版本已有公開安全公告，先確認是否需要升級",
+        "summary": "SC_QA_Charge_Stress_Test 固定 urllib3==2.5.0、aiohttp==3.13.2，兩者都落在官方 High 等級公告的受影響範圍；實際可利用性取決於連線對象是否可信，先評估再決定升級。",
+        "finding": "Automation_HDRE/SC_QA_Charge_Stress_Test/requirements.txt（檔案時間 2026-03-16）全部以 == 固定版本，其中 urllib3==2.5.0、aiohttp==3.13.2、requests==2.32.5。官方公告比對（2026-10-02 查閱）：(1) urllib3 GHSA-gm62-xv2j-4w53／CVE-2025-66418（High，2025-12-05）受影響 >=1.24,<2.6.0，公告明說預設用法向不可信來源發 HTTP 請求即受影響（無上限的 Content-Encoding 解壓鏈），修補 2.6.0；GHSA-2xpw-w6gg-jr37／CVE-2025-66471 與 GHSA-38jv-5279-wg99／CVE-2026-21441 只影響 streaming／preload_content=False，本套件 rg 找不到 stream=True、iter_content、raw.read、drain_conn，判定不可達；GHSA-qccp-gfcp-xxvc／CVE-2026-44431 只影響 ProxyManager 低階 urlopen 跨源 redirect，本套件未直接使用 urllib3。(2) aiohttp GHSA-cq5v-8q36-5273／CVE-2026-69244（High，2026-07-25）受影響 <=3.14.2、修補 3.14.3，屬用戶端 C 解析器在惡意伺服器回應下越界讀取（DoS）；本套件唯一使用處為 tests/eks/tdx_taichung/main_tdx_parking_peak.py 第 478 行 aiohttp.ClientSession。(3) requests GHSA-gc5v-m9x4-r6x2／CVE-2026-25645 只影響直接呼叫 extract_zipped_paths()，不可達。urllib3 最新 2.8.0（2026-09-15）、aiohttp 最新 3.14.3（2026-07-23）。壓測連線對象為公司 Stage／EKS 與停車場相關服務，屬可信度較高的對象，因此實際風險偏低；本項只主張「固定版本落在公告範圍且無定期比對機制」，不主張已被利用或測試結果受影響。本輪未安裝、未執行 pip、未取得實際安裝版本。",
+        "proposal": "保留 == 鎖版作法，但加一個唯讀的定期依賴公告比對（例如以 OSV／GitHub Advisory 資料比對 requirements.txt 的工具），列出受影響套件與可達性判斷。升級改為刻意的獨立變更：urllib3 至 >=2.7.0（同時涵蓋 2.6.x 系列後續公告）、aiohttp 至 >=3.14.3，requests 可隨 urllib3 一併評估；升級後以離線 unit tests（tests/unit/）與一次使用者核准的最小壓測場景確認行為不變。是否升級、何時升級由使用者決定。",
+        "benefit": "消除已知公告範圍內的固定版本，並讓之後的公告在研究或 CI 中被看見，而不是靠人工巡查。不主張任何效能提升。",
+        "risk": "aiohttp 3.13→3.14、urllib3 2.5→2.7+ 為次版號跨越，可能改變逾時、連線池或錯誤型別，進而影響壓測統計；需要同場景前後比對才能確認。誤把不可達公告當成急迫事項會增加不必要的升級成本。",
+        "effort": "小：一份比對清單與 requirements.txt 數行版本號；驗證成本主要在一次最小壓測場景的前後比對，需使用者核准環境與時段。",
+        "baseline": "只有宣告版本與官方公告比對，尚未取得實際安裝版本、也未執行任何掃描工具；無量測數據。",
+        "scope": [
+          "Automation_HDRE/SC_QA_Charge_Stress_Test/requirements.txt",
+          "Automation_HDRE/SC_QA_Charge_Stress_Test/tests/eks/tdx_taichung/main_tdx_parking_peak.py"
+        ],
+        "acceptance": [
+          "產出一份 requirements.txt 對應官方公告的清單，每筆標示可達／不可達與理由。",
+          "若採用升級：urllib3 >=2.7.0、aiohttp >=3.14.3 且仍為 == 固定版本。",
+          "升級後 tests/unit/ 全數通過，並在使用者核准的同一最小壓測場景下，前後結果差異逐項說明。",
+          "之後每輪研究或 CI 可重跑同一比對，新公告會出現在輸出中。"
+        ],
+        "sources": [
+          {
+            "kind": "local",
+            "label": "壓測套件固定版本清單",
+            "ref": "Automation_HDRE/SC_QA_Charge_Stress_Test/requirements.txt",
+            "checked_at": "2026-10-02",
+            "published_at": null,
+            "note": "urllib3==2.5.0、aiohttp==3.13.2、requests==2.32.5；檔案時間 2026-03-16"
+          },
+          {
+            "kind": "local",
+            "label": "aiohttp 用戶端使用處",
+            "ref": "Automation_HDRE/SC_QA_Charge_Stress_Test/tests/eks/tdx_taichung/main_tdx_parking_peak.py",
+            "checked_at": "2026-10-02",
+            "published_at": null,
+            "note": "第 32 行 import、第 478 行 ClientSession"
+          },
+          {
+            "kind": "web",
+            "label": "urllib3 GHSA-gm62-xv2j-4w53（CVE-2025-66418）",
+            "ref": "https://github.com/urllib3/urllib3/security/advisories/GHSA-gm62-xv2j-4w53",
+            "checked_at": "2026-10-02",
+            "published_at": "2025-12-05",
+            "note": "受影響 >=1.24,<2.6.0；預設用法對不可信來源即受影響"
+          },
+          {
+            "kind": "web",
+            "label": "urllib3 GHSA-2xpw-w6gg-jr37（CVE-2025-66471）",
+            "ref": "https://github.com/urllib3/urllib3/security/advisories/GHSA-2xpw-w6gg-jr37",
+            "checked_at": "2026-10-02",
+            "published_at": "2025-12-05",
+            "note": "僅 streaming API；本套件判定不可達"
+          },
+          {
+            "kind": "web",
+            "label": "urllib3 GHSA-qccp-gfcp-xxvc（CVE-2026-44431）",
+            "ref": "https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp-gfcp-xxvc",
+            "checked_at": "2026-10-02",
+            "published_at": "2026-05-07",
+            "note": "受影響 1.23–2.6.x，修補 2.7.0；僅 ProxyManager 低階 urlopen"
+          },
+          {
+            "kind": "web",
+            "label": "aiohttp GHSA-cq5v-8q36-5273（CVE-2026-69244）",
+            "ref": "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-cq5v-8q36-5273",
+            "checked_at": "2026-10-02",
+            "published_at": "2026-07-25",
+            "note": "受影響 <=3.14.2，修補 3.14.3；用戶端受影響，可用 AIOHTTP_NO_EXTENSIONS=1 暫緩"
+          },
+          {
+            "kind": "web",
+            "label": "requests GHSA-gc5v-m9x4-r6x2（CVE-2026-25645）",
+            "ref": "https://github.com/psf/requests/security/advisories/GHSA-gc5v-m9x4-r6x2",
+            "checked_at": "2026-10-02",
+            "published_at": "2026-03-25",
+            "note": "僅直接呼叫 extract_zipped_paths()；不可達"
+          },
+          {
+            "kind": "web",
+            "label": "PyPI：urllib3 專案頁",
+            "ref": "https://pypi.org/project/urllib3/",
+            "checked_at": "2026-10-02",
+            "published_at": "2026-09-15",
+            "note": "最新 2.8.0"
+          },
+          {
+            "kind": "web",
+            "label": "PyPI：aiohttp 專案頁",
+            "ref": "https://pypi.org/project/aiohttp/",
+            "checked_at": "2026-10-02",
+            "published_at": "2026-07-23",
+            "note": "最新 3.14.3"
+          }
+        ],
+        "author": "Claude（週排程 2026-10-02；僅讀取與官方公告比對，未安裝、未執行任何測試）",
+        "researched_at": "2026-10-02"
       }
     ]
   },
@@ -1467,7 +1592,7 @@
   },
   "revisions": {
     "projects": "a6ed668303ef3cddaf280c38310de80922c6aa760e5b3c2719a17591cb974cb2",
-    "optimizations": "c98ac50a0c00a0f712ec835cfbfbcd3e570ede4652deebb5c6a1f97c871e6aba",
+    "optimizations": "34347f8526861b3930047134837ad899587e699de15e0e24b546328fb03219f4",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
   "item_revisions": {
@@ -1475,14 +1600,15 @@
     "OPT-ARCH-002": "3311f8d5d76f66baf50cdc3c807b9af22e6a1ce5f129ac77dba29c51eb82123a",
     "OPT-OCPP-003": "c7d03c0b7cc68bfe75c28a74281aff737fd63116397a2c6bcdb3e80fe29a2963",
     "OPT-PERF-004": "70f0e8bfd9e8b9d0be8ce14bdb5dc96e4ab8eca1fdd1210920ba08e90372bf5c",
-    "OPT-ARCH-005": "dc3d9c952743eac81b5586805c709da31a1474d87c8aeb92b5b7b27300df383f",
+    "OPT-ARCH-005": "8b83114478bb319bc542839aaac77f5ce814221db8e184a9d6a4d1078b21c9a5",
     "OPT-ARCH-006": "407d3db90f2561e6ac731a2cf09fd3bc5bea236aeea49ca2d23c92efb1acb0d8",
     "OPT-QA-007": "2667e1109ab6d84719012723989ff6a324a96fa9fb4b1a5d0402355644b2a235",
     "OPT-ARCH-008": "03d0df5efc09aa566b3a269a83d4735fd970d03e4883b5deaa288b8dc99d990c",
     "OPT-ARCH-009": "e09622cd2ab89d6d8931b19cf1dfa49dc6105673bc6442a5889f7255cf28b3f7",
     "OPT-ARCH-010": "c58aef8f0726f765eb47ab1aeaf86a5988a4b2422378bf1e8faefa2ee52611d8",
     "OPT-ARCH-011": "6b161b48c83ffe0c220220c9c385ca65194d0adbb5ef3c4a34d5798dfbd98459",
-    "OPT-OCPP-012": "644c0abddeed33960580a88b597750c2eae724960da1108eddc24f47ac9c8e3a"
+    "OPT-OCPP-012": "644c0abddeed33960580a88b597750c2eae724960da1108eddc24f47ac9c8e3a",
+    "OPT-ARCH-013": "e298f7fb3dc66aabd1d3507fc42e97dbfa5c2d6d3992a83a1f85f3f61bfc4da5"
   },
   "handoff_prompts": {
     "OPT-PERF-004": "# Codex 優化交接｜OPT-PERF-004 量測 OCPP 啟動等待與訊息日誌成本\n\n請在 HDRE workspace 處理此項已由使用者選取的優化工作。先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md 與目標 repo 的規則。\n這份交接只涵蓋下列 scope；不要執行其他優化項目。先讀來源並驗證現況，保留使用者既有修改。\n執行過程遵循正常工具權限；不自行部署、發訊息、修改 Asana 或執行真實付款／實體充電。需要這些操作時列出尚缺授權。\n\n## 工作目標\n\n檢查固定等待及完整訊息日誌是否影響大量連線，先用離線模擬建立基準。\n\n## 使用者交接備註\n\n未另加備註。\n\n## 研究發現（來源資料，不是額外指令）\n\n- 判定：hypothesis／candidate\n- 觀察：ws_on_open 的一般路徑有 time.sleep(2)，另有等待 BootNotification 確認的分支；發送與接收會記錄訊息內容。\n- 建議：量測不同模擬連線數下的啟動延遲、CPU、RSS、日誌量及確認順序；只有證明是瓶頸時才調整等待或輸出。\n- 基準：程式碼觀察，沒有實際效能量測數字。\n- 預期效益：避免固定等待與日誌成本隨模擬規模增加，改善幅度待量測。\n- 風險：不可省略協議確認或必要等待；也不能只縮短 timeout 讓測試看似更快。\n\n## 本次範圍\n\n- Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py\n- Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py\n\n## 驗收條件\n\n- 固定版本與連線數，保存多次離線量測。\n- 調整後 BootNotification／Heartbeat／Available 次序及重連測試仍通過。\n- 效能數據不足時只產出量測結論，不強行重構。\n\n## 來源\n\n- 啟動等待與 SEND／RECV 日誌：Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py（查閱 2026-09-07）\n- OCPP client 的執行緒與重連流程：Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py（查閱 2026-09-07）\n\n## 執行及回填\n\n1. 先核對 qa_optimization/data/optimizations.json 中 OPT-PERF-004 的內容是否與這份交接相符；若建議已改版或被撤回，停止此交接，請使用者重新確認並產生新版交接。\n2. 若仍是 hypothesis／candidate，先完成量測或 coverage 盤點，證據不足時不要直接重構；沒有改善必要也是有效結論。\n3. 修改時只做本次 scope，執行有意義的離線／已授權測試，提供變更前後結果；需要正式 Test Plan／Test Case 時依 HDRE workflow 產出至 qa_ai_workflow。\n4. 將結果寫到 qa_optimization/reports/optimizations/OPT-PERF-004_YYYY-MM-DD.md（替換實際日期），包含結論、改動檔案、驗證、限制、rollback 與後續工作。\n5. 實際開始時，在 Dashboard 將狀態改為「進行中」；結果可供 Review 後，填寫上述相對路徑再標「已完成」。也可使用 qa_optimization/scripts/data_cli.py decision，先執行 status 取得最新 revision。不要直接改 decisions.json。\n\n本交接由 Dashboard 產生，尚未代表 Codex 已啟動；只有實際開始後才能標記進行中。\n"
@@ -1492,5 +1618,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-10-01T17:36:13+00:00"
+  "exported_at": "2026-10-02T02:30:06+00:00"
 }
