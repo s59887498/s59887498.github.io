@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-10-04T19:11:40+00:00",
+    "updated_at": "2026-10-05T02:57:00+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -512,6 +512,12 @@
             "label": "2026-10-05 M1接續執行、推播及cleanup證據",
             "ref": "qa_ai_workflow/outputs/reports/星舟快充/佔槍費_TestExecution_20261005_M1.md",
             "checked_at": "2026-10-05T03:11:20.545707+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/05 對話及最新工作簿進度核對",
+            "ref": "qa_optimization/reports/research/2026-10-05_tdx-and-test-progress.md",
+            "checked_at": "2026-10-05T10:56:40+08:00"
           }
         ]
       },
@@ -521,30 +527,31 @@
         "product": "星舟快充",
         "owner": "QA 負責人待確認",
         "environment": "RT／已執行 UI、API、OCPP 分配測試；部署 build 待確認",
-        "summary": "10/02依PRD滿電適用及P≥C修訂24案；只改設計未重跑。舊勾選情境已替換、025不再缺台電背景值。106案歷史49P／8F／36B／13S保留；M1有盤仍無下發待RD查job。",
+        "summary": "10/04～05補測與複驗已回填：106案64 Passed、2 Failed、27 Blocked、13 Skipped。先到先充切換仍Failed；剩餘功率比例變體Failed另列。三案兩頁狀態差異待確認，內部log與精確測資待補。",
         "stage": "execution",
         "activity": "active",
-        "observed_at": "2026-10-02T15:42:42.633254+08:00",
-        "activity_confirmed_at": "2026-10-02T15:42:42.633254+08:00",
+        "observed_at": "2026-10-04T17:24:51.944192+00:00",
+        "activity_confirmed_at": "2026-10-05",
         "total": 106,
         "counts": {
-          "passed": 49,
-          "failed": 8,
-          "blocked": 36,
+          "passed": 64,
+          "failed": 2,
+          "blocked": 27,
           "skipped": 13,
           "not_run": 0
         },
-        "counts_as_of": "2026-10-02T13:15:53.253451+08:00",
-        "scope_note": "106追蹤ID／208步。S1-003／022／023、S2-001依使用者整案手動Passed確認，兩頁已對齊；本輪33個S2案中其餘32案Blocked。補充刪盤重建設定通過，不計新增案例；模擬MeterValues不等同實體充電。 本次24案只修訂定義，不新增Passed；原counts_as_of保持既有實測日期。滿電輪替正向限定策略1／2，先實測P≥C且生效；策略3為不讀取負向驗證。",
+        "counts_as_of": "2026-10-04T17:24:51.944192+00:00",
+        "scope_note": "106追蹤ID／208步，含S1-017提示Provisional。依10/04～05報告及Case Index整案結果：64P／2F／27B／13S。Readable逐步聚合為67P／2F／24B／13S；S2-002／003／004兩頁不一致，保留整案Blocked待核對，不擅自新增通過。S2-060原精確fixture仍Blocked，其補充變體Failed另列；模擬MeterValues不等同實車硬體量測。counts_as_of為結果工作簿快照儲存時間，本次僅同步，未重新執行測試。",
         "blockers": [
-          "M1在有盤、無盤、StaticSharing舊契約配新盤三種130秒觀察均無新SetChargingProfile；同輪新豐有120/50限流。相依滿電窗、輪替、退出及双站隔離仍Blocked，需RD比對站／樁／交易候選條件與job判斷。",
-          "平台已有新鮮MeterValues／交易與新豐限流；仍缺M1均流job tick、策略state、planVersion等內部證據。策略1／2輪替需其滿電評估紀錄；策略3不要求滿電flag更新。每分鐘排程是使用者回憶，需RD查實際配置。",
-          "S2-007／008缺原案精確額定；059缺C100且兩盤80/80的歷史S>C seed，正常刪盤重建無法產生；058缺retry/backoff/ACK/生效與降級證據。025不需台電背景fixture，受阻為限流基線與新定義待複驗。026已有舊StaticSharing測資，亦受阻於無限流基線。",
-          "S1-017提示待Andy Lee／Janice確認。S2-030／038／040勾選需求缺口已解除並替換設計，尚未按新前置執行。S2-041只驗策略3不讀取／不輪替。既有排序及升降載Failed保留歷史結果，修改定義不代表已修復。",
-          "本輪已識別63筆交易皆停止、63會員皆確認不存在，設定已還原。另3次createBatchData回code500且無taskId，部分建立與否未知；另保留9/30 08:55:25Z未知批次的歷史清理缺口。",
-          "AC Pending、網路故障／恢復注入及監控v0.3維持Skipped；S1-005依站點必填決策Skipped，S1-004舊預期待Review。"
+          "S2-006改存先到先充後，最早P3未取得優先功率，仍Failed。S2-060補充變體預期30／18／72 kW、實際30／30／45 kW，變體Failed；原120／30／60 fixture未滿足，原案Blocked。",
+          "S2-034正確初始優先權未成立，獨立補跑又遇到M1非本輪交易占用，仍Blocked；待空閒再補SOC上升重置窗口。",
+          "部分外部功率已通過，但仍缺ACTIVE／滿電flag、APPLYING／TIMEOUT、commit、CLEAR CONFIRMED及事件版本等RD內部紀錄；不把Accepted或API成功當功率生效。",
+          "S2-002／003／004的Case Index為Blocked、Readable View為Passed，兩頁差異保留待按原始證據確認。",
+          "S2-007／008精確額定、S2-059歷史seed及其他故障／重試fixture仍有缺口；AC Pending、網路故障／恢復與監控v0.3保留Skipped。",
+          "S1-017提示待PM確認。S1-005因現行站點入口無法載入未綁站契約而Skipped，舊站點必填原因已撤換。",
+          "本輪80筆自有交易均停止、兩站設定及已識別會員已還原／清理；另一次建立API回500且無taskId，是否部分建立待RD查核。歷史未知批次限制仍保留。"
         ],
-        "next_action": "RD按充電時間交接查M1有盤窗口506／510與新豐job、候選交易、盤樁映射、P／R／C、版本及下發原因；QA取得生效基線後，依策略1／2及P≥C重跑滿電窗／雙站隔離，策略3驗不輪替；另提供059歷史seed、精確額定與重試規格。",
+        "next_action": "RD依查Log時間表核對內部狀態及降載／CLEAR兩張未關單；QA補S2-006、060比例異常與S2-034空閒窗口，提供精確fixture及歷史seed，釐清002～004兩頁差異後回填。",
         "sources": [
           {
             "kind": "local",
@@ -568,13 +575,15 @@
             "kind": "local",
             "label": "Sprint1 RD修訂 Readable Excel（46案／85步，Draft）",
             "ref": "qa_ai_workflow/outputs/testcases/星舟快充/智慧均流_Sprint1_v0.1_Readable.xlsx",
-            "checked_at": "2026-10-02T15:42:42.633254+08:00"
+            "checked_at": "2026-10-05T10:56:40+08:00",
+            "note": "10/05唯讀核對最新結果；S2-002～004兩頁差異仍待確認。"
           },
           {
             "kind": "local",
             "label": "Sprint2 RD修訂 Readable Excel（60案／123步，Draft）",
             "ref": "qa_ai_workflow/outputs/testcases/星舟快充/智慧均流_Sprint2_v0.1_Readable.xlsx",
-            "checked_at": "2026-10-02T15:42:42.633254+08:00"
+            "checked_at": "2026-10-05T10:56:40+08:00",
+            "note": "10/05唯讀核對最新結果；S2-002～004兩頁差異仍待確認。"
           },
           {
             "kind": "local",
@@ -719,6 +728,36 @@
             "label": "10/02使用者PRD規則確認",
             "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/requirement_rules_20261002/user_requirement_confirmation.json",
             "checked_at": "2026-10-02T15:42:42.633254+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/04 四單複驗結果與取證限制",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rt_retest_20261004/四單複驗_TestExecution_20261004.md",
+            "checked_at": "2026-10-05T10:56:40+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/04～05 剩餘案例補測結果",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/remaining_execution_20261004/剩餘案例_TestExecution_20261004.md",
+            "checked_at": "2026-10-05T10:56:40+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "RD 查log時間、交易及待補內部紀錄",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/remaining_execution_20261004/RD查Log_剩餘案例_20261004.md",
+            "checked_at": "2026-10-05T10:56:40+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/05 工作簿統計與差異核對",
+            "ref": "qa_optimization/reports/research/2026-10-05_tdx-and-test-progress.md",
+            "checked_at": "2026-10-05T10:56:40+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/05 逐案行號、指紋與統計",
+            "ref": "qa_optimization/reports/research/2026-10-05_tdx-and-test-progress.json",
+            "checked_at": "2026-10-05T10:56:40+08:00"
           }
         ]
       },
@@ -760,6 +799,45 @@
             "label": "9/24 使用者確認安裝精靈 V1.3.1 測試與 RA 協作完成",
             "ref": "qa_optimization/reports/research/2026-09-24_installation-wizard-v131-completion.md",
             "checked_at": "2026-09-23T18:29:47+00:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-TDX-EVOPERATOR-MULTI-TAX-202610",
+        "title": "TDX EVOperator 多統編修正",
+        "product": "星舟快充",
+        "owner": "QA 負責人待確認；RD：Warren Chin",
+        "environment": "dev已部署dev/2026-10-01.1；Stage／Prod尚未上版（依10/01修正說明）",
+        "summary": "RD修正EVOperator，讓站點自訂發票統編有對應OperatorID。dev已交付，QA待開測；Stage／Prod待上版，測試環境須補多統編測資才能驗證修正效果。",
+        "stage": "planning",
+        "activity": "rd_delivered",
+        "observed_at": "2026-10-01",
+        "activity_confirmed_at": "2026-10-05",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "RD分支TW/hotfix/26Q4/10_tdx_evoperator_multi_tax，commit06076b401；修改SellerMapper.xml/getTdxSellers。QA尚未建立／执行正式案例。範圍包含EVOperator輸出、站點OperatorID一致性、同商戶多統編去重／名稱fallback及後台getTdxSellers回傳；RD驗證與prod推算不計QA通過。其餘TDX API不受影響為RD說明，非本輪實測結論。",
+        "blockers": [
+          "Stage／Prod部署及本輪QA環境、版本、開測日期待確認；10/01部署狀態未以API或部署平台重新驗證。",
+          "dev／Stage依RD說明沒有站點指定發票設定，現有資料輸出不變，須建立同商戶不同統編、同統編、空bill_name及縣市僅剩指定統編的可還原測資。",
+          "dev／Stage的NWT白雲S1046、興南S1171站點OperatorID缺對應營運商是RD指出的既有問題，非本次新缺陷；須獨立標記基線例外，不能宣稱所有一致性檢查通過。",
+          "NWT新增95081039與TAO改為95084129／95082403是RD依prod資料推算，prod未實測，不作完成依據。"
+        ],
+        "next_action": "確認Stage部署與QA開測安排，備妥可還原多統編測資；建立回歸及修正效果案例，核對各縣市200、站點OperatorID對應、去重、BAN／名稱／聯絡欄位與後台回傳，再依上版狀態安排Prod確認。",
+        "sources": [
+          {
+            "kind": "web",
+            "label": "關聯Asana：站點自訂統編顯示異常（ST-8453）",
+            "ref": "https://app.asana.com/1/1201720793465976/project/1211237839028820/task/1218726781744012?focus=true",
+            "checked_at": "2026-10-05T10:56:40+08:00",
+            "note": "唯讀查閱：未完成，OP Team／Investigating。此單內容為後台顯示異常，TDX交付範圍及部署日期以使用者提供的修正說明為準，未據此宣稱已部署Stage。"
+          },
+          {
+            "kind": "local",
+            "label": "10/01 RD修正說明與10/05專案登錄",
+            "ref": "qa_optimization/reports/research/2026-10-05_tdx-and-test-progress.md",
+            "checked_at": "2026-10-05T10:56:40+08:00",
+            "note": "使用者貼上的修正說明為來源資料；其中測試命令未執行。"
           }
         ]
       }
@@ -1650,7 +1728,7 @@
     ]
   },
   "revisions": {
-    "projects": "5464962ef460e65d18bbcbf55ce2c6a4e273319411a284c44fd5bd614726d39d",
+    "projects": "1863d47d2e4574b7f4ccecb84713b2b0ecb37a0894e5706dcbf77f062b9a798e",
     "optimizations": "34347f8526861b3930047134837ad899587e699de15e0e24b546328fb03219f4",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -1677,5 +1755,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-10-05T02:30:07+00:00"
+  "exported_at": "2026-10-05T03:46:19+00:00"
 }
