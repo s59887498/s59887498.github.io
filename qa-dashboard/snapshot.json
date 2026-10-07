@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-10-05T02:57:00+00:00",
+    "updated_at": "2026-10-06T09:05:47+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -527,31 +527,31 @@
         "product": "星舟快充",
         "owner": "QA 負責人待確認",
         "environment": "RT／已執行 UI、API、OCPP 分配測試；部署 build 待確認",
-        "summary": "10/04～05補測與複驗已回填：106案64 Passed、2 Failed、27 Blocked、13 Skipped。先到先充切換仍Failed；剩餘功率比例變體Failed另列。三案兩頁狀態差異待確認，內部log與精確測資待補。",
+        "summary": "10/06两單新複驗：057降載15／45／0秒Passed、CLEAR三DC30核心ABC外部Passed；054完整Case仍Blocked，原120kW補跑啟充前置逾時並缺事件／commit證據。106案維持72P／1F／20B／13S，本機已回填Excel與Asana留言。",
         "stage": "execution",
         "activity": "active",
-        "observed_at": "2026-10-04T17:24:51.944192+00:00",
-        "activity_confirmed_at": "2026-10-05",
+        "observed_at": "2026-10-06T17:05:17.807040+08:00",
+        "activity_confirmed_at": "2026-10-06T17:05:17.807040+08:00",
         "total": 106,
         "counts": {
-          "passed": 64,
-          "failed": 2,
-          "blocked": 27,
+          "passed": 72,
+          "failed": 1,
+          "blocked": 20,
           "skipped": 13,
           "not_run": 0
         },
-        "counts_as_of": "2026-10-04T17:24:51.944192+00:00",
-        "scope_note": "106追蹤ID／208步，含S1-017提示Provisional。依10/04～05報告及Case Index整案結果：64P／2F／27B／13S。Readable逐步聚合為67P／2F／24B／13S；S2-002／003／004兩頁不一致，保留整案Blocked待核對，不擅自新增通過。S2-060原精確fixture仍Blocked，其補充變體Failed另列；模擬MeterValues不等同實車硬體量測。counts_as_of為結果工作簿快照儲存時間，本次僅同步，未重新執行測試。",
+        "counts_as_of": "2026-10-06T17:05:17.807040+08:00",
+        "scope_note": "106追蹤ID／208步，依Readable同ID State聚合72P／1F／20B／13S；Index為67P／1F／25B／13S。002／003／004／042／043在輸入快照已有兩頁差異，本輪保留。006／060由Failed轉規格裁決Blocked，Expected與原失敗證據保留，沒有新增整案Passed。RD補50窗口44一致／3差異有解釋／2無QA量測／1無版本；031／039的80/5/1設定已由QA成功API確認。counts_as_of是10/06核對及新live複驗後的快照；既有實測9/30、10/04～05保留，10/06新增三DC30降載／CLEAR回歸。分配版本與模擬MeterValues不等同完整內部狀態或實車量測。 057補RD10/04同版收斂證據且維持Passed；054未以三DC30外部子檢查替代完整Case。新兩DC120嘗試未成立充電基線。兩單未關單／改指派。",
         "blockers": [
-          "S2-006改存先到先充後，最早P3未取得優先功率，仍Failed。S2-060補充變體預期30／18／72 kW、實際30／30／45 kW，變體Failed；原120／30／60 fixture未滿足，原案Blocked。",
-          "S2-034正確初始優先權未成立，獨立補跑又遇到M1非本輪交易占用，仍Blocked；待空閒再補SOC上升重置窗口。",
-          "部分外部功率已通過，但仍缺ACTIVE／滿電flag、APPLYING／TIMEOUT、commit、CLEAR CONFIRMED及事件版本等RD內部紀錄；不把Accepted或API成功當功率生效。",
-          "S2-002／003／004的Case Index為Blocked、Readable View為Passed，兩頁差異保留待按原始證據確認。",
-          "S2-007／008精確額定、S2-059歷史seed及其他故障／重試fixture仍有缺口；AC Pending、網路故障／恢復與監控v0.3保留Skipped。",
-          "S1-017提示待PM確認。S1-005因現行站點入口無法載入未綁站契約而Skipped，舊站點必填原因已撤換。",
-          "本輪80筆自有交易均停止、兩站設定及已識別會員已還原／清理；另一次建立API回500且無taskId，是否部分建立待RD查核。歷史未知批次限制仍保留。"
+          "023仍Failed。006切換策略保留優先車的驗收規則缺明文；060剩餘等分截斷與Q1已確認額定比例來源衝突，二案待PM/RD裁決。",
+          "034初始優先權錯選由RD確認；未取得遙測SOC預設0的成因為程式／時序推定。SOC上升重置主情境未執行，Case維持Blocked；待修正前置缺陷。",
+          "017／029／037缺session滿電旗標及必要站狀態；050～052缺低負載tick／保護狀態。054仍缺契約異動commit／立即事件觸發與最新版站內狀態；10/06兩DC120啟充前置逾時，bus2000095997待RD查路由。三DC30 CLEAR核心外部通過，RD已補10/04CLEAR確認／版本；新A／B內部收尾尚待核對。",
+          "S1-017提示待PM確認；S2-030／038／040仍需按固定必填規則修訂旧勾選案例。S1-005與監控4案Skipped、AC與網路注入依既有範圍暫緩。",
+          "025台電契約背景來源、026可信舊StaticSharing、053第二來源Profile、058重試／終態、059歷史兩盤超約seed與045雙站輪替未由RD回覆解除。",
+          "RD查得10/05 00:38:08造數失敗殘留task b44bcc00-7cbb-4d5e-b213-607c1882f9c2、站2499、計費26294、會員34590750；另一次失敗及六次清理請求歸屬／結果待核對。本次未執行清理。",
+          "002／003／004／042／043既存Index Blocked、Readable Passed差異保留，未擅改人工結果；035非QA短交易與028同值重複版本列RD追蹤限制。"
         ],
-        "next_action": "RD依查Log時間表核對內部狀態及降載／CLEAR兩張未關單；QA補S2-006、060比例異常與S2-034空閒窗口，提供精確fixture及歷史seed，釐清002～004兩頁差異後回填。",
+        "next_action": "RD補10/06CLEAR內部收尾、120kW啟充路由及054事件／commit；PM/RD裁決006／060、評估034修正。QA待前置具備補原054、reset與雙站轮替，核對舊勾選案／兩頁差異與造數歸屬。依使用者決定保留本機，暫不發布。",
         "sources": [
           {
             "kind": "local",
@@ -582,8 +582,8 @@
             "kind": "local",
             "label": "Sprint2 RD修訂 Readable Excel（60案／123步，Draft）",
             "ref": "qa_ai_workflow/outputs/testcases/星舟快充/智慧均流_Sprint2_v0.1_Readable.xlsx",
-            "checked_at": "2026-10-05T10:56:40+08:00",
-            "note": "10/05唯讀核對最新結果；S2-002～004兩頁差異仍待確認。"
+            "checked_at": "2026-10-06T17:05:17.807040+08:00",
+            "note": "10/06兩單複驗14格回填：054／057與README。057維持Passed、054維持Blocked；原結果／樣式與五案兩頁差異保留，60案123步驗證0錯誤0警告。"
           },
           {
             "kind": "local",
@@ -758,6 +758,48 @@
             "label": "10/05 逐案行號、指紋與統計",
             "ref": "qa_optimization/reports/research/2026-10-05_tdx-and-test-progress.json",
             "checked_at": "2026-10-05T10:56:40+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/05使用者混合樁測資接受與既有結果核對",
+            "ref": "qa_optimization/reports/research/2026-10-05_smart-balancing-mixed-fixture.md",
+            "checked_at": "2026-10-05T15:35:53.985661+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/05 RD原始回覆（10/06核對）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rd_reply_review_20261006/RD_回覆來源_20261005.md",
+            "checked_at": "2026-10-06T15:19:57.268462+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/06 RD證據核對與狀態回填",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rd_reply_review_20261006/RD回覆核對與狀態回填_20261006.md",
+            "checked_at": "2026-10-06T15:19:57.268462+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/06逐步結果及Excel驗證",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rd_reply_review_20261006/status_writeback_ledger.json",
+            "checked_at": "2026-10-06T15:19:57.268462+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/06兩單新live複驗與RD查Log",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/two_defect_retest_20261006/兩單複驗與RD查Log_20261006.md",
+            "checked_at": "2026-10-06T17:05:17.807040+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/06兩單逐步回填與验证",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/two_defect_retest_20261006/status_writeback_ledger.json",
+            "checked_at": "2026-10-06T17:05:17.807040+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/06兩單Asana留言回讀確認",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/two_defect_retest_20261006/asana_writeback.json",
+            "checked_at": "2026-10-06T17:05:17.807040+08:00"
           }
         ]
       },
@@ -1728,7 +1770,7 @@
     ]
   },
   "revisions": {
-    "projects": "1863d47d2e4574b7f4ccecb84713b2b0ecb37a0894e5706dcbf77f062b9a798e",
+    "projects": "dae7417bd7babcae55e684b200c0df2b028777e2899b9c4b50652bf5a64ec2e3",
     "optimizations": "34347f8526861b3930047134837ad899587e699de15e0e24b546328fb03219f4",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -1755,5 +1797,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-10-05T03:46:19+00:00"
+  "exported_at": "2026-10-07T02:30:04+00:00"
 }
