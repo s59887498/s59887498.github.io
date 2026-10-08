@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-10-06T09:05:47+00:00",
+    "updated_at": "2026-10-07T10:34:53+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -322,35 +322,29 @@
         "title": "佔槍費",
         "product": "星舟快充",
         "owner": "QA 負責人待確認",
-        "environment": "RT；2026-10-05 M1雙槍 LIFF／後台API／OCPP；build待確認",
-        "summary": "M1接續測試已回填。142案：85 Passed、10 Failed、47 Blocked。033／038／047／120／121新增通過；048整10分鐘金額fixture仍受阻，122扣款推播缺H帳單連結待需求對齊。M1已還原及關閉。",
+        "environment": "RT；2026-10-07 使用者人工逐步結果與Case Index同步；本輪agent未重跑",
+        "summary": "已依使用者最新人工逐步狀態同步36案Case Index。142案：120 Passed、7 Failed、11 Blocked、4 Skipped。088新增Failed，131只有Step2通過、整案仍Failed；040／043／044及匯出／手機／多項退款與通知已同步Passed。",
         "stage": "execution",
         "activity": "blocked",
-        "observed_at": "2026-10-05T03:11:20.545707+08:00",
-        "activity_confirmed_at": "2026-10-05T03:11:20.545707+08:00",
+        "observed_at": "2026-10-07T18:34:53.049444+08:00",
+        "activity_confirmed_at": "2026-10-07T18:34:53.049444+08:00",
         "total": 142,
         "counts": {
-          "passed": 85,
-          "failed": 10,
-          "blocked": 47,
-          "skipped": 0,
+          "passed": 120,
+          "failed": 7,
+          "blocked": 11,
+          "skipped": 4,
           "not_run": 0
         },
-        "counts_as_of": "2026-10-05T03:11:20.545707+08:00",
-        "scope_note": "142案／305步；HOGTC-014兩步及整案更正Passed，原文案不符屬Case預期錯誤，Asana Bug已關閉。HOGTC-023兩步及整案撤下、不重用ID；IDEA-HOGTC-023改Dropped。HOGTC-046與142保留跨日分段及混合行程覆蓋，但精確金額仍Blocked。HOGTC-007與039先前更正維持。 2026-09-29 HOGTC-127／128預期文案更正「暫無資料」並改判Passed，兩步及整案同步；採UIUX確認與2026-09-21 RT證據，本次未重新操作RT。 2026-10-05 依本次M1 execution evidence回填逐步結果，保留已更正案例與撤銷ID。102／110手機Rich Menu、086／087使用者及RD手動lane仍待回報；本輪未新增Asana Bug。",
+        "counts_as_of": "2026-10-07T18:34:53.049444+08:00",
+        "scope_note": "142案／305步；HOGTC-014兩步及整案更正Passed，原文案不符屬Case預期錯誤，Asana Bug已關閉。HOGTC-023兩步及整案撤下、不重用ID；IDEA-HOGTC-023改Dropped。HOGTC-046與142保留跨日分段及混合行程覆蓋，但精確金額仍Blocked。HOGTC-007與039先前更正維持。 2026-09-29 HOGTC-127／128預期文案更正「暫無資料」並改判Passed，兩步及整案同步；採UIUX確認與2026-09-21 RT證據，本次未重新操作RT。 2026-10-05 依本次M1 execution evidence回填逐步結果，保留已更正案例與撤銷ID。102／110手機Rich Menu、086／087使用者及RD手動lane仍待回報；本輪未新增Asana Bug。 2026-10-07 核對Asana主單21子任務；049／061為需求更正及人工複驗，077／078依對應Bug人工Test Passed回填，098固定文案採快充樁。counts為Case Index；040／043／044的6個步驟已標Passed但整案及Notes仍Blocked，待使用者確認来源，未覆寫既有值。Readable View為198 Passed／7 Failed／100 Blocked步。 2026-10-07 使用者後續手動更新Readable View並明確要求同步Case Index，以上最新人工結果取代先前89／6／47及040／043／044待確認快照。31案轉Passed、1案轉Failed（088）、4案轉Skipped（068／096／100／119），全部142案彙總一致；305步為255 Passed／9 Failed／33 Blocked／8 Skipped。未新跑測試，不補造實際日期或evidence，Skipped仍保留正式scope。",
         "blockers": [
-          "HOGTC-039雖無可請款金額，後台仍建立0元正式完成訂單；PRD「可保留session／日誌」是否容許待PM釐清。",
-          "HOGTC-101停充後LIFF先到充電摘要且須手動確認才進佔槍頁；「佔槍中」是否僅Rich Menu文案待PM確認。",
-          "QA_L2A_Admin授權站點佔槍槍清單為空，HOGTC-071/072 Failed；B正向角色、view-only等fixture仍缺。",
-          "PRD v1.7.12 §9.2仍寫單列22:00～02:00跨午夜時段允許，但使用者釐清及RT contract DEC-055為單列不允許；需求文件待Owner對齊。",
-          "HOGTC-086／087依使用者指示交由使用者手動測試及RD協助，等待結果。",
-          "HOGTC-102／110等待手機Rich Menu路徑證據；PVE-RT-API已定位，120／121通過，122推播無H連結，123～126仍缺session通知trigger／delivery log及付款fixture。",
-          "H起充勾選無折抵仍使用儲值金；明確要求無折抵的金額／混合案例需0儲值RT會員或RD fixture。跨時段／跨日仍需可控時窗、完整分段及結算證據。",
-          "秒級邊界須核對原始OCPP毫秒、API整秒與小計；RT end採Available與既有snapshot lastFinishing描述不同，BE需對齊精度與契約。",
-          "HOGTC-048 Step1通過；新H51採5元快照、舊H50仍20元，但Available晚2ms而新單55元，嚴格整10分鐘50元fixture未成立，Step2 Blocked。",
-          "角色隔離、舊制歷史及退款case仍缺必要RT資料／權限／測試金流fixture。"
+          "HOGTC-071／072 Failed且各Step2 Blocked，073～075仍缺加盟商A／B及唯讀角色完整驗證。",
+          "HOGTC-084 Step2分段明細、142 Step3跨午夜結算，以及143～148連續兩輪／改價／換槍仍Blocked。",
+          "HOGTC-088人工新增Failed，待補實際原因、訂單及重現證據；101／112／122／131既有Failed仍需處理，131 Step2已Passed但Step1仍Failed。",
+          "HOGTC-068／096／100／119依使用者逐步狀態同步Skipped，保留scope，不計為Passed。"
         ],
-        "next_action": "依本輪報告處理仍受阻金額及連續行程，補無折抵RT會員、角色／歷史／退款fixture及跨日窗口；等待手機102／110與手動086／087結果，核對122連結需求後再決定Bug。",
+        "next_action": "接續11案Blocked（073～075／084／142～148），處理7案Failed（071／072／088／101／112／122／131）；088先補實際結果，4案Skipped按使用者決定保留。已人工Passed的匯出、手機、退款、通知與040／043／044不重複列為缺測。",
         "sources": [
           {
             "kind": "local",
@@ -380,7 +374,7 @@
             "kind": "local",
             "label": "佔槍費 Readable Test Cases（142 案／305 步，已執行結果）",
             "ref": "qa_ai_workflow/outputs/testcases/星舟快充/佔槍費_Readable.xlsx",
-            "checked_at": "2026-10-05T03:11:20.545707+08:00",
+            "checked_at": "2026-10-07T18:34:53.049444+08:00",
             "note": "M1接續回填：85 Passed／10 Failed／47 Blocked；142案305步，validator 0 error／0 warning。"
           },
           {
@@ -518,6 +512,24 @@
             "label": "10/05 對話及最新工作簿進度核對",
             "ref": "qa_optimization/reports/research/2026-10-05_tdx-and-test-progress.md",
             "checked_at": "2026-10-05T10:56:40+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/07 Asana複驗盤點與44案Readiness／3案來源待確認",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/佔槍費_TestExecution_20261007_Readiness.md",
+            "checked_at": "2026-10-07T11:19:33.324779+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "指定佔槍費QA主單及21個子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1216707949300378",
+            "checked_at": "2026-10-07T11:19:33.324779+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/07 使用者人工結果統整與36案Case Index同步",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/佔槍費_TestExecution_20261007_ManualStatusSync.md",
+            "checked_at": "2026-10-07T18:34:53.049444+08:00"
           }
         ]
       },
@@ -1770,7 +1782,7 @@
     ]
   },
   "revisions": {
-    "projects": "dae7417bd7babcae55e684b200c0df2b028777e2899b9c4b50652bf5a64ec2e3",
+    "projects": "514db38084388fc0594435087f3ad15f13795094076a468e4cb39d07bd88e853",
     "optimizations": "34347f8526861b3930047134837ad899587e699de15e0e24b546328fb03219f4",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -1797,5 +1809,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。\n\n## 資料盤點\n\n1. 從目前 projects.json 的來源與 qa_ai_workflow/outputs/ 相關 Test Plan、Test Case execution、RUN_BRIEF、複驗及報告找最新紀錄。透過檔名／rg 縮小範圍，避免讀入帳密、截圖中的個資與完整 API payload。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 不完整或矛盾資料：counts=null，可確認的 total 保留，否則 null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出讀過的來源、每項統計口徑、更新／未更新原因、來源衝突及缺口。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪 projects.json 與報告、push main 並確認公司 CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-10-07T02:30:04+00:00"
+  "exported_at": "2026-10-08T02:30:06+00:00"
 }
