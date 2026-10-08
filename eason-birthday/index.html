@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fffaf4" />
+    <title>Eason，生日這天留給我 ♡</title>
+    <meta name="description" content="給 Eason 的生日邀請。10 月 22 日晚上 8 點，天狐 Tenko Table，期待和你一起慶祝！" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:title" content="Eason，生日這天留給我 ♡" />
+    <meta property="og:description" content="你收到一封生日邀請！10 月 22 日晚上 8 點，天狐 Tenko Table。點開看看，這一天就等你了。" />
+    <meta property="og:url" content="https://s59887498.github.io/eason-birthday/" />
+    <meta property="og:image" content="https://s59887498.github.io/eason-birthday/assets/invitation.jpg" />
+    <meta property="og:image:width" content="1170" />
+    <meta property="og:image:height" content="1649" />
+    <meta property="og:image:alt" content="Eason 的生日邀請卡，10 月 22 日晚上 8 點於天狐 Tenko Table" />
+    <link rel="icon" href="assets/heart.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="heart-rain" class="heart-rain" aria-hidden="true"></div>
+
+    <header class="page-header">
+      <a class="wordmark" href="./" aria-label="Eason 的生日邀請首頁"><span aria-hidden="true">♡</span> EASON'S BIRTHDAY</a>
+      <span class="header-note">just for you <span aria-hidden="true">♥</span></span>
+    </header>
+
+    <main>
+      <section id="invitation-view" class="invitation-layout" aria-labelledby="invitation-title">
+        <div class="poster-wrap">
+          <span class="poster-tape" aria-hidden="true"></span>
+          <figure class="poster">
+            <img src="assets/invitation.jpg" alt="Eason 的生日邀請卡：10 月 22 日晚上 8 點，天狐 Tenko Table，台北市大安區仁愛路四段 222 巷 15 號。奶油白底上有手繪蛋糕、派對帽和愛心。" width="1170" height="1649" fetchpriority="high" />
+          </figure>
+          <p class="poster-caption">a little invitation, a lot of love.</p>
+        </div>
+
+        <div class="invitation-copy">
+          <div class="intro">
+            <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✳</span> YOU'RE INVITED</p>
+            <h1 id="invitation-title">壽星，<br />就等你了<span class="title-heart" aria-hidden="true">♡</span></h1>
+            <p class="intro-note">這一天，想和你一起過。<br />好吃的、好玩的，還有滿滿的喜歡。</p>
+          </div>
+
+          <dl class="event-details">
+            <div class="detail-row">
+              <dt>WHEN</dt>
+              <dd><strong>10 月 22 日</strong><span>晚上 8:00</span></dd>
+            </div>
+            <div class="detail-row">
+              <dt>WHERE</dt>
+              <dd><strong>天狐 Tenko Table</strong><span>台北市大安區仁愛路四段<br />222 巷 15 號</span><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A4%A9%E7%8B%90%20Tenko%20Table%20%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E4%BB%81%E6%84%9B%E8%B7%AF%E5%9B%9B%E6%AE%B5222%E5%B7%B715%E8%99%9F" target="_blank" rel="noopener noreferrer">看看怎麼去 <span aria-hidden="true">↗</span></a></dd>
+            </div>
+          </dl>
+
+          <div class="reply" aria-labelledby="reply-question">
+            <p class="handwritten">so… it's a date?</p>
+            <h2 id="reply-question" tabindex="-1">願意收下這份生日邀請嗎？</h2>
+            <div class="reply-actions">
+              <button id="accept-button" class="button button-primary" type="button">我願意！<span aria-hidden="true">♥</span></button>
+              <button id="decline-button" class="button button-secondary" type="button">這次沒辦法</button>
+            </div>
+            <p class="reply-note">只差你的一句「好」，就完美了。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="accepted-view" class="response-view" aria-labelledby="accepted-title" hidden>
+        <div class="celebration-mark" aria-hidden="true"><span class="orbit-heart orbit-heart-one">♡</span><span class="big-heart">♥</span><span class="orbit-heart orbit-heart-two">♥</span><span class="celebration-star">✳</span></div>
+        <p class="eyebrow">IT'S A DATE!</p>
+        <h1 id="accepted-title" tabindex="-1">耶！我們約好囉<span aria-hidden="true">♡</span></h1>
+        <p class="response-message">你答應的這一刻，<br />已經讓這一天變得更可愛了。</p>
+        <div class="date-ticket">
+          <span class="ticket-heart" aria-hidden="true">♡</span>
+          <div><p class="ticket-date">10.22 <span>晚上 8:00</span></p><p class="ticket-place">天狐 Tenko Table</p></div>
+          <span class="ticket-heart" aria-hidden="true">♡</span>
+        </div>
+        <p class="see-you">期待那天見到你。<br />一起吃好吃的，把生日過得甜甜的！</p>
+        <div class="celebration-actions">
+          <button id="more-hearts-button" class="button button-primary" type="button">再來一點愛心 <span aria-hidden="true">♥</span></button>
+          <button class="text-button" type="button" data-back>再看一次邀請卡</button>
+        </div>
+        <p class="personal-note">記得也傳訊息跟我說一聲喔 ♡</p>
+      </section>
+
+      <section id="declined-view" class="response-view declined-view" aria-labelledby="declined-title" hidden>
+        <div class="gentle-heart" aria-hidden="true">♡</div>
+        <p class="eyebrow">A LITTLE RAIN CHECK</p>
+        <h1 id="declined-title" tabindex="-1">沒關係，心意收到囉。</h1>
+        <p class="response-message">如果那天沒辦法，<br />我們就再找一天，好好慶祝。</p>
+        <p class="see-you">傳個訊息給我，一起約個新的時間吧 ♡</p>
+        <button class="button button-primary" type="button" data-back>回到邀請卡</button>
+      </section>
+      <noscript><p class="noscript-note">開啟瀏覽器的 JavaScript，就可以點選回覆並收到愛心驚喜。也可以直接傳訊息告訴我，期待見到你 ♡</p></noscript>
+    </main>
+
+    <footer class="page-footer">made with <span aria-hidden="true">♥</span>, for Eason.</footer>
+  </body>
+</html>
