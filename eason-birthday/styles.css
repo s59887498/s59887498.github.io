@@ -52,42 +52,30 @@ h1:focus, h2:focus { outline: none; }
 .poster-wrap { position: relative; }
 .poster {
   margin: 0;
-  padding: 7px;
+  padding: 12px;
   background: #fffdfa;
-  border: 1px solid #e4d9cd;
-  box-shadow: 4px 7px 0 #eee5da, 0 16px 38px #5943310d;
-  transform: rotate(-2deg);
+  border: 3px double #baa58e;
+  border-radius: 3px;
+  box-shadow: 0 10px 30px #59433112;
 }
 .poster img { display: block; width: 100%; max-width: 100%; height: auto; }
-.poster-tape {
-  width: 108px;
-  height: 32px;
-  position: absolute;
-  top: -13px;
-  left: calc(50% - 54px);
-  z-index: 1;
-  background: #e6d6bea6;
-  transform: rotate(-7deg);
-  clip-path: polygon(2% 0, 99% 3%, 97% 25%, 100% 48%, 98% 73%, 100% 96%, 0 100%, 2% 73%, 0 44%, 3% 22%);
-}
 .poster-caption { margin: 24px 0 0; text-align: center; font: italic 17px Georgia, "Times New Roman", serif; color: var(--muted); }
 .invitation-copy { padding: 12px 0; }
 .eyebrow { margin: 0 0 20px; font-size: 12px; font-weight: 700; letter-spacing: .18em; }
-.tiny-star { display: inline-block; margin-right: 8px; font-size: 22px; vertical-align: middle; }
+.invitation-crown { display: inline-block; font-size: 30px; line-height: 1.2; }
 .intro h1 {
-  margin: 0;
-  font-family: "Songti TC", "Noto Serif TC", "PMingLiU", serif;
-  font-size: clamp(40px, 4.4vw, 58px);
-  font-weight: 700;
+  margin: 0 0 28px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 400;
   line-height: 1.32;
-  letter-spacing: .02em;
+  letter-spacing: -.025em;
 }
-.title-heart { display: inline-block; padding-left: 8px; font-family: Georgia, serif; font-weight: 400; transform: rotate(13deg); }
-.intro-note { margin: 22px 0 28px; font-size: 16px; line-height: 1.9; color: var(--muted); }
+.salutation { display: block; margin-bottom: 8px; font-style: italic; }
 .event-details { margin: 0 0 25px; padding: 23px 0; border-top: 1px dashed var(--line); border-bottom: 1px dashed var(--line); }
 .detail-row { display: grid; grid-template-columns: 65px minmax(0, 1fr); align-items: baseline; gap: 15px; }
 .detail-row + .detail-row { margin-top: 19px; }
-.detail-row dt { font-size: 11px; font-weight: 750; letter-spacing: .13em; color: var(--muted); }
+.detail-row dt { font: italic 18px/1.5 Georgia, "Times New Roman", serif; color: var(--muted); }
 .detail-row dd { margin: 0; font-size: 15px; }
 .detail-row strong { display: block; font-size: 17px; font-weight: 650; }
 .detail-row dd > span { display: block; margin-top: 5px; color: var(--muted); font-size: 14px; line-height: 1.7; }
@@ -116,7 +104,6 @@ h1:focus, h2:focus { outline: none; }
 .button-primary:active { transform: translateY(1px); box-shadow: 1px 1px 0 #c8b5a0; }
 .button-secondary { background: transparent; font-size: 14px; font-weight: 500; border-color: #b8a99a; }
 .button-secondary:hover { background: #f2e9de; transform: rotate(1deg); }
-.reply-note { margin: 17px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
 
 .response-view {
   position: relative;
@@ -136,10 +123,9 @@ h1:focus, h2:focus { outline: none; }
 .orbit-heart { position: absolute; font-family: Georgia, serif; }
 .orbit-heart-one { top: 4px; left: 0; font-size: 45px; transform: rotate(-23deg); }
 .orbit-heart-two { right: 4px; bottom: 9px; font-size: 32px; color: var(--accent); transform: rotate(21deg); }
-.celebration-star { position: absolute; top: 1px; right: 5px; font-size: 35px; }
+.celebration-crown { position: absolute; top: 1px; right: 5px; font-size: 35px; }
 .response-view .eyebrow { margin-bottom: 14px; }
-.response-view h1 { margin: 0; font: 700 clamp(28px, 4.5vw, 44px)/1.5 "Songti TC", "Noto Serif TC", "PMingLiU", serif; }
-.response-view h1 > span { display: inline-block; margin-left: 6px; font-family: Georgia, serif; font-weight: 400; transform: rotate(12deg); }
+.response-view h1 { max-width: 100%; margin: 0; font: 400 clamp(28px, 4.5vw, 44px)/1.5 Georgia, "Times New Roman", serif; }
 .response-message { margin: 19px 0 25px; color: var(--muted); font-size: 17px; line-height: 1.9; }
 .date-ticket { display: flex; justify-content: center; align-items: center; gap: 28px; width: min(380px, 100%); padding: 22px 24px; border: 1.5px dashed #a58d76; border-radius: 5px 12px 7px 9px; background: #f6ede1; transform: rotate(-2deg); }
 .ticket-heart { font: 28px Georgia, serif; }
@@ -151,9 +137,6 @@ h1:focus, h2:focus { outline: none; }
 .text-button { min-height: 44px; padding: 8px; border: 0; background: transparent; font-size: 14px; text-decoration: underline; text-underline-offset: 5px; }
 .text-button:hover { color: var(--accent); }
 .personal-note { margin: 17px 0 0; font-size: 13px; color: var(--muted); line-height: 1.7; }
-.gentle-heart { font: 110px/1.2 Georgia, serif; margin-bottom: 26px; transform: rotate(-9deg); }
-.declined-view .response-message { margin-bottom: 0; }
-.declined-view .see-you { color: var(--muted); }
 
 .page-footer { margin: 0 auto; padding: 19px 20px max(26px, env(safe-area-inset-bottom)); text-align: center; font: italic 14px Georgia, "Times New Roman", serif; color: var(--muted); }
 .page-footer > span { padding: 0 3px; color: var(--ink); font-size: 12px; }
@@ -186,8 +169,7 @@ h1:focus, h2:focus { outline: none; }
 @media (max-width: 900px) {
   .page-header { width: calc(100% - 56px); }
   .invitation-layout { width: min(500px, calc(100% - 64px)); grid-template-columns: minmax(0, 1fr); gap: 40px; margin-top: 44px; }
-  .intro h1 { font-size: 40px; }
-  .title-heart { padding-left: 4px; }
+  .intro h1 { font-size: 38px; }
   .reply-actions { flex-direction: column; align-items: stretch; }
   .button-secondary { min-height: 45px; }
 }
@@ -198,18 +180,15 @@ h1:focus, h2:focus { outline: none; }
   .header-note { font-size: 14px; }
   .header-note > span { margin-left: 3px; font-size: 12px; }
   .invitation-layout { width: min(440px, calc(100% - 48px)); margin: 36px auto 16px; grid-template-columns: minmax(0, 1fr); gap: 38px; }
-  .poster { padding: 5px; transform: rotate(-1.5deg); }
-  .poster-tape { width: 90px; height: 27px; left: calc(50% - 45px); }
+  .poster { padding: 8px; }
   .poster-caption { font-size: 15px; margin-top: 20px; }
   .invitation-copy { padding: 0 2px; }
   .eyebrow { margin-bottom: 14px; font-size: 11px; }
-  .intro h1 { font-size: clamp(34px, 10.5vw, 44px); }
-  .intro-note { margin: 18px 0 25px; }
+  .intro h1 { margin-bottom: 25px; font-size: clamp(28px, 8vw, 36px); }
   .event-details { padding: 23px 0; margin-bottom: 25px; }
   .reply-actions { flex-direction: column; align-items: stretch; gap: 12px; }
   .reply-actions .button { width: 100%; min-height: 56px; padding: 14px 20px; gap: 12px; font-size: 16px; }
   .map-link { min-height: 44px; font-size: 14px; }
-  .reply-note { margin-top: 17px; }
   .page-footer { padding-top: 28px; }
   .response-view { min-height: calc(100svh - 153px); padding: 24px 0 20px; }
   .response-view h1 { font-size: clamp(26px, 7.2vw, 34px); }
@@ -221,7 +200,7 @@ h1:focus, h2:focus { outline: none; }
   .big-heart { font-size: 86px; }
   .orbit-heart-one { font-size: 34px; }
   .orbit-heart-two { font-size: 25px; }
-  .celebration-star { font-size: 28px; }
+  .celebration-crown { font-size: 28px; }
   .celebration-actions { width: min(340px, 100%); gap: 8px; }
   .celebration-actions .button { width: 100%; min-height: 56px; }
   .personal-note { margin-top: 10px; }

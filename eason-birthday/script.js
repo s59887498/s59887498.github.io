@@ -2,7 +2,6 @@
 
 const invitationView = document.getElementById("invitation-view");
 const acceptedView = document.getElementById("accepted-view");
-const declinedView = document.getElementById("declined-view");
 const heartRain = document.getElementById("heart-rain");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const heartColors = ["#1f1b18", "#1f1b18", "#b87b56", "#ccb69e"];
@@ -53,7 +52,7 @@ function celebrate() {
 
 function showView(view, focusTarget) {
   stopHearts();
-  for (const section of [invitationView, acceptedView, declinedView]) {
+  for (const section of [invitationView, acceptedView]) {
     section.hidden = section !== view;
   }
   currentView = view;
@@ -61,13 +60,11 @@ function showView(view, focusTarget) {
   focusTarget.focus({ preventScroll: true });
 }
 
-document.getElementById("accept-button").addEventListener("click", () => {
-  showView(acceptedView, document.getElementById("accepted-title"));
-  celebrate();
-});
-
-document.getElementById("decline-button").addEventListener("click", () => {
-  showView(declinedView, document.getElementById("declined-title"));
+document.querySelectorAll("[data-accept]").forEach((button) => {
+  button.addEventListener("click", () => {
+    showView(acceptedView, document.getElementById("accepted-title"));
+    celebrate();
+  });
 });
 
 document.getElementById("more-hearts-button").addEventListener("click", celebrate);
