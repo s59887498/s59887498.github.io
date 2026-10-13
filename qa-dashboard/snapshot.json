@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-10-13T08:44:52+00:00",
+    "updated_at": "2026-10-13T10:45:06+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -560,37 +560,28 @@
         "product": "星舟快充",
         "owner": "QA 負責人待確認",
         "environment": "RT／10/13 OCPP協議模擬樁斷線重連複驗（M1 1177）；修正版已同步RT但精確tag待確認；M1與新豐設定已還原",
-        "summary": "10/13 RT斷線重連Bug複驗（Asana 1219404083901847）兩情境外部行為Passed，hold內部路徑未證實；未對應Excel案例，不改全量。全106案仍為10/12的79P／1F／9B／17S。",
-        "stage": "execution",
-        "activity": "active",
-        "observed_at": "2026-10-13T15:57:55+08:00",
-        "activity_confirmed_at": "2026-10-13T15:57:55+08:00",
+        "summary": "使用者10/13確認測試完成、待報告。全106案89P／0F／0B／17S（10/13 Readable State，含使用者確認的10案改Passed）。10/13 RT斷線重連Bug複驗外部行為Passed。",
+        "stage": "report",
+        "activity": "awaiting_report",
+        "observed_at": "2026-10-13T18:38:45+08:00",
+        "activity_confirmed_at": "2026-10-13T18:45:06+08:00",
         "total": 106,
         "counts": {
-          "passed": 79,
-          "failed": 1,
-          "blocked": 9,
+          "passed": 89,
+          "failed": 0,
+          "blocked": 0,
           "skipped": 17,
           "not_run": 0
         },
-        "counts_as_of": "2026-10-12T18:31:44.809499+08:00",
-        "scope_note": "依Sprint1+Sprint2 Readable同ID逐步State聚合106案208步；Sprint1={'Passed': 36, 'Skipped': 10}，Sprint2={'Passed': 43, 'Failed': 1, 'Blocked': 9, 'Skipped': 7}。本輪修訂16案，另同步8案既存Readable Passed到Index，不算新測。其他人工結果保留。功率／SOC為協議模擬器，API／OCPP往返RT；外部子檢查不等同內部狀態已驗。034新鮮SOC前置不作缺遙測原缺陷修正驗收。060來源衝突已由RD10/06更正解除。僅本機，無發布／Asana寫入。 10/13另有RT斷線重連Bug局部複驗（2情境，非Excel Case ID），只更新observed_at／blockers；counts仍為10/12全量，未加總。",
+        "counts_as_of": "2026-10-13T18:38:45+08:00",
+        "scope_note": "依Sprint1+Sprint2 Readable View同ID逐步State聚合106案208步（Case Index State不計）；Sprint1 46案=36P／10S，Sprint2 60案=53P／7S。10/13 16:24 Sprint2存檔將S2-029／037／050～054／058／059由Blocked改Passed；18:38再將S2-023由Failed改Passed（兩頁一致）。兩次皆經使用者10/13確認採用；這10案Notes未補10/13新證據，最新Notes仍記原Blocked／Failed，053、059記未完整執行。兩頁差異：S1-017 Readable Skipped、Index Blocked。10/13 RT斷線重連Bug局部複驗（非Excel Case ID）未加總。功率／SOC為協議模擬器，API／OCPP往返RT。僅本機，無發布／Asana寫入。 10/13使用者於對話確認本輪測試完成、待報告；Test Report尚未產出／交付。",
         "blockers": [
-          "SB_S2-029：仍缺目前交易滿電旗標及站生效狀態；外部輪替與交易存續可補證，不能代替旗標。",
-          "SB_S2-037：仍缺滿電旗標與站狀態，不能僅由分配輪替推定內部判定。",
-          "SB_S2-050：仍缺低負載排程tick與未生效狀態紀錄。",
-          "SB_S2-051：仍缺P=C進場／生效及R=C維持狀態的內部紀錄。",
-          "SB_S2-052：仍缺P<C、R≥C期間的保護狀態與排程判斷紀錄。",
-          "SB_S2-053：尚缺核准的第二來源限流Profile及精準清除證據，本輪不以單來源CLEAR替代。",
-          "SB_S2-054：仍缺commit、立即非同步異動事件與最新版狀態／版本紀錄。",
-          "SB_S2-058：RD補10/04套用逾時30秒、retryCount上限3；目前Rejected分支是否共用該配置仍需確認。單次拒絕及恢復子檢查不代表整案通過；尚缺重試耗盡、一般事件不解除終態的紀錄與可執行人工解除方式，故本輪未進入終態。",
-          "SB_S2-059：尚缺RD提供的可信歷史S>C異常資料，正常設定不可建立；固定fallback與新版跨盤規則亦須確認適用版本。",
-          "S2-023既存Failed，本輪未改其結果。",
-          "歷史10/05造數失敗殘留task／站／計費與六次清理歸屬仍待核對；本輪只清理自身新建資料，未宣稱解除歷史殘留。",
-          "8案Case Index舊Blocked已依既存Readable Passed同步，不算本輪新增測試；AC及網路故障注入依使用者原指示暫緩。",
-          "RT斷線重連Bug（Asana 1219404083901847）：10/13外部OCPP／API兩情境Passed，但hold開關、內部full flag、hold row／control epoch未證實，RT精確tag未提供；Asana單未關。"
+          "SB_S2-023、029、037、050～054、058、059：State已依使用者確認改Passed，但Notes未補10/13判定依據（023 Notes仍記10/05 Failed實測10／30／30／10）；原缺的內部證據是否已取得待補記。",
+          "RT斷線重連Bug（Asana 1219404083901847）：10/13外部OCPP／API兩情境Passed，但hold開關、內部full flag、hold row／control epoch未證實，RT精確tag未提供；Asana單未關。",
+          "歷史10/05造數失敗殘留task／站／計費與六次清理歸屬仍待核對。",
+          "AC及網路故障注入依使用者原指示暫緩。"
         ],
-        "next_action": "RD依10/13斷線重連時間點核對hold開關、full flag與control epoch，並依10/12時間補滿電旗標／保護狀態／commit版本紀錄、第二來源Profile、歷史S>C seed及重試終態解除方式；QA按更新Excel重跑。保留本機。",
+        "next_action": "產出並交付智慧均流Test Report；補記10案改Passed的依據到Notes／ledger；RD依10/13時間點核對斷線重連hold內部路徑。保留本機。",
         "sources": [
           {
             "kind": "local",
@@ -614,15 +605,15 @@
             "kind": "local",
             "label": "Sprint1 RD修訂 Readable Excel（46案／85步，Draft）",
             "ref": "qa_ai_workflow/outputs/testcases/星舟快充/智慧均流/智慧均流_Sprint1_v0.1_Readable.xlsx",
-            "checked_at": "2026-10-05T10:56:40+08:00",
-            "note": "10/05唯讀核對最新結果；S2-002～004兩頁差異仍待確認。"
+            "checked_at": "2026-10-13T18:40:00+08:00",
+            "note": "10/12 14:40存檔、SHA-256 ac82c9b6…；10/13重讀無變更，36P／10S。"
           },
           {
             "kind": "local",
             "label": "Sprint2 RD修訂 Readable Excel（60案／123步，Draft）",
             "ref": "qa_ai_workflow/outputs/testcases/星舟快充/智慧均流/智慧均流_Sprint2_v0.1_Readable.xlsx",
-            "checked_at": "2026-10-12T18:31:44.809499+08:00",
-            "note": "10/12修改16個原Blocked ID的測資、步驟、預期、結果及Notes；保留其餘人工結果與Excel格式，完整性驗證見本輪JSON。"
+            "checked_at": "2026-10-13T18:40:00+08:00",
+            "note": "10/13 18:38存檔、SHA-256 210506b4…；16:24的9案Blocked→Passed及18:38的S2-023 Failed→Passed經使用者10/13確認採用，Notes未同步更新。"
           },
           {
             "kind": "local",
@@ -1041,6 +1032,39 @@
             "label": "32項Test Idea Backlog，validator通過，未升格正式案例",
             "ref": "qa_ai_workflow/outputs/testideas/星舟快充/OP_Issue_RT_20261013_Test_Idea_Backlog.json",
             "checked_at": "2026-10-13"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-FAT-GUIDE-V15-202610",
+        "title": "LCMS FAT 教學文件製作",
+        "product": "地端充電",
+        "owner": "Andy",
+        "environment": "文件製作／LCMS V1.5；畫面示範V1.5.27_latest，非本輪FAT實測",
+        "summary": "LCMS V1.5 FAT出貨前自我檢驗教學文件已完成（A版修訂，30頁含封面）。涵蓋安裝精靈、住戶／卡片、AC OCPP／非OCPP／DC雙槍設定、充電交易核對及測後還原。本項為文件製作結案。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-10-13",
+        "activity_confirmed_at": "2026-10-13",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "追蹤教學作業指導書製作，非實際FAT執行或出貨驗收。30頁與附件交易紀錄不充當案例數；依使用者完成確認顯示專案100%，不產生虛構Pass。版次核定及特定收件交付未獲確認；安裝精靈手冊連結待補，列後續維護。",
+        "blockers": [],
+        "next_action": "文件製作已完成；後續補安裝精靈操作手冊連結與核定資訊。若啟動實際FAT／出貨驗收，另建測試輪次追蹤，不沿用本文件完成狀態當作驗收通過。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "LCMS V1.5 FAT作業指導書 A版修訂版（2026-10-13）",
+            "ref": "qa_ai_workflow/outputs/reports/LCMS/LCMS_V1.5_FAT出貨前自我檢驗作業指導書_A版_修訂版_20261013.docx",
+            "checked_at": "2026-10-13T18:38:55+08:00",
+            "note": "唯讀確認內容與修訂日期；原製作任務已完成30頁含封面的逐頁檢查。"
+          },
+          {
+            "kind": "local",
+            "label": "文件製作完成確認與Dashboard登錄摘要",
+            "ref": "qa_optimization/reports/research/2026-10-13_test-progress_PRJ-LCMS-FAT-GUIDE-V15-202610_183855_DOC-COMPLETION.md",
+            "checked_at": "2026-10-13T18:38:55+08:00"
           }
         ]
       }
@@ -1931,7 +1955,7 @@
     ]
   },
   "revisions": {
-    "projects": "0fdf4c14c889fed4e956d64fe3760f30f3646900558ef56fdc8c479f16cc1601",
+    "projects": "403077d1299aa83795936d711c7bebfb7228c927cd8d3bd450204b399eda0416",
     "optimizations": "34347f8526861b3930047134837ad899587e699de15e0e24b546328fb03219f4",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -1958,5 +1982,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。Claude不需也不假設能讀Codex對話；跨模型來源依 `tasks/record-test-progress.md` 的落盤摘要及其evidence。\n\n## 資料盤點\n\n1. 先依project ID找 `qa_optimization/reports/research/*_test-progress_*.md` 的新增摘要及更正鏈，再核對projects.json來源、qa_ai_workflow/outputs/的Test Case／execution／Report／RUN_BRIEF與已授權OneDrive來源。按專案與日期縮小範圍，不每次全量重讀歷史對話、帳密、個資或完整payload。僅存在對話而未落盤的結果無法取得時列缺口，不猜測。\n   摘要是現況與來源索引，不能壓過較新有效evidence。核對observed_at／counts_as_of、環境／版本與scope；recorded_at、檔名日期是記錄時間。引用來源不可讀或有衝突時，保留受影響欄位的前次有效快照並列缺口，不改成產品Failed。無摘要仍可用可追溯既有檔案；沒有新證據就不刷新測試日期。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n若歷史來源路徑因檔案整理失效，先比對 `reports/research/*output-folder-migration.json` 的精確舊→新對照，再讀新位置。搬移不代表測試有新進度；未找到對照或新檔不可讀時保留缺口，不以同名其他版本猜測。\n\n## 摘要與全量進度合併\n\n- 摘要「統計範圍」為project時，核對total、去重及引用證據後採用；run只代表本回合，不得將其counts覆蓋或加到全量。\n- 局部補測／複驗只更新具有完整ID mapping及有效新證據的案例，再彙總同輪全量。無法取得全量時保留原counts及counts_as_of，另更新本輪observed_at／blockers並註明全量尚未同步；同案前後結果不能累加成兩案。\n- 測試完成、報告產出與已交付分開核對。明確完成待報告用awaiting_report，有實際結案／交付確認才用completed；completed卡片維持100%且保留歷史分類，不因讀舊文件倒退。\n- 新舊摘要／Excel State衝突時列ID、來源日期及差異，保留待確認；不以mtime或固定優先順序掩蓋衝突，不把部分步驟Passed當全案Passed。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 本次可採用的全量結果本身不完整或矛盾時：counts=null；若僅缺新回合全量、前次快照仍有效，依上節保留舊counts與原日期。counts為null時，可確認的total仍保留，否則null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出採用的摘要／更正鏈、讀過的來源、統計口徑、更新／未更新原因、來源衝突及缺口。同步任務本身不冒充新的測試回合，不另造test-progress摘要或新實測日期。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪projects.json、同步報告及實際採用且未上版的去敏感test-progress摘要、push main並確認公司CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-10-13T09:59:37+00:00"
+  "exported_at": "2026-10-13T10:46:02+00:00"
 }

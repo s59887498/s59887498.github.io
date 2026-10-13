@@ -1,7 +1,7 @@
 {
   "generator": "hdre-qa-static-v1",
-  "exported_at": "2026-10-13T09:59:37+00:00",
-  "content_revision": "286fe3c5f435df2598ab7c180e1483f3285c2c971788878660455bf9ce1b92a6",
+  "exported_at": "2026-10-13T10:46:02+00:00",
+  "content_revision": "7764ea0ca7969fa641d22ad562cbad224acca4005c121b01cbeeff922bb23954",
   "files": {
     "app.js": "9ba309577a3bc88f6c66ca22f9d43472a047b1ed895616eef3dc36bee19c6911",
     "index.html": "071660abfc6d4662f691f83b040870fe03c0ca33ddff0762fc84c5a09d3af903",
@@ -33,7 +33,7 @@
     "resources/QA-Team/index.html": "751acb466be1f7e6be5a3c1db8d72c82144d913092c7f58c3bc8229ad8c9ec98",
     "style.css": "a8df1b4167b6c109aa94ce9740f54790514fbb4641801bd32b412ca1c35d4671",
     "workflow-docs.css": "98bbac8227c70c6288f475916819531963c0e15e9423154c3cc9c8af940e4478",
-    "snapshot.json": "fd6f38301686a5f17173d09e6b9fbc455d685bb391b138844f32f309ed1d2920",
+    "snapshot.json": "ea9bd872a1dba0f20528ba6e7cda3c0d0ff5373406f6eefa4cac6a2acc1fa8c3",
     "brand-star.png": "37a6e7bd5f6f91b86d016bedb6146ad0a2c1ea0bed1ac895ad36e339d634cd0e"
   }
 }
