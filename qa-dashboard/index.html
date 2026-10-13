@@ -4,15 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>HDRE · QA 工作台</title>
+  <title>STAR Charger · QA 工作台</title>
   <link rel="stylesheet" href="/qa-dashboard/style.css">
   <script>window.QA_STATIC = true;</script>
   <script src="/qa-dashboard/app.js" defer></script>
+  <link rel="icon" type="image/png" sizes="28x28" href="/qa-dashboard/brand-star.png">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
   <aside class="sidebar">
-    <a class="brand" href="#/projects"><span class="brand-mark">H<span>↗</span></span><span>HDRE<small>QA WORKSPACE</small></span></a>
+    <a class="brand" href="#/projects" aria-label="STAR Charger QA WORKSPACE"><span class="brand-mark"><img src="/qa-dashboard/brand-star.png" width="28" height="28" alt="" aria-hidden="true"></span><span>STAR Charger<small>QA WORKSPACE</small></span></a>
     <div class="nav-label">工作台</div>
     <nav aria-label="主要導覽">
       <a href="#/projects" id="nav-projects"><span class="nav-icon">▦</span>測試專案<span class="nav-count" id="project-count">—</span></a>
@@ -24,12 +25,12 @@
     <div class="sidebar-bottom"><span class="live-dot"></span>QA 工作區<small>唯讀快照・操作請回本機</small></div>
   </aside>
   <div class="workspace">
-    <header class="topbar"><div><span class="breadcrumb">泓德能源</span><span class="slash">/</span><span id="crumb">QA 工作台</span></div><div class="top-actions"><span id="sync-state" class="sync-label">讀取資料中</span><button class="icon-button" id="refresh" aria-label="重新整理資料">↻</button><span class="avatar" aria-label="QA">QA</span></div></header>
+    <header class="topbar"><div><span class="breadcrumb">STAR Charger</span><span class="slash">/</span><span id="crumb">QA 工作台</span></div><div class="top-actions"><span id="sync-state" class="sync-label">讀取資料中</span><button class="icon-button" id="refresh" aria-label="重新整理資料">↻</button><span class="avatar" aria-label="QA">QA</span></div></header>
     <main id="main" tabindex="-1">
       <div id="load-error" class="error-banner" role="alert" hidden></div>
       <div id="content"><div class="loading">正在讀取工作區資料…</div></div>
     </main>
-    <footer>HDRE QA 工作台<span>研究、決策與執行，各自保留紀錄。</span></footer>
+    <footer>STAR Charger · QA 工作台<span>研究、決策與執行，各自保留紀錄。</span></footer>
   </div>
   <dialog id="detail-dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
   <div id="toast" role="status" aria-live="polite" hidden></div>

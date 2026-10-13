@@ -1,4 +1,4 @@
-# HDRE QA 架構與演進
+# STAR Charger QA 架構與演進
 
 > 版本：2026.09.07（workspace 現況快照）
 

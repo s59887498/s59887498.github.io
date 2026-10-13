@@ -1,8 +1,8 @@
-# HDRE QA 工作流程
+# STAR Charger QA 工作流程
 
 > 版本：2026.09.07（workspace 現況快照）
 
-適用 HDRE 的正式 QA 與 API／UI／OCPP 協作。此檔沿用舊檔名以保留既有正文網址，內容已由 EOMC 單一示範更新為跨專案導覽；真正執行仍以外層 Skill 與專案規則為準。
+適用 STAR Charger 的正式 QA 與 API／UI／OCPP 協作。此檔沿用舊檔名以保留既有正文網址，內容已由 EOMC 單一示範更新為跨專案導覽；真正執行仍以外層 Skill 與專案規則為準。
 
 ## 1. 先選本次入口，不必每次重跑全流程
 

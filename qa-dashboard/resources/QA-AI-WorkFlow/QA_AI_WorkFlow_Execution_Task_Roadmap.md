@@ -1,4 +1,4 @@
-# HDRE QA 執行與改善追蹤
+# STAR Charger QA 執行與改善追蹤
 
 > 版本：2026.09.07（workspace 現況快照）
 
