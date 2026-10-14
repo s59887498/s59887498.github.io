@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-10-13T10:45:06+00:00",
+    "updated_at": "2026-10-14T02:07:28+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -337,9 +337,9 @@
           "not_run": 0
         },
         "counts_as_of": "2026-10-13",
-        "scope_note": "142案／305步；HOGTC-014兩步及整案更正Passed，原文案不符屬Case預期錯誤，Asana Bug已關閉。HOGTC-023兩步及整案撤下、不重用ID；IDEA-HOGTC-023改Dropped。HOGTC-046與142保留跨日分段及混合行程覆蓋，但精確金額仍Blocked。HOGTC-007與039先前更正維持。 2026-09-29 HOGTC-127／128預期文案更正「暫無資料」並改判Passed，兩步及整案同步；採UIUX確認與2026-09-21 RT證據，本次未重新操作RT。 2026-10-05 依本次M1 execution evidence回填逐步結果，保留已更正案例與撤銷ID。102／110手機Rich Menu、086／087使用者及RD手動lane仍待回報；本輪未新增Asana Bug。 2026-10-07 核對Asana主單21子任務；049／061為需求更正及人工複驗，077／078依對應Bug人工Test Passed回填，098固定文案採快充樁。counts為Case Index；040／043／044的6個步驟已標Passed但整案及Notes仍Blocked，待使用者確認来源，未覆寫既有值。Readable View為198 Passed／7 Failed／100 Blocked步。 2026-10-07 使用者後續手動更新Readable View並明確要求同步Case Index，以上最新人工結果取代先前89／6／47及040／043／044待確認快照。31案轉Passed、1案轉Failed（088）、4案轉Skipped（068／096／100／119），全部142案彙總一致；305步為255 Passed／9 Failed／33 Blocked／8 Skipped。未新跑測試，不補造實際日期或evidence，Skipped仍保留正式scope。 2026-10-08 最新修訂及同步取代上列歷史快照：073 共用方案可見，站槍授權範圍保留，兩步依使用者剛完成的手測回報 Passed；074／143～148 既有人工全步 Passed 同步整案。142 案 128 Passed／7 Failed／3 Blocked／4 Skipped，305 步 282 Passed／9 Failed／6 Blocked／8 Skipped。同步日期不冒充未提供的實測日期；本次 agent 未重跑或新增 runtime evidence。 2026-10-13 完成確認取代上列歷史 Failed／Blocked 現況：使用者提供佔槍費_TestCase.xlsx 並確認本輪全數測試完。完成版 Case Index 138 Passed／4 Skipped；Readable View 296 Passed／9 Skipped（305 步），137 案全步 Passed，HOGTC-142 整案 Passed 但第 3 步 Skipped，未將其精確跨午夜金額斷言列為通過。068／096／100／119 沿用 Skipped，不轉 Passed。Asana 23 子任務全部已結案，需求／設計更正與環境因素未冒充產品修復。Word 報告已完成並保留既有來源快照；completed 表示本輪功能測試及報告交付完成，Stage 財務對帳待部署後驗證。原始附件、既有 canonical workbook 及 Asana 任務未改寫。本次為報告整理，非新跑測試。",
+        "scope_note": "142案／305步；HOGTC-014兩步及整案更正Passed，原文案不符屬Case預期錯誤，Asana Bug已關閉。HOGTC-023兩步及整案撤下、不重用ID；IDEA-HOGTC-023改Dropped。HOGTC-046與142保留跨日分段及混合行程覆蓋，但精確金額仍Blocked。HOGTC-007與039先前更正維持。 2026-09-29 HOGTC-127／128預期文案更正「暫無資料」並改判Passed，兩步及整案同步；採UIUX確認與2026-09-21 RT證據，本次未重新操作RT。 2026-10-05 依本次M1 execution evidence回填逐步結果，保留已更正案例與撤銷ID。102／110手機Rich Menu、086／087使用者及RD手動lane仍待回報；本輪未新增Asana Bug。 2026-10-07 核對Asana主單21子任務；049／061為需求更正及人工複驗，077／078依對應Bug人工Test Passed回填，098固定文案採快充樁。counts為Case Index；040／043／044的6個步驟已標Passed但整案及Notes仍Blocked，待使用者確認来源，未覆寫既有值。Readable View為198 Passed／7 Failed／100 Blocked步。 2026-10-07 使用者後續手動更新Readable View並明確要求同步Case Index，以上最新人工結果取代先前89／6／47及040／043／044待確認快照。31案轉Passed、1案轉Failed（088）、4案轉Skipped（068／096／100／119），全部142案彙總一致；305步為255 Passed／9 Failed／33 Blocked／8 Skipped。未新跑測試，不補造實際日期或evidence，Skipped仍保留正式scope。 2026-10-08 最新修訂及同步取代上列歷史快照：073 共用方案可見，站槍授權範圍保留，兩步依使用者剛完成的手測回報 Passed；074／143～148 既有人工全步 Passed 同步整案。142 案 128 Passed／7 Failed／3 Blocked／4 Skipped，305 步 282 Passed／9 Failed／6 Blocked／8 Skipped。同步日期不冒充未提供的實測日期；本次 agent 未重跑或新增 runtime evidence。 2026-10-13 完成確認取代上列歷史 Failed／Blocked 現況：使用者提供佔槍費_TestCase.xlsx 並確認本輪全數測試完。完成版 Case Index 138 Passed／4 Skipped；Readable View 296 Passed／9 Skipped（305 步），137 案全步 Passed，HOGTC-142 整案 Passed 但第 3 步 Skipped，未將其精確跨午夜金額斷言列為通過。068／096／100／119 沿用 Skipped，不轉 Passed。Asana 23 子任務全部已結案，需求／設計更正與環境因素未冒充產品修復。Word 報告已完成並保留既有來源快照；completed 表示本輪功能測試及報告交付完成，Stage 財務對帳待部署後驗證。原始附件、既有 canonical workbook 及 Asana 任務未改寫。本次為報告整理，非新跑測試。 2026-10-13 18:12～18:16 另跑31個API元件automation lane（run scope，非全量）：最新attempt 18 Passed／13 Blocked（071～073缺A/B授權範圍；097、102～104、111～115、118缺有效LIFF認證／fixture）；首輪6 Failed為腳本schema誤用，修正後通過；019首次GET404穩定性observation未結。不覆蓋上列142案手測全量，completed維持。",
         "blockers": [],
-        "next_action": "佔槍費上版 Stage 後確認財務對帳，留存與補登驗證結果；核閱本輪 Word 測試報告。",
+        "next_action": "佔槍費上版 Stage 後確認財務對帳，留存與補登驗證結果；核閱本輪 Word 測試報告。API automation lane：更新有效RT LIFF token及A/B角色站槍範圍後補跑13個Blocked元件，QA／RD確認HOGTC-019讀回404原因。",
         "sources": [
           {
             "kind": "local",
@@ -551,6 +551,25 @@
             "ref": "https://app.asana.com/1/1201720793465976/task/1216707949300378",
             "checked_at": "2026-10-13",
             "note": "主單未勾選完成；23 個問題子任務 completed=true。本輪功能完成依使用者確認，未代為更改 Asana 狀態。"
+          },
+          {
+            "kind": "local",
+            "label": "10/13 31個API元件RT實測（run scope）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/佔槍費/佔槍費_API_TestExecution_20261013.md",
+            "checked_at": "2026-10-14T10:07:23+08:00",
+            "note": "最新18 Passed／13 Blocked；不覆蓋手測全量。"
+          },
+          {
+            "kind": "local",
+            "label": "10/13 API元件逐案彙整",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/occupancy_fee/rt-20261013/consolidated-results.json",
+            "checked_at": "2026-10-14T10:07:23+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/13 API元件進度摘要",
+            "ref": "qa_optimization/reports/research/2026-10-13_test-progress_PRJ-STARCHARGE-IDLE-FEE-202609_182237_API-RT-31.md",
+            "checked_at": "2026-10-14T10:07:23+08:00"
           }
         ]
       },
@@ -559,11 +578,11 @@
         "title": "智慧均流",
         "product": "星舟快充",
         "owner": "QA 負責人待確認",
-        "environment": "RT／10/13 OCPP協議模擬樁斷線重連複驗（M1 1177）；修正版已同步RT但精確tag待確認；M1與新豐設定已還原",
-        "summary": "使用者10/13確認測試完成、待報告。全106案89P／0F／0B／17S（10/13 Readable State，含使用者確認的10案改Passed）。10/13 RT斷線重連Bug複驗外部行為Passed。",
+        "environment": "RT（rt/2026-10-13.5-all，RD 17:07提供；16:41啟用hold）；10/13 OCPP協議模擬樁斷線重連複驗；M1與新豐設定已還原",
+        "summary": "使用者10/13確認測試完成、待報告。全106案89P／0F／0B／17S（10/13 Readable State）。10/13 hold啟用後RT斷線重連Bug補測2情境Passed，Bug已關閉。",
         "stage": "report",
         "activity": "awaiting_report",
-        "observed_at": "2026-10-13T18:38:45+08:00",
+        "observed_at": "2026-10-13T18:54:36+08:00",
         "activity_confirmed_at": "2026-10-13T18:45:06+08:00",
         "total": 106,
         "counts": {
@@ -574,14 +593,14 @@
           "not_run": 0
         },
         "counts_as_of": "2026-10-13T18:38:45+08:00",
-        "scope_note": "依Sprint1+Sprint2 Readable View同ID逐步State聚合106案208步（Case Index State不計）；Sprint1 46案=36P／10S，Sprint2 60案=53P／7S。10/13 16:24 Sprint2存檔將S2-029／037／050～054／058／059由Blocked改Passed；18:38再將S2-023由Failed改Passed（兩頁一致）。兩次皆經使用者10/13確認採用；這10案Notes未補10/13新證據，最新Notes仍記原Blocked／Failed，053、059記未完整執行。兩頁差異：S1-017 Readable Skipped、Index Blocked。10/13 RT斷線重連Bug局部複驗（非Excel Case ID）未加總。功率／SOC為協議模擬器，API／OCPP往返RT。僅本機，無發布／Asana寫入。 10/13使用者於對話確認本輪測試完成、待報告；Test Report尚未產出／交付。",
+        "scope_note": "依Sprint1+Sprint2 Readable View同ID逐步State聚合106案208步（Case Index State不計）；Sprint1 46案=36P／10S，Sprint2 60案=53P／7S。10/13 16:24 Sprint2存檔將S2-029／037／050～054／058／059由Blocked改Passed；18:38再將S2-023由Failed改Passed（兩頁一致）。兩次皆經使用者10/13確認採用；這10案Notes未補10/13新證據，最新Notes仍記原Blocked／Failed，053、059記未完整執行。兩頁差異：S1-017 Readable Skipped、Index Blocked。10/13 RT斷線重連Bug局部複驗（非Excel Case ID）未加總。功率／SOC為協議模擬器，API／OCPP往返RT。僅本機，無發布／Asana寫入。 10/13使用者於對話確認本輪測試完成、待報告；Test Report尚未產出／交付。 10/13 18:34～18:54 hold啟用後Bug 1219404083901847補測（run scope 2情境HOLD-B-ONLY／HOLD-AB-B-FIRST皆Passed，非Excel Case ID）未加總、不重算全量；Bug於18:56關閉。15:36～15:58未啟用hold的前次複驗未改判。",
         "blockers": [
           "SB_S2-023、029、037、050～054、058、059：State已依使用者確認改Passed，但Notes未補10/13判定依據（023 Notes仍記10/05 Failed實測10／30／30／10）；原缺的內部證據是否已取得待補記。",
-          "RT斷線重連Bug（Asana 1219404083901847）：10/13外部OCPP／API兩情境Passed，但hold開關、內部full flag、hold row／control epoch未證實，RT精確tag未提供；Asana單未關。",
+          "RT斷線重連Bug（Asana 1219404083901847）：10/13 hold啟用後外部OCPP／API兩情境Passed並已關單；DB hold狀態／RECOVERED／full_charged／control與verified epoch未由QA查表，待RD依報告時間戳稽核。",
           "歷史10/05造數失敗殘留task／站／計費與六次清理歸屬仍待核對。",
           "AC及網路故障注入依使用者原指示暫緩。"
         ],
-        "next_action": "產出並交付智慧均流Test Report；補記10案改Passed的依據到Notes／ledger；RD依10/13時間點核對斷線重連hold內部路徑。保留本機。",
+        "next_action": "產出並交付智慧均流Test Report；補記10案改Passed的依據到Notes／ledger；RD依10/13 18:34～18:54時間點稽核hold內部狀態。保留本機。",
         "sources": [
           {
             "kind": "local",
@@ -879,6 +898,31 @@
             "label": "10/13 結果、清理與設定還原驗證",
             "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/reconnect_retest_20261013/verification.json",
             "checked_at": "2026-10-13T16:44:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/13 hold啟用後B1補測與RD查Log時間點",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/hold_b1_retest_20261013/RT_hold_B1補測_RD查Log_20261013.md",
+            "checked_at": "2026-10-14T10:07:23+08:00",
+            "note": "2情境Passed；Bug關單；內部DB狀態未自行查表。"
+          },
+          {
+            "kind": "local",
+            "label": "10/13 hold補測逐案結果",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/hold_b1_retest_20261013/live/results.json",
+            "checked_at": "2026-10-14T10:07:23+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/13 hold補測Asana留言與關單回讀",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/hold_b1_retest_20261013/asana_writeback.json",
+            "checked_at": "2026-10-14T10:07:23+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/13 hold補測進度摘要（run scope）",
+            "ref": "qa_optimization/reports/research/2026-10-13_test-progress_PRJ-STARCHARGE-SMART-BALANCING-202609_185812_20261013-hold-b1.md",
+            "checked_at": "2026-10-14T10:07:23+08:00"
           }
         ]
       },
@@ -1065,6 +1109,998 @@
             "label": "文件製作完成確認與Dashboard登錄摘要",
             "ref": "qa_optimization/reports/research/2026-10-13_test-progress_PRJ-LCMS-FAT-GUIDE-V15-202610_183855_DOC-COMPLETION.md",
             "checked_at": "2026-10-13T18:38:55+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-S15-LINEPAY-SINOPAC",
+        "title": "直串永豐＋LINE Pay 金流（S15）",
+        "product": "星舟快充",
+        "owner": "黃禹崴（Andy）、Luana",
+        "environment": "EKS-Stage2／星舟後台 Stage2／LINE LIFF Stage2／LINE Pay 與永豐測試環境",
+        "summary": "3/16～4/08 驗證 LINE Pay／信用卡改直串永豐：綁定扣款、補扣款排程、財務對帳。62 案，報告依 Pass/Failed 計通過率 85.2%（54/63）；永豐／英特拉財務報表問題當時未完全修復。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-04-08",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 62,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "報告列62案、88筆狀態紀錄（Pass 58／Failed 7／Skip 18／Pending 4／建議優化 1），同案可有多筆紀錄，無法換算互斥案例統計，counts留空。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "S15 直串永豐 LINE Pay 軟體測試報告（2026-04-08）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/S15_付款與資訊/StarCharge_S15_直串永豐_LINEPay_軟體測試報告_20260408.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-QIERXING-ENERGY-202603",
+        "title": "起而行 能源均流實車測試",
+        "product": "星舟快充",
+        "owner": "QA Team",
+        "environment": "起而行場域（報告未列環境細節）",
+        "summary": "3/31 起而行場域能源均流實車測試：有效 25 案，22 Passed、1 Failed、2 Skipped；已執行通過率 95.65%，能源均流、監控、訂單／對帳主要功能可用。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-03-31",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 25,
+        "counts": {
+          "passed": 22,
+          "failed": 1,
+          "blocked": 0,
+          "skipped": 2,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-03-31",
+        "scope_note": "依報告第五節有效案例統計。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "起而行 能源均流 軟體測試報告（2026-04-01）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/能源均流/起而行_能源均流_軟體測試報告_20260401.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-TAINAN-ENERGY-202604",
+        "title": "台南實車測試（含能源均流）",
+        "product": "星舟快充",
+        "owner": "黃禹崴（Andy）",
+        "environment": "EKS-Stage2／台南實車場域（單組樁為主）",
+        "summary": "4/13 台南實車測試含能源均流：有效 62 案，51 Passed、4 Failed、2 Blocked、5 Skipped；執行率 91.94%、已執行通過率 89.47%。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-04-13",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 62,
+        "counts": {
+          "passed": 51,
+          "failed": 4,
+          "blocked": 2,
+          "skipped": 5,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-04-13",
+        "scope_note": "依報告第五節有效案例統計。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "台南 能源均流 軟體測試報告（2026-04-16）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/能源均流/台南_能源均流_軟體測試報告_20260416.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-S17-REFERRAL",
+        "title": "推薦碼功能（S17）",
+        "product": "星舟快充",
+        "owner": "黃禹崴（Andy）",
+        "environment": "EKS-Stage2／StarCharge LIFF Stage／星舟後台 Stage",
+        "summary": "4/08～4/24 驗證 LIFF 註冊與補填推薦碼、邀請連結與紀錄、第三方 API、後台欄位、報表匯出與 RBAC：54 案，52 Passed、0 Failed、2 待完成／待驗證。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-04-24",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 54,
+        "counts": {
+          "passed": 52,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 0,
+          "not_run": 2
+        },
+        "counts_as_of": "2026-04-24",
+        "scope_note": "報告2案「待完成／待驗證」（Pending，未視為Pass）映射為not_run。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "S17 推薦碼 軟體測試報告（2026-04-24）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/S17_推薦碼/StarCharge_S17_推薦碼_軟體測試報告_20260424.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "S17 推薦碼 BrowserStack Test Case",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/S17_推薦碼/StarCharge_S17_ReferralCode_BrowserStack_UTF8.csv",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-CLOUD-TOPUP-P1",
+        "title": "雲端儲值 Phase1（S18）",
+        "product": "星舟快充",
+        "owner": "黃禹崴（Andy）",
+        "environment": "EKS-Stage2／StarCharge LIFF Stage／星舟後台 Stage；永豐、墨攻測試環境",
+        "summary": "4/16～5/04 雲端儲值 Phase1：67 案，64 Passed、0 Failed、3 Blocked。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-05-04",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 67,
+        "counts": {
+          "passed": 64,
+          "failed": 0,
+          "blocked": 3,
+          "skipped": 0,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-05-04",
+        "scope_note": "依報告第五節統計。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "雲端儲值 Phase1 軟體測試報告 v0.3（2026-05-04）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/S18_雲端儲值/StarCharge_雲端儲值功能_Phase1_軟體測試報告_v0.3.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-TAITAN-DC30-CLOUD-202605",
+        "title": "TAITAN 30kW 台南實德雲端充電",
+        "product": "星舟快充",
+        "owner": "黃禹崴（Andy）",
+        "environment": "Stage／台南實德場域／TAITAN 30kW DC 樁／星舟 LIFF／超充管理平台／OCPP 1.6J",
+        "summary": "5/11 台南實德 TAITAN 30kW 雲端充電測試：有效 63 案，42 Passed、6 Failed、6 Blocked、9 Skipped；已執行通過率 87.5%。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-05-11",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 63,
+        "counts": {
+          "passed": 42,
+          "failed": 6,
+          "blocked": 6,
+          "skipped": 9,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-05-11",
+        "scope_note": "依報告第五節有效案例統計；缺陷已依 Asana 與案例備註去重。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "TAITAN 30kW 台南實德雲端充電 軟體測試報告（2026-05-14）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/TAITEN_DC30kW/TAITAN_30KW_台南實德雲端充電測試_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-WALLET-BLOCK-P1",
+        "title": "過期錢包與未付款阻擋 P1",
+        "product": "星舟快充",
+        "owner": "黃禹崴（Andy）",
+        "environment": "Stage／UAT；LIFF 前台、星舟快充後台、測試金流",
+        "summary": "5/25～5/26 驗證未付款訂單阻擋起充與過期錢包處理：25 案全數 Passed（High 20、Medium 5）。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-05-26",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 25,
+        "counts": {
+          "passed": 25,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 0,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-05-26",
+        "scope_note": "依報告第五節統計；repo內Readable工作簿State仍為Ready，非執行結果來源。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "過期錢包與未付款阻擋 P1 軟體測試報告（2026-05-26）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/錢包付款阻擋/StarCharge_過期錢包與未付款阻擋_P1_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-S19-CPO-INTERCONNECT",
+        "title": "CPO 互串功能（S19）",
+        "product": "星舟快充",
+        "owner": "待確認",
+        "environment": "Stage 後台 OCPI／分潤方案；實體樁充電流程",
+        "summary": "S19 CPO 互串功能與實體樁充電流程測試（6/12 實測）；6/13 依測試結果整理 17 個 Failed 案例、16 筆 Bug Draft。最終結果工作簿不在 repo，無完整案例統計。",
+        "stage": "execution",
+        "activity": "completed",
+        "observed_at": "2026-06-13",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "repo內功能Readable（6/07存檔）為38 Passed／55 Skipped，實體樁Readable全為Not Started；6/12實測結果在使用者Downloads工作簿，未納入repo，故total／counts留空。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "CPO互串 Failed Bug Drafts（2026-06-13）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/S19_CPO互串/CPO互串_Failed_Bug_Drafts_20260613.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "S19 CPO互串功能 Readable（6/07快照）",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/S19_CPO互串/StarCharge_S19_CPO互串功能_Readable.xlsx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-CLOUD-TOPUP-P2",
+        "title": "雲端儲值 Phase2（S18）",
+        "product": "星舟快充",
+        "owner": "待確認",
+        "environment": "StarCharge Stage／後台與 LIFF（API／UI 自動化）",
+        "summary": "6/21 雲端儲值 Phase2 API／UI 測試：方案管理、LIFF 可見性、尚未開賣、自建方案等自動化項目執行，另記錄購買失敗等缺陷線索。82 案無逐案彙總結果。",
+        "stage": "execution",
+        "activity": "completed",
+        "observed_at": "2026-06-21",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 82,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "Test Case 82案；結果來源為自動化執行紀錄（pytest 套件層級 Passed／Failed／Skipped），無逐案互斥統計，counts留空；repo內Readable為Not Started。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "雲端儲值 Phase2 API/UI 測試結果（2026-06-21）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/S18_雲端儲值/CloudTopUp_Phase2_API_Test_Result_20260621.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-CLOUD-TOPUP-P3",
+        "title": "雲端儲值 Phase3 自動儲值（S18）",
+        "product": "星舟快充",
+        "owner": "待確認",
+        "environment": "RT（rt-yds）；API／OCPP／LIFF",
+        "summary": "7/08～7/12 RT 驗證自動儲值、受限會員、水位邊界與 OCPP 扣抵：56 案逐案有結果，多數 API／OCPP Pass，部分 UI／Figma 待補，隨插即充訂單欄位不符 1 案。",
+        "stage": "execution",
+        "activity": "completed",
+        "observed_at": "2026-07-12",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 56,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "56案逐案狀態為混合判定（如API Pass／UI Pending、Partial），無法互斥映射，counts留空；完整test_08 run 7 passed／2 failed／1 skipped，7/12補測TC-050～055通過。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "雲端儲值 Phase3 API/UI 測試結果",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/S18_雲端儲值/CloudTopUp_Phase3_API_UI_Test_Result_20260708.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-FRANCHISE-P1",
+        "title": "代管加盟主 Phase 1",
+        "product": "星舟快充",
+        "owner": "QA",
+        "environment": "RT（sellerId 73）；5 種身分、API／UI lane",
+        "summary": "7/28 RT 代管加盟主 Phase1 多商家 RBAC 整合測試（Interim）：200 支 API 三層權限矩陣、資料裁切與跨加盟商授權；發現 2 支 P0、2 支 P1，當時 Exit Criteria 未達成。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-07-28",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "報告以API端點為單位（R層94／M層66／W層40支），非Test Case案例數；Readable工作簿318案未回填結果，total／counts留空。OCPP歸屬驗證當時BLOCK。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "代管加盟主 Phase1 測試報告 v0.1（2026-07-28）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/代管加盟主/StarCharge_代管加盟主_Phase1_測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-EVCCID-BLACKLIST",
+        "title": "EVCCID 黑名單功能",
+        "product": "星舟快充",
+        "owner": "QA Automation（Codex）／Andy",
+        "environment": "RT（rt-yds）；API、Selenium UI、OCPP 虛擬樁",
+        "summary": "8/03～8/04 RT Full E2E：73 案依 Readable View 為 60 Passed、9 Failed、4 Blocked；確認 4 個 API 缺陷，含 Critical RBAC bypass（EVCCID-FUN-003）。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-08-04",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 73,
+        "counts": {
+          "passed": 60,
+          "failed": 9,
+          "blocked": 4,
+          "skipped": 0,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-08-04",
+        "scope_note": "依Readable View同ID逐步State聚合（8/04存檔）；Case Index State不一致（含In Progress／Not Started）不計。Word報告（8/03）結論PARTIAL。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "EVCCID 黑名單 Readable",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/EVCCID黑名單/StarCharge_EVCCID黑名單功能_Readable.xlsx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "EVCCID 黑名單 E2E QA Automation Report",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/EVCCID黑名單/StarCharge_EVCCID黑名單功能_E2E_QA_Automation_Report.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "EVCCID 黑名單 軟體測試報告 v0.1",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/EVCCID黑名單/StarCharge_EVCCID黑名單功能_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-TDX-CITYPARKING-PEAK",
+        "title": "台中城市車旅充電停車格 Stage 峰值",
+        "product": "星舟快充",
+        "owner": "待確認",
+        "environment": "starcharge.stage",
+        "summary": "9/02 Stage 峰值測試：單格 Smoke、10 格、30%～100% 升載與 17 格 30 分鐘 stateful Burst，共 72 條 flow 全 PASS、254 筆事件全 accepted；結論 PASS WITH RISK（STOP 延遲偏高）。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-09-02",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "flow與API事件數不充當Test Case數，total／counts留空；不含TDX downstream、Queue／DB與正式照片負載。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "台中城市車旅 Stage峰值測試報告（2026-09-02）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/台中TDX/台中城市車旅充電停車格_Stage峰值測試報告_20260902.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "台中城市車旅 Stage峰值 Test Cases",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/台中TDX/台中城市車旅充電停車格_Stage峰值測試_TestCases.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-FW-OTA-202604",
+        "title": "LCMS 韌體 OTA",
+        "product": "地端充電",
+        "owner": "may.chou",
+        "environment": "LCMS SIT 測試環境；BrowserStack Test Run TR-95",
+        "summary": "4/28 LCMS 韌體 OTA 測試：23 案，22 Passed、1 Failed，通過率 95.65%。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-04-28",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 23,
+        "counts": {
+          "passed": 22,
+          "failed": 1,
+          "blocked": 0,
+          "skipped": 0,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-04-28",
+        "scope_note": "依報告第五節統計（Test Run-04/28/2026）。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "地端充電 韌體OTA 軟體測試報告（2026-05-07）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/地端充電_韌體OTA_軟體測試報告_20260507.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-TAITEN-DC30-202605",
+        "title": "TAITEN DC30kW 台南實德地端充電",
+        "product": "地端充電",
+        "owner": "Andy Huang",
+        "environment": "台南實德場域；TAITEN DC 30kW；LCMS／CMS 後台；OCPP 1.6J",
+        "summary": "5/05 台南實德 TAITEN DC30kW 接入地端充電測試：37 案，29 Passed、1 Failed、5 Blocked、2 Skipped；排除 Skipped 通過率 82.9%。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-05-05",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 37,
+        "counts": {
+          "passed": 29,
+          "failed": 1,
+          "blocked": 5,
+          "skipped": 2,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-05-05",
+        "scope_note": "依報告第五節統計。報告存於星舟快充／TAITEN_DC30kW資料夾，內容為地端充電。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "TAITEN DC30kW 台南實德地端充電測試報告（2026-05-14）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/TAITEN_DC30kW/TAITEN_DC30kW_台南實德地端充電測試報告_20260514.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-TOPUP-V15",
+        "title": "LCMS V1.5 儲值功能",
+        "product": "地端充電",
+        "owner": "Oscar、Christine、紫筠、Andy",
+        "environment": "地端充電 LCMS 測試環境（V1.5）；Chrome 為主",
+        "summary": "5/11～5/18 LCMS 儲值功能：78 案，77 Passed、1 Skip、0 Failed；帳務規則、加值、全額退款、交易紀錄／CSV 與充電扣款整合完成驗證。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-05-18",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 78,
+        "counts": {
+          "passed": 77,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-05-18",
+        "scope_note": "依報告第五節統計；GEN-1572操作日誌Skip待規格。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "LCMS 儲值功能 軟體測試報告（2026-06-05）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/地端充電_LCMS_儲值功能_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-DISCOUNT-V152",
+        "title": "LCMS 優惠功能 V1.5.2",
+        "product": "地端充電",
+        "owner": "Andy、Christine、Oscar",
+        "environment": "地端充電 LCMS 後台測試環境；Chrome",
+        "summary": "LCMS 優惠功能 V1.5.2：68 案，66 Passed、2 Skipped、0 Failed；21 個需求 Function ID 全覆蓋。來源整理 6/05，報告 7/01。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-06-05",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 68,
+        "counts": {
+          "passed": 66,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 2,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-06-05",
+        "scope_note": "依7/01正式報告統計（來源為6/05手動執行，Readable View 238步：229 Passed／9 Skipped）。另有6/16自動化執行紀錄（v1.5.9）為37 Passed／10 Failed／11 Partial／10 Blocked或未跑，含刪除優惠後歷史訂單資訊遺失缺陷；依使用者指示以Report為準，兩者差異保留於此。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "LCMS 優惠功能 V1.5.2 軟體測試報告（2026-07-01）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/地端充電_LCMS_優惠功能_V1.5.2_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "LCMS 優惠功能 V1.5.2 TestExecution（2026-06-16）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/LCMS_優惠功能_V1.5.2_TestExecution_20260616.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-TAITEN-AC7-202607",
+        "title": "TAITEN AC7kW 地端充電（V1.2 基準）",
+        "product": "地端充電",
+        "owner": "Andy Huang",
+        "environment": "CMS 地端充電管理環境；TAITEN AC 7kW 單槍；版本基準 V1.2",
+        "summary": "7/15 TAITEN AC7kW 地端充電測試：41 案，依 V1.2 對外驗證基準 37 案符合預期、4 案未執行；V1.5 能源均流差異列內部修正，不計入結論。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-07-15",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 41,
+        "counts": {
+          "passed": 37,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 0,
+          "not_run": 4
+        },
+        "counts_as_of": "2026-07-15",
+        "scope_note": "依報告第五節統計；4案未執行映射not_run。報告存於星舟快充／TAITEN_AC7kW資料夾，內容為地端充電。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "TAITEN AC7kW 地端充電 軟體測試報告（2026-07-17）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/TAITEN_AC7kW/TAITEN_AC7kW_地端充電_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "TAITEN AC7kW Test Cases（2026-07-15）",
+            "ref": "qa_ai_workflow/outputs/testcases/地端充電/TAITEN_AC7kW_TestCases_20260715.xlsx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-OTA-STRESS-100-202607",
+        "title": "LCMS OTA 100 樁壓力測試",
+        "product": "地端充電",
+        "owner": "待確認",
+        "environment": "LCMS；TAITEN AC7kW_Smart 模擬樁 100 台；韌體 V1.1.2b1.1.2",
+        "summary": "7/21 LCMS OTA 100 樁壓測：立即更新（Task 10024，3分30秒）與排程更新（Task 10025，6分58秒）兩情境皆 100／100 安裝成功、失敗 0、CALLERROR／TIMEOUT 0。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-07-21",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "壓測以樁數／OCPP事件統計，不充當Test Case數，total／counts留空。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "LCMS OTA 立即更新 100樁壓力測試報告",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/LCMS_OTA_立即更新_100樁壓力測試報告_20260721.pdf",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "LCMS OTA 排程更新 100樁壓力測試報告",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/LCMS_OTA_排程更新_100樁壓力測試報告_20260721.pdf",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-S21-TOU-GUNGROUP",
+        "title": "LCMS 時間電價與槍群套用（S21）",
+        "product": "地端充電",
+        "owner": "Andy／QA",
+        "environment": "LCMS 10.2.67.113（星舟充電管理平台 v1.5.16）",
+        "summary": "7/22 LCMS S21 時間電價與槍群套用 live 執行：60 案，51 PASS、3 FAIL、1 SKIP、5 未完成（2 需特定資料狀態、3 OCPP／計費待內網執行）；另做探索式破壞性測試。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-07-22",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 60,
+        "counts": {
+          "passed": 51,
+          "failed": 3,
+          "blocked": 0,
+          "skipped": 1,
+          "not_run": 5
+        },
+        "counts_as_of": "2026-07-22",
+        "scope_note": "依E2E報告§0案例層級；PENDING 2與READY 3映射not_run。報告Gate為Interim。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "時間電價與槍群套用 E2E QA Automation Report",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/時間電價與槍群套用/時間電價與槍群套用_E2E_QA_Automation_Report.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "時間電價與槍群套用 探索式破壞性測試報告",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/時間電價與槍群套用/時間電價與槍群套用_探索式破壞性測試報告.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "S21 Test Case 回填（FINAL）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/時間電價與槍群套用/LCMS_S21_TestCases_QA_backfill_FINAL.xlsx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-SYSADMIN-SECURITY-V15",
+        "title": "LCMS 系統管理與安全 V1.5",
+        "product": "地端充電",
+        "owner": "QA",
+        "environment": "Linux／Ubuntu IPC；Docker Compose V2；LCMS Installer v0.3（實際 build 未記錄）",
+        "summary": "LCMS Installer V1.5 授權安裝、硬體綁定、環境檢查、部署、重啟與版本更新：執行子集 38 案，36 Passed、1 Skipped、1 未執行；報告 7/23（Interim）。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-07-23",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 38,
+        "counts": {
+          "passed": 36,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "not_run": 1
+        },
+        "counts_as_of": "2026-07-23",
+        "scope_note": "依報告：Test Plan 55案，本次Case Index執行子集38案；遠端維運、RBAC、資安未執行不計入。INSTAL-0037更新後服務停止為高風險議題。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "LCMS 系統管理與安全 V1.5 軟體測試報告（2026-07-23）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/地端充電_LCMS_系統管理與安全_V1.5_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-SPRINT24-ENERGY-BILLING",
+        "title": "LCMS 能源管理與帳單產制（Sprint 24）",
+        "product": "地端充電",
+        "owner": "Andy／QA",
+        "environment": "LCMS 10.2.67.113（v1.5.19）；TitenV2AC7kW 模擬樁",
+        "summary": "8/09～8/13 能源管理與帳單產制 E2E：92 案，74 Passed、8 Failed、10 Blocked；含 100 樁壓測。8/19、9/01 另有 QUE-2408、BIL-2426、ST-6192 局部複驗。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-09-01",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 92,
+        "counts": {
+          "passed": 74,
+          "failed": 8,
+          "blocked": 10,
+          "skipped": 0,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-08-13",
+        "scope_note": "counts依8/13重測報告；8/19、9/01局部複驗無完整ID mapping，未併入全量。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "能源管理與帳單產制 E2E 重測報告（2026-08-13）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/能源管理與帳單產制/能源管理與帳單產制_E2E_QA_Automation_Report.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "QUE-2408 複測紀錄（2026-08-19）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/能源管理與帳單產制/20260819_retest/能源管理_QUE-2408_Retest_TestExecution_20260819.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "BIL-2426 複驗紀錄（2026-09-01）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/能源管理與帳單產制/BIL-2426_TestExecution_20260901.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "Sprint24 Readable（8/13）",
+            "ref": "qa_ai_workflow/outputs/testcases/地端充電/地端充電_Sprint24_能源管理與帳單產制_Readable.xlsx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-TAITEN-DC180-202608",
+        "title": "TAITEN DC180kW 雙槍實車測試",
+        "product": "地端充電",
+        "owner": "Andy Huang",
+        "environment": "CMS 地端充電管理環境；TAITEN DC 180kW；Firmware 1.3013.6；Tesla Model 3、Luxgen N7",
+        "summary": "TAITEN DC180kW 雙槍實車測試（7/23、8/17～8/18）：46 案，34 Passed、3 Failed、9 Skipped；另有 A 槍 RFID 未送 Authorize 異常的 Log 分析報告。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-08-18",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 46,
+        "counts": {
+          "passed": 34,
+          "failed": 3,
+          "blocked": 0,
+          "skipped": 9,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-08-18",
+        "scope_note": "依Final報告統計；7/23 Log日期為設備校時前誤設，非實際中斷。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "TAITEN DC180kW 實車測試 軟體測試報告（2026-08-19）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/TAITEN_DC180kW_實車測試_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "TAITEN DC180kW A槍 RFID 授權異常報告（2026-08-18）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/TAITEN_DC180kW_A槍RFID授權異常_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-TAITEN-AC7-202609",
+        "title": "TAITEN AC7kW 實車測試（OCPP／Non-OCPP）",
+        "product": "地端充電",
+        "owner": "Andy Huang",
+        "environment": "CMS／LCMS 地端充電管理環境；TAITEN AC 7kW（build 待補）",
+        "summary": "9/03 起 TAITEN AC7kW 實車測試：45 案，36 案 OCPP／Non-OCPP 雙模式通過、9 案僅單一模式通過另一模式跳過；無 Failed／Blocked。報告 9/15。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-09-09",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": 45,
+        "counts": {
+          "passed": 36,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 9,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-09-09",
+        "scope_note": "45個唯一Case ID；雙模式結果依「任一模式跳過即列skipped」聚合為36 Passed／9 Skipped；補充情境8列不與主表相加。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "TAITEN AC7kW 20260903 實車測試 軟體測試報告（2026-09-15）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/TAITEN_AC7kW_20260903實車測試_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-LCMS-V15-STRESS-202609",
+        "title": "LCMS V1.5 100／200 樁壓力測試",
+        "product": "地端充電",
+        "owner": "HDRE QA；使用者人工驗收",
+        "environment": "LCMS QA 10.2.67.113（V1.5.27_latest）；SC_QA_Charge_Stress_Test OCPP 模擬器",
+        "summary": "9/29 首輪與 9/30 複測 100／200 樁 OCPP 壓測：依使用者 10/01 驗收口徑兩輪均 Passed（200 樁允許合法 QUEUED），訂單能量、費用、應收款逐筆核對通過；ST-8466 停充錯誤未復現。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-09-30",
+        "activity_confirmed_at": "2026-10-13T18:55:08+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "壓測以樁數／交易統計，不充當Test Case數，total／counts留空；9/29同報告的五單缺陷複驗屬V1.5完整回歸（PRJ-LCMS-V15）範圍，不在此重複計。 完成狀態依使用者2026-10-13確認（回顧用歷史專案登錄），非本次新測試；未讀取Asana現況。",
+        "blockers": [],
+        "next_action": "已結案，僅供回顧；無待辦。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "LCMS 100與200樁壓測複測 軟體測試報告 v0.2",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/LCMS_壓測複測_20260930/LCMS_100與200樁壓測複測_20260930_軟體測試報告_v0.2.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "LCMS 複驗與壓測 軟體測試報告（2026-09-29）",
+            "ref": "qa_ai_workflow/outputs/reports/地端充電/LCMS_複驗與壓測_20260929/LCMS_複驗與壓測_20260929_軟體測試報告_v0.1.docx",
+            "checked_at": "2026-10-13T18:55:08+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "歷史專案回顧登錄紀錄",
+            "ref": "qa_optimization/reports/research/2026-10-13_historical-projects-backfill.md",
+            "checked_at": "2026-10-13T18:55:08+08:00"
           }
         ]
       }
@@ -1955,7 +2991,7 @@
     ]
   },
   "revisions": {
-    "projects": "403077d1299aa83795936d711c7bebfb7228c927cd8d3bd450204b399eda0416",
+    "projects": "d04869d10657881bc634269cd30d6088d78d2d7979e71be44e9e2569329e88ae",
     "optimizations": "34347f8526861b3930047134837ad899587e699de15e0e24b546328fb03219f4",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -1982,5 +3018,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。Claude不需也不假設能讀Codex對話；跨模型來源依 `tasks/record-test-progress.md` 的落盤摘要及其evidence。\n\n## 資料盤點\n\n1. 先依project ID找 `qa_optimization/reports/research/*_test-progress_*.md` 的新增摘要及更正鏈，再核對projects.json來源、qa_ai_workflow/outputs/的Test Case／execution／Report／RUN_BRIEF與已授權OneDrive來源。按專案與日期縮小範圍，不每次全量重讀歷史對話、帳密、個資或完整payload。僅存在對話而未落盤的結果無法取得時列缺口，不猜測。\n   摘要是現況與來源索引，不能壓過較新有效evidence。核對observed_at／counts_as_of、環境／版本與scope；recorded_at、檔名日期是記錄時間。引用來源不可讀或有衝突時，保留受影響欄位的前次有效快照並列缺口，不改成產品Failed。無摘要仍可用可追溯既有檔案；沒有新證據就不刷新測試日期。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n若歷史來源路徑因檔案整理失效，先比對 `reports/research/*output-folder-migration.json` 的精確舊→新對照，再讀新位置。搬移不代表測試有新進度；未找到對照或新檔不可讀時保留缺口，不以同名其他版本猜測。\n\n## 摘要與全量進度合併\n\n- 摘要「統計範圍」為project時，核對total、去重及引用證據後採用；run只代表本回合，不得將其counts覆蓋或加到全量。\n- 局部補測／複驗只更新具有完整ID mapping及有效新證據的案例，再彙總同輪全量。無法取得全量時保留原counts及counts_as_of，另更新本輪observed_at／blockers並註明全量尚未同步；同案前後結果不能累加成兩案。\n- 測試完成、報告產出與已交付分開核對。明確完成待報告用awaiting_report，有實際結案／交付確認才用completed；completed卡片維持100%且保留歷史分類，不因讀舊文件倒退。\n- 新舊摘要／Excel State衝突時列ID、來源日期及差異，保留待確認；不以mtime或固定優先順序掩蓋衝突，不把部分步驟Passed當全案Passed。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 本次可採用的全量結果本身不完整或矛盾時：counts=null；若僅缺新回合全量、前次快照仍有效，依上節保留舊counts與原日期。counts為null時，可確認的total仍保留，否則null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出採用的摘要／更正鏈、讀過的來源、統計口徑、更新／未更新原因、來源衝突及缺口。同步任務本身不冒充新的測試回合，不另造test-progress摘要或新實測日期。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪projects.json、同步報告及實際採用且未上版的去敏感test-progress摘要、push main並確認公司CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-10-13T10:46:02+00:00"
+  "exported_at": "2026-10-14T02:30:06+00:00"
 }
