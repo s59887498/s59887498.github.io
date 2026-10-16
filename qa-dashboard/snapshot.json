@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-10-15T02:03:28+00:00",
+    "updated_at": "2026-10-16T02:12:52+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -322,11 +322,11 @@
         "title": "佔槍費",
         "product": "星舟快充",
         "owner": "Andy Huang",
-        "environment": "RT；本輪功能測試完成；10/14 Stage API補測lane（26P／5B）；Stage財務對帳待確認",
+        "environment": "RT；本輪功能測試完成；10/15 Stage API一鍵回歸lane（26P／0F／5B，run scope）；Stage財務對帳待確認",
         "summary": "使用者已確認本輪測試完成並提供完成版案例。142 案：138 Passed、4 Skipped，無 Failed／Blocked；305 步：296 Passed、9 Skipped。Asana 23 個問題子任務均已結案。Word 報告已交付，Stage 財務對帳待上版確認。",
         "stage": "report",
         "activity": "completed",
-        "observed_at": "2026-10-14",
+        "observed_at": "2026-10-15",
         "activity_confirmed_at": "2026-10-13",
         "total": 142,
         "counts": {
@@ -337,9 +337,9 @@
           "not_run": 0
         },
         "counts_as_of": "2026-10-13",
-        "scope_note": "142案／305步；HOGTC-014兩步及整案更正Passed，原文案不符屬Case預期錯誤，Asana Bug已關閉。HOGTC-023兩步及整案撤下、不重用ID；IDEA-HOGTC-023改Dropped。HOGTC-046與142保留跨日分段及混合行程覆蓋，但精確金額仍Blocked。HOGTC-007與039先前更正維持。 2026-09-29 HOGTC-127／128預期文案更正「暫無資料」並改判Passed，兩步及整案同步；採UIUX確認與2026-09-21 RT證據，本次未重新操作RT。 2026-10-05 依本次M1 execution evidence回填逐步結果，保留已更正案例與撤銷ID。102／110手機Rich Menu、086／087使用者及RD手動lane仍待回報；本輪未新增Asana Bug。 2026-10-07 核對Asana主單21子任務；049／061為需求更正及人工複驗，077／078依對應Bug人工Test Passed回填，098固定文案採快充樁。counts為Case Index；040／043／044的6個步驟已標Passed但整案及Notes仍Blocked，待使用者確認来源，未覆寫既有值。Readable View為198 Passed／7 Failed／100 Blocked步。 2026-10-07 使用者後續手動更新Readable View並明確要求同步Case Index，以上最新人工結果取代先前89／6／47及040／043／044待確認快照。31案轉Passed、1案轉Failed（088）、4案轉Skipped（068／096／100／119），全部142案彙總一致；305步為255 Passed／9 Failed／33 Blocked／8 Skipped。未新跑測試，不補造實際日期或evidence，Skipped仍保留正式scope。 2026-10-08 最新修訂及同步取代上列歷史快照：073 共用方案可見，站槍授權範圍保留，兩步依使用者剛完成的手測回報 Passed；074／143～148 既有人工全步 Passed 同步整案。142 案 128 Passed／7 Failed／3 Blocked／4 Skipped，305 步 282 Passed／9 Failed／6 Blocked／8 Skipped。同步日期不冒充未提供的實測日期；本次 agent 未重跑或新增 runtime evidence。 2026-10-13 完成確認取代上列歷史 Failed／Blocked 現況：使用者提供佔槍費_TestCase.xlsx 並確認本輪全數測試完。完成版 Case Index 138 Passed／4 Skipped；Readable View 296 Passed／9 Skipped（305 步），137 案全步 Passed，HOGTC-142 整案 Passed 但第 3 步 Skipped，未將其精確跨午夜金額斷言列為通過。068／096／100／119 沿用 Skipped，不轉 Passed。Asana 23 子任務全部已結案，需求／設計更正與環境因素未冒充產品修復。Word 報告已完成並保留既有來源快照；completed 表示本輪功能測試及報告交付完成，Stage 財務對帳待部署後驗證。原始附件、既有 canonical workbook 及 Asana 任務未改寫。本次為報告整理，非新跑測試。 2026-10-13 18:12～18:16 另跑31個API元件automation lane（run scope，非全量）：最新attempt 18 Passed／13 Blocked（071～073缺A/B授權範圍；097、102～104、111～115、118缺有效LIFF認證／fixture）；首輪6 Failed為腳本schema誤用，修正後通過；019首次GET404穩定性observation未結。不覆蓋上列142案手測全量，completed維持。 2026-10-14 Stage API元件lane（run scope，非全量）：OCCUPANCY-API-STAGE-20261014 最新31項25P／0F／6B；18:34起HOGTC-104經使用者接受自行計時補測Passed（150秒、同單40元精確一致），合併後26P／0F／5B（051缺3商家；071～073缺Stage A/B角色帳密與互斥授權站槍；118缺已退款佔槍單）。首輪055～057、097失敗為測資／oracle問題，修正複跑通過，原attempt保留，非產品Fail。秒／毫秒邊界取整規則未知；Stage C付款後轉18、發票VOIDED來源、H發票無匹配列觀測待確認。RT 10/13 18P／13B歷史保留。不覆蓋142案手測全量，completed與counts維持。",
+        "scope_note": "142案／305步；HOGTC-014兩步及整案更正Passed，原文案不符屬Case預期錯誤，Asana Bug已關閉。HOGTC-023兩步及整案撤下、不重用ID；IDEA-HOGTC-023改Dropped。HOGTC-046與142保留跨日分段及混合行程覆蓋，但精確金額仍Blocked。HOGTC-007與039先前更正維持。 2026-09-29 HOGTC-127／128預期文案更正「暫無資料」並改判Passed，兩步及整案同步；採UIUX確認與2026-09-21 RT證據，本次未重新操作RT。 2026-10-05 依本次M1 execution evidence回填逐步結果，保留已更正案例與撤銷ID。102／110手機Rich Menu、086／087使用者及RD手動lane仍待回報；本輪未新增Asana Bug。 2026-10-07 核對Asana主單21子任務；049／061為需求更正及人工複驗，077／078依對應Bug人工Test Passed回填，098固定文案採快充樁。counts為Case Index；040／043／044的6個步驟已標Passed但整案及Notes仍Blocked，待使用者確認来源，未覆寫既有值。Readable View為198 Passed／7 Failed／100 Blocked步。 2026-10-07 使用者後續手動更新Readable View並明確要求同步Case Index，以上最新人工結果取代先前89／6／47及040／043／044待確認快照。31案轉Passed、1案轉Failed（088）、4案轉Skipped（068／096／100／119），全部142案彙總一致；305步為255 Passed／9 Failed／33 Blocked／8 Skipped。未新跑測試，不補造實際日期或evidence，Skipped仍保留正式scope。 2026-10-08 最新修訂及同步取代上列歷史快照：073 共用方案可見，站槍授權範圍保留，兩步依使用者剛完成的手測回報 Passed；074／143～148 既有人工全步 Passed 同步整案。142 案 128 Passed／7 Failed／3 Blocked／4 Skipped，305 步 282 Passed／9 Failed／6 Blocked／8 Skipped。同步日期不冒充未提供的實測日期；本次 agent 未重跑或新增 runtime evidence。 2026-10-13 完成確認取代上列歷史 Failed／Blocked 現況：使用者提供佔槍費_TestCase.xlsx 並確認本輪全數測試完。完成版 Case Index 138 Passed／4 Skipped；Readable View 296 Passed／9 Skipped（305 步），137 案全步 Passed，HOGTC-142 整案 Passed 但第 3 步 Skipped，未將其精確跨午夜金額斷言列為通過。068／096／100／119 沿用 Skipped，不轉 Passed。Asana 23 子任務全部已結案，需求／設計更正與環境因素未冒充產品修復。Word 報告已完成並保留既有來源快照；completed 表示本輪功能測試及報告交付完成，Stage 財務對帳待部署後驗證。原始附件、既有 canonical workbook 及 Asana 任務未改寫。本次為報告整理，非新跑測試。 2026-10-13 18:12～18:16 另跑31個API元件automation lane（run scope，非全量）：最新attempt 18 Passed／13 Blocked（071～073缺A/B授權範圍；097、102～104、111～115、118缺有效LIFF認證／fixture）；首輪6 Failed為腳本schema誤用，修正後通過；019首次GET404穩定性observation未結。不覆蓋上列142案手測全量，completed維持。 2026-10-14 Stage API元件lane（run scope，非全量）：OCCUPANCY-API-STAGE-20261014 最新31項25P／0F／6B；18:34起HOGTC-104經使用者接受自行計時補測Passed（150秒、同單40元精確一致），合併後26P／0F／5B（051缺3商家；071～073缺Stage A/B角色帳密與互斥授權站槍；118缺已退款佔槍單）。首輪055～057、097失敗為測資／oracle問題，修正複跑通過，原attempt保留，非產品Fail。秒／毫秒邊界取整規則未知；Stage C付款後轉18、發票VOIDED來源、H發票無匹配列觀測待確認。RT 10/13 18P／13B歷史保留。不覆蓋142案手測全量，completed與counts維持。 2026-10-15 Stage API一鍵回歸（OCCUPANCY-API-STAGE-ONECLICK-20261015，run scope，非全量）：最新attempt stage-regression-20261015-113313-6b4a12 唯一31項26P／0F／5B（pytest Skipped映射Blocked：051缺3商家值；071～073缺完整互斥Stage scope；118缺已退款H及oracle），非兩輪62筆相加。首輪24P／2F／5Skip中097為Automation Defect（平台數字0未轉LIFF字串），修正後複跑通過，非產品Fail。104首輪153秒超出Finishing觀測150～151秒，起算點／時間源待RD及需求owner確認，未據此判多收、未加容差。cleanup完成（plans 11/11刪除、errors=0）；財務對帳pending。不覆蓋142案手測全量，completed、counts、counts_as_of維持。",
         "blockers": [],
-        "next_action": "佔槍費Stage財務對帳確認並留存；核閱Word報告。API automation：使用者／RD補Stage 5項前置（3商家、A/B角色帳密與授權站槍、已退款佔槍單）後補跑051／071～073／118；RD／財務確認發票VOIDED／18來源、秒級取整規則；RT lane補有效LIFF token後補跑13個Blocked，確認HOGTC-019讀回404原因。",
+        "next_action": "佔槍費Stage財務對帳確認並留存；核閱Word報告。API automation：RD／需求owner確認HOGTC-104計時起算事件與時間源；測資owner補051（3商家值）、071～073（互斥Stage scope）、118（已退款H及oracle）後用同一一鍵命令重跑；RD／財務確認發票VOIDED／18來源、秒級取整規則；RT lane補有效LIFF token後補跑13個Blocked，確認HOGTC-019讀回404原因。",
         "sources": [
           {
             "kind": "local",
@@ -608,6 +608,32 @@
             "label": "10/14 HOGTC-104補測進度摘要（更正鏈最新）",
             "ref": "qa_optimization/reports/research/2026-10-14_test-progress_PRJ-STARCHARGE-IDLE-FEE-202609_184200_API-STAGE-HOGTC104.md",
             "checked_at": "2026-10-15T10:05:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/15 Stage API一鍵回歸執行報告（run scope）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/佔槍費/佔槍費_API_一鍵回歸_20261015.md",
+            "checked_at": "2026-10-16T10:15:00+08:00",
+            "note": "26P／0F／5B；不覆蓋手測全量。"
+          },
+          {
+            "kind": "local",
+            "label": "10/15 一鍵回歸最新attempt彙整",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/occupancy_fee/stage-regression-20261015-113313-6b4a12/consolidated-results.json",
+            "checked_at": "2026-10-16T10:15:00+08:00",
+            "note": "latest total 31：passed 26、skipped 5、cleanup complete、financial_reconciliation pending。"
+          },
+          {
+            "kind": "local",
+            "label": "10/15 一鍵回歸首輪（含097 Automation Defect、104計時差異）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/occupancy_fee/stage-regression-20261015-112437-122241/case-results.json",
+            "checked_at": "2026-10-16T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/15 Stage API一鍵回歸進度摘要",
+            "ref": "qa_optimization/reports/research/2026-10-15_test-progress_PRJ-STARCHARGE-IDLE-FEE-202609_114155_API-STAGE-ONECLICK.md",
+            "checked_at": "2026-10-16T10:15:00+08:00"
           }
         ]
       },
@@ -1077,22 +1103,21 @@
         "product": "星舟快充",
         "owner": "QA：Andy Huang；RD：hsiwei.kao／Luana Lee／RichardChou",
         "environment": "RT；部署tag／commit未取得，不由預計排程推定版本",
-        "summary": "10/14開始RT複驗，目前只做ST-8467：核心與正常跨段2案PASS（LINE會員掃碼路徑）。其他四張OP Issue、Luxgen漫遊／OCPI等尚未執行，全專案案例數未定。",
+        "summary": "ST-8467 RT複驗已由使用者於10/15確認完成：掃碼2案（10/14）與OCPI隨插即充導流Luxgen 2案（10/15）計費均PASS；RT漫遊付款失敗屬預期。其他四張OP Issue尚未執行，全專案案例數未定。",
         "stage": "retest",
         "activity": "active",
         "planned_start_at": "2026-10-13",
-        "activity_confirmed_at": "2026-10-14",
-        "observed_at": "2026-10-14T18:49:55+08:00",
+        "activity_confirmed_at": "2026-10-15",
+        "observed_at": "2026-10-15T15:43:23+08:00",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "Test Case Mode Discovery，Source Gate PARTIAL。v0.1 Draft分析及Backlog已交付；32項為探索檢查點，非正式Test Case數。未產Readable Excel、未升格Reviewed Test Case、未執行RT；total／counts保留null。RD預計上RT不視為已交付；既有TDX EVOperator輪次不合併、不更動。 2026-10-14 ST-8467局部複驗（run scope，unique Case ID去重）：ST8467-RT-001（20261014-183854）PASS、ST8467-RT-002（20261014-184411）PASS，LIFF與後台同單電量／金額精確一致。001前置嘗試183549 raw FAIL依classification-corrections.json更正為BLOCK／AUTOMATION_DEFECT（時間戳毫秒精度），非產品Fail、不重複計數；182527～183311為前置嘗試未起充。採Automation Mode executable behavior list，無Reviewed workbook、未回填Excel。32項Backlog仍非正式分母，全專案total／counts維持null。未產出正式Test Report。",
+        "scope_note": "Test Case Mode Discovery，Source Gate PARTIAL。v0.1 Draft分析及Backlog已交付；32項為探索檢查點，非正式Test Case數。未產Readable Excel、未升格Reviewed Test Case、未執行RT；total／counts保留null。RD預計上RT不視為已交付；既有TDX EVOperator輪次不合併、不更動。 2026-10-14 ST-8467局部複驗（run scope，unique Case ID去重）：ST8467-RT-001（20261014-183854）PASS、ST8467-RT-002（20261014-184411）PASS，LIFF與後台同單電量／金額精確一致。001前置嘗試183549 raw FAIL依classification-corrections.json更正為BLOCK／AUTOMATION_DEFECT（時間戳毫秒精度），非產品Fail、不重複計數；182527～183311為前置嘗試未起充。採Automation Mode executable behavior list，無Reviewed workbook、未回填Excel。32項Backlog仍非正式分母，全專案total／counts維持null。未產出正式Test Report。 2026-10-15 ST-8467續測（run scope，unique Case ID去重）：14:27 RT會員隨插即充（20261015-142734）RT-003 BLOCK（實際走本平台，Luxgen導流未成立）、RT-004 NOT_RUN；改用OCPI simulator指定EVCCID後，RT-003（20261015-151239）與RT-004（20261015-151911）確認LUX身分、分段Wh／金額精確相符，計費PASS但billStatus=12支付失敗、暫判FAIL；15:43使用者確認RT漫遊付款必然失敗屬預期，依acceptance-correction_20261015-154323.json更正為PASS（非新增執行）。ST-8467本輪001～004最新皆PASS，使用者確認本單複驗完成；BillSession ACTIVE為觀察、不作本單blocker，未宣稱付款／外部Checkout成功。150036、151029為前置嘗試，不計案例。父專案其他四張OP Issue未執行，32項Backlog非正式分母，全專案total／counts維持null，父專案不標completed。未產正式Test Report、未回填Excel。",
         "blockers": [
           "RT部署tag／commit及各服務版本待RD確認。",
-          "ST-8467 Luxgen漫遊／OCPI、Session／CDR fixture與觀察通道尚缺；Loki例外log、離線補傳、完整發票鏈路未驗。",
           "ST-8489、ST-8453、ST-8470尚無最終RD修正清單／驗證紀錄；ST-8463亦未執行。"
         ],
-        "next_action": "RD提供部署版本與Luxgen測試／觀察資料；QA補ST-8467漫遊／OCPI及未覆蓋回歸後決定整張單結案，再依序複驗其餘四張OP Issue。",
+        "next_action": "ST-8467保留完成紀錄（RD可另查BillSession ACTIVE設計，非本單blocker）；RD提供部署版本與其餘四張OP Issue修正清單後，QA依序複驗ST-8463／8489／8453／8470並定義全專案案例分母。",
         "sources": [
           {
             "kind": "local",
@@ -1177,6 +1202,48 @@
             "label": "10/14 ST8467 核心與正常跨段摘要（更正鏈最新）",
             "ref": "qa_optimization/reports/research/2026-10-14_test-progress_PRJ-STARCHARGE-OP-RT-20261013_185215_ST8467-core-normal.md",
             "checked_at": "2026-10-15T10:05:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/15 ST-8467隨插即充Luxgen導流實測（RT-003 BLOCK）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/時間電價/ST8467_RT_TestExecution_20261015.md",
+            "checked_at": "2026-10-16T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/15 ST-8467 OCPI Luxgen實測（最新已更正為PASS）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/時間電價/ST8467_OCPI_RT_TestExecution_20261015.md",
+            "checked_at": "2026-10-16T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "RT-003驗收更正（FAIL→PASS，使用者確認）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/op_issues/ST-8467/20261015-151239/acceptance-correction_20261015-154323.json",
+            "checked_at": "2026-10-16T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "RT-004驗收更正（FAIL→PASS，使用者確認）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/op_issues/ST-8467/20261015-151911/acceptance-correction_20261015-154323.json",
+            "checked_at": "2026-10-16T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/15 隨插即充導流摘要（被接續）",
+            "ref": "qa_optimization/reports/research/2026-10-15_test-progress_PRJ-STARCHARGE-OP-RT-20261013_144213_ST8467-autocharge-luxgen.md",
+            "checked_at": "2026-10-16T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/15 OCPI Luxgen摘要（被更正）",
+            "ref": "qa_optimization/reports/research/2026-10-15_test-progress_PRJ-STARCHARGE-OP-RT-20261013_152709_ST8467-ocpi-luxgen.md",
+            "checked_at": "2026-10-16T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/15 ST-8467完成確認與判定更正摘要（更正鏈最新）",
+            "ref": "qa_optimization/reports/research/2026-10-15_test-progress_PRJ-STARCHARGE-OP-RT-20261013_154323_ST8467-accepted.md",
+            "checked_at": "2026-10-16T10:15:00+08:00"
           }
         ]
       },
@@ -2204,12 +2271,48 @@
             "checked_at": "2026-10-13T18:55:08+08:00"
           }
         ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-STAGE-REGRESSION-IMPROVEMENT-202610",
+        "title": "優化 Stage 回歸測試",
+        "product": "星舟快充",
+        "owner": "待確認",
+        "environment": "Stage；LIFF／全盈串接回歸，CI平台及自動觸發方式待確認",
+        "summary": "準備中。階段一：回歸完成後透過Teams API向群組回報Stage結果與實際Pass數。階段二：LIFF改用自動化測試帳號、綁定星舟信用卡以完成全盈測試，並整合CI自動觸發，免手動啟動。",
+        "stage": "planning",
+        "activity": "planned",
+        "observed_at": "2026-10-15",
+        "activity_confirmed_at": "2026-10-15",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "本輪為優化任務需求登錄，兩階段非案例數。尚未實作Teams發訊、搬移LIFF帳號、綁卡或設定CI；不得把既有回歸歷史結果算成本任務完成。CI須自動觸發，不以新增手動入口代替。",
+        "blockers": [
+          "實作owner、Stage回歸入口／完成判定及Teams目標群組、權限來源待確認。",
+          "LIFF自動化測試帳號、星舟信用卡與全盈測試環境設定待確認。",
+          "CI平台與自動觸發時機待確認；目前未設定排程或部署hook。"
+        ],
+        "next_action": "先盤點既有回歸與Teams通知工具，確認群組、專用LIFF帳號／測試金流配置及CI觸發時機，再依兩階段實作並驗證自動回歸與結果回報。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "10/15 Stage回歸優化任務及CI自動觸發補充",
+            "ref": "qa_optimization/reports/research/2026-10-15_stage-regression-improvement-registration.md",
+            "checked_at": "2026-10-15T11:26:58+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "既有Teams通知工具（能力待盤點，未執行）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/tools/notify_teams.py",
+            "checked_at": "2026-10-15T11:26:58+08:00"
+          }
+        ]
       }
     ]
   },
   "optimizations": {
     "schema_version": 1,
-    "updated_at": "2026-10-02T02:15:01+00:00",
+    "updated_at": "2026-10-16T02:16:06+00:00",
     "items": [
       {
         "id": "OPT-PERF-001",
@@ -2963,8 +3066,8 @@
         "research_status": "candidate",
         "title": "壓測套件鎖定的 urllib3、aiohttp 版本已有公開安全公告，先確認是否需要升級",
         "summary": "SC_QA_Charge_Stress_Test 固定 urllib3==2.5.0、aiohttp==3.13.2，兩者都落在官方 High 等級公告的受影響範圍；實際可利用性取決於連線對象是否可信，先評估再決定升級。",
-        "finding": "Automation_HDRE/SC_QA_Charge_Stress_Test/requirements.txt（檔案時間 2026-03-16）全部以 == 固定版本，其中 urllib3==2.5.0、aiohttp==3.13.2、requests==2.32.5。官方公告比對（2026-10-02 查閱）：(1) urllib3 GHSA-gm62-xv2j-4w53／CVE-2025-66418（High，2025-12-05）受影響 >=1.24,<2.6.0，公告明說預設用法向不可信來源發 HTTP 請求即受影響（無上限的 Content-Encoding 解壓鏈），修補 2.6.0；GHSA-2xpw-w6gg-jr37／CVE-2025-66471 與 GHSA-38jv-5279-wg99／CVE-2026-21441 只影響 streaming／preload_content=False，本套件 rg 找不到 stream=True、iter_content、raw.read、drain_conn，判定不可達；GHSA-qccp-gfcp-xxvc／CVE-2026-44431 只影響 ProxyManager 低階 urlopen 跨源 redirect，本套件未直接使用 urllib3。(2) aiohttp GHSA-cq5v-8q36-5273／CVE-2026-69244（High，2026-07-25）受影響 <=3.14.2、修補 3.14.3，屬用戶端 C 解析器在惡意伺服器回應下越界讀取（DoS）；本套件唯一使用處為 tests/eks/tdx_taichung/main_tdx_parking_peak.py 第 478 行 aiohttp.ClientSession。(3) requests GHSA-gc5v-m9x4-r6x2／CVE-2026-25645 只影響直接呼叫 extract_zipped_paths()，不可達。urllib3 最新 2.8.0（2026-09-15）、aiohttp 最新 3.14.3（2026-07-23）。壓測連線對象為公司 Stage／EKS 與停車場相關服務，屬可信度較高的對象，因此實際風險偏低；本項只主張「固定版本落在公告範圍且無定期比對機制」，不主張已被利用或測試結果受影響。本輪未安裝、未執行 pip、未取得實際安裝版本。",
-        "proposal": "保留 == 鎖版作法，但加一個唯讀的定期依賴公告比對（例如以 OSV／GitHub Advisory 資料比對 requirements.txt 的工具），列出受影響套件與可達性判斷。升級改為刻意的獨立變更：urllib3 至 >=2.7.0（同時涵蓋 2.6.x 系列後續公告）、aiohttp 至 >=3.14.3，requests 可隨 urllib3 一併評估；升級後以離線 unit tests（tests/unit/）與一次使用者核准的最小壓測場景確認行為不變。是否升級、何時升級由使用者決定。",
+        "finding": "Automation_HDRE/SC_QA_Charge_Stress_Test/requirements.txt（檔案時間 2026-03-16）全部以 == 固定版本，其中 urllib3==2.5.0、aiohttp==3.13.2、requests==2.32.5。官方公告比對（2026-10-02 查閱）：(1) urllib3 GHSA-gm62-xv2j-4w53／CVE-2025-66418（High，2025-12-05）受影響 >=1.24,<2.6.0，公告明說預設用法向不可信來源發 HTTP 請求即受影響（無上限的 Content-Encoding 解壓鏈），修補 2.6.0；GHSA-2xpw-w6gg-jr37／CVE-2025-66471 與 GHSA-38jv-5279-wg99／CVE-2026-21441 只影響 streaming／preload_content=False，本套件 rg 找不到 stream=True、iter_content、raw.read、drain_conn，判定不可達；GHSA-qccp-gfcp-xxvc／CVE-2026-44431 只影響 ProxyManager 低階 urlopen 跨源 redirect，本套件未直接使用 urllib3。(2) aiohttp GHSA-cq5v-8q36-5273／CVE-2026-69244（High，2026-07-25）受影響 <=3.14.2、修補 3.14.3，屬用戶端 C 解析器在惡意伺服器回應下越界讀取（DoS）；本套件唯一使用處為 tests/eks/tdx_taichung/main_tdx_parking_peak.py 第 478 行 aiohttp.ClientSession。(3) requests GHSA-gc5v-m9x4-r6x2／CVE-2026-25645 只影響直接呼叫 extract_zipped_paths()，不可達。urllib3 最新 2.8.0（2026-09-15）、aiohttp 最新 3.14.3（2026-07-23）。壓測連線對象為公司 Stage／EKS 與停車場相關服務，屬可信度較高的對象，因此實際風險偏低；本項只主張「固定版本落在公告範圍且無定期比對機制」，不主張已被利用或測試結果受影響。本輪未安裝、未執行 pip、未取得實際安裝版本。 2026-10-16 複查：urllib3 於 2026-09-15 新增三則公告（GHSA-vxq7-64xx-v4gw High，stream()/read_chunked() 無上限 chunk-size 行，<2.8.0；GHSA-8988-9cw3-xx77 High，HTTPS proxy 的 proxy_ssl_context 設定被覆蓋，>=1.26.0,<2.8.0；GHSA-gh4c-6fx4-qh6g Moderate，>=2.6.2,<2.8.0，2.5.0 不在範圍）。本套件 rg 找不到 stream=True、iter_content、read_chunked、proxy_ssl_context、use_forwarding_for_https、ProxyManager，判定前兩則不可達、第三則不適用；但三則都只在 2.8.0 修補，若升級目標宜直接評估 2.8.0。aiohttp 最新 3.14.5（2026-10-11）；2026-07-26 另有兩則 Low（WebSocket 相關），本套件未用 aiohttp WebSocket。結論與優先度不變。",
+        "proposal": "保留 == 鎖版作法，但加一個唯讀的定期依賴公告比對（例如以 OSV／GitHub Advisory 資料比對 requirements.txt 的工具），列出受影響套件與可達性判斷。升級改為刻意的獨立變更：urllib3 至 >=2.8.0（涵蓋 2026-09-15 三則新公告；2.8.0 要求 Python>=3.10）、aiohttp 至 >=3.14.3，requests 可隨 urllib3 一併評估；升級後以離線 unit tests（tests/unit/）與一次使用者核准的最小壓測場景確認行為不變。是否升級、何時升級由使用者決定。",
         "benefit": "消除已知公告範圍內的固定版本，並讓之後的公告在研究或 CI 中被看見，而不是靠人工巡查。不主張任何效能提升。",
         "risk": "aiohttp 3.13→3.14、urllib3 2.5→2.7+ 為次版號跨越，可能改變逾時、連線池或錯誤型別，進而影響壓測統計；需要同場景前後比對才能確認。誤把不可達公告當成急迫事項會增加不必要的升級成本。",
         "effort": "小：一份比對清單與 requirements.txt 數行版本號；驗證成本主要在一次最小壓測場景的前後比對，需使用者核准環境與時段。",
@@ -2975,7 +3078,7 @@
         ],
         "acceptance": [
           "產出一份 requirements.txt 對應官方公告的清單，每筆標示可達／不可達與理由。",
-          "若採用升級：urllib3 >=2.7.0、aiohttp >=3.14.3 且仍為 == 固定版本。",
+          "若採用升級：urllib3 >=2.8.0、aiohttp >=3.14.3 且仍為 == 固定版本。",
           "升級後 tests/unit/ 全數通過，並在使用者核准的同一最小壓測場景下，前後結果差異逐項說明。",
           "之後每輪研究或 CI 可重跑同一比對，新公告會出現在輸出中。"
         ],
@@ -3051,10 +3154,159 @@
             "checked_at": "2026-10-02",
             "published_at": "2026-07-23",
             "note": "最新 3.14.3"
+          },
+          {
+            "kind": "web",
+            "label": "urllib3 GHSA-vxq7-64xx-v4gw",
+            "ref": "https://github.com/urllib3/urllib3/security/advisories/GHSA-vxq7-64xx-v4gw",
+            "checked_at": "2026-10-16",
+            "published_at": "2026-09-15",
+            "note": "僅 streaming；不可達；修補 2.8.0"
+          },
+          {
+            "kind": "web",
+            "label": "urllib3 GHSA-8988-9cw3-xx77",
+            "ref": "https://github.com/urllib3/urllib3/security/advisories/GHSA-8988-9cw3-xx77",
+            "checked_at": "2026-10-16",
+            "published_at": "2026-09-15",
+            "note": "僅 HTTPS proxy 搭配 proxy_ssl_context；不可達"
+          },
+          {
+            "kind": "web",
+            "label": "urllib3 GHSA-gh4c-6fx4-qh6g",
+            "ref": "https://github.com/urllib3/urllib3/security/advisories/GHSA-gh4c-6fx4-qh6g",
+            "checked_at": "2026-10-16",
+            "published_at": "2026-09-15",
+            "note": ">=2.6.2,<2.8.0；2.5.0 不在範圍"
+          },
+          {
+            "kind": "web",
+            "label": "PyPI：aiohttp 專案頁（2026-10-16 複查）",
+            "ref": "https://pypi.org/project/aiohttp/",
+            "checked_at": "2026-10-16",
+            "published_at": "2026-10-11",
+            "note": "最新 3.14.5"
           }
         ],
-        "author": "Claude（週排程 2026-10-02；僅讀取與官方公告比對，未安裝、未執行任何測試）",
-        "researched_at": "2026-10-02"
+        "author": "Claude（週排程 2026-10-02；僅讀取與官方公告比對，未安裝、未執行任何測試）；2026-10-16 週排程複查公告",
+        "researched_at": "2026-10-16"
+      },
+      {
+        "id": "OPT-QA-014",
+        "category": "qa_workflow",
+        "priority": "P1",
+        "confidence": "evidence",
+        "research_status": "candidate",
+        "title": "Stage 回歸搬進 CI 前，先讓 Teams 通知不再把「受阻／略過」顯示成通過",
+        "summary": "現有 notify_teams.py 只要沒有 Failed／Error 就顯示 ✅ PASS，10/15 佔槍費一鍵回歸 5 項受阻在 pytest 是 Skipped，照現況會被報成成功；CI 也沒用一鍵入口的旗標與路徑。",
+        "finding": "(1) Automation_HDRE/Automation_API_UI-main/tools/notify_teams.py 第 60–108 行以 junit 統計，ok 的判斷只看 failed＋errors==0（第 108 行），skipped 不影響結果，卡片標題為「✅ PASS」（第 116 行）。(2) 10/15 佔槍費一鍵回歸 consolidated-results.json：31 項 passed 26、skipped 5，五項 Skipped 在報告中是 Blocked（缺商家值、Stage scope、已退款單），pytest exit code 0；若照現有通知邏輯，會送出 ✅ PASS。這與 2026-10-15 登錄的「優化 Stage 回歸測試」需求（Failed／Blocked 或未完成時不得回報「流程沒問題」，Pass 數須註明口徑）直接衝突。(3) .github/workflows/starcloud-stage-tests.yml 的 Run pytest 直接跑 tests/Web/starcloud，未設 run_stage_regression.py 的 STAR_CHARGE_OCCUPANCY_ALLOW_MUTATIONS／LIVE／ONECLICK_STAGE 等旗標（run_stage_regression.py 第 34–37 行），regression_plugin.py 第 132 行在未啟用時 pytest.skip；也沒有一鍵入口的 cleanup gate 與 reports/occupancy_fee/<run>/junit.xml 路徑，通知讀的是 result/junit.xml。CI 的「Fail job if tests failed」同樣只看 pytest exit code，Skipped 不會讓 job 失敗。(4) notify_teams.py 說明（第 10 行）仍寫舊版 Office 365 connector「仍在服役」，並保留 connector 格式切換；Microsoft 官方公告 connector 已於 2026-05-18～22 停止運作，只剩 Workflows webhook 可用。workflow 預設 TEAMS_WEBHOOK_FORMAT=workflow，所以目前預設路徑不受影響，但若有人把變數設成 connector 會靜默失效。本項是程式行為證據，未實際發送任何 Teams 訊息、未執行 CI。",
+        "proposal": "在實作「Stage 回歸 → Teams」前先定好成功條件：通知以一鍵回歸產出的 consolidated-results／junit 為來源，狀態分成「全部通過」「有受阻／略過」「有失敗」「未完成或 cleanup 未通過」，只有第一種才用「Stage確認回歸流程沒問題」文案，其餘列出 Case ID 與原因；Pass 數註明「31 個 API 元件」等口徑。CI 改呼叫同一個一鍵入口（或等價旗標＋路徑），並讓 cleanup gate 失敗與受阻都反映在 job 狀態或通知上。移除或標註 connector 格式已停用。是否把 Skipped 視為 job 失敗由使用者決定；本項不涉及帳號、綁卡與觸發時機，那些仍依專案登錄待確認。",
+        "benefit": "避免「有 5 項沒測到卻收到全綠通知」的誤判，讓 Teams 訊息可以直接作為 Stage 是否可放行的依據。屬可信度改善，不主張效能提升。",
+        "risk": "把 Skipped 視為非成功後，現有其他 starcloud 測項中「環境未啟用而跳過」的案例也會讓通知變黃，需要區分「刻意不在範圍」與「受阻」；改通知邏輯可能影響其他使用 notify_teams.py 的流程。",
+        "effort": "小～中：notify_teams.py 狀態判斷與文案、workflow 呼叫入口與 artifact 路徑；需要離線 unit test（以假 junit／consolidated JSON 驗證四種狀態），不需連 Stage。",
+        "baseline": "10/15 一鍵回歸實際結果 26 Passed／5 Skipped(Blocked)；依現行程式推得通知為 ✅ PASS（未實際發送驗證）。",
+        "scope": [
+          "Automation_HDRE/Automation_API_UI-main/tools/notify_teams.py",
+          "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml",
+          "Automation_HDRE/Automation_API_UI-main/tests/Web/starcloud/occupancy_fee/run_stage_regression.py",
+          "Automation_HDRE/Automation_API_UI-main/tests/Web/starcloud/occupancy_fee/regression_plugin.py"
+        ],
+        "acceptance": [
+          "以 26P／0F／5Skip 的假 junit 或 consolidated JSON 執行通知產生邏輯（不送出），狀態不得為成功，且列出 5 個 Case ID 與原因。",
+          "全數 Passed、cleanup 完成時才產生「Stage確認回歸流程沒問題」文案，並附 Pass 數與口徑。",
+          "CI 執行的入口、旗標與 junit 路徑與 run_stage_regression.py 一致，cleanup gate 失敗會反映在 job 或通知。",
+          "notify_teams.py 不再把已停用的 Office 365 connector 描述為可用。"
+        ],
+        "sources": [
+          {
+            "kind": "local",
+            "label": "Teams 通知程式（成功判斷只看 failed＋errors）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/tools/notify_teams.py",
+            "checked_at": "2026-10-16",
+            "published_at": null
+          },
+          {
+            "kind": "local",
+            "label": "CI workflow：直接跑 pytest、只看 exit code",
+            "ref": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml",
+            "checked_at": "2026-10-16",
+            "published_at": null
+          },
+          {
+            "kind": "local",
+            "label": "一鍵回歸入口（旗標與 run 目錄）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/tests/Web/starcloud/occupancy_fee/run_stage_regression.py",
+            "checked_at": "2026-10-16",
+            "published_at": null
+          },
+          {
+            "kind": "local",
+            "label": "10/15 一鍵回歸最新結果 26P／5Skip",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/occupancy_fee/stage-regression-20261015-113313-6b4a12/consolidated-results.json",
+            "checked_at": "2026-10-16",
+            "published_at": null
+          },
+          {
+            "kind": "local",
+            "label": "優化 Stage 回歸測試任務登錄（成功文案條件）",
+            "ref": "qa_optimization/reports/research/2026-10-15_stage-regression-improvement-registration.md",
+            "checked_at": "2026-10-16",
+            "published_at": null
+          },
+          {
+            "kind": "web",
+            "label": "Microsoft 365 Developer Blog：Retirement of Office 365 connectors within Microsoft Teams",
+            "ref": "https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/",
+            "checked_at": "2026-10-16",
+            "published_at": "2024-07-03",
+            "note": "2026-04-14 更新：2026-05-18～22 停止運作，改用 Workflows webhook"
+          }
+        ],
+        "author": "Claude（週排程 2026-10-16；僅讀取程式與官方公告，未發送通知、未執行 CI 或測試）",
+        "researched_at": "2026-10-16"
+      },
+      {
+        "id": "OPT-ARCH-015",
+        "category": "architecture",
+        "priority": "P3",
+        "confidence": "evidence",
+        "research_status": "candidate",
+        "title": "智慧均流的 12 支一次性複驗腳本互相 import，改舊腳本可能弄壞後面的複驗",
+        "summary": "tests/eks 下 12 支 main_smart_balance_*.py（約 3,070 行）以彼此為函式庫，最深一條鏈有 6 層；專案已結案，建議下次同類測試前把共用部分抽成模組。",
+        "finding": "Automation_HDRE/SC_QA_Charge_Stress_Test/tests/eks/ 有 12 支 main_smart_balance_*.py（wc 合計 3,070 行），全部 12 支都 import 另一支 main_* 腳本，例如 hold_b1_retest → reconnect_retest → available_retest → remaining_retest → dc_followup → rt_execution → main_rt_franchise_remote_command。共用 helper 散在「某一輪的複驗腳本」裡，而不是獨立模組；以 AST 比對，各檔頂層同名函式只有 main，沒有整段複製，所以問題在相依方向，不是重複程式碼。tests/unit 已有 7 支 smart_balance 單元測試（guard、cleanup、hold_b1 等），部分降低風險。智慧均流專案已於 2026-10-14 結案，短期內改動頻率可能下降；佔槍費一鍵回歸已採 occupancy_fee/ 套件化結構，可作為對照。本項只主張結構風險，未量測維護成本或實際破損次數。",
+        "proposal": "下次有同類複驗（或重新開啟智慧均流）前，把被多支腳本引用的 helper（連線、樁鎖、cleanup、平台 log 讀取等）搬到 tests/eks/smart_balance/ 之類的共用模組，舊 main_* 只保留各輪入口；不改測試行為。先用 import 圖確認被引用的函式清單，再逐一搬移，以既有 unit tests 及 --collect／dry-run 驗證。若使用者認為已結案腳本不再維護，也可只在 README 註記相依鏈並凍結。",
+        "benefit": "降低修改某一輪腳本時連帶破壞其他輪的風險，讓新的複驗腳本有明確的共用 API。不主張效能提升。",
+        "risk": "搬移過程若改到 cleanup 或樁鎖邏輯，會影響實體／Stage 資源還原；必須只做搬移不改語意，且不能在未核准下實際連線驗證。",
+        "effort": "中：約 3,000 行腳本的相依整理，主要成本在確認每個被引用函式與離線驗證。",
+        "baseline": "12 支腳本、3,070 行、全部互相 import、最深 6 層相依；unit tests 7 支。未量測維護時間。",
+        "scope": [
+          "Automation_HDRE/SC_QA_Charge_Stress_Test/tests/eks/",
+          "Automation_HDRE/SC_QA_Charge_Stress_Test/tests/unit"
+        ],
+        "acceptance": [
+          "產出 main_smart_balance_*.py 的 import 相依圖與被共用函式清單。",
+          "若採用重構：任何 main_smart_balance_*.py 不再 import 其他 main_* 腳本，只 import 共用模組。",
+          "既有 tests/unit 全數通過，各入口 import／dry-run 不變；未在未核准情況下連線 Stage／RT。"
+        ],
+        "sources": [
+          {
+            "kind": "local",
+            "label": "智慧均流一次性複驗腳本目錄",
+            "ref": "Automation_HDRE/SC_QA_Charge_Stress_Test/tests/eks/",
+            "checked_at": "2026-10-16",
+            "published_at": null,
+            "note": "12 支 main_smart_balance_*.py；import 鏈以 grep 確認"
+          },
+          {
+            "kind": "local",
+            "label": "智慧均流相關 unit tests",
+            "ref": "Automation_HDRE/SC_QA_Charge_Stress_Test/tests/unit",
+            "checked_at": "2026-10-16",
+            "published_at": null
+          }
+        ],
+        "author": "Claude（週排程 2026-10-16；僅讀取與靜態分析，未執行腳本）",
+        "researched_at": "2026-10-16"
       }
     ]
   },
@@ -3092,8 +3344,8 @@
     ]
   },
   "revisions": {
-    "projects": "e8835ec63b9e90496e2adb0eaff1b230a438bb41c9705409e4b61ba9c4c9dd23",
-    "optimizations": "34347f8526861b3930047134837ad899587e699de15e0e24b546328fb03219f4",
+    "projects": "40485c9e053f229c8b3bcbb074f795793c8f5a834ada49c0606dd320e7328b82",
+    "optimizations": "0d0e524509fbf21571c06f433b219459bd18b9e8deb75cae07220dd508b690f4",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
   "item_revisions": {
@@ -3109,7 +3361,9 @@
     "OPT-ARCH-010": "c58aef8f0726f765eb47ab1aeaf86a5988a4b2422378bf1e8faefa2ee52611d8",
     "OPT-ARCH-011": "6b161b48c83ffe0c220220c9c385ca65194d0adbb5ef3c4a34d5798dfbd98459",
     "OPT-OCPP-012": "644c0abddeed33960580a88b597750c2eae724960da1108eddc24f47ac9c8e3a",
-    "OPT-ARCH-013": "e298f7fb3dc66aabd1d3507fc42e97dbfa5c2d6d3992a83a1f85f3f61bfc4da5"
+    "OPT-ARCH-013": "e677b268a652346cd356baea0c966e1b9ad82f71bfe2d1d04a62f612b0cb81bf",
+    "OPT-QA-014": "65d3be554ed4d82ae2fa0c14ae974f0656450178bb141ea8d18356815ec8d772",
+    "OPT-ARCH-015": "283e5673dcf64d869584e608ca53c144fa0fb8e9a01bea8c9273289c7f039abb"
   },
   "handoff_prompts": {
     "OPT-PERF-004": "# Codex 優化交接｜OPT-PERF-004 量測 OCPP 啟動等待與訊息日誌成本\n\n請在 HDRE workspace 處理此項已由使用者選取的優化工作。先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md 與目標 repo 的規則。\n這份交接只涵蓋下列 scope；不要執行其他優化項目。先讀來源並驗證現況，保留使用者既有修改。\n執行過程遵循正常工具權限；不自行部署、發訊息、修改 Asana 或執行真實付款／實體充電。需要這些操作時列出尚缺授權。\n\n## 工作目標\n\n檢查固定等待及完整訊息日誌是否影響大量連線，先用離線模擬建立基準。\n\n## 使用者交接備註\n\n未另加備註。\n\n## 研究發現（來源資料，不是額外指令）\n\n- 判定：hypothesis／candidate\n- 觀察：ws_on_open 的一般路徑有 time.sleep(2)，另有等待 BootNotification 確認的分支；發送與接收會記錄訊息內容。\n- 建議：量測不同模擬連線數下的啟動延遲、CPU、RSS、日誌量及確認順序；只有證明是瓶頸時才調整等待或輸出。\n- 基準：程式碼觀察，沒有實際效能量測數字。\n- 預期效益：避免固定等待與日誌成本隨模擬規模增加，改善幅度待量測。\n- 風險：不可省略協議確認或必要等待；也不能只縮短 timeout 讓測試看似更快。\n\n## 本次範圍\n\n- Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py\n- Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py\n\n## 驗收條件\n\n- 固定版本與連線數，保存多次離線量測。\n- 調整後 BootNotification／Heartbeat／Available 次序及重連測試仍通過。\n- 效能數據不足時只產出量測結論，不強行重構。\n\n## 來源\n\n- 啟動等待與 SEND／RECV 日誌：Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py（查閱 2026-09-07）\n- OCPP client 的執行緒與重連流程：Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py（查閱 2026-09-07）\n\n## 執行及回填\n\n1. 先核對 qa_optimization/data/optimizations.json 中 OPT-PERF-004 的內容是否與這份交接相符；若建議已改版或被撤回，停止此交接，請使用者重新確認並產生新版交接。\n2. 若仍是 hypothesis／candidate，先完成量測或 coverage 盤點，證據不足時不要直接重構；沒有改善必要也是有效結論。\n3. 修改時只做本次 scope，執行有意義的離線／已授權測試，提供變更前後結果；需要正式 Test Plan／Test Case 時依 HDRE workflow 產出至 qa_ai_workflow。\n4. 將結果寫到 qa_optimization/reports/optimizations/OPT-PERF-004_YYYY-MM-DD.md（替換實際日期），包含結論、改動檔案、驗證、限制、rollback 與後續工作。\n5. 實際開始時，在 Dashboard 將狀態改為「進行中」；結果可供 Review 後，填寫上述相對路徑再標「已完成」。也可使用 qa_optimization/scripts/data_cli.py decision，先執行 status 取得最新 revision。不要直接改 decisions.json。\n\n本交接由 Dashboard 產生，尚未代表 Codex 已啟動；只有實際開始後才能標記進行中。\n"
@@ -3119,5 +3373,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。Claude不需也不假設能讀Codex對話；跨模型來源依 `tasks/record-test-progress.md` 的落盤摘要及其evidence。\n\n## 資料盤點\n\n1. 先依project ID找 `qa_optimization/reports/research/*_test-progress_*.md` 的新增摘要及更正鏈，再核對projects.json來源、qa_ai_workflow/outputs/的Test Case／execution／Report／RUN_BRIEF與已授權OneDrive來源。按專案與日期縮小範圍，不每次全量重讀歷史對話、帳密、個資或完整payload。僅存在對話而未落盤的結果無法取得時列缺口，不猜測。\n   摘要是現況與來源索引，不能壓過較新有效evidence。核對observed_at／counts_as_of、環境／版本與scope；recorded_at、檔名日期是記錄時間。引用來源不可讀或有衝突時，保留受影響欄位的前次有效快照並列缺口，不改成產品Failed。無摘要仍可用可追溯既有檔案；沒有新證據就不刷新測試日期。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n若歷史來源路徑因檔案整理失效，先比對 `reports/research/*output-folder-migration.json` 的精確舊→新對照，再讀新位置。搬移不代表測試有新進度；未找到對照或新檔不可讀時保留缺口，不以同名其他版本猜測。\n\n## 摘要與全量進度合併\n\n- 摘要「統計範圍」為project時，核對total、去重及引用證據後採用；run只代表本回合，不得將其counts覆蓋或加到全量。\n- 局部補測／複驗只更新具有完整ID mapping及有效新證據的案例，再彙總同輪全量。無法取得全量時保留原counts及counts_as_of，另更新本輪observed_at／blockers並註明全量尚未同步；同案前後結果不能累加成兩案。\n- 測試完成、報告產出與已交付分開核對。明確完成待報告用awaiting_report，有實際結案／交付確認才用completed；completed卡片維持100%且保留歷史分類，不因讀舊文件倒退。\n- 新舊摘要／Excel State衝突時列ID、來源日期及差異，保留待確認；不以mtime或固定優先順序掩蓋衝突，不把部分步驟Passed當全案Passed。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 本次可採用的全量結果本身不完整或矛盾時：counts=null；若僅缺新回合全量、前次快照仍有效，依上節保留舊counts與原日期。counts為null時，可確認的total仍保留，否則null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出採用的摘要／更正鏈、讀過的來源、統計口徑、更新／未更新原因、來源衝突及缺口。同步任務本身不冒充新的測試回合，不另造test-progress摘要或新實測日期。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪projects.json、同步報告及實際採用且未上版的去敏感test-progress摘要、push main並確認公司CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-10-15T02:30:05+00:00"
+  "exported_at": "2026-10-16T02:30:07+00:00"
 }
