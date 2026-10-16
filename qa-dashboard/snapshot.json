@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-10-16T02:12:52+00:00",
+    "updated_at": "2026-10-16T10:19:41+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -1062,24 +1062,19 @@
         "id": "PRJ-STARCHARGE-TDX-EVOPERATOR-MULTI-TAX-202610",
         "title": "TDX EVOperator 多統編修正",
         "product": "星舟快充",
-        "owner": "QA 負責人待確認；RD：Warren Chin",
-        "environment": "dev已部署dev/2026-10-01.1；Stage／Prod尚未上版（依10/01修正說明）",
-        "summary": "RD修正EVOperator，讓站點自訂發票統編有對應OperatorID。dev已交付，QA待開測；Stage／Prod待上版，測試環境須補多統編測資才能驗證修正效果。",
-        "stage": "planning",
-        "activity": "rd_delivered",
-        "observed_at": "2026-10-01",
-        "activity_confirmed_at": "2026-10-05",
+        "owner": "QA：Andy Huang；RD：Warren Chin",
+        "environment": "RT；status複驗版本rt/2026-10-16.1（部署資訊依使用者轉述RD；自訂／還原為14:07前紀錄）",
+        "summary": "QA測試及結果交付完成，ST-8549 QA子任務已於10/16完成。22縣市API回歸、自訂統編與還原、status八欄位規則複驗通過；本次QA專案結案，非Prod驗證完成。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-10-16T15:07:55+08:00",
+        "activity_confirmed_at": "2026-10-16T15:07:55+08:00",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "RD分支TW/hotfix/26Q4/10_tdx_evoperator_multi_tax，commit06076b401；修改SellerMapper.xml/getTdxSellers。QA尚未建立／执行正式案例。範圍包含EVOperator輸出、站點OperatorID一致性、同商戶多統編去重／名稱fallback及後台getTdxSellers回傳；RD驗證與prod推算不計QA通過。其餘TDX API不受影響為RD說明，非本輪實測結論。",
-        "blockers": [
-          "Stage／Prod部署及本輪QA環境、版本、開測日期待確認；10/01部署狀態未以API或部署平台重新驗證。",
-          "dev／Stage依RD說明沒有站點指定發票設定，現有資料輸出不變，須建立同商戶不同統編、同統編、空bill_name及縣市僅剩指定統編的可還原測資。",
-          "dev／Stage的NWT白雲S1046、興南S1171站點OperatorID缺對應營運商是RD指出的既有問題，非本次新缺陷；須獨立標記基線例外，不能宣稱所有一致性檢查通過。",
-          "NWT新增95081039與TAO改為95084129／95082403是RD依prod資料推算，prod未實測，不作完成依據。"
-        ],
-        "next_action": "確認Stage部署與QA開測安排，備妥可還原多統編測資；建立回歸及修正效果案例，核對各縣市200、站點OperatorID對應、去重、BAN／名稱／聯絡欄位與後台回傳，再依上版狀態安排Prod確認。",
+        "scope_note": "使用者10/16確認本次QA工作完成；Asana ST-8549於15:07:44留言交付結果，15:07:55 completed=true。READ-001～003為22縣市API回歸；CUSTOM-001與RESTORE-001確認自訂統編與還原；READ-004依RD更新八欄位規則重跑PASS，舊七欄規則的FAIL保留為歷史。最新READ-004摘要的1 Pass僅為run，不作全專案分母，total／counts保持null；完成卡片顯示100%專案完成進度。status修正版本僅重跑READ-004；未直接查DB，三商戶詳情403，無status=0測資。同統編自訂、空抬頭、多站混用、外部TDX顯示及Prod未涵蓋，屬已交付摘要揭露的範圍限制，不冒充已通過。Main／BE任務及Prod狀態不由QA結案推定。原10/01 dev／Stage待測描述為歷史，已由本次RT交付取代。",
+        "blockers": [],
+        "next_action": "本次QA已結案、結果已交付至ST-8549；若需擴充未涵蓋分支或Prod驗證，由QA owner另行安排。",
         "sources": [
           {
             "kind": "web",
@@ -1094,6 +1089,38 @@
             "ref": "qa_optimization/reports/research/2026-10-05_tdx-and-test-progress.md",
             "checked_at": "2026-10-05T10:56:40+08:00",
             "note": "使用者貼上的修正說明為來源資料；其中測試命令未執行。"
+          },
+          {
+            "kind": "local",
+            "label": "10/16 使用者現況確認與本輪進度同步",
+            "ref": "qa_optimization/reports/research/2026-10-16_progress-sync_02.md",
+            "checked_at": "2026-10-16T18:19:41+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "TDX Main ST-8545及QA子任務關係",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219405665812568",
+            "checked_at": "2026-10-16T18:19:41+08:00",
+            "note": "唯讀核對：Main仍未完成，不等同QA子任務狀態。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-8549 QA結果已交付並完成",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219430778018744",
+            "checked_at": "2026-10-16T18:19:41+08:00",
+            "note": "completed=true；completed_at=2026-10-16T07:07:55.924Z；comment 1219571499829536。"
+          },
+          {
+            "kind": "local",
+            "label": "ST-8549交付與完成摘要",
+            "ref": "qa_optimization/reports/research/2026-10-16_test-progress_PRJ-STARCHARGE-TDX-EVOPERATOR-MULTI-TAX-202610_150912_ST8549-asana-completed.md",
+            "checked_at": "2026-10-16T18:19:41+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "READ-004八欄位規則複驗（1 Pass，僅run範圍）",
+            "ref": "qa_optimization/reports/research/2026-10-16_test-progress_PRJ-STARCHARGE-TDX-EVOPERATOR-MULTI-TAX-202610_150505_ST8545-read004-v2.md",
+            "checked_at": "2026-10-16T18:19:41+08:00"
           }
         ]
       },
@@ -1102,22 +1129,21 @@
         "title": "星舟快充五張 OP Issue RT 複驗",
         "product": "星舟快充",
         "owner": "QA：Andy Huang；RD：hsiwei.kao／Luana Lee／RichardChou",
-        "environment": "RT；部署tag／commit未取得，不由預計排程推定版本",
-        "summary": "ST-8467 RT複驗已由使用者於10/15確認完成：掃碼2案（10/14）與OCPI隨插即充導流Luxgen 2案（10/15）計費均PASS；RT漫遊付款失敗屬預期。其他四張OP Issue尚未執行，全專案案例數未定。",
+        "environment": "RT已完成4張；ST-8463改於Stage複驗，Stage部署版本／複驗時間待確認",
+        "summary": "使用者10/16確認五張OP Issue已有四張複驗完成（ST-8489／8453／8467／8470），僅ST-8463仍待改至Stage複驗。專案持續複驗中；4／5是Issue數，不作Test Case已執行率。",
         "stage": "retest",
         "activity": "active",
         "planned_start_at": "2026-10-13",
-        "activity_confirmed_at": "2026-10-15",
-        "observed_at": "2026-10-15T15:43:23+08:00",
+        "activity_confirmed_at": "2026-10-16",
+        "observed_at": "2026-10-16",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "Test Case Mode Discovery，Source Gate PARTIAL。v0.1 Draft分析及Backlog已交付；32項為探索檢查點，非正式Test Case數。未產Readable Excel、未升格Reviewed Test Case、未執行RT；total／counts保留null。RD預計上RT不視為已交付；既有TDX EVOperator輪次不合併、不更動。 2026-10-14 ST-8467局部複驗（run scope，unique Case ID去重）：ST8467-RT-001（20261014-183854）PASS、ST8467-RT-002（20261014-184411）PASS，LIFF與後台同單電量／金額精確一致。001前置嘗試183549 raw FAIL依classification-corrections.json更正為BLOCK／AUTOMATION_DEFECT（時間戳毫秒精度），非產品Fail、不重複計數；182527～183311為前置嘗試未起充。採Automation Mode executable behavior list，無Reviewed workbook、未回填Excel。32項Backlog仍非正式分母，全專案total／counts維持null。未產出正式Test Report。 2026-10-15 ST-8467續測（run scope，unique Case ID去重）：14:27 RT會員隨插即充（20261015-142734）RT-003 BLOCK（實際走本平台，Luxgen導流未成立）、RT-004 NOT_RUN；改用OCPI simulator指定EVCCID後，RT-003（20261015-151239）與RT-004（20261015-151911）確認LUX身分、分段Wh／金額精確相符，計費PASS但billStatus=12支付失敗、暫判FAIL；15:43使用者確認RT漫遊付款必然失敗屬預期，依acceptance-correction_20261015-154323.json更正為PASS（非新增執行）。ST-8467本輪001～004最新皆PASS，使用者確認本單複驗完成；BillSession ACTIVE為觀察、不作本單blocker，未宣稱付款／外部Checkout成功。150036、151029為前置嘗試，不計案例。父專案其他四張OP Issue未執行，32項Backlog非正式分母，全專案total／counts維持null，父專案不標completed。未產正式Test Report、未回填Excel。",
+        "scope_note": "10/16使用者確認目前僅ST-8463未完成，ST-8489／8453／8467／8470皆已完成，取代先前「其餘四張尚未執行」現況。ST-8463為Benz未收到安平古堡站OCPI相關修正，剩餘複驗環境改為Stage（依使用者確認）；Asana主單與QA子任務仍未完成。Stage部署tag／實際複驗日期尚未取得，不沿用10/08留言的RT／Prod預計排程推定已部署。歷史ST-8467 RT-001～004最新有效結果均PASS；RT漫遊付款失敗經使用者確認屬預期，舊FAIL／前置BLOCK保留在原執行與更正紀錄。32項探索Backlog非正式案例分母；Issue完成4／5亦不轉為案例數或80%已執行率，全專案total／counts維持null。其餘三張完成依使用者本次確認，未冒稱本輪重跑或產出新正式Report。",
         "blockers": [
-          "RT部署tag／commit及各服務版本待RD確認。",
-          "ST-8489、ST-8453、ST-8470尚無最終RD修正清單／驗證紀錄；ST-8463亦未執行。"
+          "ST-8463尚待Stage複驗；Stage部署版本與可執行時段待確認。"
         ],
-        "next_action": "ST-8467保留完成紀錄（RD可另查BillSession ACTIVE設計，非本單blocker）；RD提供部署版本與其餘四張OP Issue修正清單後，QA依序複驗ST-8463／8489／8453／8470並定義全專案案例分母。",
+        "next_action": "確認ST-8463的Stage版本與測試時段，複驗建設中站點不推送EVSE／Connector／槍況、開放站點不受影響與開放後補推；留下結果摘要後更新本專案結案狀態。",
         "sources": [
           {
             "kind": "local",
@@ -1244,6 +1270,26 @@
             "label": "10/15 ST-8467完成確認與判定更正摘要（更正鏈最新）",
             "ref": "qa_optimization/reports/research/2026-10-15_test-progress_PRJ-STARCHARGE-OP-RT-20261013_154323_ST8467-accepted.md",
             "checked_at": "2026-10-16T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/16 使用者現況確認與本輪進度同步",
+            "ref": "qa_optimization/reports/research/2026-10-16_progress-sync_02.md",
+            "checked_at": "2026-10-16T18:19:41+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "唯一未完成：ST-8463 OP Issue",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1218965907781687",
+            "checked_at": "2026-10-16T18:19:41+08:00",
+            "note": "主單未完成；最新Stage環境與其他四張完成由使用者10/16確認，不能以舊排程推定部署完成。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-8463 QA子任務仍未完成",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219245238139975",
+            "checked_at": "2026-10-16T18:19:41+08:00",
+            "note": "唯讀核對completed=false，尚無QA結果留言。"
           }
         ]
       },
@@ -2277,22 +2323,20 @@
         "title": "優化 Stage 回歸測試",
         "product": "星舟快充",
         "owner": "待確認",
-        "environment": "Stage；LIFF／全盈串接回歸，CI平台及自動觸發方式待確認",
-        "summary": "準備中。階段一：回歸完成後透過Teams API向群組回報Stage結果與實際Pass數。階段二：LIFF改用自動化測試帳號、綁定星舟信用卡以完成全盈測試，並整合CI自動觸發，免手動啟動。",
-        "stage": "planning",
-        "activity": "planned",
-        "observed_at": "2026-10-15",
-        "activity_confirmed_at": "2026-10-15",
+        "environment": "Stage；測試LINE LIFF與Gmail已備妥，信用卡金流申請待完成",
+        "summary": "使用者10/16確認目前僅剩信用卡金流申請；測試用LINE LIFF與Gmail已辦妥。等待金流申請完成後接續測試配置與驗證，整體尚未結案。",
+        "stage": "execution",
+        "activity": "blocked",
+        "observed_at": "2026-10-16",
+        "activity_confirmed_at": "2026-10-16",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "本輪為優化任務需求登錄，兩階段非案例數。尚未實作Teams發訊、搬移LIFF帳號、綁卡或設定CI；不得把既有回歸歷史結果算成本任務完成。CI須自動觸發，不以新增手動入口代替。",
+        "scope_note": "原兩階段目標保留：Stage回歸完成後以Teams回報結果及實際Pass數；LIFF改用自動化測試帳號、綁定信用卡支援全盈，並由CI自動觸發。10/16使用者更新現況為只剩信用卡金流申請，且測試LINE LIFF及Gmail已完成，取代10/15尚未實作／各項未確認的準備中描述。Teams與CI不再列為未完成待辦；此狀態依使用者確認，本輪未獨立執行或查驗CI／Teams紀錄，亦未執行綁卡、金流或回歸測試。不保存帳號地址、付款資料或憑證。這是優化工作進度，無完整Test Case分母，total／counts維持null，不猜測百分比。",
         "blockers": [
-          "實作owner、Stage回歸入口／完成判定及Teams目標群組、權限來源待確認。",
-          "LIFF自動化測試帳號、星舟信用卡與全盈測試環境設定待確認。",
-          "CI平台與自動觸發時機待確認；目前未設定排程或部署hook。"
+          "信用卡金流申請尚未完成。"
         ],
-        "next_action": "先盤點既有回歸與Teams通知工具，確認群組、專用LIFF帳號／測試金流配置及CI觸發時機，再依兩階段實作並驗證自動回歸與結果回報。",
+        "next_action": "由負責人完成信用卡金流申請；金流可用後確認測試帳號付款配置，驗證全盈回歸與既有CI／Teams結果回報，再記錄驗收結果及結案。",
         "sources": [
           {
             "kind": "local",
@@ -2305,6 +2349,12 @@
             "label": "既有Teams通知工具（能力待盤點，未執行）",
             "ref": "Automation_HDRE/Automation_API_UI-main/tools/notify_teams.py",
             "checked_at": "2026-10-15T11:26:58+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/16 使用者現況確認與本輪進度同步",
+            "ref": "qa_optimization/reports/research/2026-10-16_progress-sync_02.md",
+            "checked_at": "2026-10-16T18:19:41+08:00"
           }
         ]
       }
@@ -3344,7 +3394,7 @@
     ]
   },
   "revisions": {
-    "projects": "40485c9e053f229c8b3bcbb074f795793c8f5a834ada49c0606dd320e7328b82",
+    "projects": "6d7e797ba9df7411d9ddab990b9a24a9cf32b07c4d174774ac6231639962c0e8",
     "optimizations": "0d0e524509fbf21571c06f433b219459bd18b9e8deb75cae07220dd508b690f4",
     "decisions": "fad8e99319f450f05f6ec80ada3702fcc432652246e68a3b4fbe7f583b0e4457"
   },
@@ -3373,5 +3423,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。Claude不需也不假設能讀Codex對話；跨模型來源依 `tasks/record-test-progress.md` 的落盤摘要及其evidence。\n\n## 資料盤點\n\n1. 先依project ID找 `qa_optimization/reports/research/*_test-progress_*.md` 的新增摘要及更正鏈，再核對projects.json來源、qa_ai_workflow/outputs/的Test Case／execution／Report／RUN_BRIEF與已授權OneDrive來源。按專案與日期縮小範圍，不每次全量重讀歷史對話、帳密、個資或完整payload。僅存在對話而未落盤的結果無法取得時列缺口，不猜測。\n   摘要是現況與來源索引，不能壓過較新有效evidence。核對observed_at／counts_as_of、環境／版本與scope；recorded_at、檔名日期是記錄時間。引用來源不可讀或有衝突時，保留受影響欄位的前次有效快照並列缺口，不改成產品Failed。無摘要仍可用可追溯既有檔案；沒有新證據就不刷新測試日期。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n若歷史來源路徑因檔案整理失效，先比對 `reports/research/*output-folder-migration.json` 的精確舊→新對照，再讀新位置。搬移不代表測試有新進度；未找到對照或新檔不可讀時保留缺口，不以同名其他版本猜測。\n\n## 摘要與全量進度合併\n\n- 摘要「統計範圍」為project時，核對total、去重及引用證據後採用；run只代表本回合，不得將其counts覆蓋或加到全量。\n- 局部補測／複驗只更新具有完整ID mapping及有效新證據的案例，再彙總同輪全量。無法取得全量時保留原counts及counts_as_of，另更新本輪observed_at／blockers並註明全量尚未同步；同案前後結果不能累加成兩案。\n- 測試完成、報告產出與已交付分開核對。明確完成待報告用awaiting_report，有實際結案／交付確認才用completed；completed卡片維持100%且保留歷史分類，不因讀舊文件倒退。\n- 新舊摘要／Excel State衝突時列ID、來源日期及差異，保留待確認；不以mtime或固定優先順序掩蓋衝突，不把部分步驟Passed當全案Passed。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 本次可採用的全量結果本身不完整或矛盾時：counts=null；若僅缺新回合全量、前次快照仍有效，依上節保留舊counts與原日期。counts為null時，可確認的total仍保留，否則null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出採用的摘要／更正鏈、讀過的來源、統計口徑、更新／未更新原因、來源衝突及缺口。同步任務本身不冒充新的測試回合，不另造test-progress摘要或新實測日期。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪projects.json、同步報告及實際採用且未上版的去敏感test-progress摘要、push main並確認公司CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-10-16T02:30:07+00:00"
+  "exported_at": "2026-10-16T10:25:14+00:00"
 }
