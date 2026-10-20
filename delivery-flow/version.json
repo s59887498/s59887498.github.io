@@ -1,15 +1,22 @@
 {
-  "format": "delivery-flow-demo-v1",
+  "format": "delivery-flow-demo-v2",
   "meeting_date": "2026-10-21",
-  "content_revision": "2314f513f071b84a5b77fc5346c38683175a1cf5b2fbc9a88a89893c300e6e08",
+  "content_revision": "8f759a72bd4b62814e36bd3d2bbe7cfc7b54f983eaabc87bb8b51cdee5aa05d0",
+  "recording_policy": {
+    "effort_unit": "person_day",
+    "hours_per_person_day": 8,
+    "cadence": "daily_close_or_short_task_handoff_once",
+    "activity_status_timing": false,
+    "data": "simulated"
+  },
   "files": {
-    "index.html": "bea309ba0b88d84ecd8bf3cb959266c34d38a0d1ea660d48cd241ecc13bfa99a",
-    "styles.css": "6d498ee25c1f77bcb687b4b8b7909f04260061e1cf671f159882da196a76f7a4",
-    "model.js": "5573ef720299ee1b7f608e40c2dd9e83e202cea59269c81629a34f3839e220f9",
-    "app.js": "8574f1084754ed559bb71d244f778564e7e9c99b5198cb58a7031fd897cdbf84",
+    "index.html": "18c8fac64b4d6dc27091100279602a06a74d92cdbd639bd9ff980a49391a7253",
+    "styles.css": "54468c1876700e4d4dd5fd25beda9f6e01230c6c2dfc0ccb5b56295743f7b493",
+    "model.js": "36c2b0c07317022e88000bb4748819a567b1c0bafb3d9bcf55e4670dd5fda610",
+    "app.js": "f16f28bd7728abab3546a8b1fbc8897bb49eac519035348dc73edd1877584b68",
     "icon.svg": "a33b4f3273d18ee9b30c3ef98ee5c5bcbe02e59a7726ee1f2aeb50c76a1fc7c4",
-    "workflow.html": "e570a7846c081cf6943b45229a43677da9375dd0c5de2129d81523bc7c67b59b",
+    "workflow.html": "0470cb325d693c3798189a8e8a39d195c4b46bfc44a0247359c385a4c2b90925",
     "workflow.css": "90d7e95772aadde40c91700acd38d00003641f4fe4bd1842c38739ae4a1829ee",
-    "workflow.js": "b0ee335f3ce1f5424443eca546b1151287ee20c5592f588c0107be8dc24cc948"
+    "workflow.js": "89666614b9f93d159fadabcec4ad0df9b8bc8d863a9f10f65d46a2d8487ab490"
   }
 }

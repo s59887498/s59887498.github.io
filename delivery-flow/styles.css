@@ -118,3 +118,46 @@
 .page-tabs a:hover{background:#e6eedb}
 @media(max-width:650px){.page-tabs>.wrap{gap:4px}.page-tabs a{gap:8px;padding:11px 12px 9px;font-size:11px}.page-tabs a>span{font-size:8px}}
 @media print{.page-tabs{display:none}}
+
+/* Low-burden proposal: entry / exit, once-daily effort and handoff records. */
+.low-burden .hero-description{max-width:570px}
+.low-burden .visual-note{font-size:18px}
+.message-template{margin-top:28px;padding:28px;border:1px solid #ccd8bd;background:#f1f5e9;border-radius:12px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.message-template h3{font-size:22px;margin:14px 0 10px;line-height:1.5}
+.message-template p{font-size:13px;color:#7b8a6c;line-height:1.9}
+.message-template blockquote{margin:0;padding:18px 22px;border-left:2px solid #b6c997;font-size:12px;line-height:2.1;color:#6c8055;background:#f9fbf5}
+.low-burden .task-table-head,.low-burden .task-row{grid-template-columns:minmax(150px,1fr) 130px 78px;gap:10px}
+.handoff-assignee{display:block;min-width:0}
+.handoff-assignee strong{display:block;font-size:11px;line-height:1.6;font-weight:600}
+.handoff-assignee small{display:inline-block;font-size:9px;color:#7c8c6e;background:#f0f4e9;border-radius:3px;padding:2px 5px;line-height:1.7;margin-top:3px}
+.low-burden .task-row .task-number{font-size:13px}
+.low-burden .detail-stat strong{font-size:19px}
+.handoff-panel{padding:25px 28px;border-top:1px solid var(--line);background:#f9fbf5}
+.handoff-panel>.panel-label{margin-bottom:17px}
+.handoff-record{border:1px solid #d7e1ca;border-radius:9px;background:#fff;padding:18px 22px;margin-top:12px;display:grid;grid-template-columns:.85fr 1.3fr;gap:26px}
+.handoff-record>div>strong{display:block;font-size:15px;margin:10px 0 6px;letter-spacing:-.02em;line-height:1.6}
+.handoff-record>div>small{font-size:10px;color:#859475;line-height:1.8;display:block}
+.handoff-record .tiny-tag{color:#6e8650;font-size:9px}
+.handoff-record dl{margin:0;display:grid;gap:8px}
+.handoff-record dl>div{display:grid;grid-template-columns:64px 1fr;gap:12px}
+.handoff-record dt{font-size:10px;color:#8c997c;line-height:1.9}
+.handoff-record dd{font-size:11px;color:#6e8158;line-height:1.9;margin:0}
+.quiet-step{font-size:12px;color:#7d8c6b;line-height:1.9;padding:10px 0}
+.handoff-history{margin:0;padding:0 28px;border-top:1px solid var(--line);border-bottom:0}
+.handoff-history summary{font-size:12px}.handoff-history #task-history{padding-bottom:20px}
+.low-burden .effort-panel table{min-width:700px}
+.discussion-section{padding-block:70px;background:#edf1e6;border-block:1px solid var(--line)}
+.discussion-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.discussion-grid article{border-top:1px solid #cdd8bd;padding-top:20px}
+.discussion-grid article>span{font-size:11px;color:#9aab84}
+.discussion-grid h3{font-size:19px;margin:13px 0;line-height:1.6}
+.discussion-grid p{font-size:13px;color:#7e8c70;line-height:1.9}
+.ownership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ownership-grid article{padding:28px;background:#f9fbf5;border:1px solid #ccd8bd;border-radius:12px}
+.ownership-grid h3{font-size:21px;line-height:1.5;margin:18px 0 12px}
+.ownership-grid p{font-size:13px;line-height:1.9;color:#7d8b6f}
+.mini-tree{font-size:13px;line-height:2.5;color:#6b8053;background:#f9fbf5;border-left:2px solid #b6c997;padding:15px 22px}
+.mini-tree b{font-size:10px;font-weight:500;color:#8a9979;padding-left:10px}
+@media(max-width:1000px){.low-burden .task-table-head,.low-burden .task-row{grid-template-columns:minmax(130px,1fr) 120px 65px;gap:8px}.discussion-grid{grid-template-columns:1fr 1fr;gap:28px}.ownership-grid h3{font-size:18px}.ownership-grid article{padding:22px}.message-template{gap:25px}}
+@media(max-width:650px){.low-burden .visual-note{font-size:16px}.message-template{grid-template-columns:1fr;gap:20px;padding:22px}.message-template h3{font-size:20px}.message-template p{font-size:11px}.message-template blockquote{font-size:10px;padding:14px 17px}.low-burden .task-table-head,.low-burden .task-row{grid-template-columns:minmax(0,1fr) 78px 52px;gap:7px}.low-burden .task-row .task-number{font-size:10px}.handoff-assignee strong{font-size:9px}.handoff-assignee small{font-size:8px;padding:1px 4px}.low-burden .task-detail{display:block}.low-burden .detail-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}.low-burden .detail-stat{display:block}.low-burden .detail-stat strong{display:block;margin-top:8px;font-size:21px}.low-burden .detail-stat strong small{font-size:10px}.handoff-panel{padding:20px 16px}.handoff-panel>.panel-label{font-size:10px;flex-wrap:wrap;gap:8px}.handoff-record{padding:17px;grid-template-columns:1fr;gap:16px}.handoff-record>div>strong{font-size:14px}.handoff-record>div>small{font-size:9px}.handoff-record dl>div{grid-template-columns:51px 1fr;gap:10px}.handoff-record dt{font-size:9px}.handoff-record dd{font-size:10px}.quiet-step{font-size:10px}.handoff-history{padding:0 16px}.handoff-history summary{font-size:10px}.discussion-section{padding-block:45px}.discussion-grid{grid-template-columns:1fr;gap:22px}.discussion-grid article{padding-top:15px}.discussion-grid h3{font-size:18px;margin:9px 0}.discussion-grid p{font-size:11px}.ownership-grid{grid-template-columns:1fr;gap:16px}.ownership-grid h3{font-size:20px;margin-top:15px}.ownership-grid p{font-size:11px}.mini-tree{font-size:11px;padding:15px}.mini-tree b{font-size:9px;padding-left:3px}}
+@media print{.message-template{padding:18px;gap:20px}.message-template h3{font-size:16px}.message-template p,.message-template blockquote{font-size:9px}.low-burden .task-table-head,.low-burden .task-row{grid-template-columns:minmax(120px,1fr) 90px 50px}.handoff-assignee strong{font-size:9px}.handoff-assignee small{font-size:7px}.handoff-record{padding:13px;gap:18px}.handoff-record>div>strong{font-size:12px}.handoff-record dd{font-size:9px}.handoff-record dt{font-size:8px}.handoff-record>div>small{font-size:8px}.discussion-section{padding-block:25px}.discussion-grid h3{font-size:14px}.discussion-grid p,.ownership-grid p{font-size:9px}.ownership-grid h3{font-size:16px}.ownership-grid article{padding:18px}.mini-tree{font-size:9px}.quiet-step{font-size:9px}}
