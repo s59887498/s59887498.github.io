@@ -7,7 +7,7 @@
   const HOUR = 3600000;
   const OFFSET = 8 * HOUR;
   const BASE = Date.parse('2026-10-12T09:00:00+08:00');
-  const STATUS = { pending: '待開始', active: '處理中', waiting: '等待', paused: '暫停', done: '完成' };
+  const STATUS = { pending: '待開始', active: '處理中', waiting: '等待', paused: '暫停', review: '待 QA 複驗', done: '完成' };
   const ROLES = { pm: 'PM', ux: 'UIUX', rd: 'RD', qa: 'QA', ops: '維運' };
 
   function elapsedHours(start, end) {
@@ -40,8 +40,8 @@
       }
     }
   }
-  const task = (id, role, name, start, end, created = 0) => ({ id, role, name, planned: start === null ? null : [at(start), at(end)], createdAt: at(created) });
-  const change = (id, status, reason = '', target = '') => ({ id, status, reason, target });
+  const task = (id, role, name, start, end, created = 0, parentId = null, assignee = ROLES[role] + ' 窗口') => ({ id, role, name, parentId, assignee, planned: start === null ? null : [at(start), at(end)], createdAt: at(created) });
+  const change = (id, status, reason = '', target = '', assignee) => ({ id, status, reason, target, ...(assignee ? { assignee } : {}) });
   const step = (hour, title, description, stage, changes) => ({ at: at(hour), title, description, stage, changes });
   function standardTasks() {
     return [task('pm', 'pm', '需求與驗收標準', 0, 3), task('ux', 'ux', '設計與決策確認', 3, 6), task('rd', 'rd', '開發與 Code Review', 6, 14), task('prep', 'qa', '測試計畫與案例 Review', 3, 5), task('qa', 'qa', '測試、複驗與報告', 14, 19), task('ops', 'ops', '部署與 Prod 驗證', 19, 22)];
@@ -63,7 +63,18 @@
     ];
   }
   const scenarios = {
-    normal: { label: '順利交付', short: '01', title: '充電紀錄新增篩選功能', type: 'Story', owner: 'PM', dueAt: at(22), insight: 'QA 可以提早規劃；各組並行工作，整體時間從主卡起訖計算。', tasks: standardTasks(), events: [...opening(), ...closing(19)] },
+    normal: {
+      label: '開始與交棒', short: '01', title: '充電紀錄新增篩選功能', type: 'Story', owner: 'PM', dueAt: at(23),
+      insight: '收到卡先確認負責人；開始做切處理中；交付時完成原職能卡，指定下一張卡的接手人。等待 QA 開測的 1h，與 QA 等 RD 修 Bug 是不同區段。',
+      tasks: standardTasks().map(t => t.id === 'qa' ? { ...t, planned: [at(14), at(20)] } : t.id === 'ops' ? { ...t, planned: [at(20), at(23)] } : t),
+      events: [
+        step(0, '收到卡：先確認輪到誰', 'PM 窗口收到需求卡，狀態先保持待開始。拿到卡不等於已經在做。', 'PM 待開始', []),
+        ...opening().slice(0, 4),
+        step(14, 'RD 交棒：完成開發卡，指定 QA 接手', 'RD 開發卡完成；QA 測試卡指定 QA 窗口、保持待開始。從這次可接手交付到 QA 開始，另外計算交接等待。原開發卡不用改派成 QA 工作。', '等待 QA 開測', [change('rd', 'done'), { ...change('qa', 'pending', '版本已交付，等待 QA 開測', 'QA 窗口'), ready: true }]),
+        step(15, 'QA 接手：切換處理中', 'QA 確認版本與環境後開始測試。這次交接等待為 1 個工作小時；之後的測試區段另外累計。', 'QA 驗證', [change('qa', 'active')]),
+        ...closing(20)
+      ]
+    },
     clarification: {
       label: '需求往返', short: '02', title: '充電紀錄新增篩選功能', type: 'Story', owner: 'PM', dueAt: at(22), insight: '需求往返沿用原子卡；共同釐清會議的經過時間，不等於參與者人時。', tasks: standardTasks(),
       events: [
@@ -78,13 +89,23 @@
       ]
     },
     bug: {
-      label: 'Bug 退回', short: '03', title: '充電紀錄新增篩選功能', type: 'Story', owner: 'PM', dueAt: at(22), insight: '測試 3h → 等待修復 8h → 複驗 2h：此測試子卡處理 5h、等待 8h，QA Owner 保留。', tasks: [...standardTasks(), task('bug', 'rd', 'BUG-01｜篩選結果異常', null, null, 17)],
+      label: 'QA 下掛多張 Bug', short: '03', title: '充電紀錄新增篩選功能', type: 'Story', owner: 'PM', dueAt: at(22),
+      insight: 'QA 主單下有兩張 Bug。修好後改成待 QA 複驗並指派 QA；修復投入仍歸 RD。QA 等修復 8h 依受阻區段計算，不把兩張 Bug 的等待相加。',
+      tasks: [...standardTasks(), task('bug', 'rd', 'BUG-01｜篩選結果異常', null, null, 17, 'qa', 'RD-A'), task('bug2', 'rd', 'BUG-02｜日期條件異常', null, null, 17, 'qa', 'RD-B')],
+      timeEntries: [
+        { id: 'qa-first', taskId: 'qa', role: 'qa', person: 'QA 窗口', hours: 2.5, at: at(17), activity: '首次測試' },
+        { id: 'rd-second', taskId: 'bug2', role: 'rd', person: 'RD-B', hours: 2, at: at(23), activity: '修復 BUG-02' },
+        { id: 'rd-first', taskId: 'bug', role: 'rd', person: 'RD-A', hours: 3, at: at(25), activity: '修復 BUG-01' },
+        { id: 'qa-retest', taskId: 'qa', role: 'qa', person: 'QA 窗口', hours: 1.5, at: at(27), activity: '兩張 Bug 複驗與報告' }
+      ],
       events: [
         ...opening(),
-        step(17, 'QA 發現 Bug，建立關聯修復卡', '此範例的受影響測試進入等待；QA Owner 保留，BUG-01 由 RD 接手。其他可執行測試不用一起停。', 'Bug 待修復', [change('qa', 'waiting', '等待 BUG-01 修復', 'RD'), change('bug', 'waiting', '等待 RD 接手', 'RD')]),
-        step(19, 'RD 開始修 Bug', 'RD 的修復卡開始處理；QA 等待的時間仍屬於等待，不變成 QA 人時。', 'Bug 修復', [change('bug', 'active')]),
-        step(25, '修復交付，QA 開始複驗', 'QA 已等待 8 個工作小時；接下來新增複驗區段，保留第一次測試 3 小時。', 'QA 複驗', [change('bug', 'waiting', '等待 QA 複驗結果', 'QA'), change('qa', 'active')]),
-        step(27, '複驗通過並交付報告', '測試子卡處理合計 5 小時、等待 8 小時；修復卡關閉，另行呈現 RD 的修復與等待。', '待部署', [change('bug', 'done'), change('qa', 'done'), change('ops', 'waiting', '等待部署窗口', '維運')]),
+        step(17, 'QA 主單下開兩張 Bug，分別指派 RD', 'QA 主單的 Owner 保留 QA；BUG-01 指派 RD-A、BUG-02 指派 RD-B。本例測試須等待共同整合版本，其他不受影響的測試可繼續。另補登 QA 首次測試投入 2.5 人時。', 'Bug 待修復', [change('qa', 'waiting', '等待兩張 Bug 的整合版本', 'RD'), change('bug', 'waiting', '等待 RD-A 接手', 'RD-A'), change('bug2', 'waiting', '等待 RD-B 接手', 'RD-B')]),
+        step(19, 'RD-A 開始修 BUG-01', '開始修復，就切「修復中」。修復卡保留在 QA 主單下，這張卡的修復投入依實際記錄歸 RD。', 'Bug 修復', [change('bug', 'active')]),
+        step(20, 'RD-B 開始修 BUG-02', '兩張 Bug 可以並行；它們的流程時間不能直接相加成整體交付時間。', '兩張 Bug 並行修復', [change('bug2', 'active')]),
+        step(23, 'BUG-02 修好：待複驗，交給 QA', 'BUG-02 狀態轉待 QA 複驗，現在指派 QA 窗口；RD-B 另補登修復投入 2 人時。本例等待 BUG-01 的共同版本後一起複驗。', '等待整合版本', [change('bug2', 'review', '等待共同版本後由 QA 複驗', 'QA 窗口', 'QA 窗口')]),
+        step(25, 'BUG-01 交 QA，開始一起複驗', 'BUG-01 轉待 QA 複驗並指派 QA；RD-A 補登 3 人時。QA 主單恢復處理中，等修復共 8 個工作小時，重疊等待不重複加總。', 'QA 複驗', [change('bug', 'review', '等待 QA 複驗結果', 'QA 窗口', 'QA 窗口'), change('qa', 'active')]),
+        step(27, '兩張 Bug 已驗證，交付 QA 報告', 'QA 將兩張 Bug 標已驗證，完成 QA 主單。另補登複驗與報告 1.5 人時：QA 回報共 4、RD 修復共 5，交付包合計 9 人時；這與狀態經過時間分開。', '待部署', [change('bug', 'done'), change('bug2', 'done'), change('qa', 'done'), change('ops', 'waiting', '等待部署窗口', '維運')]),
         ...closing(27).slice(1)
       ]
     },
@@ -119,14 +140,29 @@
       const segments = transitions.map((c, i) => ({ ...c, end: transitions[i + 1]?.at || now })).filter(s => s.at < s.end);
       const totals = {};
       for (const state of ['active', 'waiting', 'paused']) {
-        const intervals = segments.filter(s => s.status === state);
+        const intervals = segments.filter(s => (s.status === 'review' || s.status === 'pending' && s.ready ? 'waiting' : s.status) === state);
         totals[state] = { work: intervals.reduce((sum, s) => sum + workHours(s.at, s.end), 0), calendar: intervals.reduce((sum, s) => sum + elapsedHours(s.at, s.end), 0) };
       }
       const current = transitions[transitions.length - 1] || { status: 'pending', reason: '', target: '' };
-      const startedAt = transitions.find(c => c.status !== 'pending')?.at;
-      return { ...t, ...current, segments, transitions, totals, startedAt, actualSpan: startedAt ? workHours(startedAt, current.status === 'done' ? current.at : now) : null, estimatedSpan: t.planned ? workHours(...t.planned) : null };
+      const startedAt = transitions.find(c => c.status !== 'pending' || c.ready)?.at;
+      const entries = (scenario.timeEntries || []).filter(e => e.taskId === t.id && e.at <= now);
+      const assignee = [...transitions].reverse().find(c => c.assignee)?.assignee || t.assignee;
+      return { ...t, ...current, assignee, segments, transitions, totals, entries, reportedHours: entries.length ? entries.reduce((sum, e) => sum + e.hours, 0) : null, startedAt, actualSpan: startedAt ? workHours(startedAt, current.status === 'done' ? current.at : now) : null, estimatedSpan: t.planned ? workHours(...t.planned) : null };
     });
-    return { now, events, tasks, current: events[events.length - 1], complete: index === scenario.events.length - 1, elapsed: elapsedHours(scenario.events[0].at, now), work: workHours(scenario.events[0].at, now) };
+    const entries = (scenario.timeEntries || []).filter(e => e.at <= now);
+    return { now, events, tasks, entries, current: events[events.length - 1], complete: index === scenario.events.length - 1, elapsed: elapsedHours(scenario.events[0].at, now), work: workHours(scenario.events[0].at, now) };
   }
-  return { HOUR, BASE, STATUS, ROLES, at, elapsedHours, workHours, scenarios, snapshot };
+  function reportedPackage(snap, parentId) {
+    const ids = new Set([parentId]);
+    let changed = true;
+    while (changed) {
+      changed = false;
+      for (const t of snap.tasks) if (ids.has(t.parentId) && !ids.has(t.id)) { ids.add(t.id); changed = true; }
+    }
+    const entries = [...new Map(snap.entries.filter(e => ids.has(e.taskId)).map(e => [e.id, e])).values()];
+    const byRole = {};
+    for (const e of entries) byRole[e.role] = (byRole[e.role] || 0) + e.hours;
+    return { entries, byRole, total: entries.length ? entries.reduce((sum, e) => sum + e.hours, 0) : null };
+  }
+  return { HOUR, BASE, STATUS, ROLES, at, elapsedHours, workHours, scenarios, snapshot, reportedPackage };
 });

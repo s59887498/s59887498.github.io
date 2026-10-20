@@ -37,3 +37,74 @@
 @media print{.faq-section{padding-block:28px}.faq-intro,.faq-takeaway{padding:15px}.faq-intro p,.faq-takeaway{font-size:10px}.faq-item{break-inside:avoid}.faq-item summary{padding:12px 0;font-size:11px}.faq-label{gap:16px}.faq-label small{font-size:8px}.faq-answer{padding:0 32px 15px}.faq-answer p,.faq-answer li{font-size:10px}}
 
 .faq-item[open] summary>.faq-label{transform:none}
+
+/* Action-first introduction and separate schedule / effort accounting. */
+.handoff-cards{display:grid;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);gap:10px;align-items:center;margin:24px 0}
+.handoff-cards>div{padding:15px 12px;background:#f3f6ed;border:1px solid #dce5d0;border-radius:9px;min-width:0}
+.handoff-cards>span{text-align:center;color:#819366}
+.handoff-cards strong{display:block;font-size:23px;margin:10px 0 5px;font-weight:650}
+.handoff-cards small{display:block;font-size:10px;color:#829072}
+.exception-heading{margin-top:38px;padding-top:28px;border-top:1px solid #cbd5c1}
+.exception-heading h3{font-size:21px;letter-spacing:-.025em}
+.exception-heading p{font-size:13px;color:var(--muted);margin-top:7px}
+.exception-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px}
+.exception-grid article{display:flex;gap:16px;align-items:flex-start;background:#f3f6ed;border:1px solid #d5dfcb;border-radius:10px;padding:22px}
+.exception-grid .status-chip{flex:none;margin-top:2px;font-size:11px}
+.exception-grid h4{font-size:16px;letter-spacing:-.025em}
+.exception-grid p{font-size:12px;color:#718063;margin-top:8px}
+.recording-note{font-size:12px;line-height:1.9;color:#718063;border-left:2px solid #adc38c;padding:10px 16px;margin-top:24px}
+.demo-howto{font-size:13px;color:#657950;line-height:1.9;max-width:960px;margin-bottom:22px}
+.status-chip.review{background:#f7e8c7;color:#856328}
+.task-row .status-chip{max-width:70px;white-space:normal;line-height:1.6}
+.task-row.is-nested .task-name{padding-left:20px;position:relative}
+.task-row.is-nested .task-name::before{content:"";position:absolute;left:9px;top:-16px;bottom:50%;width:7px;border-left:1px solid #c3d3ac;border-bottom:1px solid #c3d3ac}
+.task-row.is-nested .role-badge{font-size:8px;background:#f0f5e6}
+.child-count{display:inline-block;font-size:8px;font-weight:500;border:1px solid #c3d1ae;border-radius:3px;padding:0 4px;margin-left:6px;color:#6d8156;vertical-align:middle}
+.effort-panel{border-top:1px solid var(--line);background:#f4f6ef;padding:26px 28px}
+#effort-panel[hidden]{display:none}
+.effort-panel h4{font-size:21px;margin:15px 0 8px}
+.effort-panel>p{font-size:12px;color:#748362}
+.effort-totals{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid #d4dec8;border-radius:9px;overflow:hidden;background:#fff;margin:22px 0}
+.effort-totals>div{padding:18px 22px;min-width:0}
+.effort-totals>div+div{border-left:1px solid #d4dec8}
+.effort-totals>div:last-child{background:#e8efd9}
+.effort-totals span{font-size:11px;display:block;color:#748362}
+.effort-totals strong{font-size:29px;letter-spacing:-.035em;font-weight:650;display:block;margin-top:5px}
+.effort-totals strong small{font-size:12px;font-weight:500}
+.effort-panel table{margin-top:0;font-size:12px;min-width:500px}
+.effort-panel caption{text-align:left;font-size:10px;color:#8b957f;margin-bottom:8px}
+.effort-panel td small{display:block;font-size:10px;color:#89937c}
+.effort-panel .effort-footnote{font-size:10px;margin-top:16px;line-height:1.9}
+.effort-empty{font-size:12px;padding:12px 0;color:#8b967f}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.comparison-grid article{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;min-width:0}
+.comparison-grid h3{font-size:24px;margin:18px 0}
+.comparison-grid p{font-size:14px}
+.comparison-grid small{display:block;font-size:11px;color:#839076;margin-top:14px}
+.comparison-example{padding:12px 15px;background:#eaf0df;border-radius:6px;font-size:16px;font-weight:650;margin-bottom:16px}
+.measurement-warning{margin:22px 0 32px;padding:16px 20px;border-left:3px solid #9bb467;font-size:13px;line-height:1.9;background:#edf2e4}
+.metric-map,.asana-guide{margin-top:44px;padding-top:36px;border-top:1px solid #ccd7bf;scroll-margin-top:100px}
+.metric-map .section-heading,.asana-guide .section-heading{margin-bottom:24px}
+.metric-map h3,.asana-guide h3{font-size:27px;line-height:1.5;letter-spacing:-.035em}
+.metric-map table{font-size:12px;min-width:770px}
+.metric-map th:first-child{width:22%}.metric-map th:nth-child(2){width:34%}
+.setup-steps{counter-reset:setup;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.setup-steps li{counter-increment:setup;position:relative;padding:24px 24px 24px 66px;border:1px solid #ccd8be;border-radius:10px;background:#f6f8f1}
+.setup-steps li::before{content:"0" counter(setup);position:absolute;left:22px;top:23px;font-size:16px;line-height:1.7;font-weight:650;color:#79945a}
+.setup-steps strong{display:block;font-size:15px;font-weight:650;letter-spacing:-.01em}
+.setup-steps span{display:block;font-size:13px;line-height:1.9;color:#7a886d;margin-top:10px}
+.handoff-convention{font-size:13px;line-height:2;margin-top:22px;padding:20px 24px;border:1px dashed #bfcfab;border-radius:9px;color:#6d8058}
+.faq-shortcuts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.faq-shortcuts a{border:1px solid #c1d0ac;background:#e8f0dc;font-size:12px;padding:7px 12px;border-radius:6px;text-underline-offset:3px}
+@media(max-width:1000px){.effort-panel{padding:22px 24px}.task-row.is-nested .task-name{padding-left:14px}.task-row.is-nested .task-name::before{left:3px}.effort-totals>div{padding:16px}.comparison-grid article{padding:26px}.comparison-grid h3{font-size:22px}.comparison-example{font-size:14px}}
+@media(max-width:650px){.handoff-cards{gap:6px;grid-template-columns:minmax(0,1fr) 12px minmax(0,1fr);margin:18px 0}.handoff-cards>div{padding:12px 9px}.handoff-cards .role-chip{font-size:9px;padding:3px 5px}.handoff-cards strong{font-size:18px}.handoff-cards small{font-size:8px}.exception-heading{margin-top:28px;padding-top:23px}.exception-heading h3{font-size:18px}.exception-heading p{font-size:12px}.exception-grid{grid-template-columns:1fr;gap:12px;margin-top:17px}.exception-grid article{padding:18px;gap:12px}.exception-grid .status-chip{font-size:9px}.exception-grid h4{font-size:14px}.exception-grid p{font-size:11px}.recording-note{font-size:10px;padding:8px 12px}.demo-howto{font-size:11px;margin-bottom:18px}.task-row .status-chip{max-width:49px;line-height:1.5}.task-row.is-nested .task-name{padding-left:7px}.task-row.is-nested .task-name::before{left:0;width:4px}.task-row.is-nested .role-badge{font-size:7px}.task-name strong .child-count{font-size:7px;margin-left:0;display:table}.effort-panel{padding:20px 16px}.effort-panel>.panel-label{font-size:9px;align-items:flex-start;flex-wrap:wrap}.effort-panel h4{font-size:17px;line-height:1.6}.effort-panel>p{font-size:11px}.effort-totals{grid-template-columns:1fr;margin:18px 0}.effort-totals>div{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 16px}.effort-totals>div+div{border-left:0;border-top:1px solid #d4dec8}.effort-totals span{font-size:10px}.effort-totals strong{font-size:25px;margin-top:0;flex:none}.effort-totals strong small{font-size:10px}.effort-panel table{font-size:10px;min-width:430px}.effort-panel td small{font-size:9px}.effort-panel .effort-footnote{font-size:9px}.comparison-grid{grid-template-columns:1fr;gap:18px}.comparison-grid article{padding:26px}.comparison-grid h3{font-size:22px}.comparison-grid p{font-size:13px}.comparison-grid small{font-size:10px}.comparison-example{font-size:13px;line-height:1.8}.measurement-warning{font-size:11px;padding:14px 16px}.metric-map,.asana-guide{margin-top:32px;padding-top:26px;scroll-margin-top:80px}.metric-map h3,.asana-guide h3{font-size:22px}.metric-map table{font-size:10px;min-width:710px}.setup-steps{grid-template-columns:1fr;gap:12px}.setup-steps li{padding:20px 20px 20px 54px}.setup-steps li::before{left:17px;top:20px;font-size:14px}.setup-steps strong{font-size:13px}.setup-steps span{font-size:11px}.handoff-convention{font-size:11px;padding:16px}.faq-shortcuts{gap:7px}.faq-shortcuts a{font-size:10px;padding:7px 9px}}
+@media print{.handoff-cards{gap:5px;margin:12px 0}.handoff-cards>div{padding:8px}.handoff-cards strong{font-size:16px}.handoff-cards small{font-size:7px}.exception-heading h3{font-size:16px}.exception-heading p,.recording-note,.exception-grid p,.demo-howto{font-size:9px}.exception-grid h4{font-size:12px}.exception-grid article{padding:14px}.effort-panel{padding:18px}.effort-panel h4{font-size:16px}.effort-panel>p,.effort-panel .effort-footnote{font-size:9px}.effort-totals>div{padding:12px}.effort-totals span{font-size:9px}.effort-totals strong{font-size:20px}.effort-panel table,.metric-map table{font-size:9px;min-width:0}.comparison-grid article{padding:20px}.comparison-grid h3{font-size:18px}.comparison-example{font-size:11px}.comparison-grid p,.measurement-warning,.setup-steps span,.handoff-convention{font-size:10px}.metric-map h3,.asana-guide h3{font-size:20px}.setup-steps li{padding:16px 16px 16px 48px}.setup-steps li::before{left:16px;top:16px;font-size:12px}.setup-steps strong{font-size:12px}.faq-shortcuts{display:none}}
+
+/* Keep each step's hit target separate: enlarged pseudo-elements must not cover neighbours. */
+.step-dots{gap:0;max-width:280px;min-width:0}
+.step-dot{position:relative;flex:0 1 20px;min-width:16px;width:20px;height:24px;background:transparent}
+.step-dot::before{inset:auto;left:50%;top:50%;width:7px;height:7px;transform:translate(-50%,-50%);background:#dbe3d1;border-radius:50%;pointer-events:none}
+.step-dot.past,.step-dot.current{background:transparent;transform:none}
+.step-dot.past::before{background:#a8bb8e}
+.step-dot.current::before{background:#41662c;transform:translate(-50%,-50%) scale(1.3)}
+@media(max-width:650px){.step-dots{max-width:100%;gap:0;padding:6px 0 0}}

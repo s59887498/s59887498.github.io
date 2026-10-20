@@ -1,12 +1,12 @@
 {
   "format": "delivery-flow-demo-v1",
   "meeting_date": "2026-10-21",
-  "content_revision": "493f677f223fe439f8a62c8be37439227930fbeb431592d2bb429afbfa2e59ae",
+  "content_revision": "523cdc21b1edba9c9c40be9ee274e910c4c348b41946cdb082e82b5fd6da6374",
   "files": {
-    "index.html": "f6cd2bea0ca5e1788cfec22f4a9074380f3d7dfed2e5ade7bca12d02b69a6da8",
-    "styles.css": "bfbfb43f37ccb6ad948736bfe023de9429f2de85422be325fd86e8d3e84754d0",
-    "model.js": "f077872693a2d457b048bcfbd5080dbf96db5f4b1392031f12ead45d40351bd4",
-    "app.js": "eeb4f65e305985ff949994ec9e91bbb79af7baed3cf12d28957c429b53fed05f",
+    "index.html": "ff48952c7deb2600c4b6b2d435b95378f08072b5599c1f3835e878ed36f90795",
+    "styles.css": "57cb68c91ad9fa5e24341b8b65068f189c141792aef3573bd44294765f0063b9",
+    "model.js": "5573ef720299ee1b7f608e40c2dd9e83e202cea59269c81629a34f3839e220f9",
+    "app.js": "8574f1084754ed559bb71d244f778564e7e9c99b5198cb58a7031fd897cdbf84",
     "icon.svg": "a33b4f3273d18ee9b30c3ef98ee5c5bcbe02e59a7726ee1f2aeb50c76a1fc7c4"
   }
 }

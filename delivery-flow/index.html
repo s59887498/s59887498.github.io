@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="從 PM、UIUX、RD、QA 到維運，以一張主卡與交接歷程，看懂處理、等待與中斷。跨組協作與 Asana 流程試營運提案。">
+  <meta name="description" content="從收到卡、開始做，到指定下一位接手。用 Asana 主子卡簡化交棒，分清預估日程、實際日程與投入人時。">
   <meta name="theme-color" content="#f5f6f0">
   <title>一張卡，看懂時間花在哪裡｜跨組交付提案</title>
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
@@ -15,40 +15,41 @@
   <a class="skip-link" href="#main">跳至內容</a>
   <header class="site-header">
     <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">↗</span><span>FLOW<span class="brand-light"> / 交付有跡可循</span></span></a>
-    <nav aria-label="主要導覽"><a href="#perspectives">各組視角</a><a href="#demo">互動 Demo</a><a href="#pilot">試跑兩週 <span aria-hidden="true">↗</span></a><a href="#faq">會議 Q&amp;A</a></nav>
+    <nav aria-label="主要導覽"><a href="#problem">怎麼記</a><a href="#demo">互動 Demo</a><a href="#asana-setup">Asana 設定</a><a href="#faq">會議 Q&amp;A</a></nav>
   </header>
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow"><span class="dot"></span> 跨組協作提案 <span class="eyebrow-date">2026.10.21</span></p>
-        <h1 id="hero-title">一張卡，<br>看懂時間<br><span>花在哪裡。</span></h1>
-        <p class="hero-description">大家更新工作狀態，系統留下交接歷程。<br>從需求到上線，讓處理、等待與中斷都看得見。</p>
+        <h1 id="hero-title">拿到卡，<br>開始做，<br><span>接著交棒。</span></h1>
+        <p class="hero-description">開始做，切「處理中」；交付時，換狀態、確認下一位。<br>先讓大家好操作，再讓交接與時間有跡可循。</p>
         <div class="hero-actions"><a class="button primary" href="#demo">看一張卡怎麼走 <span aria-hidden="true">↗</span></a><a class="text-link" href="#pilot">先選一個專案，試跑兩週 →</a></div>
         <p class="disclosure"><span class="tiny-tag">流程提案</span> 示意資料・本頁未串接正式 Asana</p>
       </div>
-      <div class="hero-visual" aria-label="同一張需求卡，沿途留下處理、等待與中斷的紀錄">
-        <div class="visual-label">ONE STORY. EVERY HANDOFF.</div>
-        <div class="journey-line"><span>PM</span><i>→</i><span>UIUX</span><i>→</i><span>RD</span><i>→</i><span class="current">QA</span><i>→</i><span>維運</span></div>
-        <div class="illustration-card">
-          <div class="card-top"><span class="task-type">STORY-024</span><span class="subtle">示意主卡 ↗</span></div>
-          <h2>充電紀錄新增篩選功能</h2>
-          <p>同一份需求，清楚的交接。</p>
-          <div class="mini-timeline"><span style="flex:3" class="active">測試 3h</span><span style="flex:8" class="waiting">等修復 8h</span><span style="flex:2" class="active">複驗 2h</span></div>
-          <div class="hero-numbers"><div><small>處理區段</small><strong>5<span> h</span></strong></div><div><small>等待區段</small><strong>8<span> h</span></strong></div><div><small>實際人時</small><strong class="not-collected">未蒐集</strong></div></div>
-          <div class="card-foot"><span class="avatar qa-color">QA</span><span>QA Owner 保留</span><span class="connection">↳ Bug 卡交給 RD</span></div>
+      <div class="hero-visual" aria-label="RD 完成自己的開發卡，確認下一張 QA 卡的接手人">
+        <div class="visual-label">START. HAND OFF. KEEP IT SIMPLE.</div>
+        <div class="journey-line"><span>PM</span><i>→</i><span>UIUX</span><i>→</i><span class="current">RD</span><i>→</i><span>QA</span><i>→</i><span>維運</span></div>
+        <div class="illustration-card handoff-illustration">
+          <div class="card-top"><span class="task-type">交棒示意</span><span class="subtle">一張功能主卡下 ↗</span></div>
+          <h2>我做完，下一位接得住。</h2><p>跨職能各有工作卡，交付時把關係接起來。</p>
+          <div class="handoff-cards"><div><span class="role-chip">RD 開發卡</span><strong>完成 ✓</strong><small>版本與自測結果交付</small></div><span aria-hidden="true">→</span><div><span class="role-chip">QA 測試卡</span><strong>待開始</strong><small>指定 QA 窗口接手</small></div></div>
+          <div class="card-foot"><span class="avatar">↗</span><span>QA 真正開測時，再切處理中</span></div>
         </div>
-        <div class="visual-note"><span aria-hidden="true">↳</span><div>等了兩天，<br><strong>不代表做了兩天。</strong></div></div>
-        <p class="visual-caption">區段以工作時段計算；時間長度不等於人時。</p>
+        <div class="visual-note"><span aria-hidden="true">↳</span><div>不用一開始懂所有指標。<br><strong>先知道現在輪到誰。</strong></div></div>
+        <p class="visual-caption">Bug 修好則在同一張 Bug 卡，改成待複驗並指派 QA。</p>
       </div>
     </section>
 
     <section class="problem-section" id="problem">
-      <div class="wrap"><div class="section-heading"><p class="eyebrow">01 / 共同的問題</p><h2>事情有在推進，<br class="mobile-only">數字卻說不清楚。</h2><p>只用「開始到結束」，很容易把三件事混成同一個數字。</p></div>
-        <div class="problem-grid">
-          <article><span class="problem-icon" aria-hidden="true">↔</span><h3>來回確認，藏在日程裡</h3><p>PM、UIUX、RD 花時間對齊需求，卻看不見卡在哪個決策。</p><span class="answer">留下處理與等待的分界</span></article>
-          <article><span class="problem-icon" aria-hidden="true">↶</span><h3>退回修復，時間算給誰？</h3><p>QA 等 RD 修 Bug，若只看測試起訖，就像 QA 一直在測。</p><span class="answer">測試、等修復、複驗分開看</span></article>
-          <article><span class="problem-icon" aria-hidden="true">⇄</span><h3>一直插單，還要一直填表</h3><p>RD 反覆切換工作，原日程延後；大家還得重複維護主卡和子卡。</p><span class="answer">記一次狀態，保留中斷與交接</span></article>
+      <div class="wrap"><div class="section-heading"><p class="eyebrow">01 / 先說大家怎麼做</p><h2>平常三個動作，<br>工作換手時更新。</h2><p>這是操作方式。「處理、等待、中斷」是之後解讀流程時間的分類，先不用背指標。</p></div>
+        <div class="problem-grid action-grid">
+          <article><span class="problem-icon" aria-hidden="true">01</span><h3>拿到卡，先確認</h3><p>確認內容、交付條件與負責人。還沒開始，就保持<strong>待開始</strong>；拿到卡不代表已經投入工作。</p><span class="answer">先知道：這張卡輪到誰？</span></article>
+          <article><span class="problem-icon" aria-hidden="true">02</span><h3>開始做，切狀態</h3><p>真正開始推進，切成<strong>處理中</strong>。不用每分鐘打卡，也不要求每次短暫詢問都操作。</p><span class="answer">留下：什麼時候開始？</span></article>
+          <article><span class="problem-icon" aria-hidden="true">03</span><h3>做完交棒，指定下一位</h3><p>交付時換狀態、確認接手人。職能卡完成後接下一張；Bug 修好就改<strong>待複驗</strong>並指派 QA。</p><span class="answer">確認：下一位接得住嗎？</span></article>
         </div>
+        <div class="exception-heading"><h3>如果中間停下來，才多選一個原因。</h3><p>「沒在做」有不同原因，分開記才知道交期延後在哪裡。</p></div>
+        <div class="exception-grid"><article><span class="status-chip waiting">等待</span><div><h4>這張工作在等條件</h4><p>例如等規格、等修復、等回覆。選等待原因與對象；能做的其他工作照常進行。</p></div></article><article><span class="status-chip paused">暫停／中斷</span><div><h4>先去做另一張核准插單</h4><p>原卡暫停，留下插單關聯；回來時恢復處理中，才能解釋原日程受到的影響。</p></div></article></div>
+        <p class="recording-note">交棒時也分清楚：跨職能完成原卡、指定下一張卡的接手人；同一張 Bug 則可從 RD 指派給 QA。工時歸屬依投入紀錄，不依目前負責人倒算。</p>
       </div>
     </section>
 
@@ -61,7 +62,8 @@
 
     <section class="demo-section section-space" id="demo">
       <div class="wrap">
-        <div class="section-heading heading-split"><div><p class="eyebrow">03 / 讓一張卡走一次</p><h2>交接一次，<br>時間就多一段紀錄。</h2></div><p class="demo-disclaimer"><span class="tiny-tag">可操作 Demo</span><br>以下為固定事件歷程的模擬。<br>不會寫入或讀取正式 Asana。</p></div>
+        <div class="section-heading heading-split"><div><p class="eyebrow">03 / 讓一張卡走一次</p><h2>先看怎麼交棒，<br>再看多張 Bug 怎麼追。</h2></div><p class="demo-disclaimer"><span class="tiny-tag">可操作 Demo</span><br>以下為固定事件歷程的模擬。<br>不會寫入或讀取正式 Asana。</p></div>
+        <p class="demo-howto">按「下一步」看狀態與交接如何改變；選「QA 下掛多張 Bug」可看兩張 Bug 的指派、複驗及工時拆分。以下都是模擬操作，不會改動 Asana。</p>
         <div class="scenario-tabs" role="tablist" aria-label="示範情境" id="scenario-tabs"></div>
         <div class="demo-workspace">
           <div class="demo-toolbar"><span class="live-indicator"><span class="dot"></span> 交付歷程模擬</span><div><button class="plain-button" id="reset" type="button">↺ 從頭示範</button><button class="plain-button" id="finish" type="button">看完整結果 ↗</button></div></div>
@@ -72,9 +74,14 @@
           <div class="parent-metrics"><div><span id="elapsed-label">目前日曆經過</span><strong id="parent-elapsed"></strong></div><div><span>其中工作時段</span><strong id="parent-work"></strong></div><p>整體時間由主卡起訖計算。<br><b>不把並行子卡直接相加。</b></p></div>
           <div id="op-note" class="op-note" hidden>本例不需 PM 需求拆解與 UIUX 設計，僅建立實際需要的職能卡。</div>
           <div class="task-area">
-            <div class="task-list-panel"><div class="panel-label"><span>↳ 子卡管可交接工作</span><small>點子卡看紀錄・表內為工作小時</small></div><div class="task-table-head"><span>職能／工作</span><span>目前狀態</span><span>處理</span><span>等待</span><span>暫停</span></div><div id="task-list"></div></div>
-            <aside class="task-detail" aria-label="選取子卡的時間紀錄"><p class="eyebrow" id="detail-role"></p><h4 id="detail-title"></h4><p class="detail-owner" id="detail-owner"></p><div class="detail-stats" id="detail-stats"></div><div class="span-comparison" id="span-comparison"></div><div class="human-time"><span>實際投入人時</span><strong>未蒐集</strong><small>「處理中」的經過時間不能直接當成人時。</small></div></aside>
+            <div class="task-list-panel"><div class="panel-label"><span>↳ 職能工作卡／QA 主單下的 Bug</span><small>點子卡看紀錄・表內為工作小時</small></div><div class="task-table-head"><span>工作／目前負責人</span><span>目前狀態</span><span>處理</span><span>等待</span><span>暫停</span></div><div id="task-list"></div></div>
+            <aside class="task-detail" aria-label="選取子卡的時間紀錄"><p class="eyebrow" id="detail-role"></p><h4 id="detail-title"></h4><p class="detail-owner" id="detail-owner"></p><div class="detail-stats" id="detail-stats"></div><div class="span-comparison" id="span-comparison"></div><div class="human-time"><span>此卡自身回報投入</span><strong id="reported-task-hours">未回報</strong><small id="reported-task-note">沒有投入紀錄，不以處理中時間代替。</small></div></aside>
           </div>
+          <section class="effort-panel" id="effort-panel" aria-labelledby="effort-title" hidden>
+            <div class="panel-label"><span>另一份資料：回報投入人時</span><span class="tiny-tag">獨立補登・模擬資料</span></div><h4 id="effort-title">QA 主單下的 Bug，修復投入仍歸 RD。</h4><p>目前已回報的這個 QA 交付包：只加明細一次，依投入者／職能分類。</p>
+            <div class="effort-totals"><div><span>QA 測試、複驗與報告</span><strong id="qa-reported">未回報</strong></div><div><span>RD 修兩張 Bug</span><strong id="rd-reported">未回報</strong></div><div><span>QA 交付包已回報合計</span><strong id="package-reported">未回報</strong></div></div>
+            <div class="table-scroll" id="effort-entries"></div><p class="effort-footnote">父卡捲起顯示的總數是 QA＋RD 的交付包合計，不能全算成 QA，也不能再與子卡明細重複相加。本包未含前期規劃及其他職能；沒有記錄的部分不當成零。這些人時不是由狀態時間換算。</p>
+          </section>
           <div class="timeline-panel"><div class="panel-label"><span>狀態歷程 <small>・時間可往返，紀錄不覆寫</small></span><span class="legend"><i class="active"></i>處理 <i class="waiting"></i>等待 <i class="paused"></i>暫停</span></div><div class="timeline-track" id="timeline-track"></div><div class="timeline-labels"><span id="timeline-start"></span><span id="timeline-end"></span></div><div id="task-history" class="task-history"></div></div>
           <div class="event-display" aria-live="polite" aria-atomic="true"><span class="event-step" id="step-count"></span><div><small id="event-time"></small><h4 id="event-title"></h4><p id="event-description"></p></div></div>
           <div class="playback"><button class="button secondary" id="previous" type="button">← 上一步</button><div class="step-dots" id="step-dots" aria-label="歷程步驟"></div><button class="button primary" id="next" type="button">下一步 →</button><button class="button play-button" id="play" type="button" aria-pressed="false">▶ 自動播放</button></div>
@@ -85,49 +92,75 @@
     </section>
 
     <section class="wrap section-space" id="measurement">
-      <div class="section-heading"><p class="eyebrow">04 / 先把時間說清楚</p><h2>量得到經過多久，<br>才知道下一步改善哪裡。</h2></div>
-      <div class="measurement-grid"><article class="measurement-primary"><span class="tiny-tag">第一階段可量測</span><h3>處理、等待、中斷</h3><p>根據每次狀態變更，累計各段經過的時間；恢復工作，就接續新的一段。</p><div class="equation"><span>處理 3h</span><i>＋</i><span>複驗 2h</span><i>＝</i><strong>處理 5h</strong></div><p class="small-copy">等待修復 8h 另外顯示。是否為個人實際投入，仍需要另一種記錄方式。</p></article><article class="measurement-secondary"><span class="tiny-tag">兩種時間，回答兩個問題</span><h3>週五 17:00 → 週一 10:00</h3><div class="weekend-example"><div><strong id="weekend-calendar">65<span> h</span></strong><span>日曆時間｜交付等了多久</span></div><div><strong id="weekend-work">2<span> h</span></strong><span>工作時段｜排程跨度多久</span></div></div><p class="small-copy">依本 Demo 工作時段；晚上、週末與午休排除於工作時段之外。</p></article></div>
-      <div class="definition-grid"><article><span>01</span><h3>預估日程，要跟日程比</h3><p>同一套日曆，比較預定與實際階段跨度、承諾日期與交付日期。預估人時保留原單位，缺少實際人時就不算偏差率。</p></article><article><span>02</span><h3>並行工作，整體只走一次</h3><p>PM、UIUX、RD 同時開一小時會議，主卡只經過一小時。參與者人時需要另行記錄，也不能把各組時間加成總交期。</p></article><article><span>03</span><h3>只記狀態，實際人時未蒐集</h3><p>第一階段先降低操作負擔。未來若需人力成本，再評估計時或一次性補登。<a href="https://help.asana.com/s/article/time-tracking-in-asana?language=en_US" target="_blank" rel="noopener noreferrer">Asana 工時功能 ↗</a></p></article></div>
+      <div class="section-heading"><p class="eyebrow">04 / 為什麼要記？先分清兩種比較</p><h2>排程跟排程比，<br>人時跟人時比。</h2><p>「預估時間」要先說明單位，才知道該拿哪個實際數字來比較。</p></div>
+      <div class="comparison-grid"><article><span class="tiny-tag">什麼時候能交付？</span><h3>預估日程 ↔ 實際日程</h3><div class="comparison-example">預計週三交付 → 實際週四交付</div><p>用相同日曆比較日期或階段跨度。處理、等待和中斷的歷程，幫忙解釋為什麼多了一天。</p><small>需要：交付／開始／完成時點，以及工作日曆。</small></article><article><span class="tiny-tag">實際投入多少？</span><h3>預估人時 ↔ 回報人時</h3><div class="comparison-example">預估 8 人時 → 回報投入 6 人時</div><p>需要另外計時或補登投入。可以在自己的子任務交付時確認一次，不能只靠狀態推算。</p><small>是否需要補登，在試營運前和維運一起確認。</small></article></div>
+      <p class="measurement-warning"><strong>預估 8 人時，不能直接拿「任務經過 3 天」比較。</strong>同樣地，處理中 5 個工作小時，也不代表某人專心投入了 5 人時。</p>
+      <div class="measurement-grid"><article class="measurement-primary"><span class="tiny-tag">用來解釋日程的三種區段</span><h3>有在推進？在等？被中斷？</h3><p><strong>處理</strong>：工作處於處理中。<strong>等待</strong>：工作等接手或條件。<strong>中斷</strong>：原工作暫停去處理插單。它們幫助理解流程，並非三份工時表。</p><div class="equation"><span>測試 3h</span><i>＋</i><span>複驗 2h</span><i>＝</i><strong>處理區段 5h</strong></div><p class="small-copy">同一個多 Bug 範例另補登 QA 4 人時、RD 5 人時。狀態區段與投入人時刻意分開。</p></article><article class="measurement-secondary"><span class="tiny-tag">兩種日曆口徑也要一致</span><h3>週五 17:00 → 週一 10:00</h3><div class="weekend-example"><div><strong id="weekend-calendar">65<span> h</span></strong><span>日曆經過｜從交付角度看</span></div><div><strong id="weekend-work">2<span> h</span></strong><span>工作時段｜從排程角度看</span></div></div><p class="small-copy">依 Demo 假設排除午休、夜間與週末；正式試跑前需確認公司假日。</p></article></div>
+      <div class="metric-map" id="kpi-map"><div class="section-heading"><p class="eyebrow">和 Notion 指標的關係</p><h3>有關聯，但不是把三種狀態直接當成 KPI。</h3><p>以下區分原頁指標、建議收集的紀錄，以及仍需共同定義的口徑。</p></div>
+        <div class="table-scroll"><table><thead><tr><th>Notion 原頁</th><th>需要的時間紀錄</th><th>這次要講清楚</th></tr></thead><tbody>
+          <tr><td>PM Ratio／Dev Ratio</td><td>PM／RD 階段的起訖</td><td>狀態與交接可提供基礎；各階段時間及 Cycle 起訖仍需確認。</td></tr>
+          <tr><td>Code Review Ratio</td><td>Review 開始至完成</td><td>需要獨立 Review 時點；本 Demo 合併的開發卡不能直接算出 Review 比率。</td></tr>
+          <tr><td>QA Ratio</td><td>QA Active Time</td><td>Active 如何定義需確認；「處理中」區段不能直接視為投入人時。</td></tr>
+          <tr><td>QA Wait Ratio</td><td><strong>Waiting for QA：可接手交付 → QA 開測</strong></td><td><strong>是等 QA 開始，不是 QA 等 RD 修 Bug。</strong>本 Demo「開始與交棒」有 1h 交接等待。</td></tr>
+          <tr><td>Deploy Wait Ratio</td><td>Ready for Deploy → Production</td><td>依原文包含這段起訖間的流程，不能只取維運卡的等待狀態；完成點待共同確認。</td></tr>
+          <tr><td>Development Time P50</td><td>依 S／M／L 分組的開發日數</td><td>大小定義、起訖與足夠樣本都要先定義；P50 是中位數。</td></tr>
+          <tr><td>插單中斷／QA 等修復</td><td>暫停及受阻的原因與區段</td><td><strong>本提案建議補記的診斷資料</strong>，原頁沒有把它們單列成這兩個 KPI。</td></tr>
+        </tbody></table></div>
+        <p class="reference-note">來源：<a href="https://app.notion.com/p/3bfd3412c5a680588d4ddbd2905ce882" target="_blank" rel="noopener noreferrer">Notion 關鍵績效指標 ↗</a>。原頁仍列 Ticket 建立、各職能開始與完成時點待確認。Demo「整體交付時間」採建立至 Prod 驗證，不直接宣稱等於正式 Cycle Time；並行角色時間也不能直接相加算占比。</p>
+      </div>
     </section>
 
     <section class="operation-section section-space" id="operations"><div class="wrap">
-      <div class="section-heading"><p class="eyebrow">05 / 少填一點，留得更完整</p><h2>人更新狀態，<br>系統整理歷程。</h2><p>保留既有主卡與子卡習慣，減少重複填日期、重複整理報表。</p></div>
-      <div class="operation-grid"><article class="human-actions"><p class="eyebrow">每個人的最少操作</p><h3>平常，改一個狀態。</h3><div class="state-path"><span>待開始</span><i>→</i><span>處理中</span><i>→</i><span>完成</span></div><ul><li>工作等待：選原因與要等的對象。</li><li>被插單：標暫停，留下關聯主卡。</li><li>恢復或退回：沿用原卡，接續紀錄。</li></ul><p>主卡初次設定需求、Owner、驗收標準與承諾日期；各職能設定日程，後續依交接更新。</p></article><article class="system-actions"><p class="eyebrow">預計由工具協助</p><h3>不用再手填四個日期。</h3><ul><li><span>01</span><div><strong>模板帶入必要子卡</strong><small>依 Story／OP Issue 選適用職能。</small></div></li><li><span>02</span><div><strong>狀態變更留下時間區段</strong><small>保留每次往返、等待、中斷與恢復。</small></div></li><li><span>03</span><div><strong>主卡彙整，各組看同一份紀錄</strong><small>呈現並行進度、阻礙及交付日期。</small></div></li><li><span>04</span><div><strong>維運取得一致的統計</strong><small>人時未蒐集時保持空缺，不當成零。</small></div></li></ul></article></div>
+      <div class="section-heading"><p class="eyebrow">05 / 少填一點，留得更完整</p><h2>大家先會交棒，<br>工具再接上紀錄。</h2><p>保留既有主卡與子卡習慣，減少重複填日期、重複整理報表。</p></div>
+      <div class="operation-grid"><article class="human-actions"><p class="eyebrow">每個人的最少操作</p><h3>開始做、做完交棒。</h3><div class="state-path"><span>待開始</span><i>→</i><span>處理中</span><i>→</i><span>完成</span></div><ul><li>開始做：切處理中；交付：換狀態、確認下一位。</li><li>工作等待：才選原因與要等的對象。</li><li>被插單：標暫停，留下關聯主卡。</li><li>恢復或退回：沿用原卡，接續紀錄。</li></ul><p>主卡初次設定需求、Owner、驗收標準與承諾日期；各職能設定日程，後續依交接更新。</p></article><article class="system-actions"><p class="eyebrow">預計由工具協助</p><h3>把重複整理交給工具。</h3><ul><li><span>01</span><div><strong>模板帶入必要子卡</strong><small>依 Story／OP Issue 選適用職能。</small></div></li><li><span>02</span><div><strong>狀態變更留下時間區段</strong><small>保留每次往返、等待、中斷與恢復。</small></div></li><li><span>03</span><div><strong>主卡彙整，各組看同一份紀錄</strong><small>呈現並行進度、阻礙及交付日期。</small></div></li><li><span>04</span><div><strong>維運取得一致的統計</strong><small>人時未蒐集時保持空缺，不當成零。</small></div></li></ul></article></div>
       <div class="integration-note"><span class="tiny-tag">導入前待驗證</span><p>先確認 Asana 方案、模板、規則與報表權限。完整歷程累計及工作時段計算若需額外服務，再配置 API／Webhook 事件紀錄。<strong>本頁只模擬提案功能，尚未啟用正式自動化。</strong></p></div>
-      <details class="handoff-rules"><summary>交接規則：主卡、子卡、Bug 怎麼維持秩序？ <span aria-hidden="true">＋</span></summary><div class="rule-grid"><p><b>主卡</b>保留需求、驗收標準與交期；必要交付完成、阻斷問題已處置、Prod 驗證完成後才結案。</p><p><b>職能子卡</b>一張可交接工作對應一位 Owner。退回沿用原卡，並行工作各自保留狀態。</p><p><b>Bug 修復卡</b>掛在相同主卡下；RD 修復、QA 複驗分段留紀錄，QA 工作卡不改派給 RD。</p><p><b>等待與插單</b>只暫停受影響工作；等待的對象與實際處理者分開，不把等待自動視為任何人的人時。</p></div></details>
+      <div class="asana-guide" id="asana-setup"><div class="section-heading"><p class="eyebrow">實際設定方法 / 導入前由窗口設定一次</p><h3>Asana 先建兩種工作類型。</h3><p>大家使用已設定好的選項；不要求每個人自己建立欄位或規則。</p></div>
+        <ol class="setup-steps"><li><strong>進專案 → 自訂（Customize）</strong><span>選任務範本（Task templates）→ 新增 → 新類型（New type）。</span></li><li><strong>建立「職能工作」</strong><span>待開始／處理中／等待／暫停／完成，只有「完成」標為已完成。</span></li><li><strong>建立「Bug」</strong><span>待修復／修復中／待 QA 複驗／已驗證，只有「已驗證」標為已完成；複驗失敗回待修復。</span></li><li><strong>套用到實際卡片，試走一次</strong><span>既有卡與深層 Bug 也要確認類型、欄位及統計專案範圍。RD 修好交 QA 複驗；QA 主單 Owner 不變。</span></li></ol>
+        <div class="handoff-convention"><p><strong>跨職能：</strong>完成 RD 開發卡 → 指定 QA 測試卡接手人，QA 尚未開測就待開始。</p><p><strong>同一張 Bug：</strong>RD 修復中 → 待 QA 複驗、改派 QA → QA 驗證通過才完成。</p></div>
+        <p class="reference-note">自訂類型／狀態支援 Starter 以上，設定需專案管理員或編輯權限；<a href="https://help.asana.com/s/article/custom-task-types?language=en_US" target="_blank" rel="noopener noreferrer">官方操作說明 ↗</a>。若需要原生 Estimated time／Actual time，需 Advanced 以上並啟用工時功能；<a href="https://help.asana.com/s/article/time-tracking-in-asana?language=en_US" target="_blank" rel="noopener noreferrer">官方工時與父子加總說明 ↗</a>。我們尚未確認你們帳號的方案、權限與深層報表範圍。</p>
+        <p class="recording-note">設定狀態不等於自動啟動投入人時計時，也不等於已完成所有工作日曆或 KPI 統計。正式試跑前，用一張 QA 主單與兩張 Bug 驗證：層級、明細歸屬、加總和報表是否都正確。</p>
+      </div>
+      <details class="handoff-rules"><summary>交接規則：主卡、子卡、Bug 怎麼維持秩序？ <span aria-hidden="true">＋</span></summary><div class="rule-grid"><p><b>主卡</b>保留需求、驗收標準與交期；必要交付完成、阻斷問題已處置、Prod 驗證完成後才結案。</p><p><b>職能子卡</b>一張可交接工作對應一位 Owner。退回沿用原卡，並行工作各自保留狀態。</p><p><b>Bug 修復卡</b>掛在本次 QA 主單下，可有多張。Bug 修好轉待複驗並指派 QA；QA 主單仍由 QA 負責，投入依原始紀錄分 QA／RD。</p><p><b>等待與插單</b>只暫停受影響工作；等待的對象與實際處理者分開，不把等待自動視為任何人的人時。</p></div></details>
     </div></section>
 
     <section class="wrap section-space" id="pilot">
       <div class="section-heading"><p class="eyebrow">06 / 從小範圍開始</p><h2>先跑得順，<br>再談優先級與指標。</h2><p>先驗證記得清不清楚、操作會不會太多，再逐步擴大。</p></div>
-      <div class="roadmap"><article class="phase-current"><p class="phase-number">PHASE 01 <span>本次要取得共識</span></p><h3>一個專案，試跑兩週</h3><p>選 5–10 張 Story／OP Issue，各組指定一個窗口，用同一套狀態與交接方式。</p><ul><li>試跑前：確認欄位、工作日曆與工具權限。</li><li>第一週：實際走卡，抽查往返與等待紀錄。</li><li>第二週：檢查資料品質與額外操作負擔。</li></ul><div class="phase-result">產出：一份能解釋時間去哪裡的交付紀錄。</div></article><article><p class="phase-number">PHASE 02 <span>後續跨組議定</span></p><h3>插單有入口，順序有依據</h3><p>Priority 決定先做什麼，Severity 說明問題有多嚴重；兩者分開。</p><ul><li>共同收單，指定優先順序核准窗口。</li><li>插單時，記錄被延後的工作與理由。</li><li>重新確認受影響項目的交期。</li></ul><div class="phase-result">分級門檻與核准權責，待跨組議定。</div></article><article><p class="phase-number">PHASE 03 <span>資料穩定後</span></p><h3>讓紀錄接上現有 KPI</h3><p>逐步銜接開發、QA 等待、待部署時間與準時交付；品質指標再補齊其他資料。</p><ul><li>階段時間：需一致起訖與重疊處理規則。</li><li>品質指標：需缺陷、版本及部署關聯。</li><li>個人考核：另行議定，不由耗時直接評分。</li></ul><div class="phase-result"><a href="https://app.notion.com/p/3bfd3412c5a680588d4ddbd2905ce882" target="_blank" rel="noopener noreferrer">查看現有 Notion 指標 ↗</a></div></article></div>
-      <details class="kpi-details"><summary>第三階段：哪些已有基礎，哪些還需要補資料？ <span aria-hidden="true">＋</span></summary><div class="table-scroll"><table><thead><tr><th>既有指標方向</th><th>本提案可提供</th><th>正式採用前還需要</th></tr></thead><tbody><tr><td>Cycle Time Composition</td><td>開發、Review、QA 與待部署的狀態區段</td><td>Cycle 起訖、並行歸類、Active 的定義；目前角色卡不可直接算占比</td></tr><tr><td>Development Time P50</td><td>每項工作的時間紀錄</td><td>S／M／L 定義、穩定樣本與一致起訖；P50 為中位數</td></tr><tr><td>On-time Delivery Rate</td><td>原承諾日期與實際交付日期</td><td>到期母體、變更承諾與上線驗證規則</td></tr><tr><td>Bug／Change Failure／Hotfix</td><td>主卡與修復卡關聯基礎</td><td>缺陷分類、版本、部署及 Prod 事件資料</td></tr></tbody></table></div><p>指標來源：<a href="https://app.notion.com/p/3bfd3412c5a680588d4ddbd2905ce882" target="_blank" rel="noopener noreferrer">關鍵績效指標</a>、<a href="https://app.notion.com/p/3bfd3412c5a680efa1d1de93cfb0cb96" target="_blank" rel="noopener noreferrer">考核標準說明</a>。本頁展示銜接方向，不計算考核分數。</p></details>
+      <div class="roadmap"><article class="phase-current"><p class="phase-number">PHASE 01 <span>本次要取得共識</span></p><h3>一個專案，試跑兩週</h3><p>選 5–10 張 Story／OP Issue，各組指定一個窗口，用同一套狀態與交接方式。</p><ul><li>試跑前：確認欄位、工作日曆，以及是否需要補登投入人時。</li><li>第一週：實際走卡，抽查往返與等待紀錄。</li><li>第二週：檢查資料品質與額外操作負擔。</li></ul><div class="phase-result">產出：一份能解釋時間去哪裡的交付紀錄。</div></article><article><p class="phase-number">PHASE 02 <span>後續跨組議定</span></p><h3>插單有入口，順序有依據</h3><p>Priority 決定先做什麼，Severity 說明問題有多嚴重；兩者分開。</p><ul><li>共同收單，指定優先順序核准窗口。</li><li>插單時，記錄被延後的工作與理由。</li><li>重新確認受影響項目的交期。</li></ul><div class="phase-result">分級門檻與核准權責，待跨組議定。</div></article><article><p class="phase-number">PHASE 03 <span>資料穩定後</span></p><h3>讓紀錄接上現有 KPI</h3><p>逐步銜接開發、QA 等待、待部署時間與準時交付；品質指標再補齊其他資料。</p><ul><li>階段時間：需一致起訖與重疊處理規則。</li><li>品質指標：需缺陷、版本及部署關聯。</li><li>個人考核：另行議定，不由耗時直接評分。</li></ul><div class="phase-result"><a href="https://app.notion.com/p/3bfd3412c5a680588d4ddbd2905ce882" target="_blank" rel="noopener noreferrer">查看現有 Notion 指標 ↗</a></div></article></div>
+      <details class="kpi-details"><summary>第三階段：哪些已有基礎，哪些還需要補資料？ <span aria-hidden="true">＋</span></summary><div class="table-scroll"><table><thead><tr><th>既有指標方向</th><th>本提案可提供</th><th>正式採用前還需要</th></tr></thead><tbody><tr><td>Cycle Time Composition</td><td>PM、RD、QA 與交接區段的紀錄基礎</td><td>Cycle 起訖、獨立 Review 時點、並行歸類與 Active 定義；目前不可直接算占比</td></tr><tr><td>Development Time P50</td><td>每項工作的時間紀錄</td><td>S／M／L 定義、穩定樣本與一致起訖；P50 為中位數</td></tr><tr><td>On-time Delivery Rate</td><td>原承諾日期與實際交付日期</td><td>到期母體、變更承諾與上線驗證規則</td></tr><tr><td>Bug／Change Failure／Hotfix</td><td>主卡與修復卡關聯基礎</td><td>缺陷分類、版本、部署及 Prod 事件資料</td></tr></tbody></table></div><p>指標來源：<a href="https://app.notion.com/p/3bfd3412c5a680588d4ddbd2905ce882" target="_blank" rel="noopener noreferrer">關鍵績效指標</a>、<a href="https://app.notion.com/p/3bfd3412c5a680efa1d1de93cfb0cb96" target="_blank" rel="noopener noreferrer">考核標準說明</a>。本頁展示銜接方向，不計算考核分數。</p></details>
       <div class="pilot-ask"><div><p class="eyebrow">本次會議，先決定這三件事</p><h3>哪個專案？<br>各組窗口是誰？<br>哪一天開始試跑？</h3></div><div><span class="ask-symbol" aria-hidden="true">↗</span><p>兩週後一起看：<br><strong>紀錄能否追溯、交接是否清楚、<br>操作負擔是否可接受。</strong></p><button type="button" class="button print-button" id="print">列印／存成 PDF ↗</button></div></div>
     </section>
     <section class="faq-section section-space" id="faq" aria-labelledby="faq-title"><div class="wrap">
       <div class="section-heading"><p class="eyebrow">07 / 會議 Q&amp;A</p><h2 id="faq-title">先把問題說清楚，<br>找到最少必要的記錄。</h2><p>點選問題展開說明。以下是試營運建議，正式規則待大家共同確認。</p></div>
       <div class="faq-intro"><span class="tiny-tag">先確認目的</span><p><strong>投入多少工時</strong>，可以靠完工補登；<strong>交付為什麼延後</strong>，需要交接與狀態歷程。先確認要回答哪些問題，再決定記哪些資料。</p></div>
+      <nav class="faq-shortcuts" aria-label="常見設定問題"><a href="#faq-17">Asana 狀態怎麼設？</a><a href="#faq-18">多張 Bug 怎麼算？</a><a href="#faq-20">和 Notion 如何對應？</a></nav>
       <div class="faq-list">
         <details class="faq-item" id="faq-1"><summary><span class="faq-label"><small>01</small><strong>只是記時間，做完再補填花了幾小時，不就好了？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>可以。如果目的只是統計投入工時，完工補填是很直接的方式。</p><p>但填了八小時，仍不知道這件事為什麼過了一週才交付。中間可能在等規格、等修復，或被插單。</p><p>所以我們需要先確認：維運要的是「投入多少工時」，還是也需要知道「交付時間花在哪裡」，再選擇最少必要的記錄方式。</p></div></details>
         <details class="faq-item" id="faq-2"><summary><span class="faq-label"><small>02</small><strong>完工補填一定不準嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>不一定。短、單純、很快完成的任務，補填可以很實用。跨很多天、反覆切換的工作，回想時可能漏掉會議或修復時間，因此可在自己的子任務交付時補登，不必等整個功能上線才回想。</p><p>如果數字是憑印象回估，也應保留「回估」註記，讓報表使用者知道資料性質。</p></div></details>
-        <details class="faq-item" id="faq-3"><summary><span class="faq-label"><small>03</small><strong>那只記狀態，就能得到準確的實際工時嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>不能。任務標示「處理中」五小時，不代表某個人連續投入五小時。</p><p><strong>狀態紀錄提供流程經過時間；工時補登提供人員回報的投入時間。</strong>如果維運必須比較預估人時與實際人時，目前只記狀態的方案就需要再補上投入紀錄。</p></div></details>
+        <details class="faq-item" id="faq-3"><summary><span class="faq-label"><small>03</small><strong>那只記狀態，就能得到準確的實際工時嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>不能。任務標示「處理中」五小時，不代表某個人連續投入五小時。</p><p><strong>狀態紀錄提供流程經過時間；工時補登提供人員回報的投入時間。</strong>如果維運必須比較預估人時與實際人時，就需要另加投入紀錄。Demo 的多 Bug 情境另外補登 QA 4、RD 5 人時，與處理中區段分開。</p></div></details>
         <details class="faq-item" id="faq-4"><summary><span class="faq-label"><small>04</small><strong>預估和實際，到底要比較哪兩個數字？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>要用相同單位比較：</p><ul><li>預估投入八人時，要跟回報投入的人時比較。</li><li>預計週三交付，要跟實際交付日期比較。</li><li>預估階段跨度兩個工作天，要跟同一套日曆下的實際跨度比較。</li></ul><p>不能把「實際經過三天」直接拿來跟「預估八人時」比較。</p></div></details>
         <details class="faq-item" id="faq-5"><summary><span class="faq-label"><small>05</small><strong>所以我們要同時填工時、改狀態，工作不就更多了？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>這是試營運要驗證的重點，不能先保證操作一定更少。</p><p>建議沿用原本就需要更新的進度狀態，避免主卡、子卡重複填寫；如果確定需要投入工時，再於子任務交付時確認一次。兩週後檢查這些資料有沒有用，以及維護負擔是否值得。</p></div></details>
         <details class="faq-item" id="faq-6"><summary><span class="faq-label"><small>06</small><strong>PM、UIUX、RD 一起開一小時會議，要怎麼算？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>如果三個人都完整參與，投入合計是三人時；但這件事在交付時間軸上，只經過一小時。</p><p>能明確歸屬某個需求的會議，就記在相關工作；無法合理歸屬的跨專案會議，可以另列共用工作，避免硬拆出看似精準的數字。同一筆投入也不能在子卡和主卡重複加總。</p></div></details>
         <details class="faq-item" id="faq-7"><summary><span class="faq-label"><small>07</small><strong>等別人回覆時，我在做另一件事，時間算在哪裡？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>原任務留下「等待」區段；實際投入則記到正在處理的另一件工作。</p><p>因此，一張卡等待八小時，表示它被阻擋了八小時，並不代表負責人整天沒做事，也不代表被等待的對象投入了八小時。</p></div></details>
-        <details class="faq-item" id="faq-8"><summary><span class="faq-label"><small>08</small><strong>QA 發現 Bug，退回 RD，工時和責任怎麼分？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>QA 測試、複驗的投入記在 QA 工作卡；RD 修復的投入記在同一需求下的 Bug 修復卡。QA 等修復的區段另外呈現。</p><p>QA 工作卡仍由 QA 負責，Bug 修復卡交給 RD。這樣可以保留各自的工作，不會因為改派同一張卡，讓前面的紀錄混在一起。</p></div></details>
+        <details class="faq-item" id="faq-8"><summary><span class="faq-label"><small>08</small><strong>QA 發現 Bug，退回 RD，工時和責任怎麼分？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>QA 測試、複驗的投入記在 QA 主單自身；多張 Bug 開在本次 QA 主單下，RD 修復投入各記在 Bug 卡。QA 等修復的區段另外呈現，不把多張 Bug 的重疊等待相加。</p><p>QA 主單仍由 QA 負責；Bug 修復時指派 RD，修好後轉待 QA 複驗並指派 QA。投入歸屬看原始明細，不因 Bug 目前改派給 QA 就把 RD 工時改算給 QA。</p></div></details>
         <details class="faq-item" id="faq-9"><summary><span class="faq-label"><small>09</small><strong>我一天被插很多次單，每次都要操作嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>建議先記錄會影響交接或排程的正式工作切換，例如原本的開發被暫停，改去處理另一張 OP Issue；不要求每則訊息、每次短暫詢問都記。</p><p>緊急處理時可以先處理，再補上關聯與時間，並註明補記。哪些切換值得記，會在試跑時一起調整。</p></div></details>
         <details class="faq-item" id="faq-10"><summary><span class="faq-label"><small>10</small><strong>忘記改狀態，算出來不也一樣不準？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>對，狀態紀錄也需要維護，不能因為自動計算就當成準確。</p><p>發現漏記時要能更正，保留補記或估計註記。試營運也要抽查：紀錄是否符合實際交接，而不只是看欄位有沒有填滿。</p></div></details>
         <details class="faq-item" id="faq-11"><summary><span class="faq-label"><small>11</small><strong>主卡、子卡到底誰負責維護？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>建議主卡由需求或收單 Owner 管理需求、驗收條件與承諾日期；各職能只維護自己的子卡。</p><p>主卡進度預計由工具彙整。工具還沒支援的部分，先指定一個窗口處理，並把這份額外負擔納入試營運評估，避免每個人都重複更新。</p></div></details>
         <details class="faq-item" id="faq-12"><summary><span class="faq-label"><small>12</small><strong>QA 測完就能結束嗎？OP Issue 也要走完整流程嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>職能完成和整體交付分開：QA 可以完成自己的子卡，主卡則等必要交付及 Prod 驗證完成後結案。</p><p>OP Issue 依實際需要建立子卡。沒有設計變更，就可以略過 UIUX；小修復不必硬套完整功能開發流程。</p></div></details>
         <details class="faq-item" id="faq-13"><summary><span class="faq-label"><small>13</small><strong>插單先後誰決定？嚴重的 Bug 一定優先嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>第二階段需要共同議定收單與核准窗口，讓優先順序有一致入口。</p><p>嚴重程度說明問題影響，Priority 決定處理順序，兩者需要一起判斷。核准插單時，也要說清楚被延後的是哪件工作，並重新確認交期。</p></div></details>
         <details class="faq-item" id="faq-14"><summary><span class="faq-label"><small>14</small><strong>這些紀錄會拿來考核嗎？做越久，表現越差嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>建議這兩週先用來檢查資料品質與協作流程，並在會議上明確記錄用途。</p><p>耗時會受到工作複雜度、需求變更、等待與插單影響，不能單憑時間長短評分個人。後續如何銜接 KPI，需要另外確認定義、資料與使用規則。</p></div></details>
-        <details class="faq-item" id="faq-15"><summary><span class="faq-label"><small>15</small><strong>網站已經能自動串 Asana、產生報表了嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>目前網站是互動示範，資料是模擬的，尚未串接正式 Asana。</p><p>試跑前要先確認現有帳號的功能、權限和設定，再驗證哪些可以直接完成、哪些需要額外處理。工具成本與維護負擔，都應納入評估。</p></div></details>
+        <details class="faq-item" id="faq-15"><summary><span class="faq-label"><small>15</small><strong>網站已經能自動串 Asana、產生報表了嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>目前網站是互動示範，交接、狀態與補登人時都是模擬資料，尚未串接正式 Asana。</p><p>試跑前要先確認現有帳號的功能、權限和設定，再驗證哪些可以直接完成、哪些需要額外處理。工具成本與維護負擔，都應納入評估。</p></div></details>
         <details class="faq-item" id="faq-16"><summary><span class="faq-label"><small>16</small><strong>兩週後怎麼判斷要不要繼續？如果補填工時就夠呢？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>選五到十張任務，檢查三件事：各組需要的數字是否拿得到、關鍵等待與插單能否追溯、大家花多少時間維護。</p><p>如果完工補填已經足以回答維運的需求，就保留簡單方式；如果還需要改善交接和排程，再保留有用的狀態紀錄。</p></div></details>
+        <details class="faq-item" id="faq-17"><summary><span class="faq-label"><small>17</small><strong>Asana 的「待開始、處理中、完成」要怎麼設定？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>建議由專案窗口設定一次：進入專案的<strong>自訂 → 任務範本 → 新增 → 新類型</strong>，建立「職能工作」與「Bug」兩種類型，再定義各自的狀態，以及哪些狀態代表完成。既有卡片也要套用對應類型。</p><p>職能工作平常走「待開始 → 處理中 → 完成」，受阻才用等待或暫停。Bug 走「待修復 → 修復中 → 待 QA 複驗 → 已驗證」；RD 修好仍待驗，不直接標完成。</p><p><a href="#asana-setup">查看頁面內設定步驟</a>。依 Asana 官方文件，自訂任務類型需 Starter 以上及相應編輯權限；本頁未讀取或變更公司的 Asana 設定，試跑前先確認方案與權限。</p></div></details>
+        <details class="faq-item" id="faq-18"><summary><span class="faq-label"><small>18</small><strong>QA 主單下掛很多張 Bug，維運還能拉出時間嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>可以按這個結構設計報表：<strong>功能／OP 主卡 → QA 測試、複驗與報告主單 → 多張 Bug 子任務</strong>。QA 主單記測試與報告，各 Bug 記 RD 修復；維運透過關聯取得整個交付包。</p><p>Demo 已回報的例子是 QA 4 人時、RD 修兩張 Bug 共 5 人時，交付包合計 9 人時。<strong>9 是這個包的合計，不能全當 QA 工時，也不能再加一次 Bug 明細。</strong>未記錄的前期規劃及其他職能不包含在這 9 人時。</p><p>Asana 原生工時可顯示子任務彙總，但公司帳號的多層子任務、報表篩選與權限仍要用「一張 QA＋兩張 Bug」實測。若直接用父卡目前負責人分類，容易把包內 RD 投入誤歸 QA。</p></div></details>
+        <details class="faq-item" id="faq-19"><summary><span class="faq-label"><small>19</small><strong>Bug 修好指派給 QA，先前 RD 的工時會不會變成 QA 的？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>報表應依<strong>每筆投入的記錄者、當時職能與工作內容</strong>分類，不依卡片目前指派給誰倒算。指派代表現在輪到誰接手，不代表整張卡的所有歷史都是他的投入。</p><p>例如 RD-A 在 BUG-01 回報修復 3 人時，之後指派 QA 複驗，這 3 人時仍屬 RD。此 Demo 的 QA 複驗投入記在 QA 主單自身；同一份投入只記一次，避免主單與 Bug 重複。</p></div></details>
+        <details class="faq-item" id="faq-20"><summary><span class="faq-label"><small>20</small><strong>這些時間和 Notion 的 QA Wait、Cycle Time 是同一件事嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>要逐項對口徑。原頁的 <strong>QA Wait Ratio 寫的是 Waiting for QA，也就是等 QA 開始測試</strong>；不能把 QA 已開測後等 RD 修 Bug 的八小時直接塞進去。Deploy Wait 則依 Ready for Deploy 到 Production 的起訖衡量。</p><p>Notion 的 Ticket 建立、各職能開始與完成時點仍待確認。本 Demo 採「需求建立至 Prod 驗證」呈現整體交付，尚未宣稱等同正式 Cycle Time 分母；有並行工作時也不能把各組時間直接相加算占比。</p><p><a href="#kpi-map">查看逐項對照及待確認定義</a>。先收集交接歷程，再和指標窗口一起確認可以計算哪些數字。</p></div></details>
+        <details class="faq-item" id="faq-21"><summary><span class="faq-label"><small>21</small><strong>能不能就「開始切狀態，做完指派給下一位」這麼簡單？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p><strong>可以，這就是推薦大家先學會的操作。</strong>拿到卡先確認；真的開始才切處理中；交付時換狀態、確認下一位接得住。只有卡住或被插單，才多選原因。</p><p>交棒有兩種：跨職能時，RD 完成開發卡，確認 QA 的工作卡及接手人；同一張 Bug 則由 RD 修好後轉待 QA 複驗、指派 QA。QA 主單仍由 QA 管理測試與報告，不需要整張主單來回改給 RD。</p><p>狀態變更提供流程時間。如果維運還需要實際投入人時，再於交付時補登自己的投入，這是另一份資料。</p></div></details>
+        <details class="faq-item" id="faq-22"><summary><span class="faq-label"><small>22</small><strong>為什麼要分處理、等待和中斷？Notion 有要求三個都記嗎？</strong></span><span aria-hidden="true">＋</span></summary><div class="faq-answer"><p>分開是為了解釋日程差異：工作在推進、卡在等條件、還是被核准插單暫停，改善方式不同。只留下開始與結束，無法分辨是哪種原因造成延後。</p><p><strong>不是 Notion 原頁已要求這三類都當 KPI。</strong>原頁有開發、Review、QA、等 QA 與待部署等指標；「插單中斷」及「QA 等修復」是這次建議補記的診斷資料。</p><p>試跑先記會影響交接或排程的等待與中斷；兩週後再刪掉沒有用途、負擔太高的記錄，不要求每次短暫分心都切狀態。</p></div></details>
       </div>
       <blockquote class="faq-takeaway">我們先同意要回答哪些問題，再決定要記哪些資料。<br><strong>用兩週找出大家願意做，而且資料真的有用的最小做法。</strong></blockquote>
     </div></section>
   </main>
-  <footer class="wrap"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">↗</span><span>FLOW / 交付有跡可循</span></a><p>2026.10.21 會議提案 · 模擬資料 · 實際人時未蒐集</p><a href="#demo">回到互動 Demo ↑</a></footer>
+  <footer class="wrap"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">↗</span><span>FLOW / 交付有跡可循</span></a><p>2026.10.21 會議提案 · 模擬資料 · 流程時間與回報人時分開</p><a href="#demo">回到互動 Demo ↑</a></footer>
   <noscript><p class="noscript">目前 JavaScript 未啟用，仍可閱讀提案；互動情境與時間計算需要啟用 JavaScript。</p></noscript>
 </body>
 </html>
