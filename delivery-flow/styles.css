@@ -11,3 +11,29 @@
 
 .hero-copy,.hero-visual{min-width:0}
 @media(max-width:360px){.journey-line>span{padding:5px 7px;font-size:10px}.journey-line{gap:2px}.illustration-card{padding-inline:14px}.visual-caption{font-size:8px}}
+
+/* Meeting reference: native disclosure controls also work without JavaScript. */
+.faq-section{background:#edf1e8;border-top:1px solid var(--line)}
+.faq-intro{display:flex;align-items:flex-start;gap:18px;padding:22px 26px;border:1px solid #cbd8bb;border-radius:10px;background:#e0eacc;margin-bottom:30px}
+.faq-intro .tiny-tag{flex:none;color:#59713e;margin-top:3px}
+.faq-intro p{font-size:14px;line-height:1.9;color:#587047}
+.faq-list{border-top:1px solid #ccd7bf}
+.faq-item{margin:0;border:0;border-bottom:1px solid #ccd7bf;scroll-margin-top:96px}
+.faq-item summary{padding:23px 6px;font-size:15px;gap:24px;line-height:1.8}
+.faq-label{display:flex;align-items:baseline;gap:22px;min-width:0;font-size:inherit;font-weight:inherit;color:inherit}
+.faq-label small{font-size:11px;color:#7b9066;letter-spacing:.08em;flex:none}
+.faq-label strong{font-weight:650;letter-spacing:-.01em}
+.faq-item summary>span[aria-hidden]{flex:none;width:24px;text-align:center;font-size:23px;color:#6c8554}
+.faq-item summary:hover .faq-label strong{color:#668632}
+.faq-item[open] summary .faq-label strong{color:var(--green)}
+.faq-answer{padding:0 54px 25px;max-width:1050px}
+.faq-answer p,.faq-answer li{font-size:14px;line-height:1.95;color:#586e4e}
+.faq-answer p+p{margin-top:12px}
+.faq-answer ul{padding-left:20px;margin:12px 0}
+.faq-answer strong{color:#385d2d;font-weight:700}
+.faq-takeaway{margin:34px 0 0;padding:23px 26px;border-left:3px solid #7d9b50;background:#e1eacf;font-size:15px;line-height:1.9;color:#5c7248}
+.faq-takeaway strong{font-weight:650;color:#38542b}
+@media(max-width:650px){.faq-intro{flex-direction:column;gap:10px;padding:18px;margin-bottom:22px}.faq-intro p{font-size:12px}.faq-item summary{padding:19px 0;font-size:13px;gap:12px}.faq-label{gap:12px}.faq-label small{font-size:9px}.faq-item summary>span[aria-hidden]{font-size:20px;width:20px}.faq-answer{padding:0 0 22px 27px}.faq-answer p,.faq-answer li{font-size:12px}.faq-takeaway{padding:18px;font-size:12px}.faq-item{scroll-margin-top:76px}}
+@media print{.faq-section{padding-block:28px}.faq-intro,.faq-takeaway{padding:15px}.faq-intro p,.faq-takeaway{font-size:10px}.faq-item{break-inside:avoid}.faq-item summary{padding:12px 0;font-size:11px}.faq-label{gap:16px}.faq-label small{font-size:8px}.faq-answer{padding:0 32px 15px}.faq-answer p,.faq-answer li{font-size:10px}}
+
+.faq-item[open] summary>.faq-label{transform:none}
