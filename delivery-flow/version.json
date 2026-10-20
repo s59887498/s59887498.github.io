@@ -1,7 +1,7 @@
 {
   "format": "delivery-flow-demo-v2",
   "meeting_date": "2026-10-21",
-  "content_revision": "05778124e414c0cb07cddb2595c78d297fc06eaea0cb8fb0fc5117fec872d2f4",
+  "content_revision": "c6a35358fe2e147579b50a88ebeaa0b676041e43d7e155b26bfb900e4dbffb8f",
   "recording_policy": {
     "effort_unit": "person_day",
     "hours_per_person_day": 8,
@@ -15,8 +15,9 @@
     "model.js": "2074317c8e7ff9b61dc0157860496e1f923477fe393071e0921097512b02e724",
     "app.js": "f16f28bd7728abab3546a8b1fbc8897bb49eac519035348dc73edd1877584b68",
     "icon.svg": "a33b4f3273d18ee9b30c3ef98ee5c5bcbe02e59a7726ee1f2aeb50c76a1fc7c4",
-    "workflow.html": "0470cb325d693c3798189a8e8a39d195c4b46bfc44a0247359c385a4c2b90925",
-    "workflow.css": "90d7e95772aadde40c91700acd38d00003641f4fe4bd1842c38739ae4a1829ee",
-    "workflow.js": "89666614b9f93d159fadabcec4ad0df9b8bc8d863a9f10f65d46a2d8487ab490"
+    "workflow.html": "b19440e5058656f29dc2da0773c54dd1542d2470a65dec7abcc6efdee0103b94",
+    "workflow.css": "011022388fedc00f2ec0d4a4431f3c9b42e20e55c5cb371ea3dc079905b7a0cc",
+    "workflow.js": "89666614b9f93d159fadabcec4ad0df9b8bc8d863a9f10f65d46a2d8487ab490",
+    "role-walkthrough.js": "2b41a2760cf294ab5ad24f289adad4efec3f80726b5d9e750f6f0d8042469ea3"
   }
 }
