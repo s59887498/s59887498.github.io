@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-10-26T02:08:55+00:00",
+    "updated_at": "2026-10-28T02:08:40+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -204,14 +204,14 @@
         "id": "PRJ-STARCHARGE-FULLPAY-202609",
         "title": "全支付串接",
         "product": "星舟快充",
-        "owner": "Andy",
-        "environment": "StarCharge Stage／全支付測試 APP；實際 build 與 APP 版本待確認",
-        "summary": "Stage 測試進行中。Readable View 共 36 案／72 步：通過 30、失敗 1、跳過 5；已執行率 86.1%。GEN-8101 已通過；新增 GEN-8136 綁定回傳斷線後缺補償機制，待修復／複驗。",
+        "owner": "QA：Andy Huang",
+        "environment": "既有Stage／全支付測試APP；本週正式金流的實際環境與build待確認，不由金流名稱推定Prod",
+        "summary": "本週收尾：依10/27 QA留言，目前剩正式金流測試，以及財務對照後台／Excel欄位確認。既有36案結果為9/18歷史快照，本週逐案結果尚未更新；QA期限10/28、Main期限10/29。",
         "stage": "execution",
         "activity": "active",
         "planned_start_at": "2026-09-14",
-        "activity_confirmed_at": "2026-09-19",
-        "observed_at": "2026-09-18T05:45:55+00:00",
+        "activity_confirmed_at": "2026-10-27",
+        "observed_at": "2026-10-27T13:29:29+08:00",
         "total": 36,
         "counts": {
           "failed": 1,
@@ -221,12 +221,12 @@
           "passed": 30
         },
         "counts_as_of": "2026-09-18T05:45:55+00:00",
-        "scope_note": "Readable View 全部唯一 ID 為 36 案；Case Index 僅 35 案，漏列新增 GEN-8136，仍納入 Failed。逐案聚合全部步驟；9/18 13:45 儲存時間是來源快照時間，非逐案測試時間。GEN-8128～8132 財務對帳待開發，依原狀態保留 Skipped；GEN-8111 保留前端阻擋的 Passed，未推定後端已驗證。",
+        "scope_note": "Readable View 全部唯一 ID 為 36 案；Case Index 僅 35 案，漏列新增 GEN-8136，仍納入 Failed。逐案聚合全部步驟；9/18 13:45 儲存時間是來源快照時間，非逐案測試時間。GEN-8128～8132 財務對帳待開發，依原狀態保留 Skipped；GEN-8111 保留前端阻擋的 Passed，未推定後端已驗證。 10/27本週追蹤沿用同一全支付需求ST-7023，使用者連結1219727384568698實為新BE ST-9212，其Main為1216708464740517；QA ST-7024於13:29留言目前剩正式金流測試與財務對照後台／Excel欄位確認。FE子任務完成、BE與QA尚未完成，不能據此判定整體完成。既有total36及30P／1F／5Skipped與counts_as_of 9/18保留為歷史；本次未讀新Excel，不把「只剩兩項」算成案例數，不宣稱歷史GEN-8136已Pass或5Skipped已執行。使用者本週目標10/26～10/30，Main due10/29、QA due10/28，未更動Asana。",
         "blockers": [
-          "GEN-8136：全支付綁定成功但平台斷線未收到回傳，重連後缺少補償機制；2 步 Failed，待修復／複驗。",
-          "GEN-8128～8132：財務對帳尚待開發，5 案依 Excel 保留 Skipped。"
+          "本週正式金流測試及財務後台／Excel欄位核對尚未完成。",
+          "最新逐案結果未取得；9/18歷史GEN-8136 Failed與5Skipped須以更新後Readable View核對，不當成本週新結果。"
         ],
-        "next_action": "追蹤 GEN-8136 修復並複驗；財務對帳開發交付後執行 5 案。補核對 GEN-8111 後端保護及 build／APP 版本；Case Index 待補 GEN-8136，本次未改寫來源 Excel。",
+        "next_action": "依QA最新留言完成正式金流測試與財務後台／Excel欄位核對，確認實際環境與build，再用更新後Readable View逐案同步結果及報告交付狀態。",
         "sources": [
           {
             "kind": "local",
@@ -251,6 +251,40 @@
             "label": "9/19 唯讀來源指紋與逐案狀態快照",
             "ref": "qa_optimization/reports/research/2026-09-19_fullpay-smarthub-idlefee-progress.json",
             "checked_at": "2026-09-19T10:00:02.737633+00:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/27使用者本週任務與Asana對應登錄",
+            "ref": "qa_optimization/reports/research/2026-10-27_weekly-task-registration.md",
+            "checked_at": "2026-10-27T16:50:10+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "使用者全支付連結：ST-9212 BE子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219727384568698",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成；連結文字是Main，但實際為BE。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-7023 全支付Main",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1216708464740517",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成；Andy Huang；due_on=2026-10-29。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-7024 QA最新剩餘範圍",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1216708464740520",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成；due_on=2026-10-28；10/27 13:29留言目前剩正式金流及財務欄位確認。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9213 FE子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219727384568699",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "completed=true僅表示FE子任務完成，非整體QA完成。"
           }
         ]
       },
@@ -1135,13 +1169,13 @@
         "activity": "completed",
         "planned_start_at": "2026-10-13",
         "activity_confirmed_at": "2026-10-19",
-        "observed_at": "2026-10-19",
+        "observed_at": "2026-10-27T17:02:00+08:00",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "10/19使用者確認五張OP Issue全部複驗完成並已在QA子單附結果；唯讀核對ST-8463／8489／8453／8467／8470五張QA子單completed=true，結果留言已存在。最後ST-8463 QA於10/19 11:37:37完成，取代10/16「剩一張待Stage複驗」現況。ST-8489 QA於10/14完成，留言保留「Prod歷史資料無法回溯，先確認同樣手段正常，上線後觀察」限制，不能描述為歷史Prod問題已完整重現或全部上線驗證通過。五張Main仍未完成，Dashboard結案僅指本輪QA交付，未更動Asana。原ST-8467結果更正鏈、RT／Stage環境及各輪實際日期保留；本次沒有新live測試，不重寫歷史FAIL／BLOCK，不產新正式Report。5張是Issue數；32項探索Backlog亦非正式分母，total／counts／counts_as_of維持null。100%是專案完成進度，不是全量案例通過率。｜10/20同步補充：採用10/19四份ST-8470／ST-9153局部調查摘要（更正鏈：135614關聯分析→145406 Stage復現→152657後端log補充→154105入口範圍更正，最新為154105）。Stage（eks-yds-stage2，stage-2026-1016-e387538）三個探索情境OP9153-CONTROL／RACE100／RACEWIDE的/online-status均VISIBLE；後端log證實RACE100、RACEWIDE兩情境cache寫入前筆transactionId且各19次owner略過（同型ST-8470資料一致性問題可在Stage重現）。154105更正：「症狀未復現」僅限/online-status，客訴入口/charging-sessions/current未驗證，不能據此判定ST-8470已修復或入口正常。分析MD已附於ST-8470（Asana仍Investigating、completed=false）。此為原輪結束後的關聯調查，不併入五張Issue分母，不推翻10/14原複驗PASS，也不改本輪completed；ST-9153是否同因待對齊Prod。",
+        "scope_note": "10/19使用者確認五張OP Issue全部複驗完成並已在QA子單附結果；唯讀核對ST-8463／8489／8453／8467／8470五張QA子單completed=true，結果留言已存在。最後ST-8463 QA於10/19 11:37:37完成，取代10/16「剩一張待Stage複驗」現況。ST-8489 QA於10/14完成，留言保留「Prod歷史資料無法回溯，先確認同樣手段正常，上線後觀察」限制，不能描述為歷史Prod問題已完整重現或全部上線驗證通過。五張Main仍未完成，Dashboard結案僅指本輪QA交付，未更動Asana。原ST-8467結果更正鏈、RT／Stage環境及各輪實際日期保留；本次沒有新live測試，不重寫歷史FAIL／BLOCK，不產新正式Report。5張是Issue數；32項探索Backlog亦非正式分母，total／counts／counts_as_of維持null。100%是專案完成進度，不是全量案例通過率。｜10/20同步補充：採用10/19四份ST-8470／ST-9153局部調查摘要（更正鏈：135614關聯分析→145406 Stage復現→152657後端log補充→154105入口範圍更正，最新為154105）。Stage（eks-yds-stage2，stage-2026-1016-e387538）三個探索情境OP9153-CONTROL／RACE100／RACEWIDE的/online-status均VISIBLE；後端log證實RACE100、RACEWIDE兩情境cache寫入前筆transactionId且各19次owner略過（同型ST-8470資料一致性問題可在Stage重現）。154105更正：「症狀未復現」僅限/online-status，客訴入口/charging-sessions/current未驗證，不能據此判定ST-8470已修復或入口正常。分析MD已附於ST-8470（Asana仍Investigating、completed=false）。此為原輪結束後的關聯調查，不併入五張Issue分母，不推翻10/14原複驗PASS，也不改本輪completed；ST-9153是否同因待對齊Prod。｜10/28同步補充：採用10/27 170423摘要（ST8470-RT-common-retest-20261027，無更正鏈）。RT（starcharge.rt，LIFF index-D90WdQCk.js，後端build未取得）automation補充複驗OP9153-CONTROL／RACE100／RACEWIDE三情境：current與online-status在Charging／SuspendedEV均可見、LIFF stopCharge收到RemoteStop且Stop Accepted，run範圍3案3 PASS；cacheConsistency=NOT_OBSERVED，Final Gate PARTIAL。此為原輪交付後的補充複驗，不改五張OP原輪completed、100%專案完成進度、counts（null）或activity_confirmed_at；run counts不併入本卡。MAN-01～05手機／實機／cache回補未執行，不能據此判定四張OP已修復或Prod已修復。",
         "blockers": [],
-        "next_action": "本輪QA複驗交付完成。後續追蹤（非本輪分母）：RD依ST-8470附件MD回覆late StartTransaction回補、Stop清理、/current與/online-status資料來源及Prod／LIFF部署版本；QA再同時驗cache一致與/current入口。ST-8489上線後觀察維持。",
+        "next_action": "本輪QA複驗交付完成。後續（非本輪分母）：Andy依10/27 execution與人工複驗Checklist完成MAN-01～05手機LINE／Titan、Zerova實機確認；RD提供10/27三筆交易cache／owner／Stop唯讀evidence與部署commit，再同時驗cache一致與/current入口。ST-8489上線後觀察維持。",
         "sources": [
           {
             "kind": "local",
@@ -1398,6 +1432,32 @@
             "ref": "https://app.asana.com/1/1201720793465976/project/1211237839028820/task/1219624260933958",
             "checked_at": "2026-10-20T10:10:00+08:00",
             "note": "未以connector重讀，引自10/19摘要。"
+          },
+          {
+            "kind": "local",
+            "label": "四張 OP 的 RT 人工複驗與 RD log／版本 Checklist（待 Review）",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/OP_Issue_RT_20261013/ST8470_9153_9253_9258_RT_人工複驗_Checklist_20261027.md",
+            "checked_at": "2026-10-27T18:38:44+08:00",
+            "published_at": "2026-10-27",
+            "note": "僅細化既有 MAN-01～05 交接，沒有新增 live 結果或案例分母；原輪 completed、counts 與活動日期保留。"
+          },
+          {
+            "kind": "local",
+            "label": "10/27 ST8470等四單RT共同automation補充複驗摘要（3案run PASS，Final Gate PARTIAL）",
+            "ref": "qa_optimization/reports/research/2026-10-27_test-progress_PRJ-STARCHARGE-OP-RT-20261013_170423_ST8470-RT-common-retest-20261027.md",
+            "checked_at": "2026-10-28T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/27 RT補充複驗execution",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/OP_Issue_RT_20261013/ST8470_9153_9253_9258_RT_TestExecution_20261027.md",
+            "checked_at": "2026-10-28T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/27 RT補充複驗aggregate（caseCountScope=run，3/3 PASS，backendBuild UNKNOWN）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/op_issues/ST9153-rt-20261027-165354/rt-retest-aggregate.json",
+            "checked_at": "2026-10-28T10:10:00+08:00"
           }
         ]
       },
@@ -2534,6 +2594,332 @@
             "checked_at": "2026-10-26"
           }
         ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-SMART-BALANCING-P2-202610",
+        "title": "智慧均流 Phase2：優化與能源均流監控",
+        "summary": "本週目標完成（Asana需求／QA期限10/29）。RT監控32案：14通過、1失敗、17受阻；缺欄位Bug已建於QA子單，仍待修復；起充Authorize與實車等阻礙保留。",
+        "product": "星舟快充",
+        "owner": "Andy Huang",
+        "environment": "RT；M1與新豐休息站；FE/BE release tag待確認",
+        "stage": "execution",
+        "activity": "blocked",
+        "planned_start_at": "2026-10-27",
+        "activity_confirmed_at": "2026-10-27",
+        "observed_at": "2026-10-27T15:25:45+08:00",
+        "total": 32,
+        "counts": {
+          "passed": 14,
+          "failed": 1,
+          "blocked": 17,
+          "skipped": 0,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-10-27",
+        "scope_note": "Phase2監控32 unique ID/76步，包含30新ID與2舊Skipped沿用ID；實車7案同ID子集合不另加總。14案通過限已驗斷言，未完成整體驗收；Case Failed優先於Blocked。工作簿未回填，結果以本輪execution.json為準。 10/27本週任務登錄沿用ST-8559／QA ST-8563，不另造新卡或將狀態退回待測。151558與152545摘要接續145836：BUG-SBMON-001已轉正式Asana Bug 1219923569883164，且補明QA暫時移出樁準備未加入情境後發現缺欄位；M1目前10樁全加入不是漏加樁。未重測、counts與counts_as_of保持原值；實車7案仍是32案子集合。使用者本週目標10/26～10/30，Asana需求及QA期限10/29；缺陷建立不代表修復或驗收完成。",
+        "blockers": [
+          "BUG-SBMON-001（Asana 1219923569883164）：未加入表缺Figma1014狀態與功率欄，待RD修復／QA複驗。",
+          "起充Authorize Invalid；缺有效QA會員/卡映射，充電相依項目未驗",
+          "無AC/受限RBAC/同契約fixture；實車由現場執行；詳情query與PRD state契約待確認"
+        ],
+        "next_action": "RD處理欄位與Authorize fixture；PM/RD確認路由契約。Andy依4小時實車7案補SOC/功率與停止後優先移轉，QA再補AC/RBAC/同契約。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "本輪測試設計需求登錄",
+            "ref": "qa_optimization/reports/research/2026-10-27_smart-balancing-phase2-testcase-design.md",
+            "checked_at": "2026-10-27"
+          },
+          {
+            "kind": "web",
+            "label": "Phase2監控版主卡",
+            "ref": "https://app.asana.com/1/1201720793465976/project/1210988184935976/task/1219439852218546",
+            "checked_at": "2026-10-27"
+          },
+          {
+            "kind": "local",
+            "label": "Phase2監控完整Test Case v0.1 Draft",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/智慧均流/智慧均流-監控版_TestCase_Phase2_v0.1_Readable.xlsx",
+            "checked_at": "2026-10-27"
+          },
+          {
+            "kind": "local",
+            "label": "四小時實車Test Case v0.1 Draft（7案子集合）",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/智慧均流/智慧均流-監控版_實車TestCase_Phase2_v0.1_Readable.xlsx",
+            "checked_at": "2026-10-27"
+          },
+          {
+            "kind": "local",
+            "label": "文件交付進度摘要（未開測）",
+            "ref": "qa_optimization/reports/research/2026-10-27_test-progress_PRJ-STARCHARGE-SMART-BALANCING-P2-202610_134928_case-design.md",
+            "checked_at": "2026-10-27"
+          },
+          {
+            "kind": "local",
+            "label": "G01依使用者決策採Figma1014與案例修訂摘要",
+            "ref": "qa_optimization/reports/research/2026-10-27_test-progress_PRJ-STARCHARGE-SMART-BALANCING-P2-202610_140722_figma-decision.md",
+            "checked_at": "2026-10-27"
+          },
+          {
+            "kind": "local",
+            "label": "RT監控執行紀錄",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rt_phase2_20261027_142842/execution_summary.md",
+            "checked_at": "2026-10-27"
+          },
+          {
+            "kind": "local",
+            "label": "本輪測試進度摘要",
+            "ref": "qa_optimization/reports/research/2026-10-27_test-progress_PRJ-STARCHARGE-SMART-BALANCING-P2-202610_145836_rt-monitor.md",
+            "checked_at": "2026-10-27"
+          },
+          {
+            "kind": "local",
+            "label": "10/27使用者本週任務與Asana對應登錄",
+            "ref": "qa_optimization/reports/research/2026-10-27_weekly-task-registration.md",
+            "checked_at": "2026-10-27T16:50:10+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-8563 QA子任務與正式Bug關係",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219439852218552",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成；due_on=2026-10-29；子任務包含Bug1219923569883164。"
+          },
+          {
+            "kind": "local",
+            "label": "正式Bug交付摘要（不新增案例結果）",
+            "ref": "qa_optimization/reports/research/2026-10-27_test-progress_PRJ-STARCHARGE-SMART-BALANCING-P2-202610_151558_asana-bug-created.md",
+            "checked_at": "2026-10-27T16:50:10+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "M1歸屬及缺陷前置補正摘要（不新增案例結果）",
+            "ref": "qa_optimization/reports/research/2026-10-27_test-progress_PRJ-STARCHARGE-SMART-BALANCING-P2-202610_152545_assignment-clarification.md",
+            "checked_at": "2026-10-27T16:50:10+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-ST9142-MONITOR-GUN-202610",
+        "title": "即時充電樁監控：樁明細與報表顯示槍狀態",
+        "product": "星舟快充",
+        "owner": "QA：Andy Huang",
+        "environment": "待確認：本輪前後台、報表測試環境與FE／BE build",
+        "summary": "本週待測（Asana主單／QA期限10/29）：樁明細新增充電槍名稱與槍狀態，報表同步新增對應欄位。QA子任務尚未完成，環境／build待確認。",
+        "stage": "planning",
+        "activity": "planned",
+        "observed_at": "2026-10-27",
+        "activity_confirmed_at": "2026-10-27",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "本週工作目標為2026-10-26～10-30，依使用者10/27指示登錄；不代表已完成、RD已部署或QA已開測。尚未取得正式案例集及本輪結果，total／counts／counts_as_of為null；不把需求、Issue或API數量當案例數。 ST-9142需求與QA ST-9144為同一項，沒有與已開測的智慧均流監控ST-8559合併。範圍依需求內文為列表樁明細與報表欄位；目前未取得本輪執行或交付證據。",
+        "blockers": [
+          "RD實際交付、測試環境／build及本輪案例待確認。"
+        ],
+        "next_action": "確認RD交付版本與測試環境，核對樁明細展開及報表的充電槍名稱／狀態，再記錄QA結果。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "10/27使用者本週任務與Asana對應登錄",
+            "ref": "qa_optimization/reports/research/2026-10-27_weekly-task-registration.md",
+            "checked_at": "2026-10-27T16:50:10+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9142 即時充電樁監控需求",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219526490153441",
+            "checked_at": "2026-10-27T16:50:10+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9144 QA子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219526394935864",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成；Andy Huang；due_on=2026-10-29。"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-OP-BUGFIX-20261027",
+        "title": "充電進度與結束充電異常複驗（本週OP Bugfix）",
+        "product": "星舟快充",
+        "owner": "QA：Andy Huang",
+        "environment": "待確認：本輪RT／Stage與LIFF、BE實際版本；10/29僅Asana預計上版日期",
+        "summary": "本週待複驗：ST-8470／ST-9153及新增ST-9253／ST-9258，涵蓋拒絕充電訊息、進度頁卡住與結束充電無反應。10/29為RD預計上版，尚未視為已交付。",
+        "stage": "planning",
+        "activity": "planned",
+        "observed_at": "2026-10-27",
+        "activity_confirmed_at": "2026-10-27",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "本週工作目標為2026-10-26～10-30，依使用者10/27指示登錄；不代表已完成、RD已部署或QA已開測。尚未取得正式案例集及本輪結果，total／counts／counts_as_of為null；不把需求、Issue或API數量當案例數。 四張OP單依留言屬關聯交易快取問題，作一項本週複驗工作管理；保留每張QA子任務，不將四單當四個Test Case，也不自行合併或關閉Asana。使用者第一張連結1219675701591329實為BE ST-9188，其Main為1219624260933958（ST-9153），不能顯示為需求名稱BE。ST-8470以新增QA Retest ST-9196為本輪來源，舊QA已完成不代表本次複驗完成。新增兩單的Asana主單期限11/10、ST-9153主單11/02，與使用者本週目標分開保存，不改外部due。舊五張OP輪次PRJ-STARCHARGE-OP-RT-20261013維持completed；本卡追蹤後續新客訴／修復輪次，10/19調查不是本週重跑。根因與關聯引自Asana人工分析，本次同步未重現或獨立驗證。 10/28同步備註：10/27 17:04摘要將同四單的RT automation補充複驗（3情境run PASS、cacheConsistency未觀測、後端build未知、MAN-01～05未執行）歸入PRJ-STARCHARGE-OP-RT-20261013，本卡不採其結果、不改stage／counts；是否屬本週修復輪次待使用者確認歸屬及實際部署版本。",
+        "blockers": [
+          "10/29仍為預計部署，尚未取得本輪實際交付版本／環境。"
+        ],
+        "next_action": "確認ST-8470／ST-9153修正已交付及LIFF／BE版本，依四張QA子任務複驗Charging先到／StartTransaction晚到、同槍跨會員及同會員連續充電、Titan與Zerova AC，以及無即時數據時結束充電可用；各單留下結果。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "10/27使用者本週任務與Asana對應登錄",
+            "ref": "qa_optimization/reports/research/2026-10-27_weekly-task-registration.md",
+            "checked_at": "2026-10-27T16:50:10+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "使用者連結：ST-9188 BE子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219675701591329",
+            "checked_at": "2026-10-27T16:50:10+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9153 畫面顯示電動車拒絕平台充電",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219624260933958",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "Main；RD留言10/29為預計上版，due_on=2026-11-02。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9189 QA子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219675701591330",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-8470 無法進入我的充電進度",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219009041223599",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "含10/19Stage調查與10/22預計10/29上版留言。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9196 QA Retest",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219675700368172",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成；due_on=2026-10-28；非舊已完成QA子單。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9253 用戶按結束充電無反應",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219920378611038",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "新OP單；未完成；due_on=2026-11-10。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9262 QA子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219918940095220",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9258 用戶卡在我的充電進度",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219922179417964",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "新OP單；未完成；due_on=2026-11-10。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9260 QA子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219918940095215",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成。"
+          },
+          {
+            "kind": "local",
+            "label": "10/27 同四單RT automation補充複驗摘要（歸屬OP-RT原輪卡，本卡僅參照）",
+            "ref": "qa_optimization/reports/research/2026-10-27_test-progress_PRJ-STARCHARGE-OP-RT-20261013_170423_ST8470-RT-common-retest-20261027.md",
+            "checked_at": "2026-10-28T10:10:00+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-ST9192-RECONCILIATION-202610",
+        "title": "佔槍費：財務對帳與結算畫面優化",
+        "product": "星舟快充",
+        "owner": "QA：Andy Huang",
+        "environment": "待確認：財務對帳後台、LIFF及報表本輪環境／版本",
+        "summary": "本週待測：財務對帳改用「訂單編號」、新增「佔槍費用」類型，LIFF結算移除兩個金額欄位，報表新增佔槍費資料。Asana主單10/29、QA子單10/27。",
+        "stage": "planning",
+        "activity": "planned",
+        "observed_at": "2026-10-27",
+        "activity_confirmed_at": "2026-10-27",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "本週工作目標為2026-10-26～10-30，依使用者10/27指示登錄；不代表已完成、RD已部署或QA已開測。尚未取得正式案例集及本輪結果，total／counts／counts_as_of為null；不把需求、Issue或API數量當案例數。 ST-9192／QA ST-9195為新的財務對帳優化範圍，不重開原PRJ-STARCHARGE-IDLE-FEE-202609已完成輪次。依需求內文：充電訂單編號調整為訂單編號、商品名稱增加佔槍費用、LIFF移除折扣後訂單金額及訂單金額、BE Stored Procedure新增佔槍費欄位資料。以上是待驗範圍，不是已實測結論。",
+        "blockers": [
+          "交付環境／版本、報表與LIFF對照資料待確認。"
+        ],
+        "next_action": "確認FE／BE／報表交付後，核對後台欄名與類型、LIFF結算顯示及報表佔槍費欄位資料，記錄QA結果。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "10/27使用者本週任務與Asana對應登錄",
+            "ref": "qa_optimization/reports/research/2026-10-27_weekly-task-registration.md",
+            "checked_at": "2026-10-27T16:50:10+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9192 佔槍費對帳優化",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219673107048164",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成；due_on=2026-10-29。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9195 QA子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219681229198574",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成；Andy Huang；due_on=2026-10-27。"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-STARCHARGE-ST9137-FEE-COLUMN-202610",
+        "title": "財務報表：原始充電訂單新增手續費欄位",
+        "product": "星舟快充",
+        "owner": "QA：Andy Huang",
+        "environment": "待確認：財務報表後台及匯出檔測試環境／BE版本",
+        "summary": "本週待測（Asana主單10/29）：原始充電訂單頁籤新增手續費相關欄位。主單標題為「手續費欄位」，內文寫「手續費稅額」，須先對齊實際欄位與驗收規則。",
+        "stage": "planning",
+        "activity": "planned",
+        "observed_at": "2026-10-27",
+        "activity_confirmed_at": "2026-10-27",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "本週工作目標為2026-10-26～10-30，依使用者10/27指示登錄；不代表已完成、RD已部署或QA已開測。尚未取得正式案例集及本輪結果，total／counts／counts_as_of為null；不把需求、Issue或API數量當案例數。 ST-9137需求與QA ST-9140一併追蹤；標題與內文欄位名稱差異保留為待確認，不自行推定兩者相同或計算公式。附件僅知內文有參考連結，本輪未下載核對圖片。",
+        "blockers": [
+          "「手續費欄位」與「手續費稅額」名稱／範圍不一致，待需求owner確認。",
+          "測試環境、交付版本與對照資料待確認。"
+        ],
+        "next_action": "向RD／需求owner確認手續費／手續費稅額的實際名稱、計算與資料來源，交付後核對原始充電訂單頁籤及對應匯出資料。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "10/27使用者本週任務與Asana對應登錄",
+            "ref": "qa_optimization/reports/research/2026-10-27_weekly-task-registration.md",
+            "checked_at": "2026-10-27T16:50:10+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9137 原始充電訂單手續費欄位",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219526490153434",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成；主單due_on=2026-10-29；內文手續費稅額與標題差異待確認。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9140 QA子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219526406634707",
+            "checked_at": "2026-10-27T16:50:10+08:00",
+            "note": "未完成；Andy Huang；未設定due_on。"
+          }
+        ]
       }
     ]
   },
@@ -3604,7 +3990,7 @@
     ]
   },
   "revisions": {
-    "projects": "183e895977719d4e546e43fa0a6c2fbf787b28112aba401a30958870a1b5df41",
+    "projects": "9d5ca0c8e9b8b43fa5feb71fffd94e26ff2a161678f6c2986b6bf16ccb91d8d9",
     "optimizations": "0d0e524509fbf21571c06f433b219459bd18b9e8deb75cae07220dd508b690f4",
     "decisions": "3d8f305a4826360c0e271cfc3807c7a86d30a3c2479ae4c02044600f8bb03b7c"
   },
@@ -3634,5 +4020,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。Claude不需也不假設能讀Codex對話；跨模型來源依 `tasks/record-test-progress.md` 的落盤摘要及其evidence。\n\n## 資料盤點\n\n1. 先依project ID找 `qa_optimization/reports/research/*_test-progress_*.md` 的新增摘要及更正鏈，再核對projects.json來源、qa_ai_workflow/outputs/的Test Case／execution／Report／RUN_BRIEF與已授權OneDrive來源。按專案與日期縮小範圍，不每次全量重讀歷史對話、帳密、個資或完整payload。僅存在對話而未落盤的結果無法取得時列缺口，不猜測。\n   摘要是現況與來源索引，不能壓過較新有效evidence。核對observed_at／counts_as_of、環境／版本與scope；recorded_at、檔名日期是記錄時間。引用來源不可讀或有衝突時，保留受影響欄位的前次有效快照並列缺口，不改成產品Failed。無摘要仍可用可追溯既有檔案；沒有新證據就不刷新測試日期。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n若歷史來源路徑因檔案整理失效，先比對 `reports/research/*output-folder-migration.json` 的精確舊→新對照，再讀新位置。搬移不代表測試有新進度；未找到對照或新檔不可讀時保留缺口，不以同名其他版本猜測。\n\n## 摘要與全量進度合併\n\n- 摘要「統計範圍」為project時，核對total、去重及引用證據後採用；run只代表本回合，不得將其counts覆蓋或加到全量。\n- 局部補測／複驗只更新具有完整ID mapping及有效新證據的案例，再彙總同輪全量。無法取得全量時保留原counts及counts_as_of，另更新本輪observed_at／blockers並註明全量尚未同步；同案前後結果不能累加成兩案。\n- 測試完成、報告產出與已交付分開核對。明確完成待報告用awaiting_report，有實際結案／交付確認才用completed；completed卡片維持100%且保留歷史分類，不因讀舊文件倒退。\n- 新舊摘要／Excel State衝突時列ID、來源日期及差異，保留待確認；不以mtime或固定優先順序掩蓋衝突，不把部分步驟Passed當全案Passed。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 本次可採用的全量結果本身不完整或矛盾時：counts=null；若僅缺新回合全量、前次快照仍有效，依上節保留舊counts與原日期。counts為null時，可確認的total仍保留，否則null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出採用的摘要／更正鏈、讀過的來源、統計口徑、更新／未更新原因、來源衝突及缺口。同步任務本身不冒充新的測試回合，不另造test-progress摘要或新實測日期。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪projects.json、同步報告及實際採用且未上版的去敏感test-progress摘要、push main並確認公司CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-10-26T02:30:07+00:00"
+  "exported_at": "2026-10-28T02:30:06+00:00"
 }
