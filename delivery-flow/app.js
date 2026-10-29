@@ -4,11 +4,11 @@
   const escape=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const chip=r=>`<span class="schedule-chip ${r.kind}">${escape(r.label)}</span>`;
   const roles={
-    qa:{title:'從 Daily 接手，依序走 RT 與 Stage。',work:'依 PM 的工作卡與日期，執行 RT／Stage 測試、Bug 複驗與報告。',done:'必要測試與報告交付，Story 進 Pending UAT；仍待驗收與發版。',input:'Daily 取得 RD 的版本、環境、自測與限制，確認 Ready to RT Test。',output:'結果交 PM／UAT 窗口；Bug 保留 QA 主單下子任務，分別交 RD 修復。'},
-    pm:{title:'Story、SubStory 與預估日期由 PM 安排。',work:'建立 Story、拆 SubStory，指定工作、完成條件、負責人及預估開始／結束。',done:'需求與拆分、Sprint 排程明確；Story Done 另依整體交付與驗收確認。',input:'需求提出者交問題、驗收期望；Refinement 向各組確認依賴與風險。',output:'SubStory 指派 RD，讓 RD 從 My Tasks 接工作；Daily 對齊交棒及受影響日期。'},
+    qa:{title:'Daily 接功能；PreProd 等 RD 核對通知再回歸。',work:'依 PM 的工作卡與日期，執行 RT；PreProd 確認功能有包含、回歸 Passed，留 Bug 複驗與報告。',done:'PreProd 功能涵蓋與回歸 Passed、報告交付，才接 Pending UAT 及後續 Prod 準備。',input:'Daily 取得 RD 的版本、環境、自測與限制，確認 Ready to RT Test。',output:'雙項通過結果交 PM／UAT 窗口，再接維運 Prod 準備；未過即時回報 PM，Bug 沿原子任務追蹤。'},
+    pm:{title:'Story、SubStory 與預估日期由 PM 安排。',work:'建立 Story、拆 SubStory，指定工作、完成條件、負責人及預估開始／結束。',done:'需求與拆分、Sprint 排程明確；Story Done 另依整體交付與驗收確認。',input:'需求提出者交問題、驗收期望；Refinement 向各組確認依賴與風險。',output:'SubStory 指派 RD，讓 RD 從 My Tasks 接工作；Daily 明確決議能否完成與下一步；開發或上版問題要即時回報 PM，方便安排日期。'},
     ux:{title:'設計放在 PM 拆出的 SubStory。',work:'按需要做設計、互動、例外狀態與決策說明。',done:'設計版本與說明可供 RD 實作，結果回 PM 的工作卡。',input:'PM 提供 SubStory、需求、驗收與預估日期。',output:'交 RD／PM 設計版本，QA 可提早準備；設計工作不另加一個 Story 泳道。'},
-    rd:{title:'My Tasks 勾工作完成，Daily 才交功能。',work:'依 PM 建立與排期的 SubStory 開發、自測與 Review；Bug 沿原子任務修復。',done:'RD 自行勾自己的 SubStory 完成並留完成日；Story 等 Daily 確認交棒後再移泳道。',input:'從 My Tasks 看 PM 指派的卡與日期；缺件及日期風險回 PM 確認。',output:'Daily 說明版本、環境、自測與限制，確認 QA 接手，Story 進 Ready to RT Test。'},
-    ops:{title:'UAT 結果確認後，接 Ready To Release。',work:'依 PM 的安排確認發版窗口、部署與必要上線驗證。',done:'交付與上線結果回 PM，確認 Story Done。',input:'PM／UAT 窗口交已確認的驗收結果、版本與上版資訊。',output:'發布版本與驗證結果回 Story；日期有變回 PM 協調，保留原訂與原因。'}
+    rd:{title:'My Tasks 勾工作完成，Daily 才交功能。',work:'依 PM 建立與排期的 SubStory 開發、自測與 Review；Bug 沿原子任務修復。',done:'RD 自行勾自己的 SubStory 完成並留完成日；Story 等 Daily 確認交棒後再移泳道。',input:'從 My Tasks 看 PM 指派的卡與日期；缺件及日期風險回 PM 確認。',output:'Daily 說明版本、環境、自測與限制，確認 QA 接手，Story 進 Ready to RT Test。PreProd 備好後，RD 先核對沒有漏上再通知 QA。'},
+    ops:{title:'串起 PreProd 準備與 Prod 上版。',work:'RT 後準備 PreProd 交 RD 核對；QA 功能涵蓋與回歸 Passed、放行確認後準備 Prod。',done:'交付與上線結果回 PM，確認 Story Done。',input:'RT 結果交接後備 PreProd；之後接 QA 雙項通過、PM／UAT 確認的發版資訊。',output:'發布版本與驗證結果回 Story；日期有變回 PM 協調，保留原訂與原因。'}
   };
   let role='qa',scenarioId='early',index=0,selectedTask='qa';
   const set=(id,value)=>{$(id).textContent=value;};

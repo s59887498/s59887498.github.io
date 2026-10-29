@@ -49,8 +49,8 @@
       task('ux', 'ux', '通知偏好設計', '2026-10-12', '2026-10-13', '完成畫面、互動及例外狀態。', '設計版本與說明齊備，RD 確認可接手。', '交 RD，附設計版本、互動與決策。', null, {state:'完成',completedAt:'2026-10-13'}),
       task('rd', 'rd', '開發、自測與 Review', '2026-10-12', '2026-10-14', '依 PM 建立及排期的 SubStory 開發，完成自測及 Review。', 'RD 在 My Tasks 勾選自己的 SubStory 完成，留完成日；功能交棒另在 Daily 確認。', 'Daily 說明版本、環境、自測及限制，確認 QA 接手與 Story 泳道。', null, {state:'完成',completedAt:'2026-10-14'}),
       task('prep', 'qa', '測試規劃與案例 Review', '2026-10-12', '2026-10-13', '提前整理風險、案例及測試資料。', '必要案例與交付條件已確認。', '交 QA 測試接手，連回同一需求。', null, {state:'完成',completedAt:'2026-10-13'}),
-      task('qa', 'qa', 'QA 測試、複驗與報告', '2026-10-10', '2026-10-16', '在 RT Testing 與 Stage Testing 執行測試、追蹤 Bug、複驗及整理報告。', 'RT／Stage 必要測試及複驗完成，報告與風險交 PM，Story 進 Pending UAT。', '交 PM／指定 UAT 窗口，附報告、版本及限制；待驗收結果確認後再準備發版。'),
-      task('ops', 'ops', '部署與 Prod 驗證', '2026-10-16', '2026-10-20', 'Ready To Release 確認上版窗口，依既有程序部署並驗證 Prod。', '必要交付、UAT 結果及上線驗證確認後，由 PM 確認 Story Done。', '回 Story 附版本及結果，請 PM 確認 Done。')
+      task('qa', 'qa', 'QA 測試、複驗與報告', '2026-10-10', '2026-10-16', '執行 RT 測試；RD 核對並通知後，在 PreProd（Stage Testing）確認本次功能有包含、回歸 Passed，追蹤 Bug 及整理報告。', 'PreProd 功能涵蓋確認與回歸 Passed，必要複驗完成，報告與風險交 PM，Story 進 Pending UAT。', '交 PM／指定 UAT 窗口，附報告、版本及限制；待驗收結果確認後再準備發版。'),
+      task('ops', 'ops', '部署與 Prod 驗證', '2026-10-16', '2026-10-20', 'RT 後準備 PreProd 交 RD 核對；QA 功能涵蓋與回歸 Passed、放行條件確認後，準備 Prod 並依既有程序發布與驗證。', '必要交付、UAT 結果及上線驗證確認後，由 PM 確認 Story Done。', 'PreProd 先交 RD 核對；Prod 發布後回 Story 附版本及結果，請 PM 確認 Done。')
     ];
     return op ? all.filter(t => ['rd','qa','ops'].includes(t.id)) : all;
   }
@@ -58,14 +58,17 @@
     event('2026-10-14', 'PM 已建 Story／SubStory，RD 從 My Tasks 接工作', 'Story、SubStory 與預估開始／結束日由 PM 建立。RD 查看 My Tasks 中自己的 SubStory，依工作內容與完成條件開發；Story 目前在 Development。', 'Development', [change('rd','進行中')]),
     event('2026-10-14', 'RD 在 My Tasks 勾 SubStory 完成，Story 仍在 Development', 'RD 完成開發、自測與 Review，勾自己的 SubStory 完成，記實際完成日。這筆工作已完成；功能尚未在 Daily 交棒，Story 不自動切到 Ready to RT Test。', 'Development', [change('rd','完成','2026-10-14')]),
     event('2026-10-14', 'Daily 確認功能交棒，進 Ready to RT Test', 'Daily 說明版本、環境、自測、已知限制與接手人。確認可交棒後，由約定窗口更新 Story 泳道；實際移卡窗口由團隊確認。QA 原訂 10/16 完成 RT／Stage 測試及報告。', 'Ready to RT Test', [], [handoff('qa','RD 窗口（Daily）','QA 窗口','Daily 交棒：v1.0／環境／自測／驗收／原訂 10/16','確認接手、缺件與 RT 開測安排')]),
-    event('2026-10-14', 'QA 接手，進 RT Testing', 'QA 確認資料可測後進入 RT Testing。RT 的環境、測試範圍與通過門檻沿用團隊約定；臨時開會不用逐活動切暫停。', 'RT Testing', [change('qa','進行中')], [handoff('qa','QA 窗口','RD／PM','Daily 已接到 v1.0，開始 RT 測試','若缺件或交期變動，回同一張卡與 PM 協調')])
+    event('2026-10-14', 'QA 接手，進 RT Testing', 'QA 確認資料可測後進入 RT Testing。RT 的環境、測試範圍與通過門檻沿用團隊約定；臨時開會不用逐活動切暫停。', 'RT Testing', [change('qa','進行中')], [handoff('qa','QA 窗口','RD／PM','Daily 已接到 v1.0，開始 RT 測試','上版或開發問題即時回報 PM，不等 Daily；日期變動保留原訂與原因')])
   ]; }
   function finish(qaDate, prodDate) { return [
-    event(qaDate, 'RT 通過，進 Ready to Stage Test', 'RT 必要驗證完成，附結果與版本，確認 Stage 環境及下一步。Ready 表示待開測，還不是 Stage Testing。', 'Ready to Stage Test', [], [handoff('qa','QA（RT）','QA／Stage 接手窗口','RT 結果／版本／Stage 準備事項','確認環境及 Stage 開測條件')]),
-    event(qaDate, 'Stage 條件齊備，進 Stage Testing', '開始 Stage 必要測試與回歸，若發現 Bug 就在 QA 主單下開子任務；不新增 Bug 泳道。', 'Stage Testing'),
-    event(qaDate, 'QA 測試與報告交付，進 Pending UAT', 'RT／Stage 必要測試、複驗及報告已完成，記 QA SubStory 實際完成日。Story 進 Pending UAT，仍需驗收結果，QA 卡完成不等於 Story Done。', 'Pending UAT', [change('qa','完成',qaDate)], [handoff('qa','QA 窗口','PM／指定 UAT 窗口','RT／Stage 報告／版本／已知限制／QA 完成日','PM 確認 UAT 窗口與驗收安排')]),
-    event(prodDate, 'UAT 結果確認，進 Ready To Release', '本例由 PM 確認已取得 UAT 結果及發版條件，再交維運安排發布；驗收人及核准權責依團隊約定，不把 Pending UAT 自動當成通過。', 'Ready To Release', [change('ops','進行中')], [handoff('ops','PM／UAT 窗口','維運窗口','UAT 結果／版本／風險／上版資訊','依既有程序確認發版與 Prod 驗證')]),
-    event(prodDate, '必要交付及上線驗證確認，Story 進 Done', '維運留版本與 Prod 結果，PM 確認必要交付及結案條件，記 Story 實際完成日。RD 勾完成、QA 完成與 Story Done 各自有日期。', 'Done', [change('ops','完成',prodDate)], [handoff('ops','維運窗口','PM','發布版本與驗證通過結果','PM 確認 Story Done')])
+    event(qaDate, 'RT 完成，維運接手 PreProd 準備', 'RT 必要測試完成，交本次應上功能／修復範圍與版本。PreProd 就是 Stage Testing 的環境；先由維運準備，還未進 QA 回歸。', 'Ready to Stage Test', [], [handoff('qa','QA（RT）','維運窗口','RT 結果／本次應上範圍／版本','準備 PreProd，備好後交 RD 核對')]),
+    event(qaDate, '維運備好 PreProd，先交 RD 核對', '維運提供 PreProd 版本與準備結果，先交 RD 確認。此時 QA 尚未開始 PreProd 回歸，不能把維運備好當成已可往 Prod。', 'Ready to Stage Test', [change('ops','進行中')], [handoff('ops','維運窗口','RD 窗口','PreProd 已備好／版本／準備結果','RD 先核對本次應上內容有無漏上')]),
+    event(qaDate, 'RD 確認沒有漏上，完成後通知 QA', 'RD 對照本次應上功能／修復與 PreProd 版本，確認內容齊全，再主動通知 QA。若漏上立即回報 PM，由 RD／維運處理後重新核對。', 'Ready to Stage Test', [], [handoff('rd','RD 窗口','QA 窗口','PreProd 範圍與版本已核對，確認本次功能／修復沒有漏上','通知 QA 開始功能涵蓋確認與回歸')]),
+    event(qaDate, 'Stage Testing：QA 在 PreProd 確認功能及回歸', 'QA 收到 RD 核對與通知後，在 PreProd 確認本次功能是否有包含，並執行必要回歸。兩項結果都要明確記錄，未過先回報 PM，不往 Prod。', 'Stage Testing'),
+    event(qaDate, 'QA 功能有包含、回歸 Passed，交報告進 Pending UAT', '本例 QA 確認本次功能確實包含、回歸 Passed，必要複驗與報告完成，記 QA SubStory 實際完成日。結果接既有 UAT／放行確認；QA Passed 不直接代表 Story Done。', 'Pending UAT', [change('qa','完成',qaDate)], [handoff('qa','QA 窗口','PM／指定 UAT 窗口','PreProd 版本／本次功能有包含／回歸 Passed／報告與限制','確認既有驗收與放行條件，交維運準備 Prod')]),
+    event(prodDate, '放行條件確認，維運在 Ready To Release 準備 Prod', 'PreProd 功能涵蓋與回歸 Passed，PM 確認既有 UAT 結果及放行條件後，維運準備 Prod 與上版窗口；不是只說測完就直接上版。', 'Ready To Release', [change('ops','進行中')], [handoff('ops','PM／放行窗口','維運窗口','QA 雙項確認通過／UAT 結果／版本／上版資訊','維運準備 Prod，依既有核准及發布流程執行')]),
+    event(prodDate, '維運上 Prod，回報版本與上版結果', '依既有核准與上版程序發布 Prod，回報版本與結果並接既有上線驗證。上版或開發遇到問題要即時回報 PM，不等下一次 Daily。', 'Ready To Release', [], [handoff('ops','維運窗口','PM／相關窗口','Prod 發布版本／上版結果','沿用既有上線驗證及結案確認，異常即時回報 PM')]),
+    event(prodDate, '必要交付及上線驗證確認，Story 進 Done', '維運留版本與 Prod 結果，PM 沿既有結案條件確認，記 Story 實際完成日；各卡日期與原訂保留，不把發布動作本身視為自動結案。', 'Done', [change('ops','完成',prodDate)], [handoff('ops','維運窗口','PM','發布版本與既有驗證通過結果','PM 確認 Story Done')])
   ]; }
   const scenario = (label, tasks, events, extra = {}) => ({ label, type:'Story', title:'通知偏好設定', owner:'PM 窗口', originalStart:'2026-10-10',originalEnd:'2026-10-20',tasks,events,...extra });
   const scenarios = {

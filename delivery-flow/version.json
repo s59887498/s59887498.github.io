@@ -1,7 +1,7 @@
 {
-  "format": "delivery-flow-demo-v4",
-  "updated_date": "2026-10-21",
-  "content_revision": "edecfbb694943d079f3bc9bcf476400435c36a4661934886d16d3b3d7d8315af",
+  "format": "delivery-flow-demo-v5",
+  "updated_date": "2026-10-29",
+  "content_revision": "ebf55932d7024fb363b8a805aa52a772be80ce157084e31a86716f416327a5e0",
   "recording_policy": {
     "mode": "schedule_dates",
     "timezone": "Asia/Taipei",
@@ -13,16 +13,16 @@
     "data": "simulated"
   },
   "files": {
-    "index.html": "48aabec5f2098838b3b991be587711156eb1bd666b6640ae1af9174e3e381398",
+    "index.html": "c9fb3c80775cc3aaa1ab2acfb889f9263e2ad36542e445436b2a1b880c7d40a1",
     "styles.css": "54468c1876700e4d4dd5fd25beda9f6e01230c6c2dfc0ccb5b56295743f7b493",
-    "schedule.css": "67ab571388f9f301d88e174346fc57aefaaac507780666c52e181019842c509c",
-    "model.js": "a635b864fe27c731ec07cffca650fa91b6fcc5ee4bde87ee0057bdf02f50f21d",
-    "app.js": "3377846f4ea3ace018f765b01c945443bf17bb35d0d6293949988a4cc69506e9",
+    "schedule.css": "8b02de7aafd855812d4b59246b6a3ede8701c141935ab869c36cf31b40c97e43",
+    "model.js": "4ddf024ab9ebabf5c90335285bb185b40789a5ec9d24ee499c2bb55c3b53ea0d",
+    "app.js": "a49c646e8c47575ae450fd39716a978e266edf310b4709251a7a80b7c06cd276",
     "icon.svg": "a33b4f3273d18ee9b30c3ef98ee5c5bcbe02e59a7726ee1f2aeb50c76a1fc7c4",
-    "workflow.html": "4c65ca0e74796ce87777bf3aee38dce4dfb8993c3ddb414a242a0a724613a3f1",
+    "workflow.html": "255b95fd93f7768386a7897bba91b2afc9afd3ef376994cbe088e1dac84c06a8",
     "workflow.css": "d9ede2a7685aca638e6412b25cc019de2db3077c698e3cc488cea9cdcfa6cec0",
-    "workflow.js": "f5d5417ce5f6fbd992fdbd433d11b929d4a144e4c4e8087671297f44bd186904",
-    "role-walkthrough.js": "b2e0117e98a68fcd26e442ef7333de42aa3971fe98c1d8a119aad1f8d47bafdd"
+    "workflow.js": "95c005737bd72a7fb08a74e74cda8aabdda4832b47216c0cb69f894ad1dc945b",
+    "role-walkthrough.js": "1def11b57244829b1198c59761058efd9a4511d8fb1d53bc323840d8e5e75582"
   },
   "workflow_policy": {
     "story_created_by": "PM",
@@ -44,5 +44,32 @@
       "Ready To Release",
       "Done"
     ]
+  },
+  "release_policy": {
+    "preprod_environment": "Stage Testing",
+    "handoff_order": [
+      "RT completed",
+      "Ops prepares PreProd",
+      "RD checks scope and omissions",
+      "RD notifies QA",
+      "QA confirms feature coverage and regression Passed",
+      "Existing UAT/release conditions confirmed",
+      "Ops prepares and deploys Prod",
+      "Existing verification and PM closure"
+    ],
+    "qa_preprod_checks": [
+      "Feature coverage confirmed",
+      "Regression Passed"
+    ],
+    "issue_reporting": "immediate_to_PM"
+  },
+  "meeting_policy": {
+    "daily_decision": "clear_can_or_cannot_complete",
+    "if_blocked": [
+      "Bug or blocking reason",
+      "Owner",
+      "Expected completion or reply time"
+    ],
+    "development_or_release_issue": "immediate_to_PM_do_not_wait_for_Daily"
   }
 }
