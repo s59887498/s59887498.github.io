@@ -1,7 +1,7 @@
 {
   "format": "delivery-flow-demo-v5",
-  "updated_date": "2026-10-29",
-  "content_revision": "ebf55932d7024fb363b8a805aa52a772be80ce157084e31a86716f416327a5e0",
+  "updated_date": "2026-10-30",
+  "content_revision": "c8f7925c69a07c2ad9a8a0eef8046203465ac46ce94d777b78b645d24bad6cfe",
   "recording_policy": {
     "mode": "schedule_dates",
     "timezone": "Asia/Taipei",
@@ -13,7 +13,7 @@
     "data": "simulated"
   },
   "files": {
-    "index.html": "c9fb3c80775cc3aaa1ab2acfb889f9263e2ad36542e445436b2a1b880c7d40a1",
+    "index.html": "a0a7bd4373c7811cccf3933aa498b4706278a9171e95166005f7568db9bdbc61",
     "styles.css": "54468c1876700e4d4dd5fd25beda9f6e01230c6c2dfc0ccb5b56295743f7b493",
     "schedule.css": "8b02de7aafd855812d4b59246b6a3ede8701c141935ab869c36cf31b40c97e43",
     "model.js": "4ddf024ab9ebabf5c90335285bb185b40789a5ec9d24ee499c2bb55c3b53ea0d",
