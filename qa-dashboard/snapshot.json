@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-10-29T02:08:35+00:00",
+    "updated_at": "2026-10-30T02:09:00+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -2516,20 +2516,21 @@
         "product": "星舟快充",
         "owner": "待確認",
         "environment": "Stage；測試LINE LIFF與Gmail已備妥；信用卡待申請，佔槍費退款job待實作",
-        "summary": "測試LINE LIFF與Gmail已備妥，仍待申請信用卡支援Stage全盈回歸。新增待實作：佔槍費訂單退款job，登入後篩選已完成的測試訂單，呼叫退款API並確認結果。",
+        "summary": "10/30凌晨完整Stage06回歸run為57Passed／1Failed／13Skipped（pytest item，非全專案案例數）；唯一失敗HOGTC-104佔槍秒數起算點與API差約4秒，待RD確認契約。REG-030補測Passed。原信用卡與佔槍費退款job待辦仍保留。",
         "stage": "execution",
         "activity": "blocked",
-        "observed_at": "2026-10-19",
+        "observed_at": "2026-10-30T00:55:45+08:00",
         "activity_confirmed_at": "2026-10-19",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "沿用原目標：Teams回報Stage回歸結果、專用LIFF／信用卡支援全盈、CI自動觸發；測試LINE LIFF與Gmail依使用者已備妥。10/19信用卡仍待申請，另新增佔槍費訂單退款job待辦。使用者說明Stage已有固定排程退款腳本，本次僅記錄既有流程存在，不推定已涵蓋佔槍費或已查驗退款成功，亦不保證零未退款款項。新job預計登入取得授權後，僅處理Stage指定測試帳號／範圍內已完成且符合API可退款狀態的佔槍費訂單，呼叫退款API並讀回結果，避免重複退款，保留失敗追蹤與排程紀錄；API、排程頻率及退款狀態碼待實作盤點，不猜測。此次是任務新增與進度同步，尚未實作／執行job、退款、綁卡或寄信；total／counts維持null。信用卡申請信於對話提供草稿，不保存付款資料或憑證。",
+        "scope_note": "沿用原目標：Teams回報Stage回歸結果、專用LIFF／信用卡支援全盈、CI自動觸發；測試LINE LIFF與Gmail依使用者已備妥。10/19信用卡仍待申請，另新增佔槍費訂單退款job待辦。使用者說明Stage已有固定排程退款腳本，本次僅記錄既有流程存在，不推定已涵蓋佔槍費或已查驗退款成功，亦不保證零未退款款項。新job預計登入取得授權後，僅處理Stage指定測試帳號／範圍內已完成且符合API可退款狀態的佔槍費訂單，呼叫退款API並讀回結果，避免重複退款，保留失敗追蹤與排程紀錄；API、排程頻率及退款狀態碼待實作盤點，不猜測。此次是任務新增與進度同步，尚未實作／執行job、退款、綁卡或寄信；total／counts維持null。信用卡申請信於對話提供草稿，不保存付款資料或憑證。 10/30更新（Claude排程同步，採既有落盤摘要）：00:15 REG-030全支付掃碼單案補測Passed（加Preparing前置；首次因登入token失效setup ERROR，不計產品失敗）；00:21～00:55完整Stage06 run 71 pytest collected item（含參數化，非workbook Case ID）57Passed／1Failed／13Skipped，佔槍元件31項25／1／5。唯一失敗HOGTC-104：API occupancyStartTime與StopTransaction同秒，較首筆Finishing早約4秒，實測150～151秒vs API 154秒；本筆金額兩種口徑皆4000分、未見多收，但該案金額及final-bill斷言未跑完不算通過。13Skip為開關保護8項及缺測資／授權scope／退款訂單5項，不算Passed。financial_reconciliation仍pending。run counts不覆蓋全專案；total／counts維持null。activity沿用10/19 blocked確認，摘要明示不覆寫全專案狀態；本輪無新的全專案現況確認。",
         "blockers": [
           "信用卡申請尚未完成，全盈信用卡回歸配置仍待備妥。",
-          "新增佔槍費訂單退款job尚未實作／驗證；API契約、訂單範圍與排程需於實作前確認。"
+          "新增佔槍費訂單退款job尚未實作／驗證；API契約、訂單範圍與排程需於實作前確認。",
+          "HOGTC-104佔槍起算點：API occupancyStartTime（≈StopTransaction）與OCPP Finishing差約4秒，需RD／需求owner確認Stage build契約；另需評估模擬器Stop ACK後回報Charging與MinimumStatusDuration=3的競態。"
         ],
-        "next_action": "向Samuel申請Stage全盈回歸專用信用卡；另盤點既有登入與退款腳本，建立Stage佔槍費退款job（登入→篩選已完成且可退款的測試訂單→退款API→讀回結果），完成重複退款防護、失敗追蹤及排程驗證。",
+        "next_action": "RD／需求owner確認佔槍起算契約後對齊測試oracle，並以Stop／Finishing有明顯間隔的場景複驗HOGTC-104；向Samuel申請Stage全盈回歸專用信用卡；建立Stage佔槍費退款job並完成財務對帳。",
         "sources": [
           {
             "kind": "local",
@@ -2555,6 +2556,37 @@
             "ref": "qa_optimization/reports/research/2026-10-19_progress-sync.md",
             "checked_at": "2026-10-19T11:55:03+08:00",
             "note": "使用者確認既有Stage定時退款流程；新佔槍費job待實作，不視為已部署或已驗證。"
+          },
+          {
+            "kind": "local",
+            "label": "10/30 REG-030 Preparing修正補測摘要",
+            "ref": "qa_optimization/reports/research/2026-10-30_test-progress_PRJ-STARCHARGE-STAGE-REGRESSION-IMPROVEMENT-202610_001704_REG030-PREPARING.md",
+            "checked_at": "2026-10-30T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/30完整Stage06回歸Fail原因分析摘要",
+            "ref": "qa_optimization/reports/research/2026-10-30_test-progress_PRJ-STARCHARGE-STAGE-REGRESSION-IMPROVEMENT-202610_095812_stage-fail-analysis.md",
+            "checked_at": "2026-10-30T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/30完整Stage06 HTML報告",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/2026-10-30_00_55_45_TestReportHDREQA.html",
+            "checked_at": "2026-10-30T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "HOGTC-104失敗Allure結果",
+            "ref": "Automation_HDRE/Automation_API_UI-main/result/723270c5-676e-4dab-bbf2-b5634975312e-result.json",
+            "checked_at": "2026-10-30T10:15:00+08:00",
+            "note": "failed：actual seconds 154 outside observed integer envelope (150, 151)"
+          },
+          {
+            "kind": "local",
+            "label": "佔槍lane run evidence（cleanup complete；financial pending）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/occupancy_fee/stage-regression-20261030-002156-812244/",
+            "checked_at": "2026-10-30T10:15:00+08:00"
           }
         ]
       },
@@ -2564,22 +2596,17 @@
         "product": "星舟快充",
         "owner": "Andy",
         "environment": "Stage／台北延平北專用站（location1928）；截圖樁槍SN2502190045-0；CPO build、App版本與EMSP待確認",
-        "summary": "10/21已實車執行。結果工作簿Readable View原始標記15案中12案Passed、3案Blocked（HOGOCAR-008、014、015），Case Index仍為Not Started。實車回饋：停充後仍插槍時App持續顯示充電中；佔槍費已含於CDR總額但App未列拆項。10/22已產出賓士App顯示建議MD Draft v0.1，待RD補Session／CDR。",
-        "stage": "execution",
-        "activity": "active",
-        "activity_confirmed_at": "2026-10-22",
-        "observed_at": "2026-10-22",
+        "summary": "佔槍費OCPI實車已完成。原三項Blocked（008／014／015）依使用者確認改Pass：星舟已正常推送CDR，賓士端顯示問題已提出優化建議。專案完成進度100%。",
+        "stage": "report",
+        "activity": "completed",
+        "activity_confirmed_at": "2026-10-30",
+        "observed_at": "2026-10-30",
         "total": 15,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "同一OCPI實車輪次（15案／70步）。Readable View逐步State原始標記：12案全Passed、3案全Blocked（60步Passed／10步Blocked），為使用者提供工作簿標記，非Agent重跑。因HOGOCAR-001 State為Passed但Error Note寫「看不到延平北站點」、HOGOCAR-014工作簿為Blocked但使用者稱分鐘／分段佔槍費已含CDR且總額正確，兩案判定待確認，故counts暫為null；逐案執行日期未提供（截圖訂單日期10/21，結果擷取10/22）。Case Index的15案Not Started不採用。原142案結果未改。",
-        "blockers": [
-          "HOGOCAR-001：State Passed與Error Note「看不到延平北站點」不一致，最終判定待Andy確認。",
-          "HOGOCAR-014：工作簿Blocked，與使用者敘述佔槍費已含CDR且總額正確不一致，待確認是否改判；008、015仍Blocked原因待補。",
-          "App停充後仍顯示充電中、訂單未列佔槍拆項：需CPO／EMSP RD依截圖時間補Session、CDR與事件對照；逐案執行日期、CPO build、App版本待確認。",
-          "HOGOCAR-011未取得支付／財務紀錄，實收與財務對帳未獨立驗證。"
-        ],
-        "next_action": "CPO RD／EMSP RD／賓士App串接窗口依截圖時間（15:29～15:35、約15:49～15:59）查Session與CDR；Andy確認001、014判定與逐案日期後回填Readable View，再複驗Blocked案例。",
+        "scope_note": "2026-10-30使用者確認任務完成，原HOGOCAR-008／014／015三項Blocked先改判Pass：依使用者說明星舟已正常推送CDR，屬賓士端問題且已提出優化。這是使用者驗收決策，本次未重跑、未自行讀回或修改Excel、未獨立核對CDR與對方接受狀態。10/22原工作簿Readable View標記12 Passed／3 Blocked，001原State Passed但Error Note提到看不到站點；本次未逐案解釋001落差，不推定其全部步驟通過。011未獨立取得實收／財務紀錄。總scope 15案／70步，Case Index原未更新，total=15、counts／counts_as_of維持null；100%為任務完成進度，不等同15案全Pass。既有賓士App建議MD為Draft，本次未新增正式Test Report；UAT／Prod與外部接收時間未知。",
+        "blockers": [],
+        "next_action": "本輪任務已完成；星舟與賓士窗口可追蹤已提出的顯示優化。若需完整案例統計，另核對HOGOCAR-001原始備註與工作簿最新結果。",
         "sources": [
           {
             "kind": "local",
@@ -2616,37 +2643,50 @@
             "label": "賓士App OCPI佔槍費狀態與費用顯示建議 Draft v0.1",
             "ref": "qa_ai_workflow/outputs/reports/星舟快充/佔槍費/賓士App_OCPI佔槍費_狀態與費用顯示建議_20261022.md",
             "checked_at": "2026-10-26"
+          },
+          {
+            "kind": "local",
+            "label": "10/30 三項Blocked改Pass與任務完成使用者確認",
+            "ref": "qa_optimization/reports/research/2026-10-30_test-progress_PRJ-STARCHARGE-IDLE-FEE-OCPI-CAR-20261021_004053_user-acceptance.md",
+            "checked_at": "2026-10-30T00:40:53+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/30 OCPI結案與QA Retest狀態同步",
+            "ref": "qa_optimization/reports/research/2026-10-30_progress-sync_02.md",
+            "checked_at": "2026-10-30T00:40:53+08:00"
           }
-        ]
+        ],
+        "planned_start_at": "2026-10-21"
       },
       {
         "id": "PRJ-STARCHARGE-SMART-BALANCING-P2-202610",
         "title": "智慧均流 Phase2：優化與能源均流監控",
-        "summary": "10/28 M1 離線保留後新樁起充出現短暫超額風險，已開單請 RD 確認10秒輪詢及限額時序；原32案沿用10/27統計。",
+        "summary": "10/30依使用者確認Figma／PM結論，未加入樁不需狀態與功率欄；BUG-SBMON-001以非缺陷結案，024舊預期撤銷改Skipped；其他測試結果與阻礙保留。",
         "product": "星舟快充",
         "owner": "Andy Huang",
         "environment": "RT；M1與新豐休息站；FE/BE release tag待確認",
         "stage": "execution",
-        "activity": "active",
+        "activity": "blocked",
         "planned_start_at": "2026-10-27",
-        "activity_confirmed_at": "2026-10-28T19:26:15+08:00",
-        "observed_at": "2026-10-28T19:26:15+08:00",
+        "activity_confirmed_at": "2026-10-29T11:12:41+08:00",
+        "observed_at": "2026-10-30T00:28:58+08:00",
         "total": 32,
         "counts": {
-          "passed": 14,
-          "failed": 1,
-          "blocked": 17,
-          "skipped": 0,
+          "passed": 16,
+          "failed": 0,
+          "blocked": 14,
+          "skipped": 2,
           "not_run": 0
         },
-        "counts_as_of": "2026-10-27",
-        "scope_note": "Phase2監控32 unique ID/76步，包含30新ID與2舊Skipped沿用ID；實車7案同ID子集合不另加總。14案通過限已驗斷言，未完成整體驗收；Case Failed優先於Blocked。工作簿未回填，結果以本輪execution.json為準。 10/27本週任務登錄沿用ST-8559／QA ST-8563，不另造新卡或將狀態退回待測。151558與152545摘要接續145836：BUG-SBMON-001已轉正式Asana Bug 1219923569883164，且補明QA暫時移出樁準備未加入情境後發現缺欄位；M1目前10樁全加入不是漏加樁。未重測、counts與counts_as_of保持原值；實車7案仍是32案子集合。使用者本週目標10/26～10/30，Asana需求及QA期限10/29；缺陷建立不代表修復或驗收完成。 10/28 M1停充中離線＋新樁起充為獨立探索，不加進32案。16:51:12盤分配140、目前50，離線保留120加在線20＋30為170 kW風險；P3分配null，離線實際功率未知，非畫面分配170或實際總耗電170。P2/P3限額生效後穩態120＋16＋4＝140。ENV RT沙盒依使用者確認；模擬器明確配置false，實樁配置待查。",
+        "counts_as_of": "2026-10-30",
+        "scope_note": "32 unique ID／76步，Readable View與Case Index聚合一致。16Passed／0Failed／14Blocked／2Skipped為10/27、10/29歷史結果加10/30使用者需求確認：024舊欄位預期撤銷而Skipped；非RD修復複驗或32案今日重測。9案API/OCPP前置已完成但UI入口依10/29確認Blocked；027另缺新target證據。026／029為使用者確認Passed，018 AC Skipped。實車7案同ID子集合仍6Passed／1Failed（007），獨立lane不互相覆蓋、不重複加總。單一Bug關閉不代表整體交付。",
         "blockers": [
-          "BUG-SBMON-001（Asana 1219923569883164）：未加入表缺Figma1014狀態與功率欄，待RD修復／QA複驗。",
           "M1新樁起充瞬間保留額度加在線回報功率超盤額定，Asana 1219971162562826 待RD確認限額時序；未證實與現場分配600同因。",
-          "無AC/受限RBAC/同契約fixture；實車由現場執行；詳情query與PRD state契約待確認"
+          "使用者確認即時監控入口已調整、目前不可見；006／007／009／010／012／014／016／017／027完整畫面驗收先Blocked。",
+          "027正常停充後API未明確標示新priority；020／021參數契約、002同契約測資及權限022／023仍待後續處理。"
         ],
-        "next_action": "指派並請RD確認 Asana 1219971162562826 的輪詢／限額時序及是否與實車單同因；必要時複驗。",
+        "next_action": "待監控新入口可用後複驗9案畫面；RD核對027新優先目標及messageId低頻問題；使用者另測權限022／023。",
         "sources": [
           {
             "kind": "local",
@@ -2750,6 +2790,37 @@
             "label": "離線保留期間新樁起充風險追蹤單",
             "ref": "https://app.asana.com/1/1201720793465976/task/1219971162562826",
             "checked_at": "2026-10-28T19:26:15+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/29補測與State回填摘要",
+            "ref": "qa_optimization/reports/research/2026-10-29_test-progress_PRJ-STARCHARGE-SMART-BALANCING-P2-202610_111230_phase2-retest-state.md",
+            "checked_at": "2026-10-29T11:12:41+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/29逐步補測及工作簿回填驗證",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/rt_phase2_retest_20261029_104540/execution.json",
+            "checked_at": "2026-10-29T11:12:41+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "10/30未加入樁欄位Bug已依需求確認結案",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219923569883164",
+            "checked_at": "2026-10-30T00:28:58+08:00",
+            "note": "completed=true、Status=Done；使用者明確授權，以非缺陷結案。"
+          },
+          {
+            "kind": "local",
+            "label": "10/30非缺陷結案與024結果更正",
+            "ref": "qa_ai_workflow/outputs/reports/星舟快充/智慧均流/bug001_closure_20261030_002528/resolution.json",
+            "checked_at": "2026-10-30T00:28:58+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/30結果更正交接摘要",
+            "ref": "qa_optimization/reports/research/2026-10-30_test-progress_PRJ-STARCHARGE-SMART-BALANCING-P2-202610_002858_bug001-not-a-defect.md",
+            "checked_at": "2026-10-30T00:28:58+08:00"
           }
         ]
       },
@@ -2758,20 +2829,18 @@
         "title": "即時充電樁監控：樁明細與報表顯示槍狀態",
         "product": "星舟快充",
         "owner": "QA：Andy Huang",
-        "environment": "待確認：本輪前後台、報表測試環境與FE／BE build",
-        "summary": "本週待測（Asana主單／QA期限10/29）：樁明細新增充電槍名稱與槍狀態，報表同步新增對應欄位。QA子任務尚未完成，環境／build待確認。",
-        "stage": "planning",
-        "activity": "planned",
-        "observed_at": "2026-10-27",
-        "activity_confirmed_at": "2026-10-27",
+        "environment": "QA子單已交付測試結果；Prod已上版（依使用者10/30確認）；實際環境／build待確認",
+        "summary": "測試完成並已上Prod；ST-9142主單與QA子單已完成，QA留言Test Passed。原篩選Bug子單亦已完成；專案完成進度100%。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-10-30",
+        "activity_confirmed_at": "2026-10-30",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "本週工作目標為2026-10-26～10-30，依使用者10/27指示登錄；不代表已完成、RD已部署或QA已開測。尚未取得正式案例集及本輪結果，total／counts／counts_as_of為null；不把需求、Issue或API數量當案例數。 ST-9142需求與QA ST-9144為同一項，沒有與已開測的智慧均流監控ST-8559合併。範圍依需求內文為列表樁明細與報表欄位；目前未取得本輪執行或交付證據。",
-        "blockers": [
-          "RD實際交付、測試環境／build及本輪案例待確認。"
-        ],
-        "next_action": "確認RD交付版本與測試環境，核對樁明細展開及報表的充電槍名稱／狀態，再記錄QA結果。",
+        "scope_note": "2026-10-30使用者確認測試完成並已上Prod；ST-9142主單於10/30 00:11完成，QA ST-9144於10/28 16:32完成並留言Test Passed、附證據連結。QA子單下篩選Bug 1219920359462256亦已完成。範圍涵蓋樁明細／報表的充電槍名稱與狀態；本次未下載QA附件、未取得詳細案例分母或獨立驗證Prod版本。原10/27待測、待交付為歷史狀態；total／counts／counts_as_of維持null，100%為專案完成進度。",
+        "blockers": [],
+        "next_action": "本輪測試與上版已完成；後續問題依實際觀察另行追蹤。",
         "sources": [
           {
             "kind": "local",
@@ -2791,6 +2860,33 @@
             "ref": "https://app.asana.com/1/1201720793465976/task/1219526394935864",
             "checked_at": "2026-10-27T16:50:10+08:00",
             "note": "未完成；Andy Huang；due_on=2026-10-29。"
+          },
+          {
+            "kind": "local",
+            "label": "10/30 使用者確認測試完成與Prod上版",
+            "ref": "qa_optimization/reports/research/2026-10-30_progress-sync.md",
+            "checked_at": "2026-10-30T00:35:18+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9142 主單完成",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219526490153441",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "completed=true；2026-10-29T16:11:15Z；10/29留言QA Test Completed。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9144 QA交付",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219526394935864",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "completed=true；2026-10-28T08:32:00Z；Test Passed並附附件連結，本次未下載。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9144篩選Bug子任務",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219920359462256",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "completed=true；2026-10-28T08:31:59Z。"
           }
         ]
       },
@@ -2799,20 +2895,18 @@
         "title": "充電進度與結束充電異常複驗（本週OP Bugfix）",
         "product": "星舟快充",
         "owner": "QA：Andy Huang",
-        "environment": "待確認：本輪RT／Stage與LIFF、BE實際版本；10/29僅Asana預計上版日期",
-        "summary": "本週待複驗：ST-8470／ST-9153及新增ST-9253／ST-9258，涵蓋拒絕充電訊息、進度頁卡住與結束充電無反應。10/29為RD預計上版，尚未視為已交付。",
-        "stage": "planning",
-        "activity": "planned",
-        "observed_at": "2026-10-27",
-        "activity_confirmed_at": "2026-10-27",
+        "environment": "QA曾於RT複驗；Prod已上版（依使用者10/30確認）；實際Prod版本與獨立驗證紀錄待確認",
+        "summary": "四張OP關聯單QA複驗已完成，使用者確認已上Prod；ST-8470的QA Retest子單已完成，主單保留上版後觀察。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-10-30T00:37:39+08:00",
+        "activity_confirmed_at": "2026-10-30",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "本週工作目標為2026-10-26～10-30，依使用者10/27指示登錄；不代表已完成、RD已部署或QA已開測。尚未取得正式案例集及本輪結果，total／counts／counts_as_of為null；不把需求、Issue或API數量當案例數。 四張OP單依留言屬關聯交易快取問題，作一項本週複驗工作管理；保留每張QA子任務，不將四單當四個Test Case，也不自行合併或關閉Asana。使用者第一張連結1219675701591329實為BE ST-9188，其Main為1219624260933958（ST-9153），不能顯示為需求名稱BE。ST-8470以新增QA Retest ST-9196為本輪來源，舊QA已完成不代表本次複驗完成。新增兩單的Asana主單期限11/10、ST-9153主單11/02，與使用者本週目標分開保存，不改外部due。舊五張OP輪次PRJ-STARCHARGE-OP-RT-20261013維持completed；本卡追蹤後續新客訴／修復輪次，10/19調查不是本週重跑。根因與關聯引自Asana人工分析，本次同步未重現或獨立驗證。 10/28同步備註：10/27 17:04摘要將同四單的RT automation補充複驗（3情境run PASS、cacheConsistency未觀測、後端build未知、MAN-01～05未執行）歸入PRJ-STARCHARGE-OP-RT-20261013，本卡不採其結果、不改stage／counts；是否屬本週修復輪次待使用者確認歸屬及實際部署版本。 10/29同步備註：10/28 112719摘要宣告同四單（ST-8470／9153／9253／9258）QA複驗完成並留言主單，且ST-9253／9258留言載明10/27上版RT；摘要仍歸入PRJ-STARCHARGE-OP-RT-20261013。本卡與該結果範圍重疊，歸屬與本卡是否應改為完成待使用者確認；本次未改stage／activity／counts，也不自行推定已部署。",
-        "blockers": [
-          "10/29仍為預計部署，尚未取得本輪實際交付版本／環境。"
-        ],
-        "next_action": "確認ST-8470／ST-9153修正已交付及LIFF／BE版本，依四張QA子任務複驗Charging先到／StartTransaction晚到、同槍跨會員及同會員連續充電、Titan與Zerova AC，以及無即時數據時結束充電可用；各單留下結果。",
+        "scope_note": "2026-10-30使用者明確確認ST-8470／ST-9153／ST-9253／ST-9258均測試完成且已上Prod，釐清先前10/28、10/29摘要的卡片歸屬疑問，將本週OP工作標記completed。10/28四單RT QA複驗結果已留言並交付：手動M01／02／03／05／06／07／08由使用者確認正常；M04依RD／PM決策Skip，不能寫成PASS；10/27三個API／OCPP模擬情境PASS。沒有正式案例全量分母，total／counts／counts_as_of維持null；100%為專案完成進度，非案例全Pass。四張OP主單目前仍completed=false，10/29留言為「於10/29上版，待後續觀察」，未明示環境；Prod上版依10/30使用者確認，未獨立查部署平台／版本或宣稱Prod已實測。QA ST-9189／9262／9260已完成，ST-9196 QA Retest子單已由使用者手動標記完成（Asana completed=true；2026-10-30 00:37:39+08:00）；本次唯讀核對，未代改Asana。後端cache內部一致性與RT image／commit追溯尚無獨立證據，依原交付屬追溯而非新增QA待測項；既有舊輪卡不更動。",
+        "blockers": [],
+        "next_action": "本輪QA複驗與Prod上版已完成，ST-9196 QA Retest已完成；依Asana主單記錄持續觀察。",
         "sources": [
           {
             "kind": "local",
@@ -2893,6 +2987,66 @@
             "label": "10/28 同四單QA複驗完成摘要（歸屬OP-RT原輪卡，本卡僅參照，歸屬待確認）",
             "ref": "qa_optimization/reports/research/2026-10-28_test-progress_PRJ-STARCHARGE-OP-RT-20261013_112719_qa-complete-asana-comments.md",
             "checked_at": "2026-10-29T10:15:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/30 使用者確認測試完成與Prod上版",
+            "ref": "qa_optimization/reports/research/2026-10-30_progress-sync.md",
+            "checked_at": "2026-10-30T00:35:18+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "10/28 四張OP RT複驗完成及M04 Skip交付摘要",
+            "ref": "qa_optimization/reports/research/2026-10-28_test-progress_PRJ-STARCHARGE-OP-RT-20261013_112719_qa-complete-asana-comments.md",
+            "checked_at": "2026-10-30T00:35:18+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-8470 RT複驗與上版後觀察",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219009041223599",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "主單completed=false；10/28 RT QA留言完成、10/29留言已上版待觀察，留言未指定環境。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9196 QA Retest狀態",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219675700368172",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "10/30唯讀仍completed=false；不影響使用者本次確認的QA工作完成，不由本次同步修改。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9189 QA子單",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219675701591330",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "completed=true；2026-10-28T06:55:34Z。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9262 QA子單",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219918940095220",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "completed=true；2026-10-28T06:55:43Z。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9260 QA子單",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219918940095215",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "completed=true；2026-10-28T06:55:47Z。"
+          },
+          {
+            "kind": "local",
+            "label": "10/30 ST-9196完成及OCPI結案同步",
+            "ref": "qa_optimization/reports/research/2026-10-30_progress-sync_02.md",
+            "checked_at": "2026-10-30T00:40:53+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9196 QA Retest最新完成狀態",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219675700368172",
+            "checked_at": "2026-10-30T00:40:53+08:00",
+            "note": "completed=true；completed_at=2026-10-29T16:37:39.925Z；使用者手動更新。"
           }
         ]
       },
@@ -2901,20 +3055,18 @@
         "title": "佔槍費：財務對帳與結算畫面優化",
         "product": "星舟快充",
         "owner": "QA：Andy Huang",
-        "environment": "待確認：財務對帳後台、LIFF及報表本輪環境／版本",
-        "summary": "本週待測：財務對帳改用「訂單編號」、新增「佔槍費用」類型，LIFF結算移除兩個金額欄位，報表新增佔槍費資料。Asana主單10/29、QA子單10/27。",
-        "stage": "planning",
-        "activity": "planned",
-        "observed_at": "2026-10-27",
-        "activity_confirmed_at": "2026-10-27",
+        "environment": "QA子單已交付測試結果；Prod已上版（依使用者10/30確認）；實際環境／build待確認",
+        "summary": "佔槍費財務對帳與結算畫面優化已測試完成並上Prod；主單與QA子單已完成，QA留言Test Passed。專案完成進度100%。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-10-30",
+        "activity_confirmed_at": "2026-10-30",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "本週工作目標為2026-10-26～10-30，依使用者10/27指示登錄；不代表已完成、RD已部署或QA已開測。尚未取得正式案例集及本輪結果，total／counts／counts_as_of為null；不把需求、Issue或API數量當案例數。 ST-9192／QA ST-9195為新的財務對帳優化範圍，不重開原PRJ-STARCHARGE-IDLE-FEE-202609已完成輪次。依需求內文：充電訂單編號調整為訂單編號、商品名稱增加佔槍費用、LIFF移除折扣後訂單金額及訂單金額、BE Stored Procedure新增佔槍費欄位資料。以上是待驗範圍，不是已實測結論。",
-        "blockers": [
-          "交付環境／版本、報表與LIFF對照資料待確認。"
-        ],
-        "next_action": "確認FE／BE／報表交付後，核對後台欄名與類型、LIFF結算顯示及報表佔槍費欄位資料，記錄QA結果。",
+        "scope_note": "2026-10-30使用者確認測試完成並已上Prod；ST-9192主單於10/30 00:11完成，QA ST-9195於10/28 14:39完成，留言Test Passed並附附件連結。本次未下載附件，未取得詳細案例分母及Prod版本／獨立上線驗證。範圍為財務對帳訂單編號／佔槍費用、LIFF結算欄位及報表佔槍費資料；此前10/27待測文字為歷史狀態。total／counts／counts_as_of維持null，100%為專案完成進度，不宣稱全案例通過。",
+        "blockers": [],
+        "next_action": "本輪測試與上版已完成；後續問題依實際觀察另行追蹤。",
         "sources": [
           {
             "kind": "local",
@@ -2935,6 +3087,26 @@
             "ref": "https://app.asana.com/1/1201720793465976/task/1219681229198574",
             "checked_at": "2026-10-27T16:50:10+08:00",
             "note": "未完成；Andy Huang；due_on=2026-10-27。"
+          },
+          {
+            "kind": "local",
+            "label": "10/30 使用者確認測試完成與Prod上版",
+            "ref": "qa_optimization/reports/research/2026-10-30_progress-sync.md",
+            "checked_at": "2026-10-30T00:35:18+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9192 主單完成",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219673107048164",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "completed=true；2026-10-29T16:11:17Z。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9195 QA交付",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219681229198574",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "completed=true；2026-10-28T06:39:43Z；Test Passed並附附件連結，本次未下載。"
           }
         ]
       },
@@ -2943,21 +3115,18 @@
         "title": "財務報表：原始充電訂單新增手續費欄位",
         "product": "星舟快充",
         "owner": "QA：Andy Huang",
-        "environment": "待確認：財務報表後台及匯出檔測試環境／BE版本",
-        "summary": "本週待測（Asana主單10/29）：原始充電訂單頁籤新增手續費相關欄位。主單標題為「手續費欄位」，內文寫「手續費稅額」，須先對齊實際欄位與驗收規則。",
-        "stage": "planning",
-        "activity": "planned",
-        "observed_at": "2026-10-27",
-        "activity_confirmed_at": "2026-10-27",
+        "environment": "QA子單已交付測試結果；Prod已上版（依使用者10/30確認）；實際環境／build待確認",
+        "summary": "財務報表原始充電訂單手續費欄位已測試完成並上Prod；主單與QA子單已完成，QA留言Test Passed。專案完成進度100%。",
+        "stage": "report",
+        "activity": "completed",
+        "observed_at": "2026-10-30",
+        "activity_confirmed_at": "2026-10-30",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "本週工作目標為2026-10-26～10-30，依使用者10/27指示登錄；不代表已完成、RD已部署或QA已開測。尚未取得正式案例集及本輪結果，total／counts／counts_as_of為null；不把需求、Issue或API數量當案例數。 ST-9137需求與QA ST-9140一併追蹤；標題與內文欄位名稱差異保留為待確認，不自行推定兩者相同或計算公式。附件僅知內文有參考連結，本輪未下載核對圖片。",
-        "blockers": [
-          "「手續費欄位」與「手續費稅額」名稱／範圍不一致，待需求owner確認。",
-          "測試環境、交付版本與對照資料待確認。"
-        ],
-        "next_action": "向RD／需求owner確認手續費／手續費稅額的實際名稱、計算與資料來源，交付後核對原始充電訂單頁籤及對應匯出資料。",
+        "scope_note": "2026-10-30使用者確認測試完成並已上Prod；ST-9137主單於10/30 00:11完成，QA ST-9140於10/28 14:31完成並留言Test Passed。本次未取得詳細案例分母、QA附件或Prod版本／獨立上線驗證；原標題「手續費欄位」與內文「手續費稅額」文字差異保留為來源紀錄，不自行假定計算公式。10/27待測為歷史狀態；total／counts／counts_as_of維持null，100%為專案完成進度。",
+        "blockers": [],
+        "next_action": "本輪測試與上版已完成；後續問題依實際觀察另行追蹤。",
         "sources": [
           {
             "kind": "local",
@@ -2978,6 +3147,26 @@
             "ref": "https://app.asana.com/1/1201720793465976/task/1219526406634707",
             "checked_at": "2026-10-27T16:50:10+08:00",
             "note": "未完成；Andy Huang；未設定due_on。"
+          },
+          {
+            "kind": "local",
+            "label": "10/30 使用者確認測試完成與Prod上版",
+            "ref": "qa_optimization/reports/research/2026-10-30_progress-sync.md",
+            "checked_at": "2026-10-30T00:35:18+08:00"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9137 主單完成",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219526490153434",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "completed=true；2026-10-29T16:11:10Z。"
+          },
+          {
+            "kind": "web",
+            "label": "ST-9140 QA交付",
+            "ref": "https://app.asana.com/1/1201720793465976/task/1219526406634707",
+            "checked_at": "2026-10-30T00:35:18+08:00",
+            "note": "completed=true；2026-10-28T06:31:43Z；留言Test Passed。"
           }
         ]
       }
@@ -2985,7 +3174,7 @@
   },
   "optimizations": {
     "schema_version": 1,
-    "updated_at": "2026-10-16T02:16:06+00:00",
+    "updated_at": "2026-10-30T02:16:43+00:00",
     "items": [
       {
         "id": "OPT-PERF-001",
@@ -3242,12 +3431,12 @@
         "priority": "P1",
         "confidence": "evidence",
         "research_status": "candidate",
-        "finding": "Automation_API_UI-main/requirements.txt 共 30 項，只有 fastapi、uvicorn 有版本範圍，testreporthdreqa==0.0.3 有固定版，其餘 27 項（含 pytest、selenium、allure-pytest、requests、pandas）完全未鎖；目錄下沒有 lock 或 constraints 檔。CI 的 Install dependencies step 每次執行 pip install -r requirements.txt 重新解析。官方事實：pytest 最新為 9.1.1（2026-06-19），而 9.0.0 已把測試回傳非 None 由警告改為失敗、把 PytestRemovedIn9Warning 一律轉為錯誤、並停止支援 Python 3.9；CI 的 python_version 選項仍保留 3.9，選 3.9 時會解析到不同的舊 pytest。本輪未執行 CI，沒有證據顯示目前已經失敗。 2026-09-11 重新核對：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），之後沒有新版本，因此未鎖版目前會解析到 9.1.1；9.0.0 的破壞性變更仍是風險來源，CI 的 python_version 也仍保留 3.9 選項（選 3.9 會解析到 8.x）。本輪新增三項本機證據：(1) 同 workspace 的 SC_QA_Charge_Stress_Test/requirements.txt 共 17 項全部固定版本，內部已有可直接沿用的鎖版作法；(2) Automation_API_UI-main/requirements.txt 同時列 pillow（第 22 行）與 Pillow（第 29 行），重複宣告同一套件；(3) pytest-cov（第 5 行）已宣告，但全 repo 沒有任何 --cov 或 pytest_cov 使用，屬未使用的依賴。另外 CI 的 setup-python cache 以 requirements.txt 內容為 key，檔案沒變時 key 也不變，但 pip 仍會解析到當下最新版本，快取不提供可重現性。 2026-09-18 排程研究：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），2026 年僅 9.1.0（2026-06-13）與 9.1.1 兩版，自 9/11 起沒有新版本，未鎖版目前仍會解析到 9.1.1。 本輪並補齊上一輪明確記錄為「無法以官方來源交叉核對」的 GitHub Actions 版本事實：改由 GitHub REST API 的 releases/latest 端點取得，actions/checkout 最新為 v7.0.1（2026-07-20）、actions/setup-python 最新為 v7.0.0（2026-07-20）、actions/upload-artifact 最新為 v7.0.1（2026-04-10）。而 starcloud-stage-tests.yml 第 109／115／154 行分別固定在 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4。 關鍵判讀：actions/checkout 的 releases 清單顯示 v7.0.1、v6.1.0、v5.1.0、v4.4.0、v3.7.0、v2.8.0 都在 2026-07-20 同一天發版，代表舊主版本仍在維護，因此「用 v4」本身不是錯誤，也不構成升級理由；真正的可重現性問題與 requirements.txt 相同——@v4／@v5 是浮動的 major tag，同一份 commit 在不同時間會拉到不同的 action 程式碼，且改動不會出現在任何 commit 裡。 2026-09-25：PyPI 官方 JSON 顯示 allure-pytest 在 2026-09-18（上一輪研究當天）發布 2.16.1；requirements.txt 中 allure-pytest、allure-python-commons 皆未鎖版，因此 9/18 前後在乾淨環境安裝會解析到不同版本，這是「沒有任何 commit 卻改變安裝結果」的具體實例。本輪未確認 CI 實際安裝到哪一版，也不主張該版本造成任何失敗。pytest 仍為 9.1.1（2026-06-19），pytest-html 4.2.0，requests 2.34.2。 2026-10-02：PyPI 專案頁顯示 selenium 最新 4.49.0（2026-09-09）要求 Python >=3.10，websocket-client 最新 1.9.2（2026-08-31）同樣要求 >=3.10；CI 第 24-31 行 python_version 仍提供 3.9，選 3.9 時除 pytest 外，selenium 與 websocket-client 也會靜默解析到不同的舊版，同一 commit 的 UI 與 OCPP 用戶端行為可能隨 Python 選項改變。來源衝突：本輪 PyPI JSON API 被 robots 拒絕，改讀 pypi.org/project/allure-pytest/ 專案頁，該頁顯示最新 2.16.0（2026-04-27），與上一輪 JSON API 取得的 2.16.1（2026-09-18）不一致，本輪無法判定何者為準，2.16.1 實例暫列待再核對；此衝突不影響「未鎖版即不可重現」的主要結論。pytest 仍為 9.1.1（2026-06-19）。",
-        "proposal": "先做一次乾淨環境的解析快照，記錄實際安裝到的版本清單當 baseline；再把該清單寫成 constraints 或鎖檔（例如 pip freeze 產生 constraints.txt，CI 以 -c 套用），requirements.txt 保留可讀的直接依賴。同時把 CI 的 python_version 選項與實際支援的 pytest 版本對齊，移除或明確標註 3.9。升級依賴改為刻意的 PR，不是每次 push 的副作用。 鎖版時一併處理重複與未使用的宣告（pillow／Pillow 去重、確認是否保留 pytest-cov），並以 SC_QA_Charge_Stress_Test/requirements.txt 的固定版本格式作為內部參考。 同一原則套用到 CI 的 action 版本：把 uses: 的浮動 major tag 改為固定 commit SHA（或至少固定到完整版本號），升級同樣改為刻意的 PR。是否同時升到 v7 由使用者決定，本輪沒有任何需要升級的理由。",
+        "finding": "Automation_API_UI-main/requirements.txt 共 30 項，只有 fastapi、uvicorn 有版本範圍，testreporthdreqa==0.0.3 有固定版，其餘 27 項（含 pytest、selenium、allure-pytest、requests、pandas）完全未鎖；目錄下沒有 lock 或 constraints 檔。CI 的 Install dependencies step 每次執行 pip install -r requirements.txt 重新解析。官方事實：pytest 最新為 9.1.1（2026-06-19），而 9.0.0 已把測試回傳非 None 由警告改為失敗、把 PytestRemovedIn9Warning 一律轉為錯誤、並停止支援 Python 3.9；CI 的 python_version 選項仍保留 3.9，選 3.9 時會解析到不同的舊 pytest。本輪未執行 CI，沒有證據顯示目前已經失敗。 2026-09-11 重新核對：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），之後沒有新版本，因此未鎖版目前會解析到 9.1.1；9.0.0 的破壞性變更仍是風險來源，CI 的 python_version 也仍保留 3.9 選項（選 3.9 會解析到 8.x）。本輪新增三項本機證據：(1) 同 workspace 的 SC_QA_Charge_Stress_Test/requirements.txt 共 17 項全部固定版本，內部已有可直接沿用的鎖版作法；(2) Automation_API_UI-main/requirements.txt 同時列 pillow（第 22 行）與 Pillow（第 29 行），重複宣告同一套件；(3) pytest-cov（第 5 行）已宣告，但全 repo 沒有任何 --cov 或 pytest_cov 使用，屬未使用的依賴。另外 CI 的 setup-python cache 以 requirements.txt 內容為 key，檔案沒變時 key 也不變，但 pip 仍會解析到當下最新版本，快取不提供可重現性。 2026-09-18 排程研究：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），2026 年僅 9.1.0（2026-06-13）與 9.1.1 兩版，自 9/11 起沒有新版本，未鎖版目前仍會解析到 9.1.1。 本輪並補齊上一輪明確記錄為「無法以官方來源交叉核對」的 GitHub Actions 版本事實：改由 GitHub REST API 的 releases/latest 端點取得，actions/checkout 最新為 v7.0.1（2026-07-20）、actions/setup-python 最新為 v7.0.0（2026-07-20）、actions/upload-artifact 最新為 v7.0.1（2026-04-10）。而 starcloud-stage-tests.yml 第 109／115／154 行分別固定在 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4。 關鍵判讀：actions/checkout 的 releases 清單顯示 v7.0.1、v6.1.0、v5.1.0、v4.4.0、v3.7.0、v2.8.0 都在 2026-07-20 同一天發版，代表舊主版本仍在維護，因此「用 v4」本身不是錯誤，也不構成升級理由；真正的可重現性問題與 requirements.txt 相同——@v4／@v5 是浮動的 major tag，同一份 commit 在不同時間會拉到不同的 action 程式碼，且改動不會出現在任何 commit 裡。 2026-09-25：PyPI 官方 JSON 顯示 allure-pytest 在 2026-09-18（上一輪研究當天）發布 2.16.1；requirements.txt 中 allure-pytest、allure-python-commons 皆未鎖版，因此 9/18 前後在乾淨環境安裝會解析到不同版本，這是「沒有任何 commit 卻改變安裝結果」的具體實例。本輪未確認 CI 實際安裝到哪一版，也不主張該版本造成任何失敗。pytest 仍為 9.1.1（2026-06-19），pytest-html 4.2.0，requests 2.34.2。 2026-10-02：PyPI 專案頁顯示 selenium 最新 4.49.0（2026-09-09）要求 Python >=3.10，websocket-client 最新 1.9.2（2026-08-31）同樣要求 >=3.10；CI 第 24-31 行 python_version 仍提供 3.9，選 3.9 時除 pytest 外，selenium 與 websocket-client 也會靜默解析到不同的舊版，同一 commit 的 UI 與 OCPP 用戶端行為可能隨 Python 選項改變。來源衝突：本輪 PyPI JSON API 被 robots 拒絕，改讀 pypi.org/project/allure-pytest/ 專案頁，該頁顯示最新 2.16.0（2026-04-27），與上一輪 JSON API 取得的 2.16.1（2026-09-18）不一致，本輪無法判定何者為準，2.16.1 實例暫列待再核對；此衝突不影響「未鎖版即不可重現」的主要結論。pytest 仍為 9.1.1（2026-06-19）。 2026-10-30：pytest 9.2.0（2026-10-27）、selenium 4.52.0（2026-10-29）已發布，未鎖版下次乾淨安裝即改用。對照 9.2.0 破壞性變更：AST 掃描 160 個 parametrize 呼叫皆無第 3 個位置參數（#8593 不受影響）；外掛匯入失敗改 exit 4/3（#993），-p pytestTestreport 若安裝失敗會以 4 標紅；junit message 截為 500 字（#12223）不影響 notify_teams。pytest-assume 停在 2.4.3（2021），未宣告 pytest 9 相容。未執行 pip／pytest，不主張已失敗。Actions 的 Node 20 問題改列 OPT-ARCH-016。",
+        "proposal": "先做一次乾淨環境的解析快照，記錄實際安裝到的版本清單當 baseline；再把該清單寫成 constraints 或鎖檔（例如 pip freeze 產生 constraints.txt，CI 以 -c 套用），requirements.txt 保留可讀的直接依賴。同時把 CI 的 python_version 選項與實際支援的 pytest 版本對齊，移除或明確標註 3.9。升級依賴改為刻意的 PR，不是每次 push 的副作用。 鎖版時一併處理重複與未使用的宣告（pillow／Pillow 去重、確認是否保留 pytest-cov），並以 SC_QA_Charge_Stress_Test/requirements.txt 的固定版本格式作為內部參考。 同一原則套用到 CI 的 action 版本：把 uses: 的浮動 major tag 改為固定 commit SHA（或至少固定到完整版本號），升級同樣改為刻意的 PR。是否同時升到 v7 由使用者決定，本輪沒有任何需要升級的理由。 2026-10-30：Actions 主版本因 Node 20 移除時程需升級，見 OPT-ARCH-016，建議與本項同一個 PR。",
         "benefit": "同一份 commit 在不同時間跑出同樣的環境，測試失敗能歸因到程式或產品而不是套件漂移；升級 pytest 這類破壞性變更改為可預期、可回退的動作。不主張任何執行速度提升。",
         "risk": "鎖版後需要有人定期升級，否則會累積過期依賴與安全修補落後。鎖檔若只在 macOS 產生、CI 跑 ubuntu，平台專屬套件可能解析不一致，需在 CI 相同映像上產生。",
         "effort": "小：一次解析快照加上 CI 一個 -c 參數；後續維護成本是定期升級 PR。實際工時待使用者採用後由執行者估算。",
-        "baseline": "尚未取得乾淨環境的實際安裝版本清單。已知 selenium 4.49.0、websocket-client 1.9.2、pytest 9.x 均要求 Python >=3.10，而 CI 仍提供 3.9 選項；allure-pytest 最新版本兩個 PyPI 來源不一致（2.16.0／2.16.1），待再核對。本項為可重現性風險，非效能問題。",
+        "baseline": "尚未取得乾淨環境的實際安裝版本清單。2026-10-30 官方最新：pytest 9.2.0（2026-10-27）、selenium 4.52.0（2026-10-29）、urllib3 2.8.0、websocket-client 1.9.2，皆要求 Python >=3.10，CI 仍提供 3.9 選項。本項為可重現性風險，非效能問題。",
         "scope": [
           "Automation_HDRE/Automation_API_UI-main/requirements.txt",
           "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml"
@@ -3348,10 +3537,42 @@
             "checked_at": "2026-10-02",
             "published_at": "2026-04-27",
             "note": "與 2026-09-25 JSON API 的 2.16.1（2026-09-18）不一致；本輪 JSON API 被 robots 拒絕，衝突未解"
+          },
+          {
+            "kind": "web",
+            "label": "PyPI：pytest 專案頁（9.2.0）",
+            "ref": "https://pypi.org/project/pytest/",
+            "checked_at": "2026-10-30",
+            "published_at": "2026-10-27",
+            "note": "Requires-Python >=3.10；未鎖版下次安裝即採用"
+          },
+          {
+            "kind": "web",
+            "label": "pytest changelog 9.2.0 破壞性變更",
+            "ref": "https://docs.pytest.org/en/stable/changelog.html",
+            "checked_at": "2026-10-30",
+            "published_at": "2026-10-27",
+            "note": "#8593 parametrize 關鍵字限定、#993 外掛匯入失敗 exit 4/3、#12223 junit message 截短；本機 AST 掃描判定 #8593 不受影響"
+          },
+          {
+            "kind": "web",
+            "label": "PyPI：selenium 專案頁（4.52.0）",
+            "ref": "https://pypi.org/project/selenium/",
+            "checked_at": "2026-10-30",
+            "published_at": "2026-10-29",
+            "note": "Requires-Python >=3.10"
+          },
+          {
+            "kind": "web",
+            "label": "PyPI：pytest-assume 專案頁",
+            "ref": "https://pypi.org/project/pytest-assume/",
+            "checked_at": "2026-10-30",
+            "published_at": "2021-06-24",
+            "note": "2.4.3 為最新，未宣告 pytest 9 相容性"
           }
         ],
-        "author": "Claude（週排程 2026-10-02；僅讀取與官方來源核對，未執行任何測試）",
-        "researched_at": "2026-10-02"
+        "author": "Claude（週排程 2026-10-30；僅讀取與官方來源核對，未執行任何測試）",
+        "researched_at": "2026-10-30"
       },
       {
         "id": "OPT-ARCH-006",
@@ -3414,14 +3635,14 @@
         "research_status": "candidate",
         "title": "本機測試產物沒有輪替，Allure 報告混進 3 個多月前的執行",
         "summary": "result/ 累積 26,286 個檔案共 185MB、reports/ 317 項共 114MB，Allure 產生的報告會把 5 月底以來的執行混在一起。",
-        "finding": "2026-09-11 在原本機實際統計：Automation_API_UI-main/result/ 有 25,455 個檔案、182MB，最舊 2026-05-28、最新 2026-09-11；reports/ 有 312 個項目、112MB，最舊 2026-07-30。pytest.ini 的 addopts 只有 --alluredir=./result，沒有 --clean-alluredir，所以每次本機執行都往同一個目錄疊加；conftest.py 只把 HTML 報告搬到 reports/（第 200-234 行），沒有清理或輪替。兩個目錄都已被 .gitignore 排除，不會進版本庫，但留在工作目錄並持續成長。9/11 本機在台北時間 09:49 與 10:09 各有一次執行，確認這是日常使用中的目錄。本輪沒有量測這對收集或執行時間的影響，不主張測試因此變慢；問題是報告內容與磁碟成長，不是已證實的效能問題。 2026-09-18 排程研究重新統計同兩個目錄：result/ 26,286 個檔案／185MB（最舊 2026-05-28、最新 2026-09-11），reports/ 317 項／114MB（最舊 2026-07-22、最新 2026-09-11）。相較 9/11 的 25,455 檔／182MB 與 312 項／112MB，檔案數與容量都持續增加。本輪同時確認 result/ 與 reports/ 的最新產物時間都停在 2026-09-11，也就是自 9/11 之後本機沒有再執行自動化，這段增量來自 9/11 當天較晚的那次執行，不是七天持續累積——成長速度取決於執行頻率，不宜線性外推。pytest.ini 仍沒有 --clean-alluredir，conftest.py 仍只搬移 HTML 報告。本輪同樣沒有量測執行時間，不主張測試變慢。",
+        "finding": "2026-09-11 在原本機實際統計：Automation_API_UI-main/result/ 有 25,455 個檔案、182MB，最舊 2026-05-28、最新 2026-09-11；reports/ 有 312 個項目、112MB，最舊 2026-07-30。pytest.ini 的 addopts 只有 --alluredir=./result，沒有 --clean-alluredir，所以每次本機執行都往同一個目錄疊加；conftest.py 只把 HTML 報告搬到 reports/（第 200-234 行），沒有清理或輪替。兩個目錄都已被 .gitignore 排除，不會進版本庫，但留在工作目錄並持續成長。9/11 本機在台北時間 09:49 與 10:09 各有一次執行，確認這是日常使用中的目錄。本輪沒有量測這對收集或執行時間的影響，不主張測試因此變慢；問題是報告內容與磁碟成長，不是已證實的效能問題。 2026-09-18 排程研究重新統計同兩個目錄：result/ 26,286 個檔案／185MB（最舊 2026-05-28、最新 2026-09-11），reports/ 317 項／114MB（最舊 2026-07-22、最新 2026-09-11）。相較 9/11 的 25,455 檔／182MB 與 312 項／112MB，檔案數與容量都持續增加。本輪同時確認 result/ 與 reports/ 的最新產物時間都停在 2026-09-11，也就是自 9/11 之後本機沒有再執行自動化，這段增量來自 9/11 當天較晚的那次執行，不是七天持續累積——成長速度取決於執行頻率，不宜線性外推。pytest.ini 仍沒有 --clean-alluredir，conftest.py 仍只搬移 HTML 報告。本輪同樣沒有量測執行時間，不主張測試變慢。 2026-10-30 排程研究重新統計：result/ 35,379 個檔案／238MB（最舊檔案時間 2026-05-28），較 9/18 的 26,286 檔／185MB 再增加約 9,100 檔、53MB，代表 9/18 之後本機又有多次執行且仍持續疊加；pytest.ini 仍沒有 --clean-alluredir。reports/ 降為 123 項／71MB（9/18 為 317 項／114MB），最舊 HTML 為 2026-08-31，顯示有人做過清理或搬移，本輪未查到對應紀錄，不推定是哪個流程造成。佔槍費一鍵回歸已改寫到 reports/occupancy_fee/<run>/ 獨立目錄，可作為 run 目錄做法的內部先例；一般 pytest 執行仍寫共用 result/。本輪同樣未量測執行時間，不主張測試變慢。",
         "proposal": "改為每次執行寫入獨立的 run 目錄（例如 result/<run-id>）或在執行前 --clean-alluredir，並為 HTML 報告訂保留策略（保留最近 N 次、其餘歸檔）。先確認 Allure 的 history／trend 依賴 reports/history.json 的方式，再決定清理範圍，避免趨勢圖歸零。提供一個可重複執行、只清理產物不動來源的清理指令，由使用者決定保留次數；不自動刪除仍在追查的失敗證據。",
         "benefit": "產生的 Allure 報告只包含本次執行，找報告與看趨勢不會被舊資料干擾；工作目錄不再無限成長。不主張任何測試執行速度提升。",
         "risk": "清理會失去舊的 raw 證據，若正在追查的失敗只存在舊 raw，必須先歸檔再清。Allure history 若依賴既有目錄內容，直接清可能讓趨勢資料中斷。CI 用的是乾淨 runner，改動不得破壞現有 artifact 路徑與 Teams 通知讀取的 result/junit.xml。",
         "effort": "小：pytest.ini／conftest.py 與一個清理指令；保留次數需使用者決定。",
-        "baseline": "2026-09-18 實際檔案統計：result/ 26,286 檔／185MB（2026-05-28 至 2026-09-11）、reports/ 317 項／114MB（2026-07-22 至 2026-09-11）。前次 2026-09-11 統計為 result/ 25,455 檔／182MB、reports/ 312 項／112MB，兩次都以 find 計檔與 du 計容量，未做效能量測，不含執行時間或 IO 數據。",
-        "author": "Claude（排程 QA 研究 2026-09-11）；2026-09-18 由 Claude 排程研究更新 baseline",
-        "researched_at": "2026-09-18",
+        "baseline": "2026-10-30 實際統計：result/ 35,379 檔／238MB（最舊 2026-05-28）、reports/ 123 項／71MB（最舊 HTML 2026-08-31）。前次 9/18：result/ 26,286 檔／185MB、reports/ 317 項／114MB。以 find 計檔、du 計容量，未做效能量測。",
+        "author": "Claude（週排程 2026-10-30；僅讀取與官方來源核對，未執行任何測試）",
+        "researched_at": "2026-10-30",
         "scope": [
           "Automation_HDRE/Automation_API_UI-main/pytest.ini",
           "Automation_HDRE/Automation_API_UI-main/conftest.py"
@@ -3464,6 +3685,22 @@
             "checked_at": "2026-09-18",
             "published_at": null,
             "note": "2026-09-18 統計 317 項／114MB；最新產物時間 2026-09-11"
+          },
+          {
+            "kind": "local",
+            "label": "Allure 原始結果目錄",
+            "ref": "Automation_HDRE/Automation_API_UI-main/result",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "2026-10-30 統計 35,379 檔／238MB，仍為共用目錄"
+          },
+          {
+            "kind": "local",
+            "label": "佔槍費一鍵回歸獨立 run 目錄（內部先例）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/tests/Web/starcloud/occupancy_fee/run_stage_regression.py",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "alluredir 與 junitxml 寫入 reports/occupancy_fee/<run-id>/"
           }
         ]
       },
@@ -3475,21 +3712,22 @@
         "research_status": "candidate",
         "title": "CI 沒有設執行上限，卡住的測試會吃掉 6 小時又沒有通知",
         "summary": "starcloud stage workflow 未設 timeout-minutes；GitHub 官方上限是 6 小時，job 被系統終止時報告上傳與 Teams 通知都不會執行。",
-        "finding": "starcloud-stage-tests.yml 全檔沒有任何 timeout 設定（job 與 step 皆無）。GitHub 官方 limits 文件說明 GitHub-hosted runner 的每個 job 最長 6 小時、workflow run 最長 35 天，超過即終止。該 workflow 的 Run pytest step 用 set +e 把 exit code 存進 GITHUB_ENV，後面的 Upload artifact、Notify Teams、Fail job 都掛 if: always()，這只在 job 自己跑完時成立；job 被 6 小時上限終止時這些步驟不會執行，等於沒有報告也沒有通知。測試內容包含 Selenium 瀏覽器啟動與 OCPP WebSocket 等待，具備長時間卡住的條件。本輪沒有實際卡住的 run 作為證據：本機與雲端都無法連到 GitHub 讀取 Actions 紀錄，所以這是依官方上限與設定推得的風險，不是已發生事件。",
-        "proposal": "先取得一次完整 stage suite 的實際 CI 耗時作為依據，再為 job 設 timeout-minutes（取正常耗時的合理倍數），必要時對 Run pytest step 另設 step 級 timeout，讓 artifact 與通知步驟仍有機會執行。同時檢查 Selenium 與 OCPP 等待是否有上限，避免單一案例無限等待。不縮短協定必要的等待時間。",
+        "finding": "starcloud-stage-tests.yml 全檔沒有任何 timeout 設定（job 與 step 皆無）。GitHub 官方 limits 文件說明 GitHub-hosted runner 的每個 job 最長 6 小時、workflow run 最長 35 天，超過即終止。該 workflow 的 Run pytest step 用 set +e 把 exit code 存進 GITHUB_ENV，後面的 Upload artifact、Notify Teams、Fail job 都掛 if: always()，這只在 job 自己跑完時成立；job 被 6 小時上限終止時這些步驟不會執行，等於沒有報告也沒有通知。測試內容包含 Selenium 瀏覽器啟動與 OCPP WebSocket 等待，具備長時間卡住的條件。本輪沒有實際卡住的 run 作為證據：本機與雲端都無法連到 GitHub 讀取 Actions 紀錄，所以這是依官方上限與設定推得的風險，不是已發生事件。 2026-10-30：workflow 已於 2026-10-20 改版（OPT-QA-014），新增 suite=occupancy_oneclick，會在 Stage 建立會員、站點、計費方案並由 cleanup gate 清理；job 與 step 仍沒有任何 timeout-minutes（字面檢索確認）。這讓卡住的影響多了一層：若 job 被 6 小時上限終止，一鍵入口自己的 cleanup 未必跑完，Stage 可能殘留測試資源。官方 expressions 文件說明 always() 在取消時仍會執行，但 job 層級逾時後的步驟行為仍建議以 step 層級 timeout-minutes 讓 Run tests 自身失敗、後續上傳與通知照常執行。同 workspace 的 .github/workflows/qa-dashboard-checks.yml 已設 timeout-minutes: 10，可作為內部先例。仍無實際卡住的 run 證據。",
+        "proposal": "先取得一次完整 stage suite 的實際 CI 耗時作為依據，再為 job 設 timeout-minutes（取正常耗時的合理倍數），必要時對 Run pytest step 另設 step 級 timeout，讓 artifact 與通知步驟仍有機會執行。同時檢查 Selenium 與 OCPP 等待是否有上限，避免單一案例無限等待。不縮短協定必要的等待時間。 2026-10-30 補充：occupancy_oneclick 與一般 pytest 的正常耗時差異大，timeout 宜分別以實測耗時決定（例如以 step 層級或依 suite 設不同值），並確認逾時後一鍵入口的 cleanup 是否需要獨立的補救步驟。",
         "benefit": "卡住時能在可預期時間內收到失敗通知與可下載的報告，不再佔滿 runner 時間並延後回饋。不主張加快正常執行。",
         "risk": "timeout 設太短會砍掉正常的長時間測試，造成誤判失敗。step 級 timeout 讓 pytest 被強制中斷時 junit.xml 可能不完整，notify_teams.py 需能處理缺檔或部分結果。",
         "effort": "小：workflow 加上 timeout 設定；需要一次基準執行時間，以及一次刻意超時的驗證。",
         "baseline": "沒有目前 stage suite 的實際 CI 耗時（本輪無法讀取 Actions 紀錄）。本項是回饋延遲與資源佔用風險，不需效能量測，但需要一次正常耗時數據才能決定 timeout 值。",
-        "author": "Claude（排程 QA 研究 2026-09-11）",
-        "researched_at": "2026-09-11",
+        "author": "Claude（週排程 2026-10-30；僅讀取與官方來源核對，未執行任何測試）",
+        "researched_at": "2026-10-30",
         "scope": [
           "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml"
         ],
         "acceptance": [
           "workflow 的 job 有明確 timeout-minutes，且數值有一次實際耗時紀錄作為依據。",
           "刻意製造超時的情境下，仍能取得可判讀的結果或通知；若做不到則明確記錄該限制。",
-          "正常一次完整 stage 執行連續兩次都不因 timeout 被中斷。"
+          "正常一次完整 stage 執行連續兩次都不因 timeout 被中斷。",
+          "suite=occupancy_oneclick 逾時或中止時，能從 artifact 或通知判讀 cleanup 是否完成；未完成時有明確的人工清理指引。"
         ],
         "sources": [
           {
@@ -3507,6 +3745,22 @@
             "checked_at": "2026-09-11",
             "published_at": null,
             "note": "GitHub-hosted job 每個最長 6 小時，超過即終止"
+          },
+          {
+            "kind": "local",
+            "label": "Stage workflow（2026-10-20 改版）",
+            "ref": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "第 85-230 行 job／step 皆無 timeout-minutes；新增 occupancy_oneclick"
+          },
+          {
+            "kind": "web",
+            "label": "GitHub Docs：expressions（always／cancelled）",
+            "ref": "https://docs.github.com/en/actions/reference/workflows-and-actions/expressions",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "always() 即使取消也執行；官方建議易卡住的任務改用 !cancelled()"
           }
         ]
       },
@@ -3571,8 +3825,8 @@
         "priority": "P1",
         "confidence": "evidence",
         "research_status": "candidate",
-        "finding": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml 第 66 行的註解寫「讓『後推的 push』取消同 branch 還在跑的舊執行，省 runner 時間」，但第 67-69 行實際設定是 concurrency.group=starcloud-stage-${{ github.ref }} 搭配 cancel-in-progress: false，語義與註解相反。 GitHub 官方 workflow syntax 文件說明：cancel-in-progress 為 true 時會取消同群組中正在執行的 run；為 false（預設）時新 run 進入 pending，且「At most one job or workflow run can be pending in the concurrency group. When a new job or workflow run is queued, any existing pending job or workflow run in the same group is canceled and replaced.」（每個併發群組最多只有一個等待中的 run，新的排入時會取消並取代既有的等待中 run），除非另外設定 queue: max 才能容納最多 100 個等待中的 run。 推得的實際行為：同一 branch 連續推出 commit A、B、C 時，A 若還在跑，B 進入等待、C 進來時 B 被取消並取代，B 這個 commit 從頭到尾沒有任何 run。與 OPT-ARCH-008（同一檔案沒有 timeout-minutes、GitHub-hosted job 上限 6 小時）結合，最壞情況是一個卡住的 run 佔住群組長達 6 小時，這段期間除了最後一次 push，其餘 push 都不會產生測試結果，而且沒有任何失敗通知（Teams 通知在被系統終止的 job 上不會執行）。 本輪沒有實際被取消的 run 作為直接證據：本次執行環境沒有公司 repo 的 GitHub 認證，無法讀取該 repo 的 Actions 紀錄（見報告限制）。因此本項是「設定與官方文件語義」層級的證據，不是「已觀察到遺漏測試」的實測。",
-        "proposal": "先由使用者決定要哪一種語義，再讓註解與設定一致，兩者都可接受但不能互相矛盾：(A)「以最新為準、省 runner」——把 cancel-in-progress 改為 true，符合現有註解，代價是長測試被新 push 中斷、拿不到該次報告；(B)「每個 commit 都要有測試結果」——保留 false 並加上 queue: max 讓等待中的 run 不互相取代，或直接移除 concurrency，代價是排隊時間與 runner 用量增加。 無論選哪一種，都應同時處理 OPT-ARCH-008 的 timeout-minutes，否則卡住的 run 仍會長時間佔住群組。 本項只提出設定選項，不代替使用者決定，也不自行修改 workflow。",
+        "finding": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml 第 66 行的註解寫「讓『後推的 push』取消同 branch 還在跑的舊執行，省 runner 時間」，但第 67-69 行實際設定是 concurrency.group=starcloud-stage-${{ github.ref }} 搭配 cancel-in-progress: false，語義與註解相反。 GitHub 官方 workflow syntax 文件說明：cancel-in-progress 為 true 時會取消同群組中正在執行的 run；為 false（預設）時新 run 進入 pending，且「At most one job or workflow run can be pending in the concurrency group. When a new job or workflow run is queued, any existing pending job or workflow run in the same group is canceled and replaced.」（每個併發群組最多只有一個等待中的 run，新的排入時會取消並取代既有的等待中 run），除非另外設定 queue: max 才能容納最多 100 個等待中的 run。 推得的實際行為：同一 branch 連續推出 commit A、B、C 時，A 若還在跑，B 進入等待、C 進來時 B 被取消並取代，B 這個 commit 從頭到尾沒有任何 run。與 OPT-ARCH-008（同一檔案沒有 timeout-minutes、GitHub-hosted job 上限 6 小時）結合，最壞情況是一個卡住的 run 佔住群組長達 6 小時，這段期間除了最後一次 push，其餘 push 都不會產生測試結果，而且沒有任何失敗通知（Teams 通知在被系統終止的 job 上不會執行）。 本輪沒有實際被取消的 run 作為直接證據：本次執行環境沒有公司 repo 的 GitHub 認證，無法讀取該 repo 的 Actions 紀錄（見報告限制）。因此本項是「設定與官方文件語義」層級的證據，不是「已觀察到遺漏測試」的實測。 2026-10-30：10/20 改版後，矛盾的註解與設定移到第 80-83 行，內容未變（cancel-in-progress: false）。新增情境：手動觸發的 suite=occupancy_oneclick 與 push 觸發共用同一個 starcloud-stage-${{ github.ref }} 群組。官方 workflow syntax 文件確認 cancel-in-progress 可使用 expression，且 queue: max 不能與 cancel-in-progress: true 同時使用。",
+        "proposal": "先由使用者決定要哪一種語義，再讓註解與設定一致，兩者都可接受但不能互相矛盾：(A)「以最新為準、省 runner」——把 cancel-in-progress 改為 true，符合現有註解，代價是長測試被新 push 中斷、拿不到該次報告；(B)「每個 commit 都要有測試結果」——保留 false 並加上 queue: max 讓等待中的 run 不互相取代，或直接移除 concurrency，代價是排隊時間與 runner 用量增加。 無論選哪一種，都應同時處理 OPT-ARCH-008 的 timeout-minutes，否則卡住的 run 仍會長時間佔住群組。 本項只提出設定選項，不代替使用者決定，也不自行修改 workflow。 2026-10-30 補充：若選 (A)，不要一律取消——一鍵回歸被中途取消可能跳過 cleanup gate、讓 Stage 殘留資源；可用 expression 只取消 push 觸發的 run（例如 cancel-in-progress: ${{ github.event_name == 'push' }}），或讓 workflow_dispatch 使用不同群組。若選 (B) 的 queue: max，需確認不與任何 cancel-in-progress: true 並存。",
         "benefit": "讓「push 了卻沒有測試結果」這件事不再靜默發生，或至少讓實際行為與註解一致，避免有人以為舊 run 會被取消而誤判 CI 狀態。本輪沒有量測 runner 時間，不主張任何時間或成本節省數字。",
         "risk": "改為 cancel-in-progress: true 會取消進行中的 run，正在跑的長時間 suite 會失去 artifact 與 Teams 通知；改用 queue: max 會讓等待中的 run 累積，增加 runner 用量與回饋延遲。兩者都會改變團隊目前習慣的 CI 行為，需先取得共識。 另外 queue 相關選項屬於較新的 Actions 功能，採用前需確認公司 repo 所在的 GitHub 方案與版本支援。",
         "effort": "設定本身是 workflow 檔數行的改動，但需先確認團隊要的語義並與 timeout 一併規劃；實際工時由執行者於採用後估算。",
@@ -3584,7 +3838,8 @@
           "第 66 行註解與 concurrency 設定的語義一致，並在檔案內註明採用的是「最新優先」還是「每個 commit 都測」。",
           "以同 branch 連續三次 push 驗證實際行為符合選定語義：選 (A) 時舊 run 被取消且最新 run 完成；選 (B) 時三個 commit 各自都有對應的 run。",
           "與 OPT-ARCH-008 的 timeout-minutes 一併驗收，確認卡住的 run 會在時限內結束而不是佔住併發群組。",
-          "改動前後各保留一次 Actions run 清單截圖或匯出，作為行為改變的紀錄。"
+          "改動前後各保留一次 Actions run 清單截圖或匯出，作為行為改變的紀錄。",
+          "手動觸發的 occupancy_oneclick 不會因為同 branch 新的 push 被中途取消；若設計上允許取消，須證明 cleanup 仍會完成。"
         ],
         "sources": [
           {
@@ -3602,10 +3857,26 @@
             "checked_at": "2026-09-18",
             "published_at": null,
             "note": "cancel-in-progress false 時新 run 進入 pending；每群組最多一個 pending，新的排入會取消並取代既有 pending；queue: max 最多 100 個 pending"
+          },
+          {
+            "kind": "local",
+            "label": "Stage workflow（2026-10-20 改版）",
+            "ref": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "第 80-83 行註解與 cancel-in-progress: false 仍矛盾；dispatch 與 push 共用群組"
+          },
+          {
+            "kind": "web",
+            "label": "GitHub Docs：workflow syntax（concurrency）",
+            "ref": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "cancel-in-progress 可用 expression；queue: single／max，max 最多 100 個等待；queue: max 與 cancel-in-progress: true 併用會驗證失敗"
           }
         ],
-        "author": "Claude（排程 QA 研究 2026-09-18）",
-        "researched_at": "2026-09-18"
+        "author": "Claude（週排程 2026-10-30；僅讀取與官方來源核對，未執行任何測試）",
+        "researched_at": "2026-10-30"
       },
       {
         "id": "OPT-ARCH-011",
@@ -3615,7 +3886,7 @@
         "priority": "P1",
         "confidence": "evidence",
         "research_status": "candidate",
-        "finding": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml 第 44-48 行定義 workflow_dispatch 輸入 line_id_token，型別為 string、預設空字串，說明文字為「（星舟 LIFF 測試用）剛登入 LINE 拿到的 lineIdToken。留白則改用 Secret STAR_CHARGE_LINE_ID_TOKEN。會過期，請跑之前現貼。」也就是這個欄位的設計用途就是讓人把真實的 LINE ID Token 貼進去。第 99-100 行把該輸入指派給 job 層級的 env：STAR_CHARGE_LINE_ID_TOKEN 與 CLOUD_TOPUP_PHASE3_LINE_ID_TOKEN，兩者都是 ${{ github.event.inputs.line_id_token || secrets.<對應 secret> }}。 GitHub 官方 secure use 文件明文要求：「Mask all sensitive information that is not a GitHub secret by using ::add-mask::VALUE」，並說明即使註冊為 secret，「Because there are multiple ways a secret value can be transformed, automatic redaction is not guaranteed.」本 workflow 全檔沒有任何 add-mask 呼叫（本輪以字面檢索確認），因此透過 line_id_token 傳入的值不是已註冊的 secret，不在自動編修範圍內。相對地，走 secrets.* 那條路徑的值是註冊過的 secret，行為不同——同一個 env 變數會因為觸發方式而有不同的保護程度。 界線說明：本項主張的是「這個值沒有被自動遮蔽、workflow 也沒有主動遮蔽」，不主張該 token 一定已經出現在某次日誌中，也沒有讀取任何實際 run 的日誌或 run metadata（本次環境無該 repo 的 GitHub 認證）。輸入值在 Actions run 頁面與 API 中的實際保存與顯示範圍需另行確認，不在本輪證據內。",
+        "finding": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml 第 44-48 行定義 workflow_dispatch 輸入 line_id_token，型別為 string、預設空字串，說明文字為「（星舟 LIFF 測試用）剛登入 LINE 拿到的 lineIdToken。留白則改用 Secret STAR_CHARGE_LINE_ID_TOKEN。會過期，請跑之前現貼。」也就是這個欄位的設計用途就是讓人把真實的 LINE ID Token 貼進去。第 99-100 行把該輸入指派給 job 層級的 env：STAR_CHARGE_LINE_ID_TOKEN 與 CLOUD_TOPUP_PHASE3_LINE_ID_TOKEN，兩者都是 ${{ github.event.inputs.line_id_token || secrets.<對應 secret> }}。 GitHub 官方 secure use 文件明文要求：「Mask all sensitive information that is not a GitHub secret by using ::add-mask::VALUE」，並說明即使註冊為 secret，「Because there are multiple ways a secret value can be transformed, automatic redaction is not guaranteed.」本 workflow 全檔沒有任何 add-mask 呼叫（本輪以字面檢索確認），因此透過 line_id_token 傳入的值不是已註冊的 secret，不在自動編修範圍內。相對地，走 secrets.* 那條路徑的值是註冊過的 secret，行為不同——同一個 env 變數會因為觸發方式而有不同的保護程度。 界線說明：本項主張的是「這個值沒有被自動遮蔽、workflow 也沒有主動遮蔽」，不主張該 token 一定已經出現在某次日誌中，也沒有讀取任何實際 run 的日誌或 run metadata（本次環境無該 repo 的 GitHub 認證）。輸入值在 Actions run 頁面與 API 中的實際保存與顯示範圍需另行確認，不在本輪證據內。 2026-10-30：10/20 改版後，line_id_token 輸入移到第 58-61 行，指派到 STAR_CHARGE_LINE_ID_TOKEN／CLOUD_TOPUP_PHASE3_LINE_ID_TOKEN 的位置移到第 114-115 行；全檔仍沒有 ::add-mask::（字面檢索確認）。本輪未讀取任何 run 日誌。",
         "proposal": "請使用者在兩個方向擇一並確認可行性：(A) 保留手動貼上的便利性，但在 Run pytest 之前加入一個步驟，對非空的 line_id_token 呼叫 ::add-mask::，讓後續步驟的日誌輸出至少會被編修；(B) 移除明文 input，一律改走 Secret，token 過期的問題改由更新 Secret 或改用可自動取得短期 token 的方式解決。 兩者都需要一併確認：輸入值在 run 頁面與 API 的保存範圍、可存取該 repo 的人員名單，以及該 token 的有效期與影響範圍。 本項只提出選項，不代為修改 workflow，也不觸碰任何實際憑證。",
         "benefit": "降低測試用憑證因為手動觸發而以明文形式留在 CI 紀錄的機會，並讓同一個 env 變數不論來自 input 或 Secret 都有一致的保護程度。沒有量測資料，不主張任何具體風險下降幅度。",
         "risk": "add-mask 只影響日誌編修，不會移除已保存在 run metadata 中的輸入值，也無法回溯處理既有的歷史 run，因此 (A) 只是降低而非消除暴露；(B) 改走 Secret 後，token 過期時需要有人更新 Secret，會影響目前「跑之前現貼」的使用流程。 任何改動都不應在排查過程中把真實 token 寫進 commit、log 或本工作台的任何檔案。",
@@ -3646,10 +3917,18 @@
             "checked_at": "2026-09-18",
             "published_at": null,
             "note": "要求以 ::add-mask::VALUE 遮蔽非 GitHub secret 的敏感資訊；並載明自動編修不保證成功"
+          },
+          {
+            "kind": "local",
+            "label": "Stage workflow（2026-10-20 改版）",
+            "ref": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "line_id_token 第 58-61 行、env 第 114-115 行，無 add-mask"
           }
         ],
-        "author": "Claude（排程 QA 研究 2026-09-18）",
-        "researched_at": "2026-09-18"
+        "author": "Claude（週排程 2026-10-30；僅讀取與官方來源核對，未執行任何測試）",
+        "researched_at": "2026-10-30"
       },
       {
         "id": "OPT-OCPP-012",
@@ -3980,6 +4259,90 @@
         ],
         "author": "Claude（週排程 2026-10-16；僅讀取與靜態分析，未執行腳本）",
         "researched_at": "2026-10-16"
+      },
+      {
+        "id": "OPT-ARCH-016",
+        "category": "architecture",
+        "priority": "P2",
+        "confidence": "evidence",
+        "research_status": "candidate",
+        "title": "兩條 CI 仍使用宣告 Node 20 的 Actions 版本，GitHub 已排定移除 Node 20",
+        "summary": "Stage 測試與 QA Dashboard 兩個 workflow 使用的 checkout@v4、setup-python@v5、upload-artifact@v4、setup-node@v4 都宣告 node20；GitHub 公告 Node 24 自 2026-06-16 為預設、Node 20 排定 2026-09-23 移除。",
+        "finding": "本機兩個 workflow：Automation_HDRE/.github/workflows/starcloud-stage-tests.yml 第 131／137／189 行使用 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4；HDRE 根目錄 .github/workflows/qa-dashboard-checks.yml 第 16／17／20 行使用 actions/checkout@v4、actions/setup-python@v5、actions/setup-node@v4。官方 action.yml 確認這四個主版本的 runs.using 都是 node20；目前最新 checkout v7.0.1、setup-python v7.0.0、upload-artifact v7.0.2（2026-10-07）的 action.yml 為 node24。GitHub 官方 changelog（2025-09-19 發布，最後更新 2026-08-25）說明 runner 自 2026-06-16 起預設以 Node 24 執行，ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION 的退回選項只到 2026-09-23 移除 Node 20 為止。該頁未確認移除已實際執行，本輪也沒找到更晚的公告。反證：2026-10-27 本週任務登錄紀錄寫明公司 qa-dashboard-checks 確認 CI 成功，代表目前仍可執行；推測是 node20 宣告的 action 被以 Node 24 強制執行。本輪無法讀取 Actions 日誌，未確認是否有警告，也不主張 CI 已經失敗。",
+        "proposal": "把兩個 workflow 的 Actions 升到宣告 node24 的主版本（例如 checkout、setup-python、upload-artifact 目前最新 v7；setup-node 需先確認其最新版 action.yml 的 runtime），並與 OPT-ARCH-005 的「固定版本或 commit SHA」一起做成同一個獨立 PR。升級前先看各主版本的 breaking changes（例如 upload-artifact v6 起要求 runner >=2.327.1，GitHub-hosted runner 不受影響）；先在 qa-dashboard-checks 這條短、不連外部系統的 CI 驗證，再改 Stage workflow。HDRE 根目錄 .github/workflows/qa-dashboard-checks.yml 需同步處理；資料契約的 scope／sources 只接受 qa_ai_workflow、Automation_HDRE、qa_optimization、.agents 開頭的路徑，因此該檔只在本文列出。本項只提出升級方向，不代為修改 workflow。",
+        "benefit": "消除「舊 runtime 被強制改跑新 runtime」這種未經測試的組合，避免 GitHub 後續變更時兩條 CI 同時中斷、連帶 Dashboard 上版與 Stage 回歸都無法驗證。不主張任何執行速度提升。",
+        "risk": "主版本升級可能帶來輸入參數或 artifact 行為變更（例如 upload-artifact 的名稱／保留設定），需逐一確認；Stage workflow 升級後要跑一次才能驗證，會在 Stage 產生測試流量，需使用者決定時機。",
+        "effort": "小：兩個檔案共 6 行 uses: 變更，加上一次 qa-dashboard-checks 與一次 Stage workflow 的驗證執行。實際工時待使用者採用後由執行者估算。",
+        "baseline": "尚未取得任何一次 run 的日誌，不知道目前是否已出現 Node 20 相關警告。改動前需保存一次兩條 CI 的執行紀錄（含警告訊息）作為對照。",
+        "scope": [
+          "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml"
+        ],
+        "acceptance": [
+          "兩個 workflow 的所有 uses: 都改為 runs.using 為 node24 的版本，並記錄版本號或 commit SHA。",
+          "qa-dashboard-checks 升級後連續兩次成功，且執行紀錄沒有 Node 20 棄用警告。",
+          "Stage workflow 升級後執行一次，artifact 上傳、Teams 通知與最終判定步驟行為與升級前一致；若有差異逐項說明。",
+          "升級前後各保存一次執行紀錄作為對照。"
+        ],
+        "sources": [
+          {
+            "kind": "local",
+            "label": "Stage workflow 使用的 Actions 版本",
+            "ref": "Automation_HDRE/.github/workflows/starcloud-stage-tests.yml",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "第 131／137／189 行：checkout@v4、setup-python@v5、upload-artifact@v4"
+          },
+          {
+            "kind": "local",
+            "label": "10/27 公司 CI 成功紀錄（反證：目前仍可執行）",
+            "ref": "qa_optimization/reports/research/2026-10-27_weekly-task-registration.md",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "記載提交公司 main 並確認 CI"
+          },
+          {
+            "kind": "web",
+            "label": "GitHub Changelog：Deprecation of Node 20 on GitHub Actions runners",
+            "ref": "https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+            "checked_at": "2026-10-30",
+            "published_at": "2025-09-19",
+            "note": "Node 24 預設 2026-06-16；Node 20 排定 2026-09-23 移除；最後更新 2026-08-25"
+          },
+          {
+            "kind": "web",
+            "label": "actions/checkout v4 action.yml",
+            "ref": "https://github.com/actions/checkout/blob/v4/action.yml",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "runs.using: node20；最新 v7.0.1 為 node24"
+          },
+          {
+            "kind": "web",
+            "label": "actions/setup-python v5 action.yml",
+            "ref": "https://github.com/actions/setup-python/blob/v5/action.yml",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "using: node20；v6.0.0 起 node24，最新 v7.0.0"
+          },
+          {
+            "kind": "web",
+            "label": "actions/upload-artifact releases",
+            "ref": "https://github.com/actions/upload-artifact/releases",
+            "checked_at": "2026-10-30",
+            "published_at": "2026-10-07",
+            "note": "v4 為 node20；v6.0.0 起 node24 且要求 runner >=2.327.1；最新 v7.0.2"
+          },
+          {
+            "kind": "web",
+            "label": "actions/setup-node v4 action.yml",
+            "ref": "https://github.com/actions/setup-node/blob/v4/action.yml",
+            "checked_at": "2026-10-30",
+            "published_at": null,
+            "note": "using: node20；最新 v7.1.0 的 runtime 本輪未確認"
+          }
+        ],
+        "author": "Claude（週排程 2026-10-30；僅讀取與官方來源核對，未執行任何測試）",
+        "researched_at": "2026-10-30"
       }
     ]
   },
@@ -4050,8 +4413,8 @@
     ]
   },
   "revisions": {
-    "projects": "1da887c950bae867f40cbb849bca133bb2da4e52aaa7d41025dd5902a0d5e24c",
-    "optimizations": "0d0e524509fbf21571c06f433b219459bd18b9e8deb75cae07220dd508b690f4",
+    "projects": "fcee3cf6e7a6e1b4664ce390ad53e81831f6c3a1deeb1ce68624acbb6905b1a6",
+    "optimizations": "12f7c62427e470de3c435281e5c334c6d13ee03a5238d7bd5d34c6d8a89b9e22",
     "decisions": "3d8f305a4826360c0e271cfc3807c7a86d30a3c2479ae4c02044600f8bb03b7c"
   },
   "item_revisions": {
@@ -4059,17 +4422,18 @@
     "OPT-ARCH-002": "3311f8d5d76f66baf50cdc3c807b9af22e6a1ce5f129ac77dba29c51eb82123a",
     "OPT-OCPP-003": "c7d03c0b7cc68bfe75c28a74281aff737fd63116397a2c6bcdb3e80fe29a2963",
     "OPT-PERF-004": "70f0e8bfd9e8b9d0be8ce14bdb5dc96e4ab8eca1fdd1210920ba08e90372bf5c",
-    "OPT-ARCH-005": "8b83114478bb319bc542839aaac77f5ce814221db8e184a9d6a4d1078b21c9a5",
+    "OPT-ARCH-005": "d7fdaf97c9664079f1ed55e0795f7ebfc8a8a69bcfef452af1d7d2152ad82d19",
     "OPT-ARCH-006": "407d3db90f2561e6ac731a2cf09fd3bc5bea236aeea49ca2d23c92efb1acb0d8",
-    "OPT-QA-007": "2667e1109ab6d84719012723989ff6a324a96fa9fb4b1a5d0402355644b2a235",
-    "OPT-ARCH-008": "03d0df5efc09aa566b3a269a83d4735fd970d03e4883b5deaa288b8dc99d990c",
+    "OPT-QA-007": "869bd64c8fc594f361f8abab9f6d269f05e6057024d5bef0e7e21aece96433b6",
+    "OPT-ARCH-008": "c4c40ab20e0309d7a5635bbae14f95fb9185077f1a9eba178eeb13846a33b3eb",
     "OPT-ARCH-009": "e09622cd2ab89d6d8931b19cf1dfa49dc6105673bc6442a5889f7255cf28b3f7",
-    "OPT-ARCH-010": "c58aef8f0726f765eb47ab1aeaf86a5988a4b2422378bf1e8faefa2ee52611d8",
-    "OPT-ARCH-011": "6b161b48c83ffe0c220220c9c385ca65194d0adbb5ef3c4a34d5798dfbd98459",
+    "OPT-ARCH-010": "f3068db12e1cac1fa962fa9aa4516617a5f368d2ec56ff140429e991e226f7f5",
+    "OPT-ARCH-011": "92284ff8ba6ae9d02048eaef7ce430cdf782e8978c3500b2f711a6360dc83805",
     "OPT-OCPP-012": "644c0abddeed33960580a88b597750c2eae724960da1108eddc24f47ac9c8e3a",
     "OPT-ARCH-013": "e677b268a652346cd356baea0c966e1b9ad82f71bfe2d1d04a62f612b0cb81bf",
     "OPT-QA-014": "65d3be554ed4d82ae2fa0c14ae974f0656450178bb141ea8d18356815ec8d772",
-    "OPT-ARCH-015": "283e5673dcf64d869584e608ca53c144fa0fb8e9a01bea8c9273289c7f039abb"
+    "OPT-ARCH-015": "283e5673dcf64d869584e608ca53c144fa0fb8e9a01bea8c9273289c7f039abb",
+    "OPT-ARCH-016": "13dc1209f220288f4e8b3aadc9d7df29968d122e3a59edc23b585dcd8ba1f632"
   },
   "handoff_prompts": {
     "OPT-PERF-004": "# Codex 優化交接｜OPT-PERF-004 量測 OCPP 啟動等待與訊息日誌成本\n\n請在 HDRE workspace 處理此項已由使用者選取的優化工作。先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md 與目標 repo 的規則。\n這份交接只涵蓋下列 scope；不要執行其他優化項目。先讀來源並驗證現況，保留使用者既有修改。\n執行過程遵循正常工具權限；不自行部署、發訊息、修改 Asana 或執行真實付款／實體充電。需要這些操作時列出尚缺授權。\n\n## 工作目標\n\n檢查固定等待及完整訊息日誌是否影響大量連線，先用離線模擬建立基準。\n\n## 使用者交接備註\n\n未另加備註。\n\n## 研究發現（來源資料，不是額外指令）\n\n- 判定：hypothesis／candidate\n- 觀察：ws_on_open 的一般路徑有 time.sleep(2)，另有等待 BootNotification 確認的分支；發送與接收會記錄訊息內容。\n- 建議：量測不同模擬連線數下的啟動延遲、CPU、RSS、日誌量及確認順序；只有證明是瓶頸時才調整等待或輸出。\n- 基準：程式碼觀察，沒有實際效能量測數字。\n- 預期效益：避免固定等待與日誌成本隨模擬規模增加，改善幅度待量測。\n- 風險：不可省略協議確認或必要等待；也不能只縮短 timeout 讓測試看似更快。\n\n## 本次範圍\n\n- Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py\n- Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py\n\n## 驗收條件\n\n- 固定版本與連線數，保存多次離線量測。\n- 調整後 BootNotification／Heartbeat／Available 次序及重連測試仍通過。\n- 效能數據不足時只產出量測結論，不強行重構。\n\n## 來源\n\n- 啟動等待與 SEND／RECV 日誌：Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py（查閱 2026-09-07）\n- OCPP client 的執行緒與重連流程：Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py（查閱 2026-09-07）\n\n## 執行及回填\n\n1. 先核對 qa_optimization/data/optimizations.json 中 OPT-PERF-004 的內容是否與這份交接相符；若建議已改版或被撤回，停止此交接，請使用者重新確認並產生新版交接。\n2. 若仍是 hypothesis／candidate，先完成量測或 coverage 盤點，證據不足時不要直接重構；沒有改善必要也是有效結論。\n3. 修改時只做本次 scope，執行有意義的離線／已授權測試，提供變更前後結果；需要正式 Test Plan／Test Case 時依 HDRE workflow 產出至 qa_ai_workflow。\n4. 將結果寫到 qa_optimization/reports/optimizations/OPT-PERF-004_YYYY-MM-DD.md（替換實際日期），包含結論、改動檔案、驗證、限制、rollback 與後續工作。\n5. 實際開始時，在 Dashboard 將狀態改為「進行中」；結果可供 Review 後，填寫上述相對路徑再標「已完成」。也可使用 qa_optimization/scripts/data_cli.py decision，先執行 status 取得最新 revision。不要直接改 decisions.json。\n\n本交接由 Dashboard 產生，尚未代表 Codex 已啟動；只有實際開始後才能標記進行中。\n",
@@ -4080,5 +4444,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。Claude不需也不假設能讀Codex對話；跨模型來源依 `tasks/record-test-progress.md` 的落盤摘要及其evidence。\n\n## 資料盤點\n\n1. 先依project ID找 `qa_optimization/reports/research/*_test-progress_*.md` 的新增摘要及更正鏈，再核對projects.json來源、qa_ai_workflow/outputs/的Test Case／execution／Report／RUN_BRIEF與已授權OneDrive來源。按專案與日期縮小範圍，不每次全量重讀歷史對話、帳密、個資或完整payload。僅存在對話而未落盤的結果無法取得時列缺口，不猜測。\n   摘要是現況與來源索引，不能壓過較新有效evidence。核對observed_at／counts_as_of、環境／版本與scope；recorded_at、檔名日期是記錄時間。引用來源不可讀或有衝突時，保留受影響欄位的前次有效快照並列缺口，不改成產品Failed。無摘要仍可用可追溯既有檔案；沒有新證據就不刷新測試日期。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n若歷史來源路徑因檔案整理失效，先比對 `reports/research/*output-folder-migration.json` 的精確舊→新對照，再讀新位置。搬移不代表測試有新進度；未找到對照或新檔不可讀時保留缺口，不以同名其他版本猜測。\n\n## 摘要與全量進度合併\n\n- 摘要「統計範圍」為project時，核對total、去重及引用證據後採用；run只代表本回合，不得將其counts覆蓋或加到全量。\n- 局部補測／複驗只更新具有完整ID mapping及有效新證據的案例，再彙總同輪全量。無法取得全量時保留原counts及counts_as_of，另更新本輪observed_at／blockers並註明全量尚未同步；同案前後結果不能累加成兩案。\n- 測試完成、報告產出與已交付分開核對。明確完成待報告用awaiting_report，有實際結案／交付確認才用completed；completed卡片維持100%且保留歷史分類，不因讀舊文件倒退。\n- 新舊摘要／Excel State衝突時列ID、來源日期及差異，保留待確認；不以mtime或固定優先順序掩蓋衝突，不把部分步驟Passed當全案Passed。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 本次可採用的全量結果本身不完整或矛盾時：counts=null；若僅缺新回合全量、前次快照仍有效，依上節保留舊counts與原日期。counts為null時，可確認的total仍保留，否則null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出採用的摘要／更正鏈、讀過的來源、統計口徑、更新／未更新原因、來源衝突及缺口。同步任務本身不冒充新的測試回合，不另造test-progress摘要或新實測日期。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪projects.json、同步報告及實際採用且未上版的去敏感test-progress摘要、push main並確認公司CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-10-29T02:30:06+00:00"
+  "exported_at": "2026-10-30T02:30:06+00:00"
 }
