@@ -1,7 +1,7 @@
 {
-  "format": "delivery-flow-demo-v5",
-  "updated_date": "2026-10-30",
-  "content_revision": "c8f7925c69a07c2ad9a8a0eef8046203465ac46ce94d777b78b645d24bad6cfe",
+  "format": "delivery-flow-demo-v6",
+  "updated_date": "2026-11-02",
+  "content_revision": "b034e34b55b06ed433bb053e675411641460f57b893d079be2be52d3c77aa7c4",
   "recording_policy": {
     "mode": "schedule_dates",
     "timezone": "Asia/Taipei",
@@ -13,23 +13,23 @@
     "data": "simulated"
   },
   "files": {
-    "index.html": "a0a7bd4373c7811cccf3933aa498b4706278a9171e95166005f7568db9bdbc61",
+    "index.html": "e72350c08cdc396d7cc5b5fc131c32954172e988539fc9e8720a54ce2462331b",
     "styles.css": "54468c1876700e4d4dd5fd25beda9f6e01230c6c2dfc0ccb5b56295743f7b493",
     "schedule.css": "8b02de7aafd855812d4b59246b6a3ede8701c141935ab869c36cf31b40c97e43",
-    "model.js": "4ddf024ab9ebabf5c90335285bb185b40789a5ec9d24ee499c2bb55c3b53ea0d",
-    "app.js": "a49c646e8c47575ae450fd39716a978e266edf310b4709251a7a80b7c06cd276",
+    "model.js": "d19cafbce3d604a2284117cfc28b0017caaa3967192d1f3c2959e4d122331f9c",
+    "app.js": "5442e10e2b656eb47389de4c2402d5fe90216fb7fb877a0fbc3e7da5e89676f6",
     "icon.svg": "a33b4f3273d18ee9b30c3ef98ee5c5bcbe02e59a7726ee1f2aeb50c76a1fc7c4",
-    "workflow.html": "255b95fd93f7768386a7897bba91b2afc9afd3ef376994cbe088e1dac84c06a8",
-    "workflow.css": "d9ede2a7685aca638e6412b25cc019de2db3077c698e3cc488cea9cdcfa6cec0",
-    "workflow.js": "95c005737bd72a7fb08a74e74cda8aabdda4832b47216c0cb69f894ad1dc945b",
-    "role-walkthrough.js": "1def11b57244829b1198c59761058efd9a4511d8fb1d53bc323840d8e5e75582"
+    "workflow.html": "131fabc090b2efb08085da18342708e9a519ed2bf77b69a09567945b519c70bc",
+    "workflow.css": "7906b74e0880691e03ca1c99180e6ebe52accc46d0facea414b89a9efef114b2",
+    "workflow.js": "baf2ed41d9949a96387af0a5c884bf765596d91b8ee883ae9b02886ab4d81522",
+    "role-walkthrough.js": "308265b80e34137c7f581880b960272710c7018feb2b969bc3a481e07fd4fbd7"
   },
   "workflow_policy": {
     "story_created_by": "PM",
-    "substory_created_by": "PM",
-    "planned_dates_by": "PM",
+    "substory_created_by": "PM for discipline subtasks; each discipline may further decompose its own work",
+    "planned_dates_by": "PM sets Story and discipline subtask dates in Sprint Backlog",
     "rd_completion": "My Tasks checkbox",
-    "feature_handoff": "Daily",
+    "feature_handoff": "PM and RD confirm development complete; PM moves Story to Ready to RT Test and assigns QA; Daily is optional synchronization",
     "bug_structure": "QA parent subtask",
     "lanes": [
       "Product Backlog",
@@ -43,7 +43,25 @@
       "Pending UAT",
       "Ready To Release",
       "Done"
-    ]
+    ],
+    "lane_assignees": {
+      "Product Backlog": "PM",
+      "Refinement": "PM",
+      "Sprint Backlog": "PM",
+      "Development": "PM",
+      "Ready to RT Test": "QA",
+      "RT Testing": "QA",
+      "Ready to Stage Test": "QA",
+      "Stage Testing": "QA",
+      "Pending UAT": "PM",
+      "Ready To Release": "DevOps",
+      "Done": "DevOps"
+    },
+    "bug_wait_returns": {
+      "RT Testing": "Ready to RT Test",
+      "Stage Testing": "Ready to Stage Test"
+    },
+    "done": "DevOps moves Story to Done and marks complete after production release"
   },
   "release_policy": {
     "preprod_environment": "Stage Testing",
@@ -55,7 +73,7 @@
       "QA confirms feature coverage and regression Passed",
       "Existing UAT/release conditions confirmed",
       "Ops prepares and deploys Prod",
-      "Existing verification and PM closure"
+      "DevOps moves Story to Done and marks complete after Prod release"
     ],
     "qa_preprod_checks": [
       "Feature coverage confirmed",

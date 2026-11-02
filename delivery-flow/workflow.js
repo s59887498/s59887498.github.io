@@ -2,21 +2,109 @@
   'use strict';
   const $=id=>document.getElementById(id);
   const stages={
-    intake:{owner:'01 / PM',title:'Product Backlog',card:'Story 由 PM 建立；OP 收單沿既有入口。',status:'需求進入共同 Backlog，PM 確認目標、範圍、驗收期望與 Owner。',action:'PM 建 Story；可討論的範圍、驗收與來源齊備後進 Refinement。',handoff:'PM 邀相關職能釐清需求；交付共同 Story 連結。',time:'PM 安排預估開始／結束，初次確認後保留原訂；尚未完成不填實際完成日。'},
-    refinement:{owner:'02 / PM 主持，相關職能參與',title:'Refinement',card:'Story 與 SubStory 都由 PM 開立。',status:'需求進入釐清，相關職能提出設計、開發、測試與依賴風險。',action:'PM 拆 SubStory，填工作、完成條件、負責人及預估日期。需要的 UIUX 設計與 QA 準備是工作子卡，不新增泳道。',handoff:'完成本輪可排程的範圍與依賴確認，交 Sprint 規劃。',time:'預估日期由 PM 安排，日期有變回 PM 協調；改期另留新時程、原因與確認紀錄。'},
-    sprint:{owner:'03 / PM＋相關職能',title:'Sprint Backlog',card:'PM 已拆分及指派的 SubStory。',status:'確認本輪納入的 Story／SubStory 及優先順序。',action:'PM 確認工作範圍、日期與負責人，讓 RD 從 My Tasks 看自己的卡；達到可開發條件後進 Development。',handoff:'交 RD 工作內容、驗收、設計及環境資訊；缺件回 PM 補齊。',time:'保留 PM 原訂排程；排程調整需原訂、新日期與原因並存。'},
-    development:{owner:'04 / RD',title:'Development',card:'RD 操作 PM 建立的 SubStory；Story 泳道另看。',status:'RD 從 My Tasks 接自己的工作，確認內容、完成條件及 PM 預估日期。',action:'完成開發、自測與 Review，RD 自行勾 SubStory 完成，留自己的實際完成日。這個勾選不直接把 Story 移到待測。',handoff:'功能開發交棒在 Daily，明確回答能否完成／交付；不能就列 Bug、原因、處理人及預計完成時間。上版或開發問題即時通知 PM，不等 Daily。',time:'RD 實際工作完成日與 Daily 交棒日期分開保留；不用等 Daily 才把完成日填晚。'},
-    readyRT:{owner:'05 / Daily 功能交棒；RD 交、QA 接',title:'Ready to RT Test',card:'Story 的待 RT 測試位置；SubStory 是否完成另外保留。',status:'Daily 已確認功能可交棒，版本、環境、自測與接手人清楚。',action:'確認 RT 開測所需資料與環境；QA 真正開始測試時，才進 RT Testing。移卡窗口由團隊約定。',handoff:'Daily 留接手人、版本、缺件與下一步；資料不足先協調，不用用子卡完成推定已交棒。',time:'留功能交棒日期與開測安排；QA 仍依自己的 PM 排程追蹤完成日。'},
-    rtTesting:{owner:'06 / QA；範圍與門檻依團隊約定',title:'RT Testing',card:'QA 的測試 SubStory，Bug 掛 QA 主單下。',status:'RT 可測條件齊備，QA 已開始測試。RT 保留團隊用語，不在此擴充其定義。',action:'執行 RT 必要測試、回歸與 Bug 複驗；符合通過條件後準備 Stage 測試。',handoff:'RT 結果、版本、風險與 Stage 準備事項交下一步；進 Ready to Stage Test。',time:'完成部分 RT 測試不直接完成整張 QA 主單。Bug 留各輪交付、驗證與必要改期日期。'},
-    readyStage:{"owner":"07 / 維運 → RD → QA","title":"Ready to Stage Test","card":"PreProd 準備與 RD 核對交接；PreProd 就是 Stage Testing 環境。","status":"RT 測試完成，維運準備 PreProd 並提供版本及準備結果，先交 RD。","action":"RD 對照本次應上功能／修復與版本，確認內容齊全、沒有漏上，完成後主動通知 QA；在 RD 通知前不視為 QA 已開始回歸。","handoff":"維運備 PreProd → RD 核對有無漏上 → RD 通知 QA，附確認範圍與版本。","time":"留 PreProd 準備、RD 核對與通知 QA 的紀錄；異常立即回報 PM，改期保留原訂、新日期與原因。"},
-    stageTesting:{"owner":"08 / QA，測試環境為 PreProd","title":"Stage Testing","card":"QA 主單追蹤 PreProd 功能確認及回歸；Bug 維持子任務。","status":"RD 已核對 PreProd 本次應上內容齊全並通知 QA，QA 才接手此環境的測試。","action":"同時確認本次功能是否有包含、回歸測試是否 Passed；記版本、範圍與兩項結果。任一不齊或未過，立即回報 PM，不往 Prod。","handoff":"QA 雙項確認通過及報告交 PM／UAT 窗口，接 Pending UAT 的既有驗收／放行確認。","time":"達成 QA 工作完成條件才留實際完成日；漏上、Bug 或回歸未過的影響即時回報 PM，不等 Daily。"},
-    uat:{"owner":"09 / PM 協調指定 UAT／放行窗口","title":"Pending UAT","card":"承接 QA PreProd 功能確認及回歸 Passed，保留既有驗收權責。","status":"QA 已提交 PreProd 版本、功能有包含及回歸 Passed 結果，等待既有 UAT／放行確認。","action":"PM 確認驗收窗口、條件與結果；符合既有放行條件後進 Ready To Release，交維運準備 Prod。","handoff":"交 QA 雙項通過結果、既有驗收結果、版本與限制給維運；不是只回覆測完。","time":"驗收安排或問題影響時程要即時讓 PM 知道；保留 QA 完成日、原訂日期與改期原因。"},
-    release:{"owner":"10 / 維運準備與發布 Prod；PM 確認既有放行條件","title":"Ready To Release","card":"QA PreProd 通過及既有驗收／放行條件已確認，準備 Prod。","status":"本次功能有包含、回歸 Passed，並完成既有放行確認，才由維運準備 Prod 與上版窗口。","action":"維運依既有程序準備及發布 Prod；上版後回報版本與結果，沿用既有上線驗證，再由 PM 確認是否可 Done。","handoff":"維運回上版版本、結果及既有驗證資訊給 PM；遇到上版／開發問題立即回報，不等 Daily。","time":"Prod 發布結果與既有結案確認分開保留；原訂日期不覆蓋，調整留新日期、原因與確認窗口。"},
-    done:{owner:'11 / PM 確認整體結案',title:'Done',card:'Story 整體完成，SubStory／Bug 與結果可追溯。',status:'必要交付、UAT 結果與上線驗證已確認，符合既有結案條件。',action:'PM 確認 Story Done，保留版本、測試／驗收結果與各卡紀錄。RD 勾工作完成或 QA 測完都不直接等於 Story Done。',handoff:'回需求相關窗口說明交付結果，後續問題保留關聯。',time:'Story 實際完成日對原訂結束日判斷提前、準時或 Delay；各 SubStory 與 Bug 另比自己的日期，不相加。'}
-  };
+  "intake": {
+    "owner": "01 / 建卡：PM｜主卡指派：PM",
+    "title": "Product Backlog",
+    "card": "PM 建立 Story 並指派自己。",
+    "status": "PM 的需求筆記區，收集可能或尚未成案的需求。",
+    "action": "PM 建卡並指派自己；需求進入確認時，由 PM 移至 Refinement。",
+    "handoff": "保留需求來源及待釐清事項，邀請相關人員討論。",
+    "time": "確認可排 Sprint 時，再安排主卡與子任務日期。"
+  },
+  "refinement": {
+    "owner": "02 / 移卡：PM｜主卡指派：PM",
+    "title": "Refinement",
+    "card": "PM 將 Story 從 Product Backlog 移入，指派仍為 PM。",
+    "status": "PM 與 RD 溝通，並依需要和外部確認需求。",
+    "action": "需求確認且下個 Sprint 要開發時，由 PM 移至 Sprint Backlog。",
+    "handoff": "釐清範圍、驗收、依賴及風險；各職能可提前提供意見。",
+    "time": "保留需求及排程決策。"
+  },
+  "sprint": {
+    "owner": "03 / 移卡：PM｜主卡指派：PM",
+    "title": "Sprint Backlog",
+    "card": "PM 將 Story 移入，主卡仍指派 PM。",
+    "status": "需求已確認，安排下一個 Sprint 的工作。",
+    "action": "PM 設定 Story 的 Start Date／End Date；依討論拆 BE、FE、UIUX、QA、DevOps 子任務、指派各職能負責人，並設定每張子任務的開始與結束日。各職能可再自行開卡拆分自己的工作。",
+    "handoff": "交各職能工作範圍、驗收、負責人與日期；不需要的職能不必建空白卡。",
+    "time": "原訂與改期原因保留；Sprint 開始後由 PM 移至 Development。"
+  },
+  "development": {
+    "owner": "04 / 移卡：PM｜主卡指派：PM",
+    "title": "Development",
+    "card": "Sprint 開始時 PM 移卡；Story 仍指派 PM。",
+    "status": "RD 從 My Tasks 接收職能子任務並開發。",
+    "action": "RD 完成開發、自測與 Review 後，自行勾選自己被指派的子任務完成；子卡完成不會自動移動或完成 Story。",
+    "handoff": "PM 與 RD 確認都已開發完成、可以進 QA 後，PM 移至 Ready to RT Test 並指派 QA。Daily 可同步，不需等待會議。",
+    "time": "留各卡實際完成日，開發或上版問題即時回報 PM。"
+  },
+  "readyRT": {
+    "owner": "05 / 首次移卡：PM；退回：QA｜主卡指派：QA",
+    "title": "Ready to RT Test",
+    "card": "PM 與 RD 確認開發完成可交 QA 後，PM 首次移入並指派 QA。",
+    "status": "等待 RT 部署與開測；RT 測試遇 Bug 等待 RD 修復時，也由 QA 退回此處，主卡仍指派 QA。",
+    "action": "RT 已部署且 QA 開始測試或複驗時，由 QA 移至 RT Testing。",
+    "handoff": "交接版本、環境、自測、已知限制、Bug 與接手人。Bug 子任務指派 RD，與 Story 指派分開。",
+    "time": "保留修復、部署、複驗與必要改期紀錄。"
+  },
+  "rtTesting": {
+    "owner": "06 / 移卡：QA｜主卡指派：QA",
+    "title": "RT Testing",
+    "card": "RT 已上版、QA 可以進行測試時由 QA 移入。",
+    "status": "執行 RT 測試；QA 主單下建立 Bug 子任務，交 RD 修復。",
+    "action": "RT Bug 等待修復時，QA 將 Story 退回 Ready to RT Test；修復部署後 QA 開始複驗，再移回 RT Testing。",
+    "handoff": "RT 測試完成後，由 QA 移至 Ready to Stage Test，主卡仍指派 QA。",
+    "time": "記測試結果、版本與每輪 Bug 複驗；不受影響的測試可繼續。"
+  },
+  "readyStage": {
+    "owner": "07 / 移卡：QA｜主卡指派：QA",
+    "title": "Ready to Stage Test",
+    "card": "QA 完成 RT 後移入；Stage Bug 等待修復時也退回此處。",
+    "status": "主卡維持指派 QA。維運準備 PreProd，RD 核對本次應上內容後通知 QA。",
+    "action": "Stage 已部署且 QA 開始測試或複驗時，由 QA 移至 Stage Testing。",
+    "handoff": "維運備 PreProd → RD 核對有無漏上並附版本 → RD 通知 QA。",
+    "time": "記版本與交接；異常即時回報 PM。"
+  },
+  "stageTesting": {
+    "owner": "08 / 移卡：QA｜主卡指派：QA",
+    "title": "Stage Testing",
+    "card": "Stage 已上版、QA 可以測試時由 QA 移入；PreProd 為此階段環境。",
+    "status": "QA 確認本次功能涵蓋並執行必要回歸，記錄版本與結果。",
+    "action": "Stage Bug 等待修復時，QA 將 Story 退回 Ready to Stage Test；修復部署後開始複驗再移回 Stage Testing。",
+    "handoff": "QA 測試完成後移至 Pending UAT，將 Story 指派 PM，並交測試結果／報告。",
+    "time": "未通過或漏上即時回報 PM，保留 Bug 與複驗紀錄。"
+  },
+  "uat": {
+    "owner": "09 / 移卡：QA｜主卡指派：PM",
+    "title": "Pending UAT",
+    "card": "QA 測試完成後移卡並將 Story 指派 PM。",
+    "status": "QA 交付功能涵蓋、回歸結果、版本、報告與限制，等待 PM UAT。",
+    "action": "PM 完成 UAT 驗收後，移至 Ready To Release 並指派 DevOps。",
+    "handoff": "交驗收結果、版本及發版資訊給 DevOps。",
+    "time": "保留 QA 完成日與驗收結果；問題及時回報。"
+  },
+  "release": {
+    "owner": "10 / 移卡：PM｜主卡指派：DevOps",
+    "title": "Ready To Release",
+    "card": "PM 完成 UAT 後移卡並將 Story 指派 DevOps。",
+    "status": "維運／DevOps 準備正式上線。",
+    "action": "DevOps 依既有程序上 Prod；上線後由 DevOps 移至 Done 並勾選 Story 完成。",
+    "handoff": "回報發布版本、結果及既有上線驗證資訊；問題即時通知 PM。",
+    "time": "保留發布結果、日期與改期原因。"
+  },
+  "done": {
+    "owner": "11 / 移卡與完成：DevOps｜主卡指派：DevOps",
+    "title": "Done",
+    "card": "正式上線後由 DevOps 移卡至 Done，並在 Story 按完成。",
+    "status": "主卡已結案；QA、RD 子任務與 Bug 各自保留工作和結果。",
+    "action": "DevOps 留下正式版本與上線結果，移至 Done 並勾選完成；不把 QA 測完或 RD 子卡完成當成 Story 結案。",
+    "handoff": "同步交付結果給相關窗口，後續問題保留關聯。",
+    "time": "Story 完成日與各子卡日期分別比較原訂，不把各卡 Delay 相加。"
+  }
+};
   const dialog=$('stage-dialog');let trigger=null,mode='story';
-  function showStage(id,button){const s=stages[id];if(!s)return;trigger=button;for(const field of ['owner','title','card','status','action','handoff','time'])$('stage-'+field).textContent=s[field];if(mode==='op'&&id==='refinement')$('stage-action').textContent='本例 OP 不需設計，PM 不拆空白設計 SubStory；需要的開發、測試與交付工作仍由 PM 安排。是否可省略特定階段，依團隊門檻確認。';dialog.showModal();}
+  function showStage(id,button){const s=stages[id];if(!s)return;trigger=button;for(const field of ['owner','title','card','status','action','handoff','time'])$('stage-'+field).textContent=s[field];if(mode==='op'&&id==='sprint')$('stage-action').textContent='本例 OP 不需設計；PM 依需要建立職能子任務並設定日期，各職能可繼續拆自己的工作。OP 收單及各測試門檻依團隊約定。';dialog.showModal();}
   document.querySelectorAll('[data-stage]').forEach(button=>{button.setAttribute('aria-haspopup','dialog');button.setAttribute('aria-controls','stage-dialog');button.addEventListener('click',()=>showStage(button.dataset.stage,button));});
-  document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{mode=button.dataset.mode;document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===mode)));$('mode-note').textContent=mode==='story'?'Story 與 SubStory 都由 PM 建立、預估日期；需要設計才有對應工作子卡，Story 仍依相同 11 個泳道追蹤。':'本例 OP 不需設計，因此不拆設計 SubStory。11 個泳道清單不變；RT／Stage／UAT 的適用門檻與 OP 收單窗口沿團隊約定，不自動略過。';}));
+  document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{mode=button.dataset.mode;document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===mode)));$('mode-note').textContent=mode==='story'?'PM 建 Story，於 Sprint Backlog 設定主子卡日期並指派職能子任務；各職能可再拆自己的工作。':'本例 OP 不需設計，因此不拆設計 SubStory。11 個泳道清單不變；RT／Stage／UAT 的適用門檻與 OP 收單窗口沿團隊約定，不自動略過。';}));
   $('stage-done').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>{if(trigger)trigger.focus({preventScroll:true});});
 })();

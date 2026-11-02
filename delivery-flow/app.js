@@ -4,11 +4,11 @@
   const escape=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const chip=r=>`<span class="schedule-chip ${r.kind}">${escape(r.label)}</span>`;
   const roles={
-    qa:{title:'Daily 接功能；PreProd 等 RD 核對通知再回歸。',work:'依 PM 的工作卡與日期，執行 RT；PreProd 確認功能有包含、回歸 Passed，留 Bug 複驗與報告。',done:'PreProd 功能涵蓋與回歸 Passed、報告交付，才接 Pending UAT 及後續 Prod 準備。',input:'Daily 取得 RD 的版本、環境、自測與限制，確認 Ready to RT Test。',output:'雙項通過結果交 PM／UAT 窗口，再接維運 Prod 準備；未過即時回報 PM，Bug 沿原子任務追蹤。'},
-    pm:{title:'Story、SubStory 與預估日期由 PM 安排。',work:'建立 Story、拆 SubStory，指定工作、完成條件、負責人及預估開始／結束。',done:'需求與拆分、Sprint 排程明確；Story Done 另依整體交付與驗收確認。',input:'需求提出者交問題、驗收期望；Refinement 向各組確認依賴與風險。',output:'SubStory 指派 RD，讓 RD 從 My Tasks 接工作；Daily 明確決議能否完成與下一步；開發或上版問題要即時回報 PM，方便安排日期。'},
+    qa:{title:'PM 指派 QA 接功能；PreProd 等 RD 核對通知再回歸。',work:'依 PM 的工作卡與日期，執行 RT；PreProd 確認功能有包含、回歸 Passed，留 Bug 複驗與報告。',done:'PreProd 功能涵蓋與回歸 Passed、報告交付，才接 Pending UAT 及後續 Prod 準備。',input:'PM 與 RD 確認開發完成並移卡指派 QA；取得版本、環境、自測與限制。',output:'雙項通過結果交 PM／UAT 窗口，再接維運 Prod 準備；未過即時回報 PM，Bug 沿原子任務追蹤。'},
+    pm:{title:'PM 建 Story，Sprint Backlog 拆職能子任務並排期。',work:'建立 Story，在 Sprint Backlog 拆分及指派職能子任務，設定主子卡開始／結束日；各職能可再拆自己的工作。',done:'需求與拆分、Sprint 排程明確；Story Done 另依整體交付與驗收確認。',input:'需求提出者交問題、驗收期望；Refinement 向各組確認依賴與風險。',output:'SubStory 指派 RD，讓 RD 從 My Tasks 接工作；Daily 明確決議能否完成與下一步；開發或上版問題要即時回報 PM，方便安排日期。'},
     ux:{title:'設計放在 PM 拆出的 SubStory。',work:'按需要做設計、互動、例外狀態與決策說明。',done:'設計版本與說明可供 RD 實作，結果回 PM 的工作卡。',input:'PM 提供 SubStory、需求、驗收與預估日期。',output:'交 RD／PM 設計版本，QA 可提早準備；設計工作不另加一個 Story 泳道。'},
-    rd:{title:'My Tasks 勾工作完成，Daily 才交功能。',work:'依 PM 建立與排期的 SubStory 開發、自測與 Review；Bug 沿原子任務修復。',done:'RD 自行勾自己的 SubStory 完成並留完成日；Story 等 Daily 確認交棒後再移泳道。',input:'從 My Tasks 看 PM 指派的卡與日期；缺件及日期風險回 PM 確認。',output:'Daily 說明版本、環境、自測與限制，確認 QA 接手，Story 進 Ready to RT Test。PreProd 備好後，RD 先核對沒有漏上再通知 QA。'},
-    ops:{title:'串起 PreProd 準備與 Prod 上版。',work:'RT 後準備 PreProd 交 RD 核對；QA 功能涵蓋與回歸 Passed、放行確認後準備 Prod。',done:'交付與上線結果回 PM，確認 Story Done。',input:'RT 結果交接後備 PreProd；之後接 QA 雙項通過、PM／UAT 確認的發版資訊。',output:'發布版本與驗證結果回 Story；日期有變回 PM 協調，保留原訂與原因。'}
+    rd:{title:'My Tasks 勾工作完成，由 PM 確認後移卡交 QA。',work:'依 PM 建立與排期的 SubStory 開發、自測與 Review；Bug 沿原子任務修復。',done:'RD 自行勾自己的 SubStory 完成並留完成日；Story 由 PM 與 RD 確認開發完成後，PM 移卡並指派 QA。',input:'從 My Tasks 看 PM 指派的卡與日期；缺件及日期風險回 PM 確認。',output:'說明版本、環境、自測與限制，PM 確認後移入 Ready to RT Test 並指派 QA。PreProd 備好後，RD 先核對沒有漏上再通知 QA。'},
+    ops:{title:'串起 PreProd 準備與 Prod 上版。',work:'RT 後準備 PreProd 交 RD 核對；QA 功能涵蓋與回歸 Passed、放行確認後準備 Prod。',done:'正式上線後 DevOps 移 Story 至 Done 並勾選完成，回報版本與結果。',input:'RT 結果交接後備 PreProd；之後接 QA 雙項通過、PM／UAT 確認的發版資訊。',output:'發布版本與驗證結果回 Story；日期有變回 PM 協調，保留原訂與原因。'}
   };
   let role='qa',scenarioId='early',index=0,selectedTask='qa';
   const set=(id,value)=>{$(id).textContent=value;};
@@ -21,7 +21,7 @@
   function render(announce=true){
     const s=M.scenarios[scenarioId],snap=M.snapshot(s,index),selected=snap.tasks.find(t=>t.id===selectedTask)||snap.tasks.find(t=>t.id==='qa');selectedTask=selected.id;
     $('scenario-content').setAttribute('aria-labelledby','scenario-'+scenarioId);
-    set('parent-type',s.type+' / '+(s.type==='Story'?'STORY-024':'OP-042'));set('parent-title',s.title);set('parent-meta',`Story／收單 Owner：${s.owner}｜RD 勾子卡 ≠ Story 交棒／Done`);set('parent-stage',snap.current.stage);
+    set('parent-type',s.type+' / '+(s.type==='Story'?'STORY-024':'OP-042'));set('parent-title',s.title);set('parent-meta',`Story／收單 Owner：${s.owner}｜目前泳道指派：${snap.root.assignee}｜子卡完成 ≠ Story Done`);set('parent-stage',snap.current.stage);
     $('parent-result').className='schedule-chip '+snap.root.result.kind;set('parent-result',snap.root.result.label);
     $('parent-dates').innerHTML=`<div><span>主卡原訂時程</span><strong>${M.date(s.originalStart)} → ${M.date(s.originalEnd)}</strong></div><div><span>目前交期</span><strong>${M.date(snap.root.currentEnd)}</strong></div><div><span>主卡實際完成</span><strong>${M.date(snap.root.completedAt)}</strong></div>${snap.root.revisions.length?`<div><span>相較新交期</span>${chip(snap.root.currentResult)}</div>`:''}`;
     const ordered=[];function children(parentId,depth){for(const t of snap.tasks.filter(t=>t.parentId===parentId)){ordered.push({...t,depth});children(t.id,depth+1);}}children(null,0);

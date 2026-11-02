@@ -170,3 +170,6 @@
 @media(max-width:900px){.daily-handoff-strip{gap:12px;padding:22px}.daily-handoff-strip strong{font-size:15px}.lane-canvas .flow-node>strong{font-size:14px}}
 @media(max-width:650px){.daily-handoff-strip{grid-template-columns:1fr;gap:10px;padding:20px}.daily-handoff-strip>b{transform:rotate(90deg);line-height:1.1;font-size:18px}.daily-handoff-strip strong{font-size:17px;margin-top:4px}.daily-handoff-strip small{font-size:10px;margin-top:3px}.workflow-bug-band{padding:20px;margin-top:18px}.workflow-bug-band>strong{font-size:14px}.workflow-bug-band>p{font-size:11px}.lane-canvas .flow-node>strong{font-size:14px}}
 @media print{.lane-canvas{min-width:0}.lane-canvas .flow-node>strong{font-size:8px}.daily-handoff-strip{padding:16px;gap:12px}.daily-handoff-strip strong{font-size:12px}.daily-handoff-strip small,.daily-handoff-strip>div>span{font-size:8px}.workflow-bug-band>p{font-size:9px}}
+
+/* 泳道責任表在手機可橫向捲動，保留欄名與語意。 */
+.lane-table-scroll{overflow-x:auto;margin-top:1rem}.lane-table{border-collapse:collapse;width:100%;min-width:620px;text-align:left}.lane-table th,.lane-table td{padding:.75rem;border-bottom:1px solid #d8ded0;vertical-align:top}.lane-table thead th{font-size:.84rem;color:#52634d}.lane-table tbody th{width:24%;font-size:.9rem}.lane-table td:last-child{white-space:nowrap;font-weight:700}
