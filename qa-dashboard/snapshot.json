@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-11-04T07:59:51+00:00",
+    "updated_at": "2026-11-06T02:14:39+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -3325,8 +3325,8 @@
         "environment": "Stage；build 待確認",
         "stage": "report",
         "activity": "blocked",
-        "activity_confirmed_at": "2026-11-04T15:59:51+08:00",
-        "observed_at": "2026-11-04T15:59:51+08:00",
+        "activity_confirmed_at": "2026-11-05T10:23:58+08:00",
+        "observed_at": "2026-11-05T10:24:46+08:00",
         "total": 12,
         "counts": {
           "passed": 1,
@@ -3336,13 +3336,14 @@
           "not_run": 0
         },
         "counts_as_of": "2026-11-04T15:45:42+08:00",
-        "scope_note": "12主案／20正式排列已有執行證據：本次續跑19排列＋沿用ACS002既有Fail。PASS1(011)、FAIL2(002/012)、BLOCK/PARTIAL9為Stage修補版本/邊界/前置限制，非9案未執行。32自有task五項生成資源全數查無。167離線工具測試不計產品案例。 11/04補充：九案現況已逐案整理，009傳輸區間已補計；驗收統計不變。使用者表示RD預計11/05上新版，尚未確認部署；待Stage版本/開關交付後複驗。",
+        "scope_note": "12主案／20正式排列已有執行證據：本次續跑19排列＋沿用ACS002既有Fail。PASS1(011)、FAIL2(002/012)、BLOCK/PARTIAL9為Stage修補版本/邊界/前置限制，非9案未執行。32自有task五項生成資源全數查無。167離線工具測試不計產品案例。 11/04補充：九案現況已逐案整理，009傳輸區間已補計；驗收統計不變。使用者表示RD預計11/05上新版，尚未確認部署；待Stage版本/開關交付後複驗。 11/05 10:18–10:24 ACS002/012局部複驗(run 2案：B1/NR1)因Stage後台登入HTTP 502未進入情境，不覆寫全量；counts維持11/04 15:45快照。",
         "blockers": [
+          "11/05 Stage後台登入HTTP 502（無Retry-After），ACS002/012複驗未進入情境；待Stage／RD修復。",
           "Stage新版build／commit、部署完成時間及neighbor-guard實際值／生效範圍待確認。",
           "ACS009業務T與狀態收件／入庫／消費時間定義或trace待確認；協定傳輸區間已補計。",
           "ACS001完整乾淨雙槍基準仍有原單status4/deleted0與active0不一致；自身功能片段已確認，原單依指示保留。"
         ],
-        "next_action": "預計11/05 Stage上版完成並核對版本/開關後，先複驗ACS002/012，再依九案清單逐項驗收；部署未確認不推定已開測。",
+        "next_action": "Stage後台登入恢復並確認新版build／neighbor-guard後，依序重跑ACS002、ACS012，再依九案清單逐項驗收。",
         "sources": [
           {
             "kind": "local",
@@ -3391,15 +3392,215 @@
             "label": "九案情境與缺口明細",
             "ref": "qa_ai_workflow/outputs/reports/星舟快充/隨插即充與掃碼競態/Stage_9案待確認與新版複驗準備_20261104.md",
             "checked_at": "2026-11-04"
+          },
+          {
+            "kind": "local",
+            "label": "11/05 ACS002/012複驗受阻摘要",
+            "ref": "qa_optimization/reports/research/2026-11-05_test-progress_PRJ-STARCHARGE-AUTOCHARGE-SCAN-RACE-20261104_102504_ACS002-012-RETEST.md",
+            "checked_at": "2026-11-06T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "11/05 登入502診斷evidence",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/evccid-binding-race/20261105_102446/login-diagnostic.json",
+            "checked_at": "2026-11-06T10:10:00+08:00"
           }
         ],
         "planned_start_at": "2026-11-05"
+      },
+      {
+        "id": "PRJ-STARCHARGE-PROD-SMOKE-20261105",
+        "title": "星舟快充 Prod 15分鐘 Smoke",
+        "product": "星舟快充",
+        "summary": "Prod Smoke v0.6 於 11/06 00:38–00:43 完整執行 001–010 全數 Pass（evidence 判讀，執行者尚未補落盤摘要）；電價已復原、綁定已解除。未產出正式 Report，是否結案待確認。",
+        "owner": "Andy／Codex",
+        "environment": "Prod；部署build未知",
+        "stage": "execution",
+        "activity": "active",
+        "activity_confirmed_at": "2026-11-06T00:43:28+08:00",
+        "observed_at": "2026-11-06T00:43:28+08:00",
+        "total": 10,
+        "counts": {
+          "passed": 10,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 0,
+          "not_run": 0
+        },
+        "counts_as_of": "2026-11-06T00:43:28+08:00",
+        "scope_note": "v0.6 共 10 個唯一 Case ID。採 reports/prod-smoke/20261106_003848_317984/evidence.json：單一 run 依序涵蓋 001–010，CASE 事件全為 PASS、errors 0 筆，耗時約 280 秒；因此 run 即全量 scope，按同案最新有效結果統計為 P10，取代 00:05（P5/F1/B4）與 00:24（001–003 P、004 B）兩次 run 的結果，不跨輪加總。00:28 run（20261106_002851_100452）只是單次同車更新，不計案例。此 run 無執行者落盤摘要，由 Claude 依 evidence 判讀；FINAL_READBACK 記 fixture_settings_unchanged=false，需執行者說明是否預期（例如 Case002 關閉充電金預設或解綁）。測試完成、Report、交付均未確認。",
+        "blockers": [
+          "執行者尚未為 00:38 完整 run 補落盤 test-progress 摘要；結案（awaiting_report／completed）須人員確認。",
+          "FINAL_READBACK 顯示 fixture_settings_unchanged=false，需確認是否為預期的測試帳號設定變更。",
+          "11/05–11/06 綁定查詢 HTTP 503 根因及 powerDiscountBalance 欄位契約仍待 RD 確認（00:38 run 已通過，未證實問題已修復）。"
+        ],
+        "next_action": "執行者補 00:38 完整 run 的摘要並確認是否視為測試完成；需要時產出 Prod Smoke Report。RD 回覆 503 與 powerDiscountBalance 契約。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "Prod Smoke 設計需求",
+            "ref": "qa_optimization/reports/research/2026-11-05_prod-smoke-design-registration.md",
+            "checked_at": "2026-11-05T13:53:57+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "Prod Smoke案例Markdown",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/產線Smoke/StarCharge_Prod_Smoke_v0.3.md",
+            "checked_at": "2026-11-05T14:04:28+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "Prod Smoke Readable Excel",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/產線Smoke/StarCharge_Prod_Smoke_v0.3_Readable.xlsx",
+            "checked_at": "2026-11-05T14:04:28+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "Prod Smoke自動化入口",
+            "ref": "Automation_HDRE/Automation_API_UI-main/tests/Web/starcloud/test_08_StarCharge_Prod_Smoke.py",
+            "checked_at": "2026-11-05T14:04:28+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "Prod Smoke設計交付與離線驗證摘要",
+            "ref": "qa_optimization/reports/research/2026-11-05_test-progress_PRJ-STARCHARGE-PROD-SMOKE-20261105_140517_DESIGN-DELIVERY.md",
+            "checked_at": "2026-11-05T14:05:17+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "v0.4案例Markdown",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/產線Smoke/StarCharge_Prod_Smoke_v0.4.md",
+            "checked_at": "2026-11-05T14:27:50+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "v0.4 Readable Excel",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/產線Smoke/StarCharge_Prod_Smoke_v0.4_Readable.xlsx",
+            "checked_at": "2026-11-05T14:27:50+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "站點與現行讀價更新摘要",
+            "ref": "qa_optimization/reports/research/2026-11-05_test-progress_PRJ-STARCHARGE-PROD-SMOKE-20261105_142750_STATION-LIVE-TARIFF-V04.md",
+            "checked_at": "2026-11-05T14:27:50+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "v0.5案例Markdown",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/產線Smoke/StarCharge_Prod_Smoke_v0.5.md",
+            "checked_at": "2026-11-05T14:57:21+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "v0.5 Readable Excel",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/產線Smoke/StarCharge_Prod_Smoke_v0.5_Readable.xlsx",
+            "checked_at": "2026-11-05T14:57:21+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "v0.5跨界與解綁更新摘要",
+            "ref": "qa_optimization/reports/research/2026-11-05_test-progress_PRJ-STARCHARGE-PROD-SMOKE-20261105_145721_CROSS-TARIFF-UNBIND-V05.md",
+            "checked_at": "2026-11-05T14:57:21+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "v0.6修改授權與設計登錄",
+            "ref": "qa_optimization/reports/research/2026-11-05_prod-smoke-v06-change-registration.md",
+            "checked_at": "2026-11-05T16:12:29+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "v0.6案例Markdown",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/產線Smoke/StarCharge_Prod_Smoke_v0.6.md",
+            "checked_at": "2026-11-05T16:28:29+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "v0.6 Readable Excel",
+            "ref": "qa_ai_workflow/outputs/testcases/星舟快充/產線Smoke/StarCharge_Prod_Smoke_v0.6_Readable.xlsx",
+            "checked_at": "2026-11-05T16:28:29+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "v0.6離線驗證151項與strict collect10",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/prod-smoke-offline/20261105_162617-v06-validation.json",
+            "checked_at": "2026-11-05T16:28:29+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "v0.6電價復原及自動ID交接",
+            "ref": "qa_optimization/reports/research/2026-11-05_test-progress_PRJ-STARCHARGE-PROD-SMOKE-20261105_162829_TARIFF-RESTORE-AUTO-ID-V06.md",
+            "checked_at": "2026-11-05T16:28:29+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "23:23 前置受阻摘要",
+            "ref": "qa_optimization/reports/research/2026-11-05_test-progress_PRJ-STARCHARGE-PROD-SMOKE-20261105_232426_PROD-RERUN.md",
+            "checked_at": "2026-11-06T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "LINE登入成功／綁定查詢503摘要",
+            "ref": "qa_optimization/reports/research/2026-11-05_test-progress_PRJ-STARCHARGE-PROD-SMOKE-20261105_234510_LINE-LOGIN-BINDING-503.md",
+            "checked_at": "2026-11-06T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "樁在線前置阻擋摘要",
+            "ref": "qa_optimization/reports/research/2026-11-05_test-progress_PRJ-STARCHARGE-PROD-SMOKE-20261105_235458_PILE-ONLINE.md",
+            "checked_at": "2026-11-06T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "006掃碼訂單折抵排查摘要",
+            "ref": "qa_optimization/reports/research/2026-11-06_test-progress_PRJ-STARCHARGE-PROD-SMOKE-20261105_001438_SCAN-ORDER-006.md",
+            "checked_at": "2026-11-06T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "006欄位判斷修正摘要",
+            "ref": "qa_optimization/reports/research/2026-11-06_test-progress_PRJ-STARCHARGE-PROD-SMOKE-20261105_002153_DISCOUNT-FIELD-CORRECTION.md",
+            "checked_at": "2026-11-06T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "004同車更新與綁定前置摘要",
+            "ref": "qa_optimization/reports/research/2026-11-06_test-progress_PRJ-STARCHARGE-PROD-SMOKE-20261105_003222_VEHICLE-UPDATE-004.md",
+            "checked_at": "2026-11-06T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "00:05 完整範圍執行evidence",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/prod-smoke/20261106_000508_188799/evidence.json",
+            "checked_at": "2026-11-06T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "00:24 重跑evidence",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/prod-smoke/20261106_002416_646656/evidence.json",
+            "checked_at": "2026-11-06T10:10:00+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "00:38 完整 001–010 執行evidence",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/prod-smoke/20261106_003848_317984/evidence.json",
+            "checked_at": "2026-11-06T10:20:00+08:00",
+            "note": "10 CASE PASS、errors 0、電價 restored、BINDING_CLEANUP completed"
+          },
+          {
+            "kind": "local",
+            "label": "00:28 單次同車更新evidence",
+            "ref": "Automation_HDRE/Automation_API_UI-main/reports/prod-smoke/20261106_002851_100452/evidence.json",
+            "checked_at": "2026-11-06T10:20:00+08:00",
+            "note": "僅 updateVehicle 讀回，不計案例"
+          }
+        ]
       }
     ]
   },
   "optimizations": {
     "schema_version": 1,
-    "updated_at": "2026-10-30T02:16:43+00:00",
+    "updated_at": "2026-11-06T02:13:28+00:00",
     "items": [
       {
         "id": "OPT-PERF-001",
@@ -3656,7 +3857,7 @@
         "priority": "P1",
         "confidence": "evidence",
         "research_status": "candidate",
-        "finding": "Automation_API_UI-main/requirements.txt 共 30 項，只有 fastapi、uvicorn 有版本範圍，testreporthdreqa==0.0.3 有固定版，其餘 27 項（含 pytest、selenium、allure-pytest、requests、pandas）完全未鎖；目錄下沒有 lock 或 constraints 檔。CI 的 Install dependencies step 每次執行 pip install -r requirements.txt 重新解析。官方事實：pytest 最新為 9.1.1（2026-06-19），而 9.0.0 已把測試回傳非 None 由警告改為失敗、把 PytestRemovedIn9Warning 一律轉為錯誤、並停止支援 Python 3.9；CI 的 python_version 選項仍保留 3.9，選 3.9 時會解析到不同的舊 pytest。本輪未執行 CI，沒有證據顯示目前已經失敗。 2026-09-11 重新核對：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），之後沒有新版本，因此未鎖版目前會解析到 9.1.1；9.0.0 的破壞性變更仍是風險來源，CI 的 python_version 也仍保留 3.9 選項（選 3.9 會解析到 8.x）。本輪新增三項本機證據：(1) 同 workspace 的 SC_QA_Charge_Stress_Test/requirements.txt 共 17 項全部固定版本，內部已有可直接沿用的鎖版作法；(2) Automation_API_UI-main/requirements.txt 同時列 pillow（第 22 行）與 Pillow（第 29 行），重複宣告同一套件；(3) pytest-cov（第 5 行）已宣告，但全 repo 沒有任何 --cov 或 pytest_cov 使用，屬未使用的依賴。另外 CI 的 setup-python cache 以 requirements.txt 內容為 key，檔案沒變時 key 也不變，但 pip 仍會解析到當下最新版本，快取不提供可重現性。 2026-09-18 排程研究：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），2026 年僅 9.1.0（2026-06-13）與 9.1.1 兩版，自 9/11 起沒有新版本，未鎖版目前仍會解析到 9.1.1。 本輪並補齊上一輪明確記錄為「無法以官方來源交叉核對」的 GitHub Actions 版本事實：改由 GitHub REST API 的 releases/latest 端點取得，actions/checkout 最新為 v7.0.1（2026-07-20）、actions/setup-python 最新為 v7.0.0（2026-07-20）、actions/upload-artifact 最新為 v7.0.1（2026-04-10）。而 starcloud-stage-tests.yml 第 109／115／154 行分別固定在 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4。 關鍵判讀：actions/checkout 的 releases 清單顯示 v7.0.1、v6.1.0、v5.1.0、v4.4.0、v3.7.0、v2.8.0 都在 2026-07-20 同一天發版，代表舊主版本仍在維護，因此「用 v4」本身不是錯誤，也不構成升級理由；真正的可重現性問題與 requirements.txt 相同——@v4／@v5 是浮動的 major tag，同一份 commit 在不同時間會拉到不同的 action 程式碼，且改動不會出現在任何 commit 裡。 2026-09-25：PyPI 官方 JSON 顯示 allure-pytest 在 2026-09-18（上一輪研究當天）發布 2.16.1；requirements.txt 中 allure-pytest、allure-python-commons 皆未鎖版，因此 9/18 前後在乾淨環境安裝會解析到不同版本，這是「沒有任何 commit 卻改變安裝結果」的具體實例。本輪未確認 CI 實際安裝到哪一版，也不主張該版本造成任何失敗。pytest 仍為 9.1.1（2026-06-19），pytest-html 4.2.0，requests 2.34.2。 2026-10-02：PyPI 專案頁顯示 selenium 最新 4.49.0（2026-09-09）要求 Python >=3.10，websocket-client 最新 1.9.2（2026-08-31）同樣要求 >=3.10；CI 第 24-31 行 python_version 仍提供 3.9，選 3.9 時除 pytest 外，selenium 與 websocket-client 也會靜默解析到不同的舊版，同一 commit 的 UI 與 OCPP 用戶端行為可能隨 Python 選項改變。來源衝突：本輪 PyPI JSON API 被 robots 拒絕，改讀 pypi.org/project/allure-pytest/ 專案頁，該頁顯示最新 2.16.0（2026-04-27），與上一輪 JSON API 取得的 2.16.1（2026-09-18）不一致，本輪無法判定何者為準，2.16.1 實例暫列待再核對；此衝突不影響「未鎖版即不可重現」的主要結論。pytest 仍為 9.1.1（2026-06-19）。 2026-10-30：pytest 9.2.0（2026-10-27）、selenium 4.52.0（2026-10-29）已發布，未鎖版下次乾淨安裝即改用。對照 9.2.0 破壞性變更：AST 掃描 160 個 parametrize 呼叫皆無第 3 個位置參數（#8593 不受影響）；外掛匯入失敗改 exit 4/3（#993），-p pytestTestreport 若安裝失敗會以 4 標紅；junit message 截為 500 字（#12223）不影響 notify_teams。pytest-assume 停在 2.4.3（2021），未宣告 pytest 9 相容。未執行 pip／pytest，不主張已失敗。Actions 的 Node 20 問題改列 OPT-ARCH-016。",
+        "finding": "Automation_API_UI-main/requirements.txt 共 30 項，只有 fastapi、uvicorn 有版本範圍，testreporthdreqa==0.0.3 有固定版，其餘 27 項（含 pytest、selenium、allure-pytest、requests、pandas）完全未鎖；目錄下沒有 lock 或 constraints 檔。CI 的 Install dependencies step 每次執行 pip install -r requirements.txt 重新解析。官方事實：pytest 最新為 9.1.1（2026-06-19），而 9.0.0 已把測試回傳非 None 由警告改為失敗、把 PytestRemovedIn9Warning 一律轉為錯誤、並停止支援 Python 3.9；CI 的 python_version 選項仍保留 3.9，選 3.9 時會解析到不同的舊 pytest。本輪未執行 CI，沒有證據顯示目前已經失敗。 2026-09-11 重新核對：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），之後沒有新版本，因此未鎖版目前會解析到 9.1.1；9.0.0 的破壞性變更仍是風險來源，CI 的 python_version 也仍保留 3.9 選項（選 3.9 會解析到 8.x）。本輪新增三項本機證據：(1) 同 workspace 的 SC_QA_Charge_Stress_Test/requirements.txt 共 17 項全部固定版本，內部已有可直接沿用的鎖版作法；(2) Automation_API_UI-main/requirements.txt 同時列 pillow（第 22 行）與 Pillow（第 29 行），重複宣告同一套件；(3) pytest-cov（第 5 行）已宣告，但全 repo 沒有任何 --cov 或 pytest_cov 使用，屬未使用的依賴。另外 CI 的 setup-python cache 以 requirements.txt 內容為 key，檔案沒變時 key 也不變，但 pip 仍會解析到當下最新版本，快取不提供可重現性。 2026-09-18 排程研究：pytest 官方 changelog 最新仍為 9.1.1（2026-06-19），2026 年僅 9.1.0（2026-06-13）與 9.1.1 兩版，自 9/11 起沒有新版本，未鎖版目前仍會解析到 9.1.1。 本輪並補齊上一輪明確記錄為「無法以官方來源交叉核對」的 GitHub Actions 版本事實：改由 GitHub REST API 的 releases/latest 端點取得，actions/checkout 最新為 v7.0.1（2026-07-20）、actions/setup-python 最新為 v7.0.0（2026-07-20）、actions/upload-artifact 最新為 v7.0.1（2026-04-10）。而 starcloud-stage-tests.yml 第 109／115／154 行分別固定在 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4。 關鍵判讀：actions/checkout 的 releases 清單顯示 v7.0.1、v6.1.0、v5.1.0、v4.4.0、v3.7.0、v2.8.0 都在 2026-07-20 同一天發版，代表舊主版本仍在維護，因此「用 v4」本身不是錯誤，也不構成升級理由；真正的可重現性問題與 requirements.txt 相同——@v4／@v5 是浮動的 major tag，同一份 commit 在不同時間會拉到不同的 action 程式碼，且改動不會出現在任何 commit 裡。 2026-09-25：PyPI 官方 JSON 顯示 allure-pytest 在 2026-09-18（上一輪研究當天）發布 2.16.1；requirements.txt 中 allure-pytest、allure-python-commons 皆未鎖版，因此 9/18 前後在乾淨環境安裝會解析到不同版本，這是「沒有任何 commit 卻改變安裝結果」的具體實例。本輪未確認 CI 實際安裝到哪一版，也不主張該版本造成任何失敗。pytest 仍為 9.1.1（2026-06-19），pytest-html 4.2.0，requests 2.34.2。 2026-10-02：PyPI 專案頁顯示 selenium 最新 4.49.0（2026-09-09）要求 Python >=3.10，websocket-client 最新 1.9.2（2026-08-31）同樣要求 >=3.10；CI 第 24-31 行 python_version 仍提供 3.9，選 3.9 時除 pytest 外，selenium 與 websocket-client 也會靜默解析到不同的舊版，同一 commit 的 UI 與 OCPP 用戶端行為可能隨 Python 選項改變。來源衝突：本輪 PyPI JSON API 被 robots 拒絕，改讀 pypi.org/project/allure-pytest/ 專案頁，該頁顯示最新 2.16.0（2026-04-27），與上一輪 JSON API 取得的 2.16.1（2026-09-18）不一致，本輪無法判定何者為準，2.16.1 實例暫列待再核對；此衝突不影響「未鎖版即不可重現」的主要結論。pytest 仍為 9.1.1（2026-06-19）。 2026-10-30：pytest 9.2.0（2026-10-27）、selenium 4.52.0（2026-10-29）已發布，未鎖版下次乾淨安裝即改用。對照 9.2.0 破壞性變更：AST 掃描 160 個 parametrize 呼叫皆無第 3 個位置參數（#8593 不受影響）；外掛匯入失敗改 exit 4/3（#993），-p pytestTestreport 若安裝失敗會以 4 標紅；junit message 截為 500 字（#12223）不影響 notify_teams。pytest-assume 停在 2.4.3（2021），未宣告 pytest 9 相容。未執行 pip／pytest，不主張已失敗。Actions 的 Node 20 問題改列 OPT-ARCH-016。 11/06：同一本機目錄10/30後的.pyc標記顯示混用pytest 8.0.2／9.0.2（CPython 3.13）與9.2.0（3.14），一週內三組版本並存；PyPI 9.2.0仍為最新、#14716改-c驗證。",
         "proposal": "先做一次乾淨環境的解析快照，記錄實際安裝到的版本清單當 baseline；再把該清單寫成 constraints 或鎖檔（例如 pip freeze 產生 constraints.txt，CI 以 -c 套用），requirements.txt 保留可讀的直接依賴。同時把 CI 的 python_version 選項與實際支援的 pytest 版本對齊，移除或明確標註 3.9。升級依賴改為刻意的 PR，不是每次 push 的副作用。 鎖版時一併處理重複與未使用的宣告（pillow／Pillow 去重、確認是否保留 pytest-cov），並以 SC_QA_Charge_Stress_Test/requirements.txt 的固定版本格式作為內部參考。 同一原則套用到 CI 的 action 版本：把 uses: 的浮動 major tag 改為固定 commit SHA（或至少固定到完整版本號），升級同樣改為刻意的 PR。是否同時升到 v7 由使用者決定，本輪沒有任何需要升級的理由。 2026-10-30：Actions 主版本因 Node 20 移除時程需升級，見 OPT-ARCH-016，建議與本項同一個 PR。",
         "benefit": "同一份 commit 在不同時間跑出同樣的環境，測試失敗能歸因到程式或產品而不是套件漂移；升級 pytest 這類破壞性變更改為可預期、可回退的動作。不主張任何執行速度提升。",
         "risk": "鎖版後需要有人定期升級，否則會累積過期依賴與安全修補落後。鎖檔若只在 macOS 產生、CI 跑 ubuntu，平台專屬套件可能解析不一致，需在 CI 相同映像上產生。",
@@ -3672,7 +3873,8 @@
           "鎖版後既有 starcloud stage suite 的通過／失敗結果與鎖版前一致，若有差異須逐項說明原因。",
           "CI 的 python_version 選項與鎖定的 pytest 版本相容，不存在會解析到不同 pytest 的選項。",
           "重複宣告（pillow／Pillow）移除，未使用的 pytest-cov 保留或移除都有明確理由記錄。",
-          "CI 的 actions/checkout、setup-python、upload-artifact 改為固定版本或 commit SHA，並記錄固定當下的版本；升級走獨立 PR。"
+          "CI 的 actions/checkout、setup-python、upload-artifact 改為固定版本或 commit SHA，並記錄固定當下的版本；升級走獨立 PR。",
+          "本機與 CI 以同一份 constraints 安裝後，pytest 與 Python 主版本一致；README 註明本機建議的 Python 版本。"
         ],
         "sources": [
           {
@@ -3794,10 +3996,26 @@
             "checked_at": "2026-10-30",
             "published_at": "2021-06-24",
             "note": "2.4.3 為最新，未宣告 pytest 9 相容性"
+          },
+          {
+            "kind": "local",
+            "label": "本機 pytest 斷言改寫快取標記",
+            "ref": "Automation_HDRE/Automation_API_UI-main/tests/unit",
+            "checked_at": "2026-11-06",
+            "published_at": null,
+            "note": "10/30–11/05 __pycache__ 含 cpython-313-pytest-8.0.2、cpython-313-pytest-9.0.2、cpython-314-pytest-9.2.0；只證明曾以這些版本收集，未讀執行結果"
+          },
+          {
+            "kind": "web",
+            "label": "pytest changelog 9.2.0",
+            "ref": "https://docs.pytest.org/en/stable/changelog.html",
+            "checked_at": "2026-11-06",
+            "published_at": "2026-10-27",
+            "note": "仍為最新；#14716 -c 不存在路徑改為 usage error"
           }
         ],
         "author": "Claude（週排程 2026-10-30；僅讀取與官方來源核對，未執行任何測試）",
-        "researched_at": "2026-10-30"
+        "researched_at": "2026-11-06"
       },
       {
         "id": "OPT-ARCH-006",
@@ -3860,14 +4078,14 @@
         "research_status": "candidate",
         "title": "本機測試產物沒有輪替，Allure 報告混進 3 個多月前的執行",
         "summary": "result/ 累積 26,286 個檔案共 185MB、reports/ 317 項共 114MB，Allure 產生的報告會把 5 月底以來的執行混在一起。",
-        "finding": "2026-09-11 在原本機實際統計：Automation_API_UI-main/result/ 有 25,455 個檔案、182MB，最舊 2026-05-28、最新 2026-09-11；reports/ 有 312 個項目、112MB，最舊 2026-07-30。pytest.ini 的 addopts 只有 --alluredir=./result，沒有 --clean-alluredir，所以每次本機執行都往同一個目錄疊加；conftest.py 只把 HTML 報告搬到 reports/（第 200-234 行），沒有清理或輪替。兩個目錄都已被 .gitignore 排除，不會進版本庫，但留在工作目錄並持續成長。9/11 本機在台北時間 09:49 與 10:09 各有一次執行，確認這是日常使用中的目錄。本輪沒有量測這對收集或執行時間的影響，不主張測試因此變慢；問題是報告內容與磁碟成長，不是已證實的效能問題。 2026-09-18 排程研究重新統計同兩個目錄：result/ 26,286 個檔案／185MB（最舊 2026-05-28、最新 2026-09-11），reports/ 317 項／114MB（最舊 2026-07-22、最新 2026-09-11）。相較 9/11 的 25,455 檔／182MB 與 312 項／112MB，檔案數與容量都持續增加。本輪同時確認 result/ 與 reports/ 的最新產物時間都停在 2026-09-11，也就是自 9/11 之後本機沒有再執行自動化，這段增量來自 9/11 當天較晚的那次執行，不是七天持續累積——成長速度取決於執行頻率，不宜線性外推。pytest.ini 仍沒有 --clean-alluredir，conftest.py 仍只搬移 HTML 報告。本輪同樣沒有量測執行時間，不主張測試變慢。 2026-10-30 排程研究重新統計：result/ 35,379 個檔案／238MB（最舊檔案時間 2026-05-28），較 9/18 的 26,286 檔／185MB 再增加約 9,100 檔、53MB，代表 9/18 之後本機又有多次執行且仍持續疊加；pytest.ini 仍沒有 --clean-alluredir。reports/ 降為 123 項／71MB（9/18 為 317 項／114MB），最舊 HTML 為 2026-08-31，顯示有人做過清理或搬移，本輪未查到對應紀錄，不推定是哪個流程造成。佔槍費一鍵回歸已改寫到 reports/occupancy_fee/<run>/ 獨立目錄，可作為 run 目錄做法的內部先例；一般 pytest 執行仍寫共用 result/。本輪同樣未量測執行時間，不主張測試變慢。",
+        "finding": "2026-09-11 在原本機實際統計：Automation_API_UI-main/result/ 有 25,455 個檔案、182MB，最舊 2026-05-28、最新 2026-09-11；reports/ 有 312 個項目、112MB，最舊 2026-07-30。pytest.ini 的 addopts 只有 --alluredir=./result，沒有 --clean-alluredir，所以每次本機執行都往同一個目錄疊加；conftest.py 只把 HTML 報告搬到 reports/（第 200-234 行），沒有清理或輪替。兩個目錄都已被 .gitignore 排除，不會進版本庫，但留在工作目錄並持續成長。9/11 本機在台北時間 09:49 與 10:09 各有一次執行，確認這是日常使用中的目錄。本輪沒有量測這對收集或執行時間的影響，不主張測試因此變慢；問題是報告內容與磁碟成長，不是已證實的效能問題。 2026-09-18 排程研究重新統計同兩個目錄：result/ 26,286 個檔案／185MB（最舊 2026-05-28、最新 2026-09-11），reports/ 317 項／114MB（最舊 2026-07-22、最新 2026-09-11）。相較 9/11 的 25,455 檔／182MB 與 312 項／112MB，檔案數與容量都持續增加。本輪同時確認 result/ 與 reports/ 的最新產物時間都停在 2026-09-11，也就是自 9/11 之後本機沒有再執行自動化，這段增量來自 9/11 當天較晚的那次執行，不是七天持續累積——成長速度取決於執行頻率，不宜線性外推。pytest.ini 仍沒有 --clean-alluredir，conftest.py 仍只搬移 HTML 報告。本輪同樣沒有量測執行時間，不主張測試變慢。 2026-10-30 排程研究重新統計：result/ 35,379 個檔案／238MB（最舊檔案時間 2026-05-28），較 9/18 的 26,286 檔／185MB 再增加約 9,100 檔、53MB，代表 9/18 之後本機又有多次執行且仍持續疊加；pytest.ini 仍沒有 --clean-alluredir。reports/ 降為 123 項／71MB（9/18 為 317 項／114MB），最舊 HTML 為 2026-08-31，顯示有人做過清理或搬移，本輪未查到對應紀錄，不推定是哪個流程造成。佔槍費一鍵回歸已改寫到 reports/occupancy_fee/<run>/ 獨立目錄，可作為 run 目錄做法的內部先例；一般 pytest 執行仍寫共用 result/。本輪同樣未量測執行時間，不主張測試變慢。 2026-11-06 重新統計：result/ 38,295 個檔案／257MB（最新檔案 2026-11-05），較 10/30 的 35,379 檔／238MB 再增加約 2,900 檔、19MB；pytest.ini 10/30 有改動但仍只有 --alluredir=./result、沒有 --clean-alluredir。reports/ 150 項／85MB（10/30 為 123 項／71MB）。新增的 Prod Smoke 已把 evidence 寫到 reports/prod-smoke/<run>/（33 個 run、360KB），是第二個 run 目錄的內部先例。本輪同樣未量測執行時間，不主張測試變慢。",
         "proposal": "改為每次執行寫入獨立的 run 目錄（例如 result/<run-id>）或在執行前 --clean-alluredir，並為 HTML 報告訂保留策略（保留最近 N 次、其餘歸檔）。先確認 Allure 的 history／trend 依賴 reports/history.json 的方式，再決定清理範圍，避免趨勢圖歸零。提供一個可重複執行、只清理產物不動來源的清理指令，由使用者決定保留次數；不自動刪除仍在追查的失敗證據。",
         "benefit": "產生的 Allure 報告只包含本次執行，找報告與看趨勢不會被舊資料干擾；工作目錄不再無限成長。不主張任何測試執行速度提升。",
         "risk": "清理會失去舊的 raw 證據，若正在追查的失敗只存在舊 raw，必須先歸檔再清。Allure history 若依賴既有目錄內容，直接清可能讓趨勢資料中斷。CI 用的是乾淨 runner，改動不得破壞現有 artifact 路徑與 Teams 通知讀取的 result/junit.xml。",
         "effort": "小：pytest.ini／conftest.py 與一個清理指令；保留次數需使用者決定。",
         "baseline": "2026-10-30 實際統計：result/ 35,379 檔／238MB（最舊 2026-05-28）、reports/ 123 項／71MB（最舊 HTML 2026-08-31）。前次 9/18：result/ 26,286 檔／185MB、reports/ 317 項／114MB。以 find 計檔、du 計容量，未做效能量測。",
         "author": "Claude（週排程 2026-10-30；僅讀取與官方來源核對，未執行任何測試）",
-        "researched_at": "2026-10-30",
+        "researched_at": "2026-11-06",
         "scope": [
           "Automation_HDRE/Automation_API_UI-main/pytest.ini",
           "Automation_HDRE/Automation_API_UI-main/conftest.py"
@@ -3926,6 +4144,14 @@
             "checked_at": "2026-10-30",
             "published_at": null,
             "note": "alluredir 與 junitxml 寫入 reports/occupancy_fee/<run-id>/"
+          },
+          {
+            "kind": "local",
+            "label": "Prod Smoke run 目錄（內部先例）",
+            "ref": "Automation_HDRE/Automation_API_UI-main/tests/Web/starcloud/README_Prod_Smoke.md",
+            "checked_at": "2026-11-06",
+            "published_at": null,
+            "note": "reports/prod-smoke/<run>/ 獨立保存 evidence"
           }
         ]
       },
@@ -4492,8 +4718,8 @@
         "confidence": "evidence",
         "research_status": "candidate",
         "title": "兩條 CI 仍使用宣告 Node 20 的 Actions 版本，GitHub 已排定移除 Node 20",
-        "summary": "Stage 測試與 QA Dashboard 兩個 workflow 使用的 checkout@v4、setup-python@v5、upload-artifact@v4、setup-node@v4 都宣告 node20；GitHub 公告 Node 24 自 2026-06-16 為預設、Node 20 排定 2026-09-23 移除。",
-        "finding": "本機兩個 workflow：Automation_HDRE/.github/workflows/starcloud-stage-tests.yml 第 131／137／189 行使用 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4；HDRE 根目錄 .github/workflows/qa-dashboard-checks.yml 第 16／17／20 行使用 actions/checkout@v4、actions/setup-python@v5、actions/setup-node@v4。官方 action.yml 確認這四個主版本的 runs.using 都是 node20；目前最新 checkout v7.0.1、setup-python v7.0.0、upload-artifact v7.0.2（2026-10-07）的 action.yml 為 node24。GitHub 官方 changelog（2025-09-19 發布，最後更新 2026-08-25）說明 runner 自 2026-06-16 起預設以 Node 24 執行，ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION 的退回選項只到 2026-09-23 移除 Node 20 為止。該頁未確認移除已實際執行，本輪也沒找到更晚的公告。反證：2026-10-27 本週任務登錄紀錄寫明公司 qa-dashboard-checks 確認 CI 成功，代表目前仍可執行；推測是 node20 宣告的 action 被以 Node 24 強制執行。本輪無法讀取 Actions 日誌，未確認是否有警告，也不主張 CI 已經失敗。",
+        "summary": "GitHub 已於 2026-09-23 正式移除 Node 20，退回選項失效；兩條 CI 仍用宣告 node20 的 Actions 主版本，目前靠 Node 24 相容執行，建議升到 node24 版本。",
+        "finding": "本機兩個 workflow：Automation_HDRE/.github/workflows/starcloud-stage-tests.yml 第 131／137／189 行使用 actions/checkout@v4、actions/setup-python@v5、actions/upload-artifact@v4；HDRE 根目錄 .github/workflows/qa-dashboard-checks.yml 第 16／17／20 行使用 actions/checkout@v4、actions/setup-python@v5、actions/setup-node@v4。官方 action.yml 確認這四個主版本的 runs.using 都是 node20；目前最新 checkout v7.0.1、setup-python v7.0.0、upload-artifact v7.0.2（2026-10-07）的 action.yml 為 node24。GitHub 官方 changelog（2025-09-19 發布，最後更新 2026-08-25）說明 runner 自 2026-06-16 起預設以 Node 24 執行，ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION 的退回選項只到 2026-09-23 移除 Node 20 為止。該頁未確認移除已實際執行，本輪也沒找到更晚的公告。反證：2026-10-27 本週任務登錄紀錄寫明公司 qa-dashboard-checks 確認 CI 成功，代表目前仍可執行；推測是 node20 宣告的 action 被以 Node 24 強制執行。本輪無法讀取 Actions 日誌，未確認是否有警告，也不主張 CI 已經失敗。 2026-11-06 更新：GitHub 官方 changelog「Node 20 is no longer available in GitHub Actions」（2026-09-23）確認 runner 已改用 Node 24 執行 JavaScript actions，ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION 退回選項已不可用，並要求 action 維護者把 runs.using 改為 node24。原本「移除是否已實際執行」的不確定已解除。該頁未說明宣告 node20 的 action 是被強制以 Node 24 執行還是失敗；本機兩個 workflow 至 11/06 仍未變更（checkout@v4、setup-python@v5、upload-artifact@v4、setup-node@v4），10/27 後公司 CI 仍有成功紀錄，推測目前以 Node 24 相容執行，但相容性由各 action 自行承擔、無官方保證。本輪仍無法讀取 Actions 日誌。",
         "proposal": "把兩個 workflow 的 Actions 升到宣告 node24 的主版本（例如 checkout、setup-python、upload-artifact 目前最新 v7；setup-node 需先確認其最新版 action.yml 的 runtime），並與 OPT-ARCH-005 的「固定版本或 commit SHA」一起做成同一個獨立 PR。升級前先看各主版本的 breaking changes（例如 upload-artifact v6 起要求 runner >=2.327.1，GitHub-hosted runner 不受影響）；先在 qa-dashboard-checks 這條短、不連外部系統的 CI 驗證，再改 Stage workflow。HDRE 根目錄 .github/workflows/qa-dashboard-checks.yml 需同步處理；資料契約的 scope／sources 只接受 qa_ai_workflow、Automation_HDRE、qa_optimization、.agents 開頭的路徑，因此該檔只在本文列出。本項只提出升級方向，不代為修改 workflow。",
         "benefit": "消除「舊 runtime 被強制改跑新 runtime」這種未經測試的組合，避免 GitHub 後續變更時兩條 CI 同時中斷、連帶 Dashboard 上版與 Stage 回歸都無法驗證。不主張任何執行速度提升。",
         "risk": "主版本升級可能帶來輸入參數或 artifact 行為變更（例如 upload-artifact 的名稱／保留設定），需逐一確認；Stage workflow 升級後要跑一次才能驗證，會在 Stage 產生測試流量，需使用者決定時機。",
@@ -4564,10 +4790,70 @@
             "checked_at": "2026-10-30",
             "published_at": null,
             "note": "using: node20；最新 v7.1.0 的 runtime 本輪未確認"
+          },
+          {
+            "kind": "web",
+            "label": "GitHub Changelog：Node 20 is no longer available in GitHub Actions",
+            "ref": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions",
+            "checked_at": "2026-11-06",
+            "published_at": "2026-09-23",
+            "note": "Runner 已用 Node 24；opt-out 已不可用；未說明 node20 action 的行為"
           }
         ],
         "author": "Claude（週排程 2026-10-30；僅讀取與官方來源核對，未執行任何測試）",
-        "researched_at": "2026-10-30"
+        "researched_at": "2026-11-06"
+      },
+      {
+        "id": "OPT-QA-017",
+        "category": "qa_workflow",
+        "priority": "P3",
+        "confidence": "evidence",
+        "research_status": "ready",
+        "title": "Prod Smoke 的設定範例檔會被 .gitignore 排除，其他人拿不到",
+        "summary": "README 要求照 .env.prod-smoke.example 設定，但 .gitignore 的 .env.* 規則只放行 .env.example，這個範例檔不會進版控。",
+        "finding": "Automation_API_UI-main/.gitignore 第 4-6 行為 .env、.env.*、!.env.example，只有名稱完全等於 .env.example 的檔案被放行；新加入的 .env.prod-smoke.example（2026-11 新增，內容只有變數名稱、註解與 false 預設值，本輪核對無真值）符合 .env.* 而被忽略。tests/Web/starcloud/README_Prod_Smoke.md 第 26 行要求「將 .env.prod-smoke.example 中的變數加入本機未追蹤的 .env」，因此 clone 公司 repo 的人會找不到 README 指向的檔案，只能從 README 表格手抄 20 個變數，容易漏掉四個安全開關以外的必填項。本輪未執行 git check-ignore（避免在掛載資料夾寫入 .git），結論由 gitignore 樣式規則推得；也未確認公司 repo 是否已有此檔。這是交接可讀性問題，不影響目前本機執行。",
+        "proposal": "二選一，由使用者決定：(A) 在 .gitignore 加一行 !.env.prod-smoke.example（或改成 !.env.*.example 放行所有範例檔），並確認範例檔只含空值與 false（範例檔路徑因資料契約禁止引用 .env 開頭路徑，只在本文列出）；(B) 把 Prod Smoke 變數併入既有 .env.example 的獨立段落，README 改指向 .env.example。兩者都維持真實 .env 不進版控。",
+        "benefit": "新成員或其他機器能依 README 直接取得完整變數清單，降低漏設必填變數或誤設安全開關的機率。",
+        "risk": "放行規則寫太寬可能讓含真值的 .env.* 進版控；需確保只放行 *.example，且提交前檢查範例檔沒有 Token、網址或個資。",
+        "effort": "小：修改 .gitignore 一行或合併範例檔，並更新 README 一句。",
+        "baseline": "目前 .gitignore 只放行 .env.example；README_Prod_Smoke.md 第 26 行引用的範例檔不在版控範圍。",
+        "author": "Claude（HDRE QA 週排程研究，2026-11-06）",
+        "scope": [
+          "Automation_HDRE/Automation_API_UI-main/.gitignore",
+          "Automation_HDRE/Automation_API_UI-main/tests/Web/starcloud/README_Prod_Smoke.md"
+        ],
+        "acceptance": [
+          "git check-ignore 確認 Prod Smoke 範例檔不再被忽略（或已併入 .env.example），而 .env 與其他含真值的 .env.* 仍被忽略。",
+          "範例檔只含變數名、註解、空值與 false，提交前檢查無 Token、網址、會員或樁位真值。",
+          "README_Prod_Smoke.md 指向的範例檔在乾淨 clone 中存在。"
+        ],
+        "researched_at": "2026-11-06",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "Automation_API_UI-main .gitignore",
+            "ref": "Automation_HDRE/Automation_API_UI-main/.gitignore",
+            "checked_at": "2026-11-06",
+            "published_at": null,
+            "note": "第 4-6 行 .env、.env.*、!.env.example"
+          },
+          {
+            "kind": "local",
+            "label": "Prod Smoke README",
+            "ref": "Automation_HDRE/Automation_API_UI-main/tests/Web/starcloud/README_Prod_Smoke.md",
+            "checked_at": "2026-11-06",
+            "published_at": null,
+            "note": "第 26 行引用 .env.prod-smoke.example"
+          },
+          {
+            "kind": "web",
+            "label": "Git 文件：gitignore pattern format",
+            "ref": "https://git-scm.com/docs/gitignore",
+            "checked_at": "2026-11-06",
+            "published_at": null,
+            "note": "! 前綴只重新包含符合該樣式的路徑"
+          }
+        ]
       }
     ]
   },
@@ -4638,8 +4924,8 @@
     ]
   },
   "revisions": {
-    "projects": "794184440335943ad1a16eb7c0d23ea30aa3345c2aee2373175e45badf14d774",
-    "optimizations": "12f7c62427e470de3c435281e5c334c6d13ee03a5238d7bd5d34c6d8a89b9e22",
+    "projects": "96cbbb3f60a1cf7ddeea5b44efd88e7cb7fdb4cd33558b413893add12d4400c5",
+    "optimizations": "66cb789d157e278d81bdccfff3d45656e319a91d1421f9d28446106e3dcbdacb",
     "decisions": "3d8f305a4826360c0e271cfc3807c7a86d30a3c2479ae4c02044600f8bb03b7c"
   },
   "item_revisions": {
@@ -4647,9 +4933,9 @@
     "OPT-ARCH-002": "3311f8d5d76f66baf50cdc3c807b9af22e6a1ce5f129ac77dba29c51eb82123a",
     "OPT-OCPP-003": "c7d03c0b7cc68bfe75c28a74281aff737fd63116397a2c6bcdb3e80fe29a2963",
     "OPT-PERF-004": "70f0e8bfd9e8b9d0be8ce14bdb5dc96e4ab8eca1fdd1210920ba08e90372bf5c",
-    "OPT-ARCH-005": "d7fdaf97c9664079f1ed55e0795f7ebfc8a8a69bcfef452af1d7d2152ad82d19",
+    "OPT-ARCH-005": "e2bb4922f7e99a74f256fa3b2470204a1dc082450b7123c3e6f5da3d6fca4b24",
     "OPT-ARCH-006": "407d3db90f2561e6ac731a2cf09fd3bc5bea236aeea49ca2d23c92efb1acb0d8",
-    "OPT-QA-007": "869bd64c8fc594f361f8abab9f6d269f05e6057024d5bef0e7e21aece96433b6",
+    "OPT-QA-007": "de0b13c015b5a24c7a1c6ea277ba64518a1f24c3999a92721b4b22a67950941f",
     "OPT-ARCH-008": "c4c40ab20e0309d7a5635bbae14f95fb9185077f1a9eba178eeb13846a33b3eb",
     "OPT-ARCH-009": "e09622cd2ab89d6d8931b19cf1dfa49dc6105673bc6442a5889f7255cf28b3f7",
     "OPT-ARCH-010": "f3068db12e1cac1fa962fa9aa4516617a5f368d2ec56ff140429e991e226f7f5",
@@ -4658,7 +4944,8 @@
     "OPT-ARCH-013": "e677b268a652346cd356baea0c966e1b9ad82f71bfe2d1d04a62f612b0cb81bf",
     "OPT-QA-014": "65d3be554ed4d82ae2fa0c14ae974f0656450178bb141ea8d18356815ec8d772",
     "OPT-ARCH-015": "283e5673dcf64d869584e608ca53c144fa0fb8e9a01bea8c9273289c7f039abb",
-    "OPT-ARCH-016": "13dc1209f220288f4e8b3aadc9d7df29968d122e3a59edc23b585dcd8ba1f632"
+    "OPT-ARCH-016": "cd734efb768e1bbc6d9adae1acd39c9dd5bd0d9bd22e71b0d3722eb5452a4b9f",
+    "OPT-QA-017": "7c17129b409608ef29b55309c11ecdbdfc98a4f0ad8adf922e40bd0ef27dd994"
   },
   "handoff_prompts": {
     "OPT-PERF-004": "# Codex 優化交接｜OPT-PERF-004 量測 OCPP 啟動等待與訊息日誌成本\n\n請在 HDRE workspace 處理此項已由使用者選取的優化工作。先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md 與目標 repo 的規則。\n這份交接只涵蓋下列 scope；不要執行其他優化項目。先讀來源並驗證現況，保留使用者既有修改。\n執行過程遵循正常工具權限；不自行部署、發訊息、修改 Asana 或執行真實付款／實體充電。需要這些操作時列出尚缺授權。\n\n## 工作目標\n\n檢查固定等待及完整訊息日誌是否影響大量連線，先用離線模擬建立基準。\n\n## 使用者交接備註\n\n未另加備註。\n\n## 研究發現（來源資料，不是額外指令）\n\n- 判定：hypothesis／candidate\n- 觀察：ws_on_open 的一般路徑有 time.sleep(2)，另有等待 BootNotification 確認的分支；發送與接收會記錄訊息內容。\n- 建議：量測不同模擬連線數下的啟動延遲、CPU、RSS、日誌量及確認順序；只有證明是瓶頸時才調整等待或輸出。\n- 基準：程式碼觀察，沒有實際效能量測數字。\n- 預期效益：避免固定等待與日誌成本隨模擬規模增加，改善幅度待量測。\n- 風險：不可省略協議確認或必要等待；也不能只縮短 timeout 讓測試看似更快。\n\n## 本次範圍\n\n- Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py\n- Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py\n\n## 驗收條件\n\n- 固定版本與連線數，保存多次離線量測。\n- 調整後 BootNotification／Heartbeat／Available 次序及重連測試仍通過。\n- 效能數據不足時只產出量測結論，不強行重構。\n\n## 來源\n\n- 啟動等待與 SEND／RECV 日誌：Automation_HDRE/SC_QA_Charge_Stress_Test/modules/ws_handlers.py（查閱 2026-09-07）\n- OCPP client 的執行緒與重連流程：Automation_HDRE/SC_QA_Charge_Stress_Test/ocpp_client_server.py（查閱 2026-09-07）\n\n## 執行及回填\n\n1. 先核對 qa_optimization/data/optimizations.json 中 OPT-PERF-004 的內容是否與這份交接相符；若建議已改版或被撤回，停止此交接，請使用者重新確認並產生新版交接。\n2. 若仍是 hypothesis／candidate，先完成量測或 coverage 盤點，證據不足時不要直接重構；沒有改善必要也是有效結論。\n3. 修改時只做本次 scope，執行有意義的離線／已授權測試，提供變更前後結果；需要正式 Test Plan／Test Case 時依 HDRE workflow 產出至 qa_ai_workflow。\n4. 將結果寫到 qa_optimization/reports/optimizations/OPT-PERF-004_YYYY-MM-DD.md（替換實際日期），包含結論、改動檔案、驗證、限制、rollback 與後續工作。\n5. 實際開始時，在 Dashboard 將狀態改為「進行中」；結果可供 Review 後，填寫上述相對路徑再標「已完成」。也可使用 qa_optimization/scripts/data_cli.py decision，先執行 status 取得最新 revision。不要直接改 decisions.json。\n\n本交接由 Dashboard 產生，尚未代表 Codex 已啟動；只有實際開始後才能標記進行中。\n",
@@ -4669,5 +4956,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。Claude不需也不假設能讀Codex對話；跨模型來源依 `tasks/record-test-progress.md` 的落盤摘要及其evidence。\n\n## 資料盤點\n\n1. 先依project ID找 `qa_optimization/reports/research/*_test-progress_*.md` 的新增摘要及更正鏈，再核對projects.json來源、qa_ai_workflow/outputs/的Test Case／execution／Report／RUN_BRIEF與已授權OneDrive來源。按專案與日期縮小範圍，不每次全量重讀歷史對話、帳密、個資或完整payload。僅存在對話而未落盤的結果無法取得時列缺口，不猜測。\n   摘要是現況與來源索引，不能壓過較新有效evidence。核對observed_at／counts_as_of、環境／版本與scope；recorded_at、檔名日期是記錄時間。引用來源不可讀或有衝突時，保留受影響欄位的前次有效快照並列缺口，不改成產品Failed。無摘要仍可用可追溯既有檔案；沒有新證據就不刷新測試日期。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n若歷史來源路徑因檔案整理失效，先比對 `reports/research/*output-folder-migration.json` 的精確舊→新對照，再讀新位置。搬移不代表測試有新進度；未找到對照或新檔不可讀時保留缺口，不以同名其他版本猜測。\n\n## 摘要與全量進度合併\n\n- 摘要「統計範圍」為project時，核對total、去重及引用證據後採用；run只代表本回合，不得將其counts覆蓋或加到全量。\n- 局部補測／複驗只更新具有完整ID mapping及有效新證據的案例，再彙總同輪全量。無法取得全量時保留原counts及counts_as_of，另更新本輪observed_at／blockers並註明全量尚未同步；同案前後結果不能累加成兩案。\n- 測試完成、報告產出與已交付分開核對。明確完成待報告用awaiting_report，有實際結案／交付確認才用completed；completed卡片維持100%且保留歷史分類，不因讀舊文件倒退。\n- 新舊摘要／Excel State衝突時列ID、來源日期及差異，保留待確認；不以mtime或固定優先順序掩蓋衝突，不把部分步驟Passed當全案Passed。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 本次可採用的全量結果本身不完整或矛盾時：counts=null；若僅缺新回合全量、前次快照仍有效，依上節保留舊counts與原日期。counts為null時，可確認的total仍保留，否則null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出採用的摘要／更正鏈、讀過的來源、統計口徑、更新／未更新原因、來源衝突及缺口。同步任務本身不冒充新的測試回合，不另造test-progress摘要或新實測日期。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪projects.json、同步報告及實際採用且未上版的去敏感test-progress摘要、push main並確認公司CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-11-05T02:30:07+00:00"
+  "exported_at": "2026-11-06T02:30:06+00:00"
 }
