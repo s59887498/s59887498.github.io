@@ -456,9 +456,9 @@
       }
     .cover li{overflow-wrap:anywhere}.chart{height:auto;min-height:0}.column li{line-height:1.75;margin-bottom:10px}
     </style>
-  <link rel="icon" type="image/png" sizes="28x28" href="/qa-dashboard/brand-star.png"></head>
-  <body>
-    <nav class="navbar navbar-expand navbar-dark fixed-top" style="background-color:#000000cc"><a class="nav-link" href="/qa-dashboard/#/projects" aria-label="返回 QA 工作台">← QA 工作台</a><span class="navbar-brand">新人培訓</span></nav>
+  <link rel="icon" type="image/png" sizes="28x28" href="/qa-dashboard/brand-star.png"><link rel="stylesheet" href="/qa-dashboard/workspace-nav.css"></head>
+  <body class="workspace-page">
+    <nav class="workspace-nav" aria-label="QA 工作台導覽"><a class="workspace-back" href="/qa-dashboard/#/projects" aria-label="返回 QA 工作台">← QA 工作台</a><a href="/qa-dashboard/resources/QA-Team/index.html">QA Team</a><a href="/qa-dashboard/resources/QA-AI-WorkFlow-GitHub-Pages/index.html">QA 架構與演進</a><a href="/qa-dashboard/resources/QA-AI-WorkFlow/index.html">QA 工作流程</a><a href="/qa-dashboard/resources/QA-Onboarding/index.html" aria-current="page">星舟快充新人培訓</a></nav>
     <main><section class="cover"><p class="eyebrow">STARCHARGE · QA ONBOARDING</p><h1>星舟快充｜前三個月 QA 培訓</h1><p class="lead">第 1 個月熟悉 LIFF、後台與充電證據；第 2 個月參與充電／訂單相關測試設計；第 3 個月推進一個明確功能的 QA Cycle。這是培訓目標，實際進度由 mentor 依能力與當期版本安排。</p><p>更新：2026-09-07 · 適用星舟雲端充電，依星舟專案的產品入口與充電驗收規則設計。每項練習需有當輪來源與 Reviewed Test Cases。</p></section>
 <article class="chart month-1"><header class="chart-head"><div class="month-badge"><div><strong>01</strong><span>第 1 個月</span></div></div><div class="chart-title"><p class="eyebrow">熟悉產品與證據</p><h2>看懂星舟快充，完成受指導的回歸</h2><p class="goal">熟悉會員端 LIFF、管理後台、充電站／樁／槍與訂單的關係；跟著資深 QA 執行 Reviewed Test Cases，記錄真實結果。</p></div><span class="stage-pill">定位：照做與記錄</span></header><div class="matrix">
 <section class="column"><h3><span class="marker"></span>要學會</h3><ul><li>從本次 PRD／RA／Figma、API／OCPP 規格找功能名稱與預期，不能自行補需求。</li><li>辨識會員端與後台的操作角色；了解 LIFF 掃碼起充、隨插即充、後台遠端命令是不同路徑。</li><li>認識可用／充電中／離線等樁槍狀態；實際文字與狀態 mapping 以本輪規格為準。</li><li>依 Readable View 全部步驟執行，記錄 PASS／FAIL／BLOCK 與未執行原因。</li><li>以 Case ID、時間、樁／槍及訂單 ID 串起畫面、API 與 OCPP evidence，不取任意最新訂單。</li><li>Bug 採白話功能名、50 字內摘要與可重現步驟，證據引用原紀錄。</li><li>區分 Stage／RT／正式環境；帳密只用安全 reference，與 mentor 確認專用測試資產。</li></ul></section>
