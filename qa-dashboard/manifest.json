@@ -1,7 +1,7 @@
 {
   "generator": "hdre-qa-static-v1",
-  "exported_at": "2026-11-12T02:13:17+00:00",
-  "content_revision": "b91e25dec379b479281df13a7dc22f87f23b654eb3ad86b6cb557debba31b571",
+  "exported_at": "2026-11-13T02:13:35+00:00",
+  "content_revision": "9af2dd44e0b6a0574de8600a754d7b678b1022978faca04cfd0964b64f90267a",
   "files": {
     "app.js": "9ba309577a3bc88f6c66ca22f9d43472a047b1ed895616eef3dc36bee19c6911",
     "index.html": "e59c25fa1c386afb2ad39b8a9e893dd0724ca4eaa67cca17db09ae6cef95822f",
@@ -34,7 +34,7 @@
     "style.css": "a8df1b4167b6c109aa94ce9740f54790514fbb4641801bd32b412ca1c35d4671",
     "workflow-docs.css": "98bbac8227c70c6288f475916819531963c0e15e9423154c3cc9c8af940e4478",
     "workspace-nav.css": "b816b3079f8bcf47db6fcf86b0ddc2a1e532aada5c2a13b7cbada86fc57534ce",
-    "snapshot.json": "0e4e02a3485d70d31b974dff9441b97e19c5e660ff56d2063788049930ae793f",
+    "snapshot.json": "a6fbce108369642e893c5a58666b48ac5126c1c145f1724076928903468d55af",
     "brand-star.png": "37a6e7bd5f6f91b86d016bedb6146ad0a2c1ea0bed1ac895ad36e339d634cd0e"
   }
 }

@@ -1,7 +1,7 @@
 {
   "projects": {
     "schema_version": 1,
-    "updated_at": "2026-11-11T05:49:40+00:00",
+    "updated_at": "2026-11-12T09:44:47+00:00",
     "items": [
       {
         "id": "PRJ-LCMS-V15",
@@ -2518,23 +2518,23 @@
         "title": "優化 Stage 回歸測試",
         "product": "星舟快充",
         "owner": "待確認",
-        "environment": "Stage；測試LINE LIFF與Gmail已備妥；信用卡待申請，佔槍費退款job待實作",
-        "summary": "11/02 REG-018修正後單案Passed且電價62讀回一致；17:26～18:01完整Stage06 52P／1F／1E／17S（pytest item），HOGTC-104／111異常經確認為共用OCPP模擬器狀態競態（自動化缺陷），18:27～18:33兩案單獨複驗皆Passed；競態未修，信用卡與佔槍費退款job待辦保留。",
+        "environment": "Stage；測試 LINE LIFF 與 Gmail 已備妥；信用卡已審核通過；全支付 TestFlight 存取待開通",
+        "summary": "信用卡已審核通過；全支付待對方開通公司 Apple ID 的 TestFlight。使用者回報執行緒優化使回歸約40分鐘降至8分鐘；11/12可核對一輪為58 Pass／1 Fail／13 Skip，耗時約9分03秒。",
         "stage": "retest",
         "activity": "active",
-        "observed_at": "2026-11-02T18:33:49+08:00",
-        "activity_confirmed_at": "2026-11-02T18:33:49+08:00",
+        "observed_at": "2026-11-12T15:19:00+08:00",
+        "activity_confirmed_at": "2026-11-12T16:41:35+08:00",
         "total": null,
         "counts": null,
         "counts_as_of": null,
-        "scope_note": "沿用原目標：Teams回報Stage回歸結果、專用LIFF／信用卡支援全盈、CI自動觸發；測試LINE LIFF與Gmail依使用者已備妥。10/19信用卡仍待申請，另新增佔槍費訂單退款job待辦。使用者說明Stage已有固定排程退款腳本，本次僅記錄既有流程存在，不推定已涵蓋佔槍費或已查驗退款成功，亦不保證零未退款款項。新job預計登入取得授權後，僅處理Stage指定測試帳號／範圍內已完成且符合API可退款狀態的佔槍費訂單，呼叫退款API並讀回結果，避免重複退款，保留失敗追蹤與排程紀錄；API、排程頻率及退款狀態碼待實作盤點，不猜測。此次是任務新增與進度同步，尚未實作／執行job、退款、綁卡或寄信；total／counts維持null。信用卡申請信於對話提供草稿，不保存付款資料或憑證。 10/30更新（Claude排程同步，採既有落盤摘要）：00:15 REG-030全支付掃碼單案補測Passed（加Preparing前置；首次因登入token失效setup ERROR，不計產品失敗）；00:21～00:55完整Stage06 run 71 pytest collected item（含參數化，非workbook Case ID）57Passed／1Failed／13Skipped，佔槍元件31項25／1／5。唯一失敗HOGTC-104：API occupancyStartTime與StopTransaction同秒，較首筆Finishing早約4秒，實測150～151秒vs API 154秒；本筆金額兩種口徑皆4000分、未見多收，但該案金額及final-bill斷言未跑完不算通過。13Skip為開關保護8項及缺測資／授權scope／退款訂單5項，不算Passed。financial_reconciliation仍pending。run counts不覆蓋全專案；total／counts維持null。activity沿用10/19 blocked確認，摘要明示不覆寫全專案狀態；本輪無新的全專案現況確認。 11/02更新（Claude排程同步，採既有落盤摘要；未與公司來源比對）：10/30 10:54:25～11:01:05 HOGTC-104單案複驗（run hogtc104-retest-20261030-105412）Passed，run scope total=1／passed=1；JUnit tests=1、failures=0，cleanup complete、plans_remaining=0。本次StopTransaction、第一筆Finishing與平台occupancyStartTime落在同一整秒，可接受區間150～154，實際154通過；摘要明示無法據此辨識後端起算事件，前輪00:55 FAIL保留不更正。單案counts不覆蓋或加入全專案；total／counts維持null，activity維持10/19 blocked確認。 11/04更新（Claude排程同步，採11/02四份落盤摘要；未與公司來源比對）：15:03～15:37完整Stage06 71 item 57P／1F／13S，唯一Fail REG-018為後台登入失效＋finally復原覆蓋原例外；15:44單案重跑因querChargeOnline在首筆MeterValues前輪詢而Fail（兩次attempt同一案不加總）。16:11～16:19修正後REG-018單案Passed（JUnit tests=1/failures=0），model 62測前／後fingerprint一致、restored=true。17:26～18:01完整Stage06 71 item 52P／1F／1E／17S：HOGTC-104 call Fail（預期BILLING實際CLOSED）、HOGTC-111 setup Error、112～115因前置失敗Skip；REG-018 Passed；共同源頭為停充後TriggerMessage路徑送出過期Charging（離線交錯重現確認，屬自動化缺陷，未判為平台缺陷）。18:27～18:33 HOGTC-104／111單獨對照複驗2/2 Passed（JUnit tests=2/failures=0，cleanup complete、plans_remaining=0），未觸發競態不代表已修復。各run counts不覆蓋或加入全專案；total／counts維持null。activity依11/02 18:33摘要的retest／active與可追溯evidence更新；信用卡與退款job blocker未見解除證據，保留。",
+        "scope_note": "沿用原目標：Teams回報Stage回歸結果、專用LIFF／信用卡支援全盈、CI自動觸發；測試LINE LIFF與Gmail依使用者已備妥。10/19信用卡仍待申請，另新增佔槍費訂單退款job待辦。使用者說明Stage已有固定排程退款腳本，本次僅記錄既有流程存在，不推定已涵蓋佔槍費或已查驗退款成功，亦不保證零未退款款項。新job預計登入取得授權後，僅處理Stage指定測試帳號／範圍內已完成且符合API可退款狀態的佔槍費訂單，呼叫退款API並讀回結果，避免重複退款，保留失敗追蹤與排程紀錄；API、排程頻率及退款狀態碼待實作盤點，不猜測。此次是任務新增與進度同步，尚未實作／執行job、退款、綁卡或寄信；total／counts維持null。信用卡申請信於對話提供草稿，不保存付款資料或憑證。 10/30更新（Claude排程同步，採既有落盤摘要）：00:15 REG-030全支付掃碼單案補測Passed（加Preparing前置；首次因登入token失效setup ERROR，不計產品失敗）；00:21～00:55完整Stage06 run 71 pytest collected item（含參數化，非workbook Case ID）57Passed／1Failed／13Skipped，佔槍元件31項25／1／5。唯一失敗HOGTC-104：API occupancyStartTime與StopTransaction同秒，較首筆Finishing早約4秒，實測150～151秒vs API 154秒；本筆金額兩種口徑皆4000分、未見多收，但該案金額及final-bill斷言未跑完不算通過。13Skip為開關保護8項及缺測資／授權scope／退款訂單5項，不算Passed。financial_reconciliation仍pending。run counts不覆蓋全專案；total／counts維持null。activity沿用10/19 blocked確認，摘要明示不覆寫全專案狀態；本輪無新的全專案現況確認。 11/02更新（Claude排程同步，採既有落盤摘要；未與公司來源比對）：10/30 10:54:25～11:01:05 HOGTC-104單案複驗（run hogtc104-retest-20261030-105412）Passed，run scope total=1／passed=1；JUnit tests=1、failures=0，cleanup complete、plans_remaining=0。本次StopTransaction、第一筆Finishing與平台occupancyStartTime落在同一整秒，可接受區間150～154，實際154通過；摘要明示無法據此辨識後端起算事件，前輪00:55 FAIL保留不更正。單案counts不覆蓋或加入全專案；total／counts維持null，activity維持10/19 blocked確認。 11/04更新（Claude排程同步，採11/02四份落盤摘要；未與公司來源比對）：15:03～15:37完整Stage06 71 item 57P／1F／13S，唯一Fail REG-018為後台登入失效＋finally復原覆蓋原例外；15:44單案重跑因querChargeOnline在首筆MeterValues前輪詢而Fail（兩次attempt同一案不加總）。16:11～16:19修正後REG-018單案Passed（JUnit tests=1/failures=0），model 62測前／後fingerprint一致、restored=true。17:26～18:01完整Stage06 71 item 52P／1F／1E／17S：HOGTC-104 call Fail（預期BILLING實際CLOSED）、HOGTC-111 setup Error、112～115因前置失敗Skip；REG-018 Passed；共同源頭為停充後TriggerMessage路徑送出過期Charging（離線交錯重現確認，屬自動化缺陷，未判為平台缺陷）。18:27～18:33 HOGTC-104／111單獨對照複驗2/2 Passed（JUnit tests=2/failures=0，cleanup complete、plans_remaining=0），未觸發競態不代表已修復。各run counts不覆蓋或加入全專案；total／counts維持null。activity依11/02 18:33摘要的retest／active與可追溯evidence更新；信用卡與退款job blocker未見解除證據，保留。 11/12使用者確認信用卡已核准、全支付須待對方將公司Apple ID加入TestFlight；回報執行緒優化約40分鐘降至約8分鐘（概估）。11/12 15:10 run 10 workers、72 pytest items、58P／1F／13S，542.52秒；此為單輪而非專案全量，HOGTC-104起算契約尚待確認。",
         "blockers": [
-          "信用卡申請尚未完成，全盈信用卡回歸配置仍待備妥。",
+          "全支付測試等待合作方將公司 Apple ID 加入 TestFlight；信用卡已審核通過。",
           "新增佔槍費訂單退款job尚未實作／驗證；API契約、訂單範圍與排程需於實作前確認。",
           "共用OCPP client TriggerMessage與stop worker狀態快照競態（停充後送出過期Charging→session CLOSED）已確認但未修正；11/02完整run HOGTC-104 Fail、111 setup Error、112～115 Skip，對照複驗Pass不代表已修復。",
           "HOGTC-104佔槍起算點契約仍待RD／需求owner確認（10/30 00:55 Fail；10/30及11/02單案154秒落於150～154窗口Passed，尚未以Stop／Finishing明顯分離場景驗證）。"
         ],
-        "next_action": "automation owner修正共用OCPP client per-connector狀態序列化並加入Finishing／Trigger同時發生的回歸，再重跑完整Stage06；RD／需求owner確認佔槍起算契約；申請Stage全盈信用卡；建立佔槍費退款job並完成財務對帳。",
+        "next_action": "等待合作方開通全支付 TestFlight，確認信用卡與測試條件後續測；追蹤佔槍費退款 job、共用模擬器時序與佔槍起算契約，確認後重跑完整回歸。",
         "sources": [
           {
             "kind": "local",
@@ -2655,6 +2655,18 @@
             "ref": "Automation_HDRE/Automation_API_UI-main/reports/occupancy_fee/hogtc104-111-control-20261102-182649/junit.xml",
             "checked_at": "2026-11-04T02:16:00+08:00",
             "note": "cleanup.json complete=true、plans_remaining=0"
+          },
+          {
+            "kind": "local",
+            "label": "11/12 Stage06 10 workers 單輪結果及HOGTC-104分析",
+            "ref": "qa_optimization/reports/research/2026-11-12_test-progress_PRJ-STARCHARGE-STAGE-REGRESSION-IMPROVEMENT-202610_152600_STAGE06-151007-HOGTC104.md",
+            "checked_at": "2026-11-12T16:41:35+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "11/12 使用者確認信用卡、TestFlight 與執行時間",
+            "ref": "qa_optimization/reports/research/2026-11-12_test-progress_PRJ-STARCHARGE-STAGE-REGRESSION-IMPROVEMENT-202610_164135_USER-STATUS.md",
+            "checked_at": "2026-11-12T16:41:35+08:00"
           }
         ]
       },
@@ -3319,14 +3331,14 @@
       {
         "id": "PRJ-STARCHARGE-AUTOCHARGE-SCAN-RACE-20261104",
         "title": "隨插即充與掃碼充電延遲衝突排列組合",
-        "summary": "設計鄰槍誤綁、延遲與掃碼衝突案例，並以 Stage 測試帳號和隔離測資實作驗證。",
+        "summary": "11/12 Stage 複測12／20個排列：ACS-002未重現錯綁；ACS-007 Finishing觀察符合，ACS-009邊界仍有排程漂移；部分測資清理及8個排列待續測。",
         "product": "星舟快充",
         "owner": "待確認",
         "environment": "Stage；build 待確認",
         "stage": "retest",
         "activity": "blocked",
-        "activity_confirmed_at": "2026-11-10T18:44:17+08:00",
-        "observed_at": "2026-11-10T18:44:17+08:00",
+        "activity_confirmed_at": "2026-11-12T17:44:46+08:00",
+        "observed_at": "2026-11-12T17:42:07+08:00",
         "total": 12,
         "counts": {
           "passed": 1,
@@ -3336,15 +3348,17 @@
           "not_run": 0
         },
         "counts_as_of": "2026-11-04T15:45:42+08:00",
-        "scope_note": "全量counts維持11/04 15:45快照（P1/F2/B9）；11/10新回合尚無project範圍互斥統計，全量尚未同步。11/10 Stage複驗：10:30、11:36兩輪ACS-002重現鄰槍錯綁（已開Bug 1220375748309643）；下午起綁定約60秒才終態，ACS-002連續未重現。17:33–18:44使用者全套run（統計範圍run）：12 Case ID／20排列全數執行，摘要判讀未見確定產品Failed；ACS-007 Finishing、ACS-009 after-in／after-out受模擬器時序或排程漂移影響標INCONCLUSIVE／待確認；6組測資待清理。run結果不覆蓋或加總全量；工作簿未回填。（2026-11-11 重新核對manifest：after-in鄰槍實際T+59.42、終態59.75秒；Finishing排列模擬器於Finishing後0.3ms又送Charging，與摘要判讀一致；同日13:38 Stage單次綁定約62秒成功，佐證60秒窗口；早上503經使用者確認為測試端切換VPN造成，Bug 1220420254571777已關閉。）",
+        "scope_note": "全量counts維持11/04 15:45快照（P1/F2/B9）；11/10新回合尚無project範圍互斥統計，全量尚未同步。11/10 Stage複驗：10:30、11:36兩輪ACS-002重現鄰槍錯綁（已開Bug 1220375748309643）；下午起綁定約60秒才終態，ACS-002連續未重現。17:33–18:44使用者全套run（統計範圍run）：12 Case ID／20排列全數執行，摘要判讀未見確定產品Failed；ACS-007 Finishing、ACS-009 after-in／after-out受模擬器時序或排程漂移影響標INCONCLUSIVE／待確認；6組測資待清理。run結果不覆蓋或加總全量；工作簿未回填。（2026-11-11 重新核對manifest：after-in鄰槍實際T+59.42、終態59.75秒；Finishing排列模擬器於Finishing後0.3ms又送Charging，與摘要判讀一致；同日13:38 Stage單次綁定約62秒成功，佐證60秒窗口；早上503經使用者確認為測試端切換VPN造成，Bug 1220420254571777已關閉。） 2026-11-12使用者確認排列組合均已跑過；本次未取得比11/10 17:33 run更新的逐案證據，執行完成不等於所有結果Pass、已交付報告或問題已關閉。 11/12 16:55–17:42 新回合：9個Case ID／12排列實測，未涵蓋其餘8排列；ACS-002未重現錯綁，ACS-007 Finishing拒絕且未綁定，本輪未見Finishing之後Charging；ACS-009 T+58實際T+59.388送出、終態T+59.674，仍需改善時序及伺服器收件證據。ACS-012未見重複起充症狀，因二次請求未回busId保守保留測資。修補版本與開關仍未確認，屬觀察而非完整驗收。全案counts仍為11/04歷史快照。",
         "blockers": [
+          "11/12 ACS-007 Finishing隔離測資一組因相關發票終態未全部確認而保留；其餘ACS-007狀態需先滿足前一輪清理前置。",
+          "11/12 ACS-012隔離測資保留：第二次掃碼未回busId；事後前後台各一筆已知訂單且兩槍活動單為0，發票條件已通過，後續清理需安全核對及授權。",
+          "ACS-009 after-in排程漂移仍存在，after-out事件晚於終態；缺平台收件時間，四個邊界不可作精確驗收。",
+          "同樁啟動ACS-001遭自動審核拒絕，理由為ACS-012收尾與清理未完成，存在交易互相干擾風險。",
           "11/10 17:33 run 的 pending-cleanup 6組測資（ACS-001/004/011/012、ACS-007 SuspendedEVSE/Finishing）待清理及讀回；SuspendedEVSE需先查有無非預期佔槍單。",
-          "ACS-007 Finishing、ACS-009 after-in 需修正共享OCPP模擬器狀態計時器競爭與排程漂移後重測。",
-          "Stage／Prod build、neighbor-guard開關及60秒窗口伺服器起算點待RD確認；ACS-002 Bug待RD確認後更新或關單。",
-          "ACS-007 SuspendedEV 佔槍多算10元Bug Draft暫緩，待模擬器修正後重測判定；佔槍發票billId為空之清理oracle待確認。",
-          "新回合project範圍全量counts未重算，Dashboard counts仍為11/04快照。"
+          "歷史ACS-002 Bug、Stage／Prod build及neighbor-guard開關與窗口伺服器起算點待RD確認；歷史佔槍多算10元Bug Draft及發票清理oracle待追蹤。",
+          "本輪全專案互斥counts未重算，Dashboard counts仍為11/04歷史快照。"
         ],
-        "next_action": "QA完成6組測資清理與讀回；Automation修正模擬器時序後重測ACS-007 Finishing與ACS-009 after-in；RD確認build／開關／窗口基準後彙整全量結果並更新ACS-002 Bug。",
+        "next_action": "完成兩組本輪隔離測資的安全核對與清理；釐清排程漂移及伺服器收件時間，再補測ACS-001／004／011及ACS-007其餘五種狀態；請RD確認部署、開關與歷史Bug。",
         "sources": [
           {
             "kind": "local",
@@ -3507,6 +3521,18 @@
             "label": "11/11 13:38 REG-015 延長輪詢重跑 JUnit",
             "ref": "Automation_HDRE/Automation_API_UI-main/result/sc_reg015_20261111-133839.junit.xml",
             "checked_at": "2026-11-11"
+          },
+          {
+            "kind": "local",
+            "label": "11/12 使用者確認全排列已執行及結果缺口",
+            "ref": "qa_optimization/reports/research/2026-11-12_test-progress_PRJ-STARCHARGE-AUTOCHARGE-SCAN-RACE-20261104_164135_USER-EXECUTION-CONFIRMATION.md",
+            "checked_at": "2026-11-12T16:41:35+08:00"
+          },
+          {
+            "kind": "local",
+            "label": "11/12 Stage部分複測與清理交接",
+            "ref": "qa_optimization/reports/research/2026-11-12_test-progress_PRJ-STARCHARGE-AUTOCHARGE-SCAN-RACE-20261104_174422_STAGE-PARTIAL-RETEST.md",
+            "checked_at": "2026-11-12T17:44:46+08:00"
           }
         ],
         "planned_start_at": "2026-11-05"
@@ -3696,6 +3722,110 @@
             "ref": "Automation_HDRE/Automation_API_UI-main/reports/prod-smoke/20261106_002851_100452/evidence.json",
             "checked_at": "2026-11-06T10:20:00+08:00",
             "note": "僅 updateVehicle 讀回，不計案例"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-QA-OCPP-SIM-MODULAR-202611",
+        "title": "OCPP 模擬器模組化",
+        "product": "星舟快充",
+        "owner": "待確認",
+        "environment": "待規劃",
+        "summary": "強化現有 OCPP 模擬器：先支援固定行為排列組合與介面調參，再規劃串接 Codex／Claude 以自然語言設定情境。",
+        "stage": "planning",
+        "activity": "planned",
+        "activity_confirmed_at": "2026-11-12T16:41:35+08:00",
+        "observed_at": "2026-11-12T16:41:35+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "第一階段：盤點既有模擬器、設計固定行為與可調參數／引導式 UI，含異常 Value；第二階段：評估使用者自己的 Codex 或 Claude 轉換自然語言為設定。模擬器確切版本待確認。 尚未開始實作或測試。",
+        "blockers": [],
+        "next_action": "盤點既有 OCPP 模擬器、確認第一階段情境及參數，規劃分階段設計與驗收。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "11/12 使用者新增 QA 優化任務",
+            "ref": "qa_optimization/reports/research/2026-11-12_dashboard-task-registration-164135.md",
+            "checked_at": "2026-11-12T16:41:35+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-QA-OCPI-SIM-MODULAR-202611",
+        "title": "OCPI 模擬器模組化",
+        "product": "星舟快充",
+        "owner": "待確認",
+        "environment": "待規劃",
+        "summary": "強化現有 OCPI 模擬器，規劃 CDR 延遲回傳、排程等可控制的測試情境。",
+        "stage": "planning",
+        "activity": "planned",
+        "activity_confirmed_at": "2026-11-12T16:41:35+08:00",
+        "observed_at": "2026-11-12T16:41:35+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "以既有 OCPI 模擬器為基礎；CDR 回傳慢、排程與其他組合情境的控制方式、現有版本及驗收待盤點。 尚未開始實作或測試。",
+        "blockers": [],
+        "next_action": "盤點既有 OCPI 模擬器，整理 CDR 延遲及排程情境與優先順序。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "11/12 使用者新增 QA 優化任務",
+            "ref": "qa_optimization/reports/research/2026-11-12_dashboard-task-registration-164135.md",
+            "checked_at": "2026-11-12T16:41:35+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-QA-FAULT-INJECTION-202611",
+        "title": "系統故障注入與 LIFF 提示驗證",
+        "product": "星舟快充",
+        "owner": "待確認",
+        "environment": "待規劃",
+        "summary": "規劃模擬資料庫等系統故障，確認平台及 LIFF 的提示與恢復行為。",
+        "stage": "planning",
+        "activity": "planned",
+        "activity_confirmed_at": "2026-11-12T16:41:35+08:00",
+        "observed_at": "2026-11-12T16:41:35+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "以 SQL／資料庫不可用為初始情境，確認使用者看到的 LIFF 提示、系統行為與恢復；測試環境、隔離與復原方式待規劃。 尚未開始實作或測試。",
+        "blockers": [],
+        "next_action": "盤點故障情境與測試環境，確認注入、觀察、復原方式及預期提示。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "11/12 使用者新增 QA 優化任務",
+            "ref": "qa_optimization/reports/research/2026-11-12_dashboard-task-registration-164135.md",
+            "checked_at": "2026-11-12T16:41:35+08:00"
+          }
+        ]
+      },
+      {
+        "id": "PRJ-QA-SECURITY-PERFORMANCE-202611",
+        "title": "安全測試與 API／SQL 壓力峰值測試",
+        "product": "星舟快充",
+        "owner": "待確認",
+        "environment": "待規劃",
+        "summary": "規劃權限、跨用戶與 API 竄改測試，以及 API／SQL 負載與峰值測試。",
+        "stage": "planning",
+        "activity": "planned",
+        "activity_confirmed_at": "2026-11-12T16:41:35+08:00",
+        "observed_at": "2026-11-12T16:41:35+08:00",
+        "total": null,
+        "counts": null,
+        "counts_as_of": null,
+        "scope_note": "涵蓋授權與越權、跨用戶資源存取、API 參數竄改，以及 API／SQL 負載和峰值；測試範圍、環境、基準及允許條件待確認。 尚未開始實作或測試。",
+        "blockers": [],
+        "next_action": "盤點系統及測試範圍，規劃安全測試情境和 API／SQL 壓力、峰值基準。",
+        "sources": [
+          {
+            "kind": "local",
+            "label": "11/12 使用者新增 QA 優化任務",
+            "ref": "qa_optimization/reports/research/2026-11-12_dashboard-task-registration-164135.md",
+            "checked_at": "2026-11-12T16:41:35+08:00"
           }
         ]
       }
@@ -5027,7 +5157,7 @@
     ]
   },
   "revisions": {
-    "projects": "66d24562669210a036b0561fb488a3e6cb5f7526820b1116635776ff194bae2b",
+    "projects": "fa356c352880dc6e8a4b20846d8ea1b590252907b326c488372c79d8865b3ffd",
     "optimizations": "66cb789d157e278d81bdccfff3d45656e319a91d1421f9d28446106e3dcbdacb",
     "decisions": "3d8f305a4826360c0e271cfc3807c7a86d30a3c2479ae4c02044600f8bb03b7c"
   },
@@ -5059,5 +5189,5 @@
     "progress": "# Claude Code 任務：同步 HDRE 測試專案進度\n\n請在 HDRE workspace 更新本機 QA Dashboard 第一頁，讓使用者看到實際測試階段、可追溯進度、阻礙與下一步。\n\n先讀根目錄 AGENTS.md、qa_optimization/AGENTS.md、qa_optimization/data/README.md 與 qa_optimization/data/projects.json。此任務是整理既有紀錄，不執行 QA 測試、不產生正式 Test Report、不修改來源測試文件或 Asana。Claude不需也不假設能讀Codex對話；跨模型來源依 `tasks/record-test-progress.md` 的落盤摘要及其evidence。\n\n## 資料盤點\n\n1. 先依project ID找 `qa_optimization/reports/research/*_test-progress_*.md` 的新增摘要及更正鏈，再核對projects.json來源、qa_ai_workflow/outputs/的Test Case／execution／Report／RUN_BRIEF與已授權OneDrive來源。按專案與日期縮小範圍，不每次全量重讀歷史對話、帳密、個資或完整payload。僅存在對話而未落盤的結果無法取得時列缺口，不猜測。\n   摘要是現況與來源索引，不能壓過較新有效evidence。核對observed_at／counts_as_of、環境／版本與scope；recorded_at、檔名日期是記錄時間。引用來源不可讀或有衝突時，保留受影響欄位的前次有效快照並列缺口，不改成產品Failed。無摘要仍可用可追溯既有檔案；沒有新證據就不刷新測試日期。\n2. 以「專案＋版本＋測試輪次＋scope」識別專案。同輪用同一 ID；新版本／新輪次另建 ID，保留舊輪次。別把不同環境、QA owner 或範圍的結果加總。功能名稱與原 Test Case／頁面文字一致。\n3. 若有可用且已授權的 Asana 唯讀來源，可補核最新狀態；無連線就記錄限制，不聲稱已同步外部系統。\n4. stage 依實際紀錄選 planning、cases、execution、retest、report。stage 是最近紀錄階段，不保證前面全部通過。\n5. activity=active／blocked／awaiting_report／completed 必須有可追溯、明確的現況確認日期 activity_confirmed_at；重新讀取舊文件、檔案 mtime 或今日研究日期都不算新確認。沒有現況證據用 needs_confirmation，日期填 null。Dashboard 超過 7 天的確認會再次標示待確認；不可用今天日期讓舊測試看起來正在進行。人員確認測試完成、尚待報告交付時用 awaiting_report；不要退回舊報告的未結案狀態，也不要推定所有歷史未執行案例都已 Passed。\n\n   LCMS V1.5 來源規則（2026-09-24 使用者改指定）：公司 OneDrive 的「研發處 - 地端充電 - 功能測試（QA）/回歸測試/LCMS_V1.5_完整回歸測試_Test_Case_V2.xlsx」中，**Readable View 的 State 是唯一進度結果來源**，按 Test Case ID 彙整全部步驟。舊版未帶 V2 的工作簿只保留歷史快照，不再作為當前進度來源。Case Index 的 State 未更新，不得用於通過、失敗、未執行或進度百分比統計；Case Index 僅供 ID／範圍交叉核對。Readable View 無法讀取時，不得退回使用 Case Index State。參考 scripts/workbook_progress.py，檔案儲存日期與測試日期分開記錄；來源無法讀取時保留既有快照並說明。中賓壓測讀 Automation_HDRE/SC_QA_Charge_Stress_Test/Reports/zhongbin/ 最新同場景報告，OCPP 交易數、HTTP 請求數不得充當 Test Case 數。\n\n若歷史來源路徑因檔案整理失效，先比對 `reports/research/*output-folder-migration.json` 的精確舊→新對照，再讀新位置。搬移不代表測試有新進度；未找到對照或新檔不可讀時保留缺口，不以同名其他版本猜測。\n\n## 摘要與全量進度合併\n\n- 摘要「統計範圍」為project時，核對total、去重及引用證據後採用；run只代表本回合，不得將其counts覆蓋或加到全量。\n- 局部補測／複驗只更新具有完整ID mapping及有效新證據的案例，再彙總同輪全量。無法取得全量時保留原counts及counts_as_of，另更新本輪observed_at／blockers並註明全量尚未同步；同案前後結果不能累加成兩案。\n- 測試完成、報告產出與已交付分開核對。明確完成待報告用awaiting_report，有實際結案／交付確認才用completed；completed卡片維持100%且保留歷史分類，不因讀舊文件倒退。\n- 新舊摘要／Excel State衝突時列ID、來源日期及差異，保留待確認；不以mtime或固定優先順序掩蓋衝突，不把部分步驟Passed當全案Passed。\n\n## 統計規則\n\n- 以 scope 中唯一 Test Case ID 為單位，同一案例同輪採最新有效結果。去重後 total 必須等於 passed + failed + blocked + skipped + not_run。不能把步驟數當案例數。\n- blocked 是受阻；skipped 是明確跳過；not_run 是尚未執行（包括原報告 NotImplemented，須在 scope_note 說明映射）。不要把所有非 pass 都算 failed。\n- 已執行率固定為（passed + failed）÷ total。通過率、Bug 關閉率、文件完成率不得混用；局部 Bug 複驗不能直接與全量案例相加。\n- 本次可採用的全量結果本身不完整或矛盾時：counts=null；若僅缺新回合全量、前次快照仍有效，依上節保留舊counts與原日期。counts為null時，可確認的total仍保留，否則null；在 scope_note／blockers 說明缺哪份資料，不猜測百分比。有效 counts 必須提供其結果日期 counts_as_of，與較新的 observed_at（例如複驗紀錄日期）分開。\n- 每筆提供產品、owner、環境／build、簡述、下一步與 sources。沒有值時用「待確認」並具體說明待確認事項。sources.checked_at 是本次讀取日期；observed_at 是真實紀錄日期。\n\n## 寫入\n\n先執行 status 保存 projects revision，再建立本次完整 items 的候選 JSON（格式參照 data/README.md），透過工具驗證與合併：\n\n```sh\npython3 qa_optimization/scripts/data_cli.py status\npython3 qa_optimization/scripts/data_cli.py validate --kind projects --file qa_optimization/data/incoming/progress.json\npython3 qa_optimization/scripts/data_cli.py merge --kind projects --file qa_optimization/data/incoming/progress.json --revision <先前取得的-projects-revision>\n```\n\nmerge 保留未更新的專案。發生 revision 衝突時，重讀並比較本次與他人的差異，重做候選資料；不要直接覆寫正式檔。不要修改 optimizations.json、decisions.json 或 handoffs/。\n\n寫一份 qa_optimization/reports/research/YYYY-MM-DD_progress-sync.md（同日重跑加流水號），列出採用的摘要／更正鏈、讀過的來源、統計口徑、更新／未更新原因、來源衝突及缺口。同步任務本身不冒充新的測試回合，不另造test-progress摘要或新實測日期。回覆資料與報告路徑，並明說哪些專案可確認正在測試、哪些只是歷史快照。沒有最新資料也要如實保留待確認。\n\n有實質進度更新時，使用者已授權依 qa_optimization/tasks/publish-dashboard-updates.md 自動提交本輪projects.json、同步報告及實際採用且未上版的去敏感test-progress摘要、push main並確認公司CI；每日 Pages 發布另行執行。不提交 optimizations.json、decisions 或其他人的工作；無變更不建立空 commit。\n"
   },
   "read_only": true,
-  "exported_at": "2026-11-12T02:13:17+00:00"
+  "exported_at": "2026-11-13T02:13:35+00:00"
 }
