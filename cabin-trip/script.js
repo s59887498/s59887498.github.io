@@ -127,11 +127,11 @@ const tripData = {
           icon: "cabin",
           title: "抵達黃家小木屋",
           category: "住宿",
-          status: "晚到入住待確認",
+          status: "自家小木屋",
           address: CABIN.address,
           mapUrl: CABIN.mapUrl,
           navTo: CABIN.coords,
-          note: "放行李、食材先冰。抵達時間偏晚，出發前先和屋主確認晚到入住與停車位置。",
+          note: "到家了。放行李、食材先冰，早點休息。",
           tags: ["入住"],
         },
       ],
@@ -203,11 +203,11 @@ const tripData = {
           icon: "bowl",
           title: "小木屋晚餐：火鍋或韓式鐵板烤肉",
           category: "晚餐",
-          status: "器材待確認",
+          status: "烤盤從家裡帶",
           address: CABIN.address,
           mapUrl: CABIN.mapUrl,
           navTo: CABIN.coords,
-          note: "先休息一下再開伙，大約 17:30 開吃。吃完補眠半小時、換上最厚的衣服，熱水裝滿保溫瓶。",
+          note: "先休息一下再開伙，大約 17:30 開吃。鍋具小木屋有，韓式烤盤記得從台北家裡帶上山。吃完補眠半小時、換上最厚的衣服，熱水裝滿保溫瓶。",
           tags: ["休息", "換裝保暖"],
         },
         {
@@ -257,14 +257,14 @@ const tripData = {
           time: "09:30-11:00",
           mins: 90,
           icon: "moon",
-          title: "小木屋休息、整理退房",
-          category: "退房",
-          status: "退房時間待確認",
+          title: "小木屋休息、收拾出發",
+          category: "收拾",
+          status: "自家，不趕時間",
           address: CABIN.address,
           mapUrl: CABIN.mapUrl,
           navTo: CABIN.coords,
-          note: "吃完剩下的早餐、整理垃圾，確認沒有東西遺漏。",
-          tags: ["退房"],
+          note: "自己家沒有退房時間，睡飽再慢慢收。吃完剩下的早餐、整理垃圾，烤盤和睡袋寢具記得帶走。",
+          tags: ["睡到自然醒"],
         },
         {
           type: "drive",
@@ -282,11 +282,11 @@ const tripData = {
           icon: "bowl",
           title: "梨山市區午餐",
           category: "午餐",
-          status: "餐廳待選",
+          status: "合菜餐廳待問爸爸",
           address: "臺中市和平區梨山里（中正路一帶）",
           mapUrl: "https://www.google.com/maps/search/?api=1&query=%E6%A2%A8%E5%B1%B1+%E9%A4%90%E5%BB%B3",
           navTo: "梨山 臺中市和平區",
-          note: "梨山街上有幾間小吃與熱炒，吃完可以順手帶點高山蔬果或水果回家。",
+          note: "爸爸知道一家合菜，店名確認後再補上。吃完可以順手帶點高山蔬果或水果回家。",
           tags: ["順買高山蔬果"],
         },
         {
@@ -347,11 +347,12 @@ const tripData = {
       id: "gear",
       title: "隨身裝備",
       items: [
+        "睡袋，或枕頭＋棉被（至少一組，必帶）",
+        "韓式烤盤（從家裡帶）",
         "羽絨外套、毛帽、手套",
         "暖暖包、厚襪",
         "保溫瓶",
         "頭燈或紅光手電筒",
-        "野餐墊、毯子或折疊椅",
         "行動電源、手機腳架",
         "暈車藥、個人藥品",
         "現金（夜市、停車場）",
@@ -361,11 +362,9 @@ const tripData = {
       id: "confirm",
       title: "出發前確認",
       items: [
-        "跟屋主確認 23:30 晚到入住",
-        "小木屋有沒有卡式爐／鐵板／鍋具",
-        "小木屋冰箱大小、停車位置",
-        "退房時間",
+        "問爸爸梨山合菜餐廳",
         "宜蘭市區加滿油",
+        "充滿電",
         "查 12/12 晚上天氣與雲量",
         "查台 8、台 14 甲路況與管制",
       ],
@@ -391,7 +390,7 @@ const ICONS = {
   moon: '<path d="M19.5 14.5A8 8 0 1 1 9.5 4.5a6.3 6.3 0 0 0 10 10z"/>',
 };
 
-const STORAGE_KEY = "cabin-trip-checklist-v1";
+const STORAGE_KEY = "cabin-trip-checklist-v2";
 
 const formatMins = (mins) => {
   if (!mins) return "0 分";
