@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>黃家小木屋｜流星雨農場 12/11 - 12/13</title>
+    <meta
+      name="description"
+      content="12/11 - 12/13 黃家小木屋兩天兩夜：宜蘭東門夜市、喜互惠採買、台七甲 67K 小木屋、武陵農場、武嶺看雙子座流星雨、梨山午餐回台北。"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="globalnav">
+      <div class="globalnav-inner">
+        <a class="brand" href="#top" aria-label="回到頁首">黃家小木屋</a>
+        <nav class="nav-links" aria-label="行程導覽">
+          <a href="#day-1">12/11</a>
+          <a href="#day-2">12/12</a>
+          <a href="#day-3">12/13</a>
+          <a href="#stargazing">觀星</a>
+          <a href="#checklist">清單</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="trip-title">
+        <canvas class="sky" aria-hidden="true"></canvas>
+        <div class="hero-inner">
+          <p class="hero-eyebrow">12.11 五 — 12.13 日 · 兩天兩夜</p>
+          <h1 id="trip-title">流星雨農場。</h1>
+          <p class="hero-lede">
+            宜蘭夜市吃飽、採買，一路開上台七甲。<br />
+            白天逛武陵，夜裡到武嶺等雙子座流星雨。
+          </p>
+          <p class="countdown" id="countdown"></p>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="行程統計">
+        <div class="stats-inner">
+          <div class="stat">
+            <strong id="stat-stops">0</strong>
+            <span>停靠點</span>
+          </div>
+          <div class="stat">
+            <strong id="stat-drive">0</strong>
+            <span>開車時間（估）</span>
+          </div>
+          <div class="stat">
+            <strong id="stat-distance">0</strong>
+            <span>總里程（估）</span>
+          </div>
+          <div class="stat">
+            <strong id="stat-pending">0</strong>
+            <span>待確認</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-route" aria-labelledby="route-title">
+        <div class="section-inner">
+          <p class="section-eyebrow">路線總覽</p>
+          <h2 id="route-title" class="section-title">台北 → 宜蘭 → 台七甲 67K → 武嶺。</h2>
+          <div id="route-overview" class="route-overview"></div>
+          <p class="fine-print">
+            車程以路網資料粗估，再加上山路、夜間與假日車潮的緩衝；出發前請以 Google 地圖即時路況為準。
+          </p>
+        </div>
+      </section>
+
+      <div id="days"></div>
+
+      <section id="stargazing" class="section section-night" aria-labelledby="night-title">
+        <div class="section-inner">
+          <p class="section-eyebrow">觀星筆記</p>
+          <h2 id="night-title" class="section-title">12/12 晚上，武嶺。</h2>
+          <div class="night-grid" id="night-notes"></div>
+        </div>
+      </section>
+
+      <section id="checklist" class="section section-checklist" aria-labelledby="checklist-title">
+        <div class="section-inner">
+          <p class="section-eyebrow">出發前</p>
+          <h2 id="checklist-title" class="section-title">清單，一項一項勾。</h2>
+          <p class="section-lede">勾選狀態只存在這台裝置的瀏覽器裡。</p>
+          <div class="checklist-grid" id="checklists"></div>
+          <button type="button" class="text-button" id="reset-checklist">清除全部勾選</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>黃家小木屋流星雨農場 · 2026.12.11 - 12.13</p>
+        <p>營業時間、門票與道路管制請以現場與官方公告為準。</p>
+      </div>
+    </footer>
+
+    <template id="stop-template">
+      <article class="tl-item tl-stop">
+        <div class="tl-time"><time></time></div>
+        <div class="tl-marker" aria-hidden="true"><span class="icon"></span></div>
+        <div class="stop-card">
+          <div class="stop-head">
+            <span class="tag tag-category"></span>
+            <span class="tag tag-status"></span>
+          </div>
+          <h3></h3>
+          <p class="stop-address"></p>
+          <p class="stop-note"></p>
+          <ul class="stop-points"></ul>
+          <div class="parking" hidden>
+            <p class="parking-title">停車建議</p>
+            <ol class="parking-list"></ol>
+          </div>
+          <div class="stop-meta"></div>
+          <div class="stop-actions">
+            <a class="button button-primary nav-link" target="_blank" rel="noopener noreferrer">導航</a>
+            <a class="button button-secondary map-link" target="_blank" rel="noopener noreferrer">Google 地圖</a>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <template id="drive-template">
+      <article class="tl-item tl-drive">
+        <div class="tl-time"><time></time></div>
+        <div class="tl-marker" aria-hidden="true"><span class="drive-dot"></span></div>
+        <div class="drive-card">
+          <p class="drive-summary"></p>
+          <p class="drive-note"></p>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
