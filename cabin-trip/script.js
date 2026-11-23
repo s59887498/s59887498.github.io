@@ -203,7 +203,7 @@ const tripData = {
           icon: "bowl",
           title: "小木屋晚餐：火鍋或韓式鐵板烤肉",
           category: "晚餐",
-          status: "烤盤從家裡帶",
+          status: "烤肉才帶烤盤",
           address: CABIN.address,
           mapUrl: CABIN.mapUrl,
           navTo: CABIN.coords,
@@ -286,8 +286,7 @@ const tripData = {
           address: "臺中市和平區梨山里（中正路一帶）",
           mapUrl: "https://www.google.com/maps/search/?api=1&query=%E6%A2%A8%E5%B1%B1+%E9%A4%90%E5%BB%B3",
           navTo: "梨山 臺中市和平區",
-          note: "爸爸知道一家合菜，店名確認後再補上。吃完可以順手帶點高山蔬果或水果回家。",
-          tags: ["順買高山蔬果"],
+          note: "爸爸知道一家合菜，店名確認後再補上。",
         },
         {
           type: "drive",
