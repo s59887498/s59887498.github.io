@@ -108,7 +108,7 @@ const tripData = {
           address: "宜蘭縣大同鄉南山村（台 7 甲線上）",
           mapUrl: "https://maps.app.goo.gl/o68QeiA58AeeJkho8",
           navTo: "24.4392173,121.3791021",
-          note: "上廁所、買熱飲、補冰塊。接下來的山路沿途店家很少。",
+          note: "上廁所、買熱飲。接下來的山路沿途店家很少。",
           tags: ["最後補給"],
         },
         {
@@ -207,7 +207,7 @@ const tripData = {
           address: CABIN.address,
           mapUrl: CABIN.mapUrl,
           navTo: CABIN.coords,
-          note: "先休息一下再開伙，大約 17:30 開吃。鍋具小木屋有，韓式烤盤記得從台北家裡帶上山。吃完補眠半小時、換上最厚的衣服，熱水裝滿保溫瓶。",
+          note: "先休息一下再開伙，大約 18:00 開吃。鍋具小木屋有，如果要烤肉，韓式烤盤記得從台北家裡帶上山。",
           tags: ["休息", "換裝保暖"],
         },
         {
